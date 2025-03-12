@@ -1,0 +1,8 @@
+user-agent: *
+
+disallow: /terms-popup
+disallow: /krystal-placeholder
+disallow: /terms-cannot-use-website
+disallow: /working-on-website-cmi
+
+Sitemap: https://cminteractive.uk/sitemap.xml
