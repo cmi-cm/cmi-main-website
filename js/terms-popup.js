@@ -1,5 +1,5 @@
 window.onload = function() {
-    if (window.location.pathname === "/home.html" || window.location.pathname === "/") {
+    if (window.location.pathname === "/home" || window.location.pathname === "/") {
         console.log("Getting terms cookie");
         getTermsCookie("terms");
     }
