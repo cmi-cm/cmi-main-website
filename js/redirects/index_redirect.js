@@ -1,3 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    window.location.replace("/home");
+    setTimeout(() => {
+        window.location.replace("/home");
+    }, 5000); // Wait for 5000 milliseconds (5 seconds)
 });
