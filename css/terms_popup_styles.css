@@ -1,0 +1,47 @@
+h1{
+    font-weight: bold;
+}
+
+#terms-popup-content{
+    background-color: white;
+    padding: 10px;
+    width: 90%;
+    border-radius: 10px;
+    margin-top: 5%;
+    
+}
+
+.terms-scroll-paragraph{
+
+    overflow-y: auto;  
+}
+
+.terms-button{
+    border-color: black;
+    border: white, 2px;
+    color: black;
+    font-weight: 650;
+    display: flex;
+    margin-right: 20px;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 110%;
+}
+
+.terms-row{
+    display: flex;
+}
+
+#terms-pdf-download-btn{
+    font-size: 120%;
+    font-weight: bold;
+}
+
+#button-column{
+    display: flex;
+    margin-top: 30px;
+}
+
+p{
+    font-size: 120%;
+}
