@@ -8,9 +8,8 @@ document.addEventListener("DOMContentLoaded", function() {
         window.location.replace(newPath);
     }
 
-    // Check if the current path ends with .html
-    if (currentPath.endsWith('index')) {
-        // Remove the .html extension
+    // redirect index to /
+    if (currentPath.endsWith('index') || currentPath.endsWith('home')) {
         window.location.replace('/');
     }
 });
