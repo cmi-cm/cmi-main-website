@@ -212,13 +212,13 @@ a {
     border: none;
 }
 
-#column-1a, #column-1b, #column-1c, #column-1d, #column-1e, #column-1f, #column-1g, #column-1h{
+#column-1a, #column-1b, #column-1c, #column-1d, #column-1e, #column-1f, #column-1g, #column-1h, #column-1i{
     background-color: #88A5AF;
     border: none;
     color: white;
 }
 
-#column-2a, #column-2b, #column-2c, #column-2d, #column-2e, #column-2f, #column-2g, #column-2h{
+#column-2a, #column-2b, #column-2c, #column-2d, #column-2e, #column-2f, #column-2g, #column-2h, #column-2i{
     background-color: #7D6167;
     border: none;
     color: white;
@@ -247,8 +247,7 @@ table{
     color: white;
 }
 
-/* Class name kept as is, but text in HTML indicates "smaller screen" instead of "mobile" */
-.mobile-pricing-table-paragraph{
+.website-pricing-table-paragraph{
     color: white;
     text-align: center;
     margin: 0;
