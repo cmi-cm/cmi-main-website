@@ -1,79 +1,129 @@
-window.onload = function() {
-    if (window.location.pathname === "/" || window.location.pathname === "/local-website-development") {
-        console.log("Getting terms cookie");
-        getTermsCookie("terms");
+// Declare these variables in a scope accessible by all functions that need them.
+// They will be assigned once the DOM elements are available.
+let termsPopup;
+let navBar;
+let localStorageFunctionalityCheckbox;
+let websiteTermsCheckbox;
+let agreeBtn; // Add reference for agree button
+let declineBtn; // Add reference for decline button
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Get initial references to elements that are always in the main HTML
+    termsPopup = document.getElementById('termsPopup');
+    navBar = document.getElementById('nav');
+
+    // Function to load content and then initialize dynamic elements
+    function loadAndInitPopup() {
+        return fetch('terms-popup.html')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(html => {
+                // Inject the HTML into the termsPopup div
+                termsPopup.innerHTML = html;
+
+                // IMPORTANT: Get references to the checkboxes and buttons *after* they have been injected
+                localStorageFunctionalityCheckbox = document.getElementById('localStorageFunctionalityCheckbox');
+                websiteTermsCheckbox = document.getElementById('websiteTermsCheckbox');
+                agreeBtn = document.getElementById('agreeBtn');
+                declineBtn = document.getElementById('declineBtn');
+
+                // Attach event listeners *after* buttons are in the DOM
+                if (agreeBtn) {
+                    agreeBtn.addEventListener('click', saveSelectedPreferences);
+                }
+                if (declineBtn) {
+                    declineBtn.addEventListener('click', hidePopup); 
+                }
+
+                console.log("Terms popup HTML loaded and elements initialized.");
+            })
+            .catch(error => {
+                console.error('Error loading the HTML file:', error);
+            });
     }
-};
 
-function createTermsCookie() {
-    // Create a new terms cookie
-    const date = new Date();
-    date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000)); // Expires in 1 year
-    const expires = "expires=" + date.toUTCString();
-    document.cookie = "terms=website-terms-and-conditions-v1; path=/; " + expires;
-    
-    //redirect to home if terms are agreeed from the terms popup html page since no modal
-    if(window.location.pathname.endsWith('terms-popup')){
-        window.location.replace('/');
-    }else{
-        var termsModal = new bootstrap.Modal(document.getElementById('terms-modal'));
+    // Function to show the popup
+    function showPopup() {
+        // Ensure content is loaded and elements are initialized before showing
+        loadAndInitPopup().then(() => {
+            termsPopup.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling of the background content
 
-        termsModal.hide();
-    }
-}
-
-function showTermsModal() {
-    // Fetch the content from terms_popup.html
-    fetch("terms-popup.html")
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
+            if (navBar) { // Ensure navBar exists before trying to hide it
+                navBar.style.display = 'none'; // hide navbar
             }
-            return response.text();
-        })
-        .then((data) => {
-            // Extract the content from the fetched HTML
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(data, "text/html");
-            const content = doc.getElementById("terms-popup-content").innerHTML;
-
-            // Insert the fetched content into the modal body
-            document.getElementById("modal-body").innerHTML = content;
-
-            // Show the modal
-            const modal = new bootstrap.Modal(document.getElementById("terms-modal"));
-            
-            modal.show();
-        })
-        .catch((error) => {
-            console.error("There was a problem with the fetch operation:", error);
         });
-}
+    }
 
-function getTermsCookie(cname) {
-    // Find terms cookie and make sure it's valid
-    const name = cname + "=";
-    const decodedCookie = decodeURIComponent(document.cookie);
-    console.log(decodedCookie);
-    const cookieArray = decodedCookie.split(';');
+    // Function to check if terms have been agreed to
+    function getAgreedToTerms() {
+        const storedValue = localStorage.getItem('termsPreferences');
 
-    for (let i = 0; i < cookieArray.length; i++) {
-        let cookie = cookieArray[i].trim();
-        if (cookie.indexOf(name) === 0) {
-            const cookieValue = cookie.substring(name.length);
-            if (cookieValue === "website-terms-and-conditions-v1") {
-                // Cookie valid, so stay on the same page
-                console.log("Terms Cookie Valid");
-                return; // Exit the function if the cookie is valid
-            } else {
-                // Cookie invalid, so prompt user to agree to the agreement
-                console.log("Terms Cookie Invalid");
-                showTermsModal();
-                return; // Exit the function after showing the modal
+        if (storedValue) {
+            try {
+                // Attempt to parse the stored JSON
+                const preferences = JSON.parse(storedValue);
+                // You might want to add a check here, e.g., preferences['website-terms-version']
+                // to ensure it's a valid, up-to-date agreement.
+                console.log("Found terms value: ", preferences);
+                // If terms are found and valid, hide the popup (if it was somehow visible)
+                // and show the navbar.
+                if (termsPopup) termsPopup.style.display = 'none';
+                if (navBar) navBar.style.display = 'block';
+                document.body.style.overflow = '';
+            } catch (e) {
+                console.error("Error parsing stored terms preferences, showing popup.", e);
+                // If parsing fails, treat it as if no valid terms were found
+                showPopup();
             }
+        } else {
+            console.log("Could not find terms value, showing terms popup.");
+            showPopup();
         }
     }
-    // If we reach here, the cookie was not found
-    console.log("Terms Cookie Not Found, showing popup");
-    showTermsModal();
+
+    // Initial check when the DOM is ready
+    getAgreedToTerms();
+});
+
+// saveSelectedPreferences function (now uses globally scoped variables)
+function saveSelectedPreferences() {
+    // Ensure elements are available before attempting to access them
+    if (!localStorageFunctionalityCheckbox) {
+        console.error("Popup elements not yet initialized. Please wait for the popup to load.");
+        return; // Exit if elements aren't ready
+    }
+
+    const agreedToLocalStorage = localStorageFunctionalityCheckbox.checked;
+
+    const preferences = {
+        "website-terms-version": 1.10, // Assuming this is your current version
+        "agreed-to-local-storage": agreedToLocalStorage
+    };
+    
+    if(agreedToLocalStorage){
+        // Save the preferences object to local storage only if agreed to by the user
+        // localStorage.setItem expects string values, so we use JSON.stringify() to convert the object
+
+        localStorage.setItem('termsPreferences', JSON.stringify(preferences));
+        console.log("Preferences saved to local storage:", preferences);
+    }
+
+    hidePopup(); // Hide the popup after successful agreement
+}
+
+
+// hidePopup function (now uses globally scoped variables)
+function hidePopup() {
+    if (termsPopup) { // Ensure termsPopup is defined
+        termsPopup.style.display = 'none';
+    }
+    if (navBar) { // Ensure navBar is defined
+        navBar.style.display = 'block';
+    }
+    document.body.style.overflow = ''; // Re-enable scrolling
 }

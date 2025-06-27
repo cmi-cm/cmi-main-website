@@ -3,74 +3,77 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex,nofollow" />
-    <title>CM Interactive - Website Terms and Conditions</title>
-    <!--Bootstrap CSS link-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-
-    <!--Custom CSS Link-->
     <link rel="stylesheet" href="css/terms_popup_styles.css" />
-    <link rel="icon" type="image/x-icon" href="images/CMI-Favicon.ico" />
   </head>
   <body>
-    <div class="container" id="terms-popup-content">
-      <div class="row terms-row">
-        <div class="col">
-          <h1>Website Terms and Conditions</h1>
+    <div
+      id="termsPopup"
+      class="popup-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="termsPopupTitle"
+      tabindex="-1"
+    >
+      <div class="popup-content">
+        <h2 id="termsPopupTitle">Website Terms and Conditions</h2>
+        <div class="terms-scrollable-content">
           <p>
             Please read these terms carefully as you are bound to them while
-            using our website. Or from when you select the I agree button.
+            using our website. Your agreement or decline takes effect when you
+            select the 'Agree' or 'Decline' button below.
           </p>
-          <p class="terms-scroll-paragraph"></p>
-        </div>
-      </div>
+          <div class="row terms-row">
+            <div class="col">
+              <a
+                href="terms/Website-Terms-and-Conditions.pdf"
+                download="Website-Terms-and-Conditions.pdf"
+                class="terms-popup-pdf-download-btn"
+                aria-label="Download Website Terms and Conditions as PDF document"
+              >
+                Download Website Terms and Conditions PDF
+              </a>
+            </div>
+          </div>
+          <div class="row terms-row">
+            <div class="col">
+              <a
+                href="terms/Website-Terms-and-Conditions.pdf"
+                download="Website-Terms-and-Conditions.pdf"
+                class="terms-popup-pdf-download-btn"
+                aria-label="Download Privacy Policy as PDF document"
+              >
+                Download Privacy Policy PDF
+              </a>
+            </div>
+          </div>
 
-      <div class="row terms-row">
-        <div class="col">
-          <a
-            href="terms/Website-Terms-and-Conditions.pdf"
-            download="Website-Terms-and-Conditions.pdf"
-            id="terms-pdf-download-btn"
-          >
-            Download Website Terms and Conditions PDF
-          </a>
+          <div class="container checkbox-container">
+            <div class="form-check">
+              <input
+                class="form-check-input terms-popup-checkbox"
+                type="checkbox"
+                value=""
+                id="localStorageFunctionalityCheckbox"
+              />
+              <label
+                class="form-check-label"
+                for="localStorageFunctionalityCheckbox"
+              >
+                Agree to Local Storage for Functionality -
+                <b>
+                  If you do not agree to this, you will be shown this popup each
+                  time you visit our website.
+                </b>
+              </label>
+            </div>
+          </div>
         </div>
-      </div>
-      <div id="row terms-row">
-        <div class="col" id="button-column">
-          <form>
-            <button
-              class="terms-button"
-              id="agree-button"
-              type="button"
-              onclick="createTermsCookie()"
-            >
-              I Agree
-            </button>
-          </form>
 
-          <form action="/terms-cannot-use-website">
-            <button class="terms-button" id="disagree-button">
-              I Disagree
-            </button>
-          </form>
+        <div class="popup-actions">
+          <button id="agreeBtn">Agree to Selected</button>
+          <button id="declineBtn">Decline</button>
         </div>
       </div>
     </div>
-
-    <!--Bootstrap JS link-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
-
-    <!--Custom JS (Create terms cookie and redirect)-->
-    <script src="js/terms-popup.js"></script>
   </body>
 </html>

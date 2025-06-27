@@ -8,15 +8,18 @@ permalink: /
     <link rel="canonical" href="https://cminteractive.uk/" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <meta
       name="keywords"
-      content="cm interactive, company, website, development, software, cm interactive limited, home, cminteractive"
+      content="CM Interactive, website development, custom website design, bespoke websites, software development, UK web development, digital solutions, web design, free website, company website, cminteractive"
     />
     <meta
       name="description"
-      content="Home - Professional website development from CM Interactive Limited."
+      content="Get professional, bespoke website development and design from CM Interactive. We offer high-quality, tailor-made digital solutions, including free website development for your first project. Contact us today!"
     />
-    <!--Bootstrap CSS link-->
+
+    <title>CM Interactive - Custom Website Design & Development - Get Your Free Website</title>
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -25,542 +28,503 @@ permalink: /
     />
     <link rel="icon" type="image/x-icon" href="images/CMI-Favicon.ico" />
 
-    <!--Bootstrap Icons Link-->
-
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
       rel="stylesheet"
     />
 
-    <!--Custom CSS Link from terms-popup.html-->
-    <!-- <link rel="stylesheet" href="css/terms_popup_styles.css" /> -->
+    <link rel="stylesheet" href="css/terms_popup_styles.css" />
 
-    <!--Index CSS link-->
     <link rel="stylesheet" href="css/index_styles.css" />
-
-    <!--Canonical Tag-->
-    <link rel="canonical" href="https://cminteractive.uk/home" />
-
-    <title>CM Interactive - Home - Get Your Website Developed Today!</title>
   </head>
   <body>
-    <!--Terms Modal-->
-    <!-- <div
-      class="modal fade"
-      id="terms-modal"
-      tabindex="-1"
-      aria-labelledby="termsModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-body" id="modal-body"> -->
-            <!-- Content will be loaded here -->
-          <!-- </div>
-        </div>
-      </div>
-    </div> -->
+    <div id="termsPopup" class="popup-overlay" aria-hidden="true"></div>
 
-    <!--Responsive nav bar with menu button-->
-
-    <nav class="navbar fixed-top navbar-expand-lg" id="nav">
-      <div class="container-fluid" id="nav-container">
-        <a href="/">
-          <img
-            src="images/CMI-Logo-3.png"
-            class="navbar-brand"
-            id="navbar-brand"
-            alt="CM Interactive Logo"
-          />
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" id="home-link" aria-current="page" href="/"
-                >Get Your Website Developed</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#development-process-container"
-                >The Development Process</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#pricing-header">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#what-we-will-need-from-you-container"
-                >What We&#39;ll Need From You</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#legal-container">Legal</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#help-container">Help</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <!--Get your app developed container-->
-
-    <div class="container-fluid" id="get-your-app-developed-container">
-      <h1 id="h1-medium">Developing High Quality Websites</h1>
-      <div class="col-12" id="get-your-app-developed-container-inner">
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <h2 class="h2-extra-bold-created-by-experts">
-                Bespoke Functionality and Design
-              </h2>
-              <p class="developing-high-quality-android-apps-paragraph">
-                Websites made to your exact requirements and preferences.
-              </p>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col">
-              <h2 class="h2-extra-bold-created-by-experts">
-                Better Than What You See is What You Get Software
-              </h2>
-              <p class="developing-high-quality-android-apps-paragraph">
-                While WYSIWYG (What You See Is What You Get) software provides a
-                user-friendly interface for website design, they may not always
-                offer access to the underlying HTML, CSS, and JavaScript files.
-                This could limit the ability to modify the website with other
-                software without incurring additional costs.
-              </p>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col" id="get-your-website-developed-column">
-              <h2 id="h2-extra-bold-get-your-first-app-developed">
-                Get Your First Website Developed for Free
-              </h2>
-              <p class="developing-high-quality-android-apps-paragraph">
-                We are looking to develop our expertise, connections and
-                reputation. So we&#39;re offering to develop your first website
-                for free.
-                <a href="#legal-container">Terms and Conditions</a> apply,
-                <b
-                  >this offer may also be removed at any time and is only
-                  available for our standard plan.</b
+    <header>
+      <nav class="navbar fixed-top navbar-expand-lg" id="nav" aria-label="Main navigation">
+        <div class="container-fluid" id="nav-container">
+          <a href="/" class="navbar-brand" aria-label="CM Interactive Home">
+            <img
+              src="images/CMI-Logo-3.png"
+              class="navbar-brand"
+              alt="CM Interactive Logo"
+              loading="lazy"
+            />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/"
+                  >Get Your Website Developed</a
                 >
-              </p>
-              <div id="get-a-free-quote-container">
-                <a
-                  id="get-a-free-quote-link"
-                  href="mailto:help@cminteractive.uk?subject=Website%20Development%20Request&body=Please%20specify%20your%20website%20requirements%20below:%0D%0A%0D%0AThe%20date%20and%20time%20you%20are%20available:"
-                  >Send Us an Email to Get a Free Consultation</a
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/local-website-development"
+                  >Local Website Development</a
                 >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/all-terms">All Terms and Conditions</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/#help-container">Help & Support</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="container-fluid" id="get-your-website-developed-container">
+        <h1 id="h1-medium">Developing High-Quality Websites</h1>
+        <div class="col-12" id="get-your-website-developed-container-inner">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <h2 class="h2-extra-bold-created-by-experts">Bespoke Functionality and Design</h2>
+                <p class="developing-high-quality-websites-paragraph">
+                  Websites made to your exact requirements and preferences.
+                </p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <h2 class="h2-extra-bold-created-by-experts">
+                  Better Than What You See is What You Get Software
+                </h2>
+                <p class="developing-high-quality-websites-paragraph">
+                  While WYSIWYG (What You See Is What You Get) software provides a user-friendly
+                  interface for website design, they may not always offer access to the underlying
+                  HTML, CSS, and JavaScript files. This could limit the ability to modify the
+                  website with other software without incurring additional costs.
+                </p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col" id="get-your-website-developed-column">
+                <h2 class="h2-extra-bold-created-by-experts">
+                  Get Your First Website Developed for Free
+                </h2>
+                <p class="developing-high-quality-websites-paragraph">
+                  We are looking to develop our expertise, connections and reputation. So we're
+                  offering to develop your first website for free.
+                  <a href="/all-terms#legal-container">Terms and Conditions</a> apply,
+                  <b>
+                    this offer may also be removed at any time and is only available for our
+                    standard plan.
+                  </b>
+                </p>
+                <div id="get-a-free-quote-container">
+                  <a id="get-a-free-quote-link" href="/">View Offer Details</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
 
-    <!--The Development Process Container-->
-    <div class="container-fluid" id="development-process-container">
-      <h2 class="h2-large-white">The Development Process</h2>
+      <section class="container-fluid" id="development-process-container">
+        <h2 class="h2-large-white">The Development Process</h2>
 
-      <div class="row" id="development-process-row-1">
-        <div class="col" id="dev-process-column-col-1-row1">
-          <h3 class="h3-large-white">STAGE 1</h3>
-          <h4 class="h4-large-white">Requirements</h4>
-          <p class="dev-process-paragraph">
-            This is the stage where you outline what your website needs. Our
-            team will work with you to make sure these requirements are complete
-            and clear before proceeding to the next step.
-          </p>
-        </div>
-
-        <div class="col" id="dev-process-col-2-row-1">
-          <h3 class="h3-large-white">STAGE 2</h3>
-          <h4 class="h4-large-white">Design</h4>
-          <p class="dev-process-paragraph">
-            After gathering your requirements, we&#39;ll create a plan for
-            developing your website. This usually consists of an image of what
-            each page of the website will look like.
-          </p>
-        </div>
-      </div>
-
-      <div class="row" id="development-process-row-2">
-        <div class="col" id="dev-process-col-1-row-2">
-          <h3 class="h3-large-white">STAGE 3</h3>
-          <h4 class="h4-large-white">Development</h4>
-          <p class="dev-process-paragraph">
-            Once we&#39;ve completed the website design, we&#39;ll move on to
-            the development stage. Here, we&#39;ll write the necessary code for
-            your website and set up any requested services.
-          </p>
-        </div>
-
-        <div class="col" id="dev-process-col-2-row-2">
-          <h3 class="h3-large-white">STAGE 4</h3>
-          <h4 class="h4-large-white">Testing</h4>
-          <p class="dev-process-paragraph">
-            In this stage of the development process, we will test your website
-            to ensure that it fits the requirements and there were no errors
-            made while writing the code.
-          </p>
-        </div>
-      </div>
-
-      <div class="row" id="development-process-row-3">
-        <div class="col" id="dev-process-col-1-row-3">
-          <h3 class="h3-large-white">STAGE 5</h3>
-          <h4 class="h4-large-white">Maintenace</h4>
-          <p class="dev-process-paragraph">
-            This is the final stage of development, this is where we will
-            provide small updates each month to ensure your website continues to
-            run smoothly.
-            <br />
-            <b
-              >Please note, this stage being included for free is dependent on
-              the pricing option you select for your website or a private
-              agreement. Maintenance starts from £50 per month but can vary
-              depending on the complexity of your website. We also do not
-              provide maintenance for websites which we haven&#39;t developed or
-              have since been modified by a third party. Free maintenance is not
-              included for websites developed for free.</b
-            >
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!--Pricing Container-->
-    <div class="container-fluid" id="pricing-container">
-      <h2 class="h2-large-white" id="pricing-header">Pricing</h2>
-
-      <div class="table-responsive">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th class="table-header table-header-left"></th>
-              <th class="table-header" scope="col" id="table-header-1">
-                Standard
-              </th>
-              <th class="table-header" scope="col" id="table-header-2">
-                Premium
-              </th>
-              <th
-                class="table-header table-header-right"
-                id="table-header-3"
-                scope="col"
-              >
-                Ultra
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Development Fee</th>
-              <td id="column-1a">£99</td>
-              <td id="column-2a">£249</td>
-              <td id="column-3a">From £549</td>
-            </tr>
-            <tr>
-              <th scope="row">Source Code</th>
-              <td id="column-1b">Yes</td>
-              <td id="column-2b">Yes</td>
-              <td id="column-3b">Yes</td>
-            </tr>
-            <tr>
-              <th scope="row">Number of Pages</th>
-              <td id="column-1c">1</td>
-              <td id="column-2c">3</td>
-              <td id="column-3c">Unlimited</td>
-            </tr>
-            <tr>
-              <th scope="row">User Accounts</th>
-              <td id="column-1d">No</td>
-              <td id="column-2d">No</td>
-              <td id="column-3d">Yes</td>
-            </tr>
-            <tr>
-              <th scope="row">Database Connection</th>
-              <td id="column-1e">No</td>
-              <td id="column-2e">Yes</td>
-              <td id="column-3e">Yes</td>
-            </tr>
-            <tr>
-              <th scope="row">E Commerce</th>
-              <td id="column-1f">No</td>
-              <td id="column-2f">No</td>
-              <td id="column-3f">Yes</td>
-            </tr>
-            <tr>
-              <th scope="row">Mobile Responsiveness</th>
-              <td id="column-1g">Yes</td>
-              <td id="column-2g">Yes</td>
-              <td id="column-3g">Yes</td>
-            </tr>
-            <tr>
-              <th scope="row">Number of Revisions</th>
-              <td id="column-1h">1</td>
-              <td id="column-2h">2</td>
-              <td id="column-3h">3</td>
-            </tr>
-            <tr>
-              <th scope="row" id="table-bottom-left">
-                3 Months of Free Maintenance (Terms Apply)
-              </th>
-              <td id="column-1h">Yes</td>
-              <td id="column-2h">Yes</td>
-              <td id="table-bottom-right">Yes</td>
-            </tr>
-          </tbody>
-        </table>
-        <p class="mobile-pricing-table-paragraph">
-          If you are on mobile, please make sure to use the scroll bar below to
-          view the entire table.
-        </p>
-        <p class="mobile-pricing-table-paragraph">
-          These prices only include the development fee and do not include other
-          fees like website hosting.
-        </p>
-      </div>
-    </div>
-
-    <!--What We'll need from you container-->
-    <div class="container-fluid" id="what-we-will-need-from-you-container">
-      <h2 class="h2-large-white">What We'll Need From You</h2>
-      <div class="container-fluid">
-        <div class="row" id="what-we-will-need-from-you-row-1">
-          <div class="col" id="confirming-your-identity-column">
-            <h3 class="h3-medium-black-align-left">
-              Step 1: Confirming Your Identity
-            </h3>
-            <p>
-              To use our services, you must be over 18 so you can to agree to
-              our terms and conditions. We also check your identity to protect
-              us from abuse and fraud. So, in order to confirm your identity
-              with our identity checking partner Checks Direct, we'll need a UK
-              Government issued ID which is valid, not lost or stolen and not
-              expired.
+        <div class="row" id="development-process-row-1">
+          <div class="col" id="dev-process-column-col-1-row1">
+            <h3 class="h3-large-white">STAGE 1</h3>
+            <h4 class="h4-large-white">Requirements</h4>
+            <p class="dev-process-paragraph">
+              This is the stage where you outline what your website needs. Our
+              team will work with you to make sure these requirements are
+              complete and clear before proceeding to the next step.
             </p>
-            <b
-              >We will also need payment of our £10 identity checking fee. We
-              accept:
-            </b>
-            <br />
-            <br />
-            <b>If you are an Individual / Sole Trader:</b>
-            <ul>
-              <li>UK Driving License</li>
-              <li>UK Passport</li>
-            </ul>
-            <b>If you are a Company:</b>
-            <ul>
-              <li>Certificate of Incorporation</li>
-              <li>
-                The person who is authorised to act on behalf of your company
-                must also have their ID verified with one of the accepted IDs
-                above.
-              </li>
-            </ul>
           </div>
 
-          <div class="col" id="confirming-your-address-column">
-            <h3 class="h3-medium-black-align-left">
-              Step 2: Confirming Your Address
-            </h3>
-            <p>
-              We also require that you confirm your billing address before using
-              our services.
+          <div class="col" id="dev-process-col-2-row-1">
+            <h3 class="h3-large-white">STAGE 2</h3>
+            <h4 class="h4-large-white">Design</h4>
+            <p class="dev-process-paragraph">
+              After gathering your requirements, we'll create a plan for
+              developing your website. This usually consists of an image of what
+              each page of the website will look like.
             </p>
-            <b>If you are an Individual / Sole Trader or a Company:</b>
-            <ul>
-              <li>
-                You may use a document which has your name on it (or your
-                company&#39;s name) and your address (or your company&#39;s
-                address). The document must have been issued within the last 3
-                months.
-              </li>
-            </ul>
-            <p class="bold">Examples Include:</p>
-            <ul>
-              <li>Utility Bill</li>
-              <li>Bank Statement</li>
-            </ul>
           </div>
         </div>
 
-        <div class="row" id="what-we-will-need-from-you-row-2">
-          <div class="col" id="requirements-column">
-            <h3 class="h3-medium-black-align-left">Step 3: Requirements</h3>
-            <p>
-              We&#39;ll need some information about the requirements for your
-              website. Once this stage has been completed, we will ask for
-              payment to start the development process.<br />
-              <b>We typically ask for:</b>
-            </p>
-            <ul>
-              <li>App Colour Scheme</li>
-              <li>Any assets for example: Images, Icons, Logos etc.</li>
-              <li>Any designs you currently have for your website.</li>
-              <li>
-                A description of your website&#39;s required functionality.
-              </li>
-              <li>Your email address for communications</li>
-            </ul>
-            <p>
-              <b
-                >It is your responsibility to check that you have the
-                intellectual property rights to use the assets you provide us.
-                You must also give us full permission to use these assets within
-                your website.</b
-              >
+        <div class="row" id="development-process-row-2">
+          <div class="col" id="dev-process-col-1-row-2">
+            <h3 class="h3-large-white">STAGE 3</h3>
+            <h4 class="h4-large-white">Development</h4>
+            <p class="dev-process-paragraph">
+              Once we've completed the website design, we'll move on to the
+              development stage. Here, we'll write the necessary code for your
+              website and set up any requested services.
             </p>
           </div>
-          <div class="col" id="payment-column">
-            <h3 class="h3-medium-black-align-left">Step 4: Payment</h3>
-            <p>
-              Before we start developing your website, we must first accept
-              payment for your chosen pricing option for developing your
-              website. Please note there may also be seperate monthly charges
-              for certain online services and ongoing maintenace fees, our team
-              will tell you this during the requirements stage, all fees will
-              also be on your invoice. You will not be charged for online
-              services or maintenance until your website is being used by
-              it&#39;s end users.
+
+          <div class="col" id="dev-process-col-2-row-2">
+            <h3 class="h3-large-white">STAGE 4</h3>
+            <h4 class="h4-large-white">Testing</h4>
+            <p class="dev-process-paragraph">
+              In this stage of the development process, we will test your
+              website to ensure that it fits the requirements and there were no
+              errors made while writing the code.
+            </p>
+          </div>
+        </div>
+
+        <div class="row" id="development-process-row-3">
+          <div class="col" id="dev-process-col-1-row-3">
+            <h3 class="h3-large-white">STAGE 5</h3>
+            <h4 class="h4-large-white">Maintenance</h4>
+            <p class="dev-process-paragraph">
+              This is the final stage of development, this is where we will
+              provide small updates each month to ensure your website continues
+              to run smoothly.
               <br />
-              <b
-                >You may need to raise your daily transaction limit on your bank
-                account. We accept debit cards, credit cards and bank transfers
-                as payment.
-              </b>
+              <strong
+                >Please note, this stage being included for free is dependent on
+                the pricing option you select for your website or a private
+                agreement. Maintenance starts from £50 per month but can vary
+                depending on the complexity of your website. We also do not
+                provide maintenance for websites which we haven't developed or
+                have since been modified by a third party. Free maintenance is
+                not included for websites developed for free.</strong
+              >
             </p>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div id="get-a-free-quote-container">
-        <a
-          id="get-a-free-quote-link"
-          href="mailto:help@cminteractive.uk?subject=Website%20Development%20Request&body=Please%20specify%20your%20website%20requirements%20below:%0D%0A%0D%0AThe%20date%20and%20time%20you%20are%20available:"
-          >Send Us an Email to Get a Free Consultation</a
-        >
-      </div>
-    </div>
+      <section class="container-fluid" id="pricing-container">
+        <h2 class="h2-large-white" id="pricing-header">Pricing</h2>
 
-    <!--Legal Container-->
-    <div class="container-fluid" id="legal-container">
-      <h2 class="h2-large-white" id="legal-header">Legal</h2>
-      <div class="row" id="terms-row">
-        <div class="col" id="development-terms-and-conditions-container">
-          <h3
-            class="h3-large-white"
-            id="development-terms-and-conditions-header"
+        <div class="table-responsive">
+          <table class="table table-striped" aria-labelledby="pricing-header">
+            <thead>
+              <tr>
+                <th class="table-header table-header-left">Feature</th>
+                <th class="table-header" scope="col" id="table-header-1">
+                  Standard
+                </th>
+                <th class="table-header" scope="col" id="table-header-2">
+                  Premium
+                </th>
+                <th
+                  class="table-header table-header-right"
+                  id="table-header-3"
+                  scope="col"
+                >
+                  Ultra
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Development Fee</th>
+                <td headers="table-header-1">£99</td>
+                <td headers="table-header-2">£249</td>
+                <td headers="table-header-3">From £549</td>
+              </tr>
+              <tr>
+                <th scope="row">Source Code</th>
+                <td headers="table-header-1">Yes</td>
+                <td headers="table-header-2">Yes</td>
+                <td headers="table-header-3">Yes</td>
+              </tr>
+              <tr>
+                <th scope="row">Number of Pages</th>
+                <td headers="table-header-1">1</td>
+                <td headers="table-header-2">3</td>
+                <td headers="table-header-3">Unlimited</td>
+              </tr>
+              <tr>
+                <th scope="row">User Accounts</th>
+                <td headers="table-header-1">No</td>
+                <td headers="table-header-2">No</td>
+                <td headers="table-header-3">Yes</td>
+              </tr>
+              <tr>
+                <th scope="row">Database Connection</th>
+                <td headers="table-header-1">No</td>
+                <td headers="table-header-2">Yes</td>
+                <td headers="table-header-3">Yes</td>
+              </tr>
+              <tr>
+                <th scope="row">E-Commerce</th>
+                <td headers="table-header-1">No</td>
+                <td headers="table-header-2">No</td>
+                <td headers="table-header-3">Yes</td>
+              </tr>
+              <tr>
+                <th scope="row">Mobile Responsiveness</th>
+                <td headers="table-header-1">Yes</td>
+                <td headers="table-header-2">Yes</td>
+                <td headers="table-header-3">Yes</td>
+              </tr>
+              <tr>
+                <th scope="row">Number of Revisions</th>
+                <td headers="table-header-1">1</td>
+                <td headers="table-header-2">2</td>
+                <td headers="table-header-3">3</td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  3 Months of Free Maintenance (Terms Apply)
+                </th>
+                <td headers="table-header-1">Yes</td>
+                <td headers="table-header-2">Yes</td>
+                <td headers="table-header-3">Yes</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="mobile-pricing-table-paragraph">
+            If you are on a smaller screen, please use the scroll bar below
+            to view the entire table.
+          </p>
+          <p class="mobile-pricing-table-paragraph">
+            These prices only include the development fee and do not include
+            other fees like website hosting.
+          </p>
+        </div>
+      </section>
+
+      <section class="container-fluid" id="what-we-will-need-from-you-container">
+        <h2 class="h2-large-white">What We'll Need From You</h2>
+        <div class="container-fluid">
+          <div class="row" id="what-we-will-need-from-you-row-1">
+            <div class="col" id="confirming-your-identity-column">
+              <h3 class="h3-medium-black-align-left">
+                Step 1: Confirming Your Identity
+              </h3>
+              <p>
+                To use our services, you must be over 18 so you can agree to our
+                terms and conditions. We also check your identity to protect us
+                from abuse and fraud. So, in order to confirm your identity with
+                our identity checking partner Checks Direct, we'll need a UK
+                Government issued ID which is valid, not lost or stolen and not
+                expired.
+              </p>
+              <p>
+                <strong
+                  >We will also need payment of our £10 identity checking fee. We
+                  accept:</strong
+                >
+              </p>
+              <p><strong>If you are an Individual / Sole Trader:</strong></p>
+              <ul>
+                <li>UK Driving License</li>
+                <li>UK Passport</li>
+              </ul>
+              <p><strong>If you are a Company:</strong></p>
+              <ul>
+                <li>Certificate of Incorporation</li>
+                <li>
+                  The person who is authorised to act on behalf of your company
+                  must also have their ID verified with one of the accepted IDs
+                  above.
+                </li>
+              </ul>
+            </div>
+
+            <div class="col" id="confirming-your-address-column">
+              <h3 class="h3-medium-black-align-left">
+                Step 2: Confirming Your Address
+              </h3>
+              <p>
+                We also require that you confirm your billing address before
+                using our services.
+              </p>
+              <p>
+                <strong
+                  >If you are an Individual / Sole Trader or a Company:</strong
+                >
+              </p>
+              <ul>
+                <li>
+                  You may use a document which has your name on it (or your
+                  company's name) and your address (or your company's address).
+                  The document must have been issued within the last 3 months.
+                </li>
+              </ul>
+              <p class="bold">Examples Include:</p>
+              <ul>
+                <li>Utility Bill</li>
+                <li>Bank Statement</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row" id="what-we-will-need-from-you-row-2">
+            <div class="col" id="requirements-column">
+              <h3 class="h3-medium-black-align-left">Step 3: Requirements</h3>
+              <p>
+                We'll need some information about the requirements for your
+                website. Once this stage has been completed, we will ask for
+                payment to start the development process.<br />
+                <strong>We typically ask for:</strong>
+              </p>
+              <ul>
+                <li>Website Colour Scheme (if applicable)</li>
+                <li>Any assets for example: Images, Icons, Logos etc.</li>
+                <li>Any designs you currently have for your website.</li>
+                <li>
+                  A description of your website's required functionality.
+                </li>
+                <li>Your email address for communications</li>
+              </ul>
+              <p>
+                <strong
+                  >It is your responsibility to check that you have the
+                  intellectual property rights to use the assets you provide us.
+                  You must also give us full permission to use these assets
+                  within your website.</strong
+                >
+              </p>
+            </div>
+            <div class="col" id="payment-column">
+              <h3 class="h3-medium-black-align-left">Step 4: Payment</h3>
+              <p>
+                Before we start developing your website, we must first accept
+                payment for your chosen pricing option for developing your
+                website. Please note there may also be separate monthly charges
+                for certain online services and ongoing maintenance fees; our
+                team will tell you this during the requirements stage. All fees
+                will also be on your invoice. You will not be charged for online
+                services or maintenance until your website is being used by its
+                end-users.
+                <br />
+                <strong
+                  >You may need to raise your daily transaction limit on your
+                  bank account. We accept debit cards, credit cards, and bank
+                  transfers as payment.</strong
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div id="get-a-free-quote-container">
+          <a
+            id="get-a-free-quote-link"
+            href="mailto:help@cminteractive.uk?subject=Website%20Development%20Request&body=Please%20specify%20your%20website%20requirements%20below:%0D%0A%0D%0AThe%20date%20and%20time%20you%20are%20available:"
+            aria-label="Send Us an Email to Request a Free Consultation for Website Development"
+            >Send Us an Email to Get a Free Consultation</a
           >
-            Website Development Terms and Conditions
-          </h3>
-          <div class="col" id="website-terms-v1-container">
-            <p id="website-terms-paragraph-info">
-              Version: 1.1 <br />
-              Published: 14/07/2024
-            </p>
+        </div>
+      </section>
 
-            <a
-              href="terms/Website-Development-Terms-and-Conditions.pdf"
-              download="Website-Development-Terms-and-Conditions.pdf"
-              id="terms-pdf-download-btn-1"
+      <section class="container-fluid" id="legal-container">
+        <h2 class="h2-large-white" id="legal-header">Legal Information</h2>
+        <div class="row" id="terms-row">
+          <div class="col" id="development-terms-and-conditions-container">
+            <h3
+              class="h3-large-white"
+              id="development-terms-and-conditions-header"
             >
-              Download PDF
-            </a>
+              Website Development Terms and Conditions
+            </h3>
+            <div class="col" id="website-terms-v1-container">
+              <p id="website-terms-paragraph-info">
+                Version: 1.1 <br />
+                Published: 14/07/2024
+              </p>
+
+              <a
+                href="terms/Website-Development-Terms-and-Conditions.pdf"
+                download="Website-Development-Terms-and-Conditions.pdf"
+                id="terms-pdf-download-btn-1"
+                aria-label="Download Website Development Terms and Conditions PDF"
+              >
+                Download PDF
+              </a>
+            </div>
+          </div>
+          <div class="col" id="maintenance-terms-and-conditions-container">
+            <h3
+              class="h3-large-white"
+              id="maintenance-terms-and-conditions-header"
+            >
+              Website Terms and Conditions
+            </h3>
+            <div class="col" id="maintenance-terms-v1-container">
+              <p id="maintence-terms-paragraph-info">
+                Version: 1.0 <br />
+                Published: 25/05/2024
+              </p>
+
+              <a
+                href="terms/Website-Terms-and-Conditions.pdf"
+                download="Website-Terms-and-Conditions.pdf"
+                id="terms-pdf-download-btn-2"
+                aria-label="Download Website Terms and Conditions PDF"
+              >
+                Download PDF
+              </a>
+            </div>
           </div>
         </div>
-        <div class="col" id="maintenance-terms-and-conditions-container">
-          <h3
-            class="h3-large-white"
-            id="maintenance-terms-and-conditions-header"
-          >
-            Website Terms and Conditions
-          </h3>
-          <div class="col" id="maintenance-terms-v1-container">
-            <p id="maintence-terms-paragraph-info">
-              Version: 1.0 <br />
-              Published: 25/05/2024
-            </p>
+      </section>
 
-            <a
-              href="terms/Website-Terms-and-Conditions.pdf"
-              download="Website-Terms-and-Conditions.pdf"
-              id="terms-pdf-download-btn-2"
-            >
-              Download PDF
-            </a>
+      
+      <section class="container-fluid" id="help-container">
+        <h2 class="h2-large-white" id="help-header">Help & Support</h2>
+        <div class="row" id="help-row">
+          <div class="col" id="faq-column">
+            <h3 class="h3-large-white" id="faq-header">
+              <span class="highlight">F</span>requently
+              <span class="highlight">A</span>sked
+              <span class="highlight">Q</span>uestions
+            </h3>
+            <h4 class="h4-large-white faq-question-header">
+              How Long Will Each Stage of the Development Process Take?
+            </h4>
+            <p class="faq-paragraph">
+              This can vary based on the complexity of your website. However,
+              generally it takes 1 week to write the requirements, 2 weeks for
+              design, 2 weeks for development, and 3 weeks for testing. So, a
+              total development time of 8 weeks (2 months). This also does not
+              include non-working days like bank holidays and weekends.
+            </p>
+            <h4 class="h4-large-white faq-question-header">
+              Why do you offer free websites?
+            </h4>
+            <p class="faq-paragraph">
+              We offer free websites so you can get an idea of how the
+              development process works and what our work looks like before
+              committing to a paid plan. Therefore, if you like the work we have
+              done, you can upgrade to a paid plan for additional features.
+            </p>
+            <h4 class="h4-large-white faq-question-header">
+              Do you accept customers outside of the UK?
+            </h4>
+            <p class="faq-paragraph">
+              Unfortunately, we do not accept customers outside of the UK.
+              However, we are looking to expand into different countries in the
+              future.
+            </p>
+          </div>
+          <div class="col" id="contact-us-column">
+            <h3 class="h3-large-white" id="contact-us-header">Contact Us</h3>
+            <h4 class="h4-light-white">Email:</h4>
+            <p id="email-paragraph">help@cminteractive.uk</p>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
 
-    <!--Help Container-->
-    <div class="container-fluid" id="help-container">
-      <h2 class="h2-large-white" id="help-header">Help</h2>
-      <div class="row" id="help-row">
-        <div class="col" id="faq-column">
-          <h3 class="h3-large-white" id="faq-header">
-            <span class="highlight">F</span>requently
-            <span class="highlight">A</span>sked
-            <span class="highlight">Q</span>uestions
-          </h3>
-          <h4 class="h4-large-white faq-question-header">
-            How Long Will Each Stage of the Development Process Take?
-          </h4>
-          <p class="faq-paragraph">
-            This can vary based on the complexity of your website. However,
-            generally it takes 1 week to write the requirements, 2 weeks for
-            design, 2 weeks for development and 3 weeks for testing. So, a total
-            development time of 8 weeks (2 months). This also does not include
-            non-working days like bank holidays and weekends.
-          </p>
-          <h4 class="h4-large-white faq-question-header">
-            Why do you offer free websites?
-          </h4>
-          <p class="faq-paragraph">
-            We offer free websites so you can get an idea of how the development
-            process works and what our work looks like before committing to a
-            paid plan. Therefore, if you like the work we have done you can
-            upgrade to a paid plan for additonal features.
-          </p>
-          <h4 class="h4-large-white faq-question-header">
-            Do you accept customers outside of the UK?
-          </h4>
-          <p class="faq-paragraph">
-            Unfortunately, we do not accept customers outside of the UK.
-            However, we are looking to expand into different countries in the
-            future.
-          </p>
-        </div>
-        <div class="col" id="contact-us-column">
-          <h3 class="h3-large-white" id="contact-us-header">Contact Us</h3>
-          <h4 class="h4-light-white">Email:</h4>
-          <p id="email-paragraph">help@cminteractive.uk</p>
-        </div>
-      </div>
-    </div>
-
-    <!--Footer with copyright info &#169 is copyright symbol-->
-    <div class="container-fluid footer-container">
+    <footer class="container-fluid footer-container">
       <img
         src="images/CMI-Logo-3.png"
         class="navbar-brand"
@@ -568,27 +532,25 @@ permalink: /
         alt="CM Interactive Logo"
       />
       <p>
-        <b>&#169; 2024 - 2025 CM Interactive Limited, All Rights Reserved</b>
+        <strong>&copy; 2024 - 2025 CM Interactive Limited, All Rights Reserved</strong>
       </p>
       <p>
         CM Interactive Limited is a Private Limited Liability Company Registered
-        In England and Wales With Companies House <br />
+        In England and Wales With Companies House. <br />
         Company Number: 15392983 <br />
         Registered Office Address: Unit A 82 James Carter Road Mildenhall
         Suffolk IP28 7DE United Kingdom
       </p>
-    </div>
-    <!--Bootstrap JS link-->
+    </footer>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
 
-    <!--Redirect to remove .html and index-->
     <script src="js/redirect.js"></script>
 
-    <!--Terms popup (check if terms cookie exists if not prompt user to agree to terms)-->
-    <!-- <script src="js/terms-popup.js"></script> -->
+    <script src="js/terms-popup.js"></script>
   </body>
 </html>

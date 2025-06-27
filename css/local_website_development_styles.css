@@ -19,9 +19,14 @@
     font-weight: 500;
 }
 
-/*Get Your App Developed Section*/
+.nav-link.active {
+    color: black; 
+    font-weight: bold; 
+}
 
-#get-your-app-developed-container{
+/*Get Your Website Developed Section*/
+
+#get-your-website-developed-container{
     background-color: #D9D9D9;
     margin-top: 50px;
     justify-content: center;
@@ -36,10 +41,14 @@
     padding-bottom: 2%;
 }
 
+body{
+    background-color: #d9d9d9;
+}
+
 /*Desktop sizing*/
 
 @media screen and (min-width: 769px) {
-    #get-your-app-developed-container-inner{
+    #get-your-website-developed-container-inner{
         display: flex;
         max-width: 900px;
         margin-left: auto;
@@ -55,7 +64,7 @@
         padding-top: 30px;
     }
 
-    #get-your-app-developed-container-inner{
+    #get-your-website-developed-container-inner{
         width: 100%;
         height: 100%;
         padding-bottom: 2%;
@@ -69,7 +78,7 @@
     color: black;
 }
 
-.developing-high-quality-android-apps-paragraph{
+.developing-high-quality-websites-paragraph{
     font-size: 130%;
 }
 
@@ -535,22 +544,16 @@ table{
     }
 }
 
+/*FOOTER*/
 #cmi-logo-footer{
-    height: 70px;
-    width: auto;
+    width: 8rem;
+    height: auto;
 }
 
-#krystal-hosting-logo{
-    height: 30px;
-    width: auto;
-    margin-bottom: 10px;
-}
-
-.bold{
-    padding-top: 20px;
-    font-weight: bold;
-}
-
-#test{
-    font-size: 150%;
+.footer-container{
+    background-color: white;
+    height: 100%;
+    padding: 10px;
+    font-size: 90%;
+    margin-top: 2%;
 }

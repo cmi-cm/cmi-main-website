@@ -1,47 +1,116 @@
-h1{
-    font-weight: bold;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #61a0af;
+    color: #333;
+    line-height: 1.6;
 }
 
-#terms-popup-content{
+
+/* Popup Styles */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top */
+}
+
+.popup-content {
     background-color: white;
-    padding: 10px;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
     width: 90%;
-    border-radius: 10px;
-    margin-top: 5%;
-    
+    max-height: 80vh; /* Limit height for scrollable content */
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
 }
 
-.terms-scroll-paragraph{
-
-    overflow-y: auto;  
-}
-
-.terms-button{
-    border-color: black;
-    border: white, 2px;
+.popup-content h2 {
+    margin-top: 0;
     color: black;
-    font-weight: 650;
-    display: flex;
-    margin-right: 20px;
-    border-radius: 5px;
-    padding: 5px;
-    font-size: 110%;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.terms-row{
-    display: flex;
+.terms-scrollable-content {
+    flex-grow: 1; /* Allows content to take up available space */
+    overflow-y: auto; /* Adds scrollbar if content overflows */
+    scrollbar-width: auto; /* "auto" or "thin" */
+    scrollbar-color: #888 #f1f1f1; /* thumb color track color */
+    padding-right: 10px; /* Space for scrollbar */
+    margin-bottom: 20px;
+    overflow-x:hidden;
 }
 
-#terms-pdf-download-btn{
-    font-size: 120%;
+.terms-scrollable-content p {
+    margin-bottom: 10px;
+}
+
+.terms-scrollable-content h3 {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.terms-popup-pdf-download-btn{
     font-weight: bold;
 }
 
-#button-column{
-    display: flex;
-    margin-top: 30px;
+.terms-popup-checkbox{
+    border-radius: 20px;
+    border-color: grey;
 }
 
-p{
-    font-size: 120%;
+.popup-actions {
+    display: flex;
+    justify-content: flex-end; /* Pushes buttons to the right */
+    gap: 10px; /* Space between buttons */
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.popup-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.checkbox-container{
+    margin-top: 20px;
+}
+
+#agreeBtn {
+    background-color: #28a745; /* Green for agree */
+    color: white;
+}
+
+#agreeBtn:hover {
+    background-color: #218838;
+}
+
+#declineBtn {
+    background-color: #dc3545; /* Red for decline */
+    color: white;
+}
+
+#declineBtn:hover {
+    background-color: #c82333;
+}
+
+/*Terms Popup Container*/
+.hidden{
+    display: none;
 }

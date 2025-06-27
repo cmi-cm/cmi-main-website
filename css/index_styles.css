@@ -19,9 +19,15 @@
     font-weight: 500;
 }
 
-/*Get Your App Developed Section*/
+.nav-link.active {
+    color: black;
+    font-weight: bold;
+}
 
-#get-your-app-developed-container{
+/*Get Your Website Developed Section*/
+
+/* Updated ID to reflect website focus */
+#get-your-website-developed-container{
     background-color: #D9D9D9;
     margin-top: 50px;
     justify-content: center;
@@ -39,7 +45,8 @@
 /*Desktop sizing*/
 
 @media screen and (min-width: 769px) {
-    #get-your-app-developed-container-inner{
+    /* Updated ID to reflect website focus */
+    #get-your-website-developed-container-inner{
         display: flex;
         max-width: 900px;
         margin-left: auto;
@@ -55,7 +62,8 @@
         padding-top: 30px;
     }
 
-    #get-your-app-developed-container-inner{
+    /* Updated ID to reflect website focus */
+    #get-your-website-developed-container-inner{
         width: 100%;
         height: 100%;
         padding-bottom: 2%;
@@ -63,17 +71,18 @@
 }
 
 .h2-extra-bold-created-by-experts{
-    
     font-size: 150%;
     font-weight: bold;
     color: black;
 }
 
-.developing-high-quality-android-apps-paragraph{
+/* Updated class name to reflect website focus */
+.developing-high-quality-websites-paragraph{
     font-size: 130%;
 }
 
-#h2-extra-bold-get-your-first-app-developed{
+/* Updated ID to reflect website focus */
+#h2-extra-bold-get-your-first-website-developed{
     font-size: 150%;
     font-weight: bold;
     color: black;
@@ -83,22 +92,9 @@ a {
     font-weight: 700;
 }
 
-#get-your-app-developed-button{
-    width: 100%;
-    color: rgb(255, 255, 255);
-    background-color: black;
-    font-weight:700;
-    margin-bottom: 2%;
-}
+/* Removed CSS for #get-your-app-developed-button as it's no longer in HTML */
 
-#get-your-app-developed-button:hover{
-    background-color: #282828;
-}
-
-#best-before-login-image-row{
-    margin-top: 2%;
-    margin-bottom: 0;
-}
+/* Removed CSS for #best-before-login-image-row as it's no longer in HTML */
 
 /*The Development Process Section*/
 
@@ -149,7 +145,7 @@ a {
     font-size: 100%;
 }
 
-/*change to display block if on mobile to display in column*/
+/*change to display block if on smaller screens to display in column*/
 
 @media screen and (max-width: 768px){
     #development-process-row-1,
@@ -178,15 +174,10 @@ a {
     padding-bottom: 2%;
 }
 
-.info-icon:hover{
-    color: #282828;
-    cursor: pointer;
-}
+/* Removed CSS for .info-icon as it's no longer in HTML */
 
-#apk-and-aab-info-paragraph, #maintenance-info-paragraph,
-#online-services-info-paragraph, #jetpack-compose-info-paragraph{
-    font-weight: 300;
-}
+/* Removed CSS for old info paragraphs as they're no longer in HTML */
+
 
 .table-header{
     font-size: 150%;
@@ -256,6 +247,7 @@ table{
     color: white;
 }
 
+/* Class name kept as is, but text in HTML indicates "smaller screen" instead of "mobile" */
 .mobile-pricing-table-paragraph{
     color: white;
     text-align: center;
@@ -315,6 +307,7 @@ table{
     margin-top: 2%;
 }
 
+/* #get-a-free-quote-link-main was not in the provided HTML for this page, keeping as is if it's for another page, otherwise it can be removed. */
 #get-a-free-quote-link-main{
     color: #dbdbdb;
     background-color: black;
@@ -329,7 +322,7 @@ table{
     color: white;
 }
 
-/*change to display block if on mobile to display in column*/
+/*change to display block if on smaller screens to display in column*/
 
 @media screen and (max-width: 768px) {
     #what-we-will-need-from-you-row-1,
@@ -348,30 +341,12 @@ table{
     }
 }
 
-#payment-get-your-app-developed-button{
-    width: 100%;
-    font-size: 130%;
-    font-weight: bolder;
-    background-color: #0074BD;
-    color: white;
-    border: 0;
-    border-radius: 5px;
-}
+/* Removed CSS for #payment-get-your-app-developed-button as it's no longer in HTML */
 
-#payment-get-your-app-developed-button:hover{
-    font-weight: 750;
-}
+/* Removed CSS for #payment-terms-link as it's no longer in HTML */
 
-#payment-terms-link{
-    color: white;
-    text-align: center;
-    font-weight: 400;
-    font-size: 100%;
-}
 
 /*Legal Section*/
-
-
 
 #legal-container{
     background-color: #61A0AF;
@@ -394,14 +369,14 @@ table{
     border-radius: 10px;
     margin-left: 2%;
     margin-right: 2%;
-    
+
 }
 
 #maintence-terms-paragraph-info, #website-terms-paragraph-info{
     color: white;
     font-weight: 600;
     text-align: left;
-   
+
 }
 
 #maintenance-terms-v1-container, #website-terms-v1-container{
@@ -443,11 +418,6 @@ table{
     #development-terms-and-conditions-container{
         margin-bottom: 2%;
     }
-}
-
-/*Terms Popup Container*/
-.hidden{
-    display: none;
 }
 
 /*Help Section*/
@@ -493,7 +463,6 @@ table{
 
 #contact-us-column{
     background-color: #2A2F31;
-    background-color: #2A2F31;
     margin-left: 2%;
     margin-right: 2%;
     margin-bottom: 2%;
@@ -519,7 +488,7 @@ table{
     font-size: 100%;
 }
 
-/*change to display block if on mobile to display in column*/
+/*change to display block if on smaller screens to display in column*/
 
 @media screen and (max-width: 768px) {
     #help-row{
