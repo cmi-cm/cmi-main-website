@@ -67,14 +67,42 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 // Attempt to parse the stored JSON
                 const preferences = JSON.parse(storedValue);
-                // You might want to add a check here, e.g., preferences['website-terms-version']
-                // to ensure it's a valid, up-to-date agreement.
-                console.log("Found terms value: ", preferences);
-                // If terms are found and valid, hide the popup (if it was somehow visible)
+
+                // You should compare the stored 'agreed-to-local-storage' with what you expect,
+                // not define a new 'agreedToLocalStorage' here.
+                // For example, if you require it to be true:
+                const isLocalStorageAgreedInStoredPrefs = preferences["agreed-to-local-storage"];
+
+                // Example of a 'required' state based on your application's logic.
+                // This 'requiredPreferences' object should define what you *expect* to be true for a valid agreement.
+                // It should *not* refer to a variable that hasn't been defined yet.
+                const requiredWebsiteTermsVersion = 1.1; // Your current required version
+                const requiredPrivacyPolicyVersion = 1.0; // Your current required version
+
+                // Now, compare the stored preferences with your requirements
+                const meetsRequirements =
+                    preferences["website-terms-version"] >= requiredWebsiteTermsVersion &&
+                    preferences["privacy-policy-version"] >= requiredPrivacyPolicyVersion;
+                    // Add checks for other required fields, like agreedToLocalStorage if it's mandatory
+                    // && preferences["agreed-to-local-storage"] === true; // If local storage agreement is mandatory for overall agreement
+
+                console.log("Preferences: ", preferences);
+                console.log("Is Local Storage Agreed in Stored Prefs: ", isLocalStorageAgreedInStoredPrefs);
+                console.log("Meets Required Versions: ", meetsRequirements);
+
+
+                // If terms are found and valid (based on your comparison logic), hide the popup
                 // and show the navbar.
-                if (termsPopup) termsPopup.style.display = 'none';
-                if (navBar) navBar.style.display = 'block';
-                document.body.style.overflow = '';
+                if (meetsRequirements) { // Use your comparison logic here
+                    console.log("Found valid terms preferences. Hiding popup.");
+                    if (termsPopup) termsPopup.style.display = 'none';
+                    if (navBar) navBar.style.display = 'block';
+                    document.body.style.overflow = '';
+                } else {
+                    console.log("Stored preferences do not meet current requirements, showing popup.");
+                    showPopup(); // Stored terms are outdated or insufficient
+                }
+
             } catch (e) {
                 console.error("Error parsing stored terms preferences, showing popup.", e);
                 // If parsing fails, treat it as if no valid terms were found
@@ -85,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
             showPopup();
         }
     }
+
 
     // Initial check when the DOM is ready
     getAgreedToTerms();
@@ -101,7 +130,8 @@ function saveSelectedPreferences() {
     const agreedToLocalStorage = localStorageFunctionalityCheckbox.checked;
 
     const preferences = {
-        "website-terms-version": 1.10, // Assuming this is your current version
+        "website-terms-version": 1.1,
+        "privacy-policy-version": 1.0,
         "agreed-to-local-storage": agreedToLocalStorage
     };
     
