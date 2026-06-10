@@ -1,566 +1,1699 @@
----
-permalink: /
----
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="canonical" href="https://cminteractive.uk/" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <!-- Google Analytics with Consent Management -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      
+      // Default to no consent until user decides
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied'
+      });
+      
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0QW701ZMK1');
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QW701ZMK1"></script>
 
-    <meta
-      name="keywords"
-      content="CM Interactive, website development, custom website design, bespoke websites, software development, UK web development, digital solutions, web design, free website, company website, cminteractive"
-    />
-    <meta
-      name="description"
-      content="Get professional, bespoke website development and design from CM Interactive. We offer high-quality, tailor-made digital solutions, including free website development for your first project. Contact us today!"
-    />
+    <!-- Consent Management Script -->
+    <script>
+      const CONSENT_COOKIE = 'cm_analytics_consent';
+      const CONSENT_EXPIRY_DAYS = 365;
 
-    <title>CM Interactive - Custom Website Design & Development - Get Your Free Website</title>
+      function getCookie(name) {
+        const nameEQ = name + "=";
+        const cookies = document.cookie.split(';');
+        for(let cookie of cookies) {
+          cookie = cookie.trim();
+          if(cookie.indexOf(nameEQ) === 0) {
+            return cookie.substring(nameEQ.length);
+          }
+        }
+        return null;
+      }
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    <link rel="icon" type="image/x-icon" href="images/CMI-Favicon.ico" />
+      function setCookie(name, value, days) {
+        const expires = new Date();
+        expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+        document.cookie = name + "=" + value + ";expires=" + expires.toUTCString() + ";path=/;SameSite=Strict";
+      }
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
+      function updateAnalyticsConsent(consent) {
+        gtag('consent', 'update', {
+          'analytics_storage': consent ? 'granted' : 'denied',
+          'ad_storage': consent ? 'granted' : 'denied'
+        });
+        setCookie(CONSENT_COOKIE, consent ? 'true' : 'false', CONSENT_EXPIRY_DAYS);
+      }
 
-    <link rel="stylesheet" href="css/terms_popup_styles.css" />
+      // Check existing consent
+      const savedConsent = getCookie(CONSENT_COOKIE);
+      if(savedConsent === 'true') {
+        gtag('consent', 'update', {
+          'analytics_storage': 'granted',
+          'ad_storage': 'granted'
+        });
+      }
 
-    <link rel="stylesheet" href="css/index_styles.css" />
-  </head>
-  <body>
-    <div id="termsPopup" class="popup-overlay" aria-hidden="true"></div>
+      window.consentManager = {
+        accept: function() {
+          updateAnalyticsConsent(true);
+          document.getElementById('cookie-banner').style.display = 'none';
+        },
+        decline: function() {
+          updateAnalyticsConsent(false);
+          document.getElementById('cookie-banner').style.display = 'none';
+        },
+        hasConsent: function() {
+          return getCookie(CONSENT_COOKIE) === 'true';
+        }
+      };
+    </script>
 
-    <header>
-      <nav class="navbar fixed-top navbar-expand-lg" id="nav" aria-label="Main navigation">
-        <div class="container-fluid" id="nav-container">
-          <a href="/" class="navbar-brand" aria-label="CM Interactive Home">
-            <img
-              src="images/CMI-Logo-3.png"
-              class="navbar-brand"
-              alt="CM Interactive Logo"
-              loading="lazy"
-            />
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/"
-                  >Get Your Website Developed</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/local-website-development"
-                  >Local Website Development</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/all-terms">All Terms and Conditions</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/#help-container">Help & Support</a>
-              </li>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CM Interactive - Results-Driven Web Design & Development Agency UK</title>
+    <meta name="description" content="Digital solutions that deliver measurable results. Web design, development, and digital strategy focused on hitting your business targets. Based in the UK.">
+    <meta name="keywords" content="web design, web development, digital strategy, conversion optimisation, web design UK, digital agency">
+    <meta name="author" content="CM Interactive">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cminteractive.uk/">
+    <meta property="og:title" content="CM Interactive - Results-Driven Web Design & Development">
+    <meta property="og:description" content="Digital solutions that deliver measurable results. Web design, development, and digital strategy focused on hitting your business targets.">
+    <meta property="og:site_name" content="CM Interactive">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://cminteractive.uk/">
+    <meta property="twitter:title" content="CM Interactive - Results-Driven Web Design & Development">
+    <meta property="twitter:description" content="Digital solutions that deliver measurable results. Web design, development, and digital strategy focused on hitting your business targets.">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://cminteractive.uk/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%2350C878' width='32' height='32' rx='6'/><text x='50%' y='50%' font-size='18' font-weight='700' fill='white' text-anchor='middle' dominant-baseline='central'>CM</text></svg>">
+    <link rel="alternate icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==">
+    
+    <!-- Cloudflare Turnstile Script -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "CM Interactive",
+      "description": "Results-driven web design and development agency",
+      "url": "https://cminteractive.uk",
+      "image": "https://cminteractive.uk/images/cm-interactive-logo.svg",
+      "areaServed": "GB",
+      "serviceType": ["Web Design", "Web Development", "Digital Strategy", "Conversion Optimisation"],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "url": "https://cminteractive.uk#contact"
+      }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "CM Interactive",
+      "url": "https://cminteractive.uk",
+      "logo": "https://cminteractive.uk/images/cm-interactive-logo.svg",
+      "description": "Web design and development agency focused on delivering measurable business results",
+      "sameAs": [
+        "https://twitter.com/cminteractive",
+        "https://linkedin.com/company/cminteractive",
+        "https://github.com/cminteractive"
+      ]
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #50C878;
+            --secondary: #2B2B2B;
+            --background: #F9F9F9;
+            --accent: #D4AF37;
+            --text-dark: #2B2B2B;
+            --text-mid: #5A5A5A;
+            --text-light: #999;
+            --border: #E5E5E5;
+            --white: #FFFFFF;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: var(--background);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        nav {
+            position: sticky;
+            top: 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 0 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .navbar-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.2s ease;
+            min-width: 0;
+        }
+
+        .logo:hover {
+            color: var(--primary);
+        }
+
+        .logo-mark {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .logo-image {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 8px;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2.5px;
+            background: var(--text-dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            flex-direction: column;
+            gap: 0;
+            list-style: none;
+            padding: 20px 0;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu li {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mobile-menu li:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 16px 20px;
+            font-size: 16px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .mobile-menu a:hover,
+        .mobile-menu a.active {
+            color: var(--primary);
+            background: rgba(80, 200, 120, 0.05);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Mobile: Hide desktop nav, show hamburger */
+        .nav-links {
+            display: none;
+        }
+
+        .hamburger {
+            display: flex;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 20px;
+            text-align: center;
+            background: var(--background);
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .hero h1 .highlight {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--text-mid);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #3DA55E;
+            transform: translateY(-2px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-dark {
+            background: var(--secondary);
+            color: var(--background);
+        }
+
+        .btn-dark:hover {
+            background: #1a1a1a;
+        }
+
+        .btn-large {
+            padding: 18px 48px;
+            font-size: 17px;
+        }
+
+        /* Discovery Call Section */
+        .discovery-cta {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #50C878 0%, #3DA55E 100%);
+            color: white;
+        }
+
+        .discovery-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .discovery-content h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .discovery-content > p {
+            font-size: 16px;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .discovery-list {
+            list-style: none;
+            margin-bottom: 32px;
+            padding-left: 0;
+        }
+
+        .discovery-list li {
+            font-size: 15px;
+            margin-bottom: 16px;
+            padding-left: 32px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .discovery-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .discovery-cta-text {
+            font-size: 16px;
+            margin-bottom: 40px !important;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .discovery-cta .btn {
+            background: white;
+            color: var(--primary);
+        }
+
+        .discovery-cta .btn:hover {
+            background: #f0f0f0;
+        }
+
+        /* Approach Section */
+        .approach {
+            padding: 80px 20px;
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .approach h2 {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 50px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .approach-item h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 16px 0 12px;
+        }
+
+        .approach-item p {
+            font-size: 15px;
+            color: var(--text-mid);
+            line-height: 1.6;
+        }
+
+        .approach-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        /* Booking Section */
+        .booking-section {
+            padding: 80px 20px;
+            background: var(--background);
+            border-top: 1px solid var(--border);
+        }
+
+        .booking-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* How We Measure Success Section */
+        .success-section {
+            padding: 80px 20px;
+            background: var(--white);
+            border-top: 1px solid var(--border);
+        }
+
+        .success-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .success-subtitle {
+            font-size: 16px;
+            color: var(--text-mid);
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto 60px;
+        }
+
+        .metric-card {
+            background: var(--background);
+            padding: 28px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .metric-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .metric-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .metric-card p {
+            font-size: 14px;
+            color: var(--text-mid);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .success-process {
+            background: var(--background);
+            padding: 40px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .success-process h3 {
+            font-size: 22px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--text-dark);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        .process-step {
+            text-align: center;
+        }
+
+        .step-num {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+            margin: 0 auto 16px;
+        }
+
+        .process-step h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .process-step p {
+            font-size: 14px;
+            color: var(--text-mid);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 20px;
+            background: var(--white);
+            border-top: 1px solid var(--border);
+        }
+
+        .services h2 {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 36px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .service-item {
+            padding-left: 24px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .service-item h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .service-item p {
+            font-size: 15px;
+            color: var(--text-mid);
+            line-height: 1.6;
+        }
+
+       /* Pricing Section */
+        .pricing-section {
+            padding: 80px 20px;
+            background: var(--background);
+            border-top: 1px solid var(--border);
+        }
+
+        .pricing-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .pricing-subtitle {
+            font-size: 16px;
+            color: var(--text-mid);
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto 40px;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card-accent {
+            border: 2px solid var(--primary);
+            box-shadow: 0 8px 24px rgba(80, 200, 120, 0.1);
+        }
+
+        .pricing-phase {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .pricing-phase.accent {
+            color: var(--primary);
+        }
+
+        .pricing-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .pricing-label {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .pricing-features li {
+            font-size: 14px;
+            color: var(--text-mid);
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .pricing-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .pricing-note {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin: 0 !important;
+        }
+
+        .pricing-footer {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 28px 20px;
+            background: var(--white);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .pricing-footer p {
+            font-size: 15px;
+            color: var(--text-mid);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 20px;
+            background: var(--secondary);
+        }
+
+        .contact-intro {
+            text-align: center;
+            color: #ccc;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            font-size: 16px;
+        }
+
+        .contact-intro h2 {
+            color: white;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 32px 24px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(80,200,120,0.15);
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .contact-card h3 {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .contact-card p {
+            color: #ccc;
+            margin-bottom: 24px;
+            font-size: 15px;
+        }
+
+        .contact-card input,
+        .contact-card textarea {
+            width: 100%;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 10px;
+            color: white;
+            padding: 14px 16px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        .contact-card input:focus,
+        .contact-card textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(80,200,120,0.15);
+        }
+
+        .contact-card input::placeholder,
+        .contact-card textarea::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .contact-card label {
+            color: white;
+            margin-bottom: 8px;
+            display: block;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .turnstile-wrapper {
+            margin: 24px 0;
+        }
+
+        .verification-box {
+            color: #999;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        /* Cookie Consent Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--secondary);
+            color: white;
+            padding: 24px 20px;
+            box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.15);
+            z-index: 10000;
+            font-size: 14px;
+            line-height: 1.6;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .cookie-banner.hidden {
+            display: none;
+        }
+
+        .cookie-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .cookie-text {
+            flex: 1;
+        }
+
+        .cookie-text p {
+            margin: 0;
+            color: #ccc;
+        }
+
+        .cookie-text a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .cookie-text a:hover {
+            text-decoration: underline;
+        }
+
+        .cookie-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .cookie-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+
+        .cookie-btn.accept {
+            background: var(--primary);
+            color: white;
+        }
+
+        .cookie-btn.accept:hover {
+            background: #3DA55E;
+            transform: translateY(-1px);
+        }
+
+        .cookie-btn.decline {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .cookie-btn.decline:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 20px;
+            text-align: center;
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-section {
+            text-align: left;
+            padding: 0;
+        }
+
+        .footer-section h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .footer-logo {
+            display: block;
+            margin-bottom: 16px;
+            transition: opacity 0.2s ease;
+            width: fit-content;
+        }
+
+        .footer-logo:hover {
+            opacity: 0.8;
+        }
+
+        .footer-logo-image {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .footer-tagline {
+            font-size: 15px;
+            color: var(--text-mid);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-mid);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 32px;
+            margin-top: 40px;
+        }
+
+        .footer-bottom p {
+            font-size: 13px;
+            color: var(--text-light);
+            margin: 8px 0;
+        }
+
+        /* Tablet Breakpoint (768px) */
+        @media (min-width: 768px) {
+            .hamburger {
+                display: none !important;
+            }
+
+            .mobile-menu {
+                display: none !important;
+            }
+
+            .nav-links {
+                display: flex !important;
+            }
+
+            .container {
+                padding: 0 32px;
+            }
+
+            nav {
+                padding: 0 32px;
+            }
+
+            .hero {
+                padding: 100px 32px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .discovery-cta {
+                padding: 100px 32px;
+            }
+
+            .discovery-content h2 {
+                font-size: 40px;
+            }
+
+            .discovery-content > p {
+                font-size: 18px;
+            }
+
+            .discovery-list li {
+                font-size: 16px;
+            }
+
+            .discovery-cta-text {
+                font-size: 17px;
+            }
+
+            .approach {
+                padding: 100px 32px;
+            }
+
+            .approach h2 {
+                font-size: 32px;
+                margin-bottom: 80px;
+            }
+
+            .approach-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 60px;
+            }
+
+            .services {
+                padding: 100px 32px;
+            }
+
+            .services h2 {
+                font-size: 32px;
+                margin-bottom: 80px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 48px;
+            }
+
+            .booking-section {
+                padding: 100px 32px;
+            }
+
+            .booking-section h2 {
+                font-size: 32px;
+            }
+
+            .success-section {
+                padding: 100px 32px;
+            }
+
+            .success-section h2 {
+                font-size: 32px;
+            }
+
+            .success-subtitle {
+                font-size: 18px;
+                margin-bottom: 60px;
+            }
+
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px;
+                margin-bottom: 80px;
+            }
+
+            .metric-card {
+                padding: 32px;
+            }
+
+            .success-process {
+                padding: 60px 40px;
+            }
+
+            .success-process h3 {
+                font-size: 24px;
+                margin-bottom: 48px;
+            }
+
+            .process-steps {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 32px;
+            }
+
+            .pricing-section {
+                padding: 100px 32px;
+            }
+
+            .pricing-section h2 {
+                font-size: 32px;
+            }
+
+            .pricing-subtitle {
+                font-size: 18px;
+                margin-bottom: 60px;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+                margin-bottom: 60px;
+            }
+
+            .pricing-card {
+                padding: 40px;
+            }
+
+            .pricing-footer {
+                padding: 32px;
+            }
+
+            .contact {
+                padding: 120px 32px;
+            }
+
+            .contact-intro {
+                margin-bottom: 70px;
+                font-size: 18px;
+            }
+
+            .contact-intro h2 {
+                font-size: 36px;
+            }
+
+            .contact-card {
+                padding: 40px;
+            }
+
+            .contact-card h3 {
+                font-size: 28px;
+            }
+
+            .cookie-content {
+                flex-direction: row;
+            }
+
+            .cookie-actions {
+                width: auto;
+            }
+
+            .cookie-btn {
+                flex: initial;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                gap: 32px;
+                margin-bottom: 40px;
+            }
+
+            .footer-section {
+                text-align: left;
+            }
+
+            .footer {
+                padding: 60px 32px;
+            }
+
+            .footer-bottom {
+                margin-top: 48px;
+            }
+        }
+
+        /* Mobile responsive for cookie banner */
+        @media (max-width: 768px) {
+            .cookie-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cookie-actions {
+                width: 100%;
+                gap: 10px;
+            }
+
+            .cookie-btn {
+                flex: 1;
+                padding: 12px 16px;
+            }
+        }
+
+        /* Desktop Breakpoint (1024px) */
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 40px;
+            }
+
+            nav {
+                padding: 0 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="navbar-content">
+            <a href="#home" class="logo">
+                <img src="images/cm-interactive-logo.svg" alt="CM Interactive" class="logo-image">
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="desktop-nav">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#how-it-works">How it works</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-          </div>
+            <ul class="mobile-menu" id="mobile-nav">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#how-it-works">How it works</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
-      </nav>
-    </header>
+    </nav>
 
-    <main>
-      <section class="container-fluid" id="get-your-website-developed-container">
-        <h1 id="h1-medium">Developing High-Quality Websites</h1>
-        <div class="col-12" id="get-your-website-developed-container-inner">
-          <div class="container">
-            <div class="row">
-              <div class="col">
-                <h2 class="h2-extra-bold-created-by-experts">Bespoke Functionality and Design</h2>
-                <p class="developing-high-quality-websites-paragraph">
-                  Websites made to your exact requirements and preferences.
-                </p>
-              </div>
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="container" style="text-align: center;">
+            <h1>Digital solutions that <span class="highlight">deliver measurable results</span></h1>
+            <p>We design and build websites and digital products focused on one thing: hitting your business targets. No guesses. No fluff. Just results.</p>
+            <a href="#contact" class="btn">Let's talk</a>
+        </div>
+    </section>
+
+    <!-- Discovery Call CTA -->
+    <section class="discovery-cta">
+        <div class="container">
+            <div class="discovery-content">
+                <h2>Let's start with a conversation</h2>
+                <p>Book a 30-minute discovery call. No pitch. Just you, us, and a clear discussion about:</p>
+                <ul class="discovery-list">
+                    <li>What's your actual business problem?</li>
+                    <li>What does success look like for you?</li>
+                    <li>What's the opportunity cost of doing nothing?</li>
+                    <li>What would a solution be worth?</li>
+                </ul>
+                <p class="discovery-cta-text">By the end of 30 minutes, you'll know exactly what we'd build and how it impacts your bottom line.</p>
+                <a href="#booking" class="btn btn-large">Book a 30-minute discovery call</a>
             </div>
+        </div>
+    </section>
 
-            <div class="row">
-              <div class="col">
-                <h2 class="h2-extra-bold-created-by-experts">
-                  Better Than What You See is What You Get Software
-                </h2>
-                <p class="developing-high-quality-websites-paragraph">
-                  While WYSIWYG (What You See Is What You Get) software provides a user-friendly
-                  interface for website design, they may not always offer access to the underlying
-                  HTML, CSS, and JavaScript files. This could limit the ability to modify the
-                  website with other software without incurring additional costs.
-                </p>
-              </div>
+    <!-- Approach -->
+    <section class="approach" id="how-it-works">
+        <h2>How it works</h2>
+        <div class="approach-grid">
+            <div class="approach-item">
+                <div class="approach-number">01</div>
+                <h3>Discovery call</h3>
+                <p>We understand your business and define clear targets together.</p>
             </div>
+            <div class="approach-item">
+                <div class="approach-number">02</div>
+                <h3>Build</h3>
+                <p>Create solutions designed to hit those targets.</p>
+            </div>
+            <div class="approach-item">
+                <div class="approach-number">03</div>
+                <h3>Deliver & Optimise</h3>
+                <p>Launch and measure results. Optimise until you see growth.</p>
+            </div>
+        </div>
+    </section>
 
-            <div class="row">
-              <div class="col" id="get-your-website-developed-column">
-                <h2 class="h2-extra-bold-created-by-experts">
-                  Get Your First Website Developed for Free
-                </h2>
-                <p class="developing-high-quality-websites-paragraph">
-                  We are looking to develop our expertise, connections and reputation. So we're
-                  offering to develop your first website for free.
-                  <a href="/all-terms#legal-container">Terms and Conditions</a> apply,
-                  <b>
-                    this offer may also be removed at any time and is only available for our
-                    standard plan.
-                  </b>
-                </p>
-                <div id="get-a-free-quote-container">
-                  <a id="get-a-free-quote-link" href="mailto:help@cminteractive.uk?subject=Website%20Development%20Request&body=Please%20specify%20your%20website%20requirements%20below:%0D%0A%0D%0AThe%20date%20and%20time%20you%20are%20available:"">Send Us an Email to Get a Free Consultation</a>
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <h3>Web Design</h3>
+                    <p>High-converting, visually compelling designs structured to guide your visitors directly to your business goals.</p>
                 </div>
-              </div>
+                <div class="service-item">
+                    <h3>Web Development</h3>
+                    <p>Fast, secure, and scalable digital solutions built with modern technology to ensure seamless performance.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Digital Strategy</h3>
+                    <p>Comprehensive roadmaps to align your digital presence with your overarching business targets and revenue goals.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Conversion Optimisation</h3>
+                    <p>Data-driven testing and continuous refinement to squeeze maximum value out of your existing traffic.</p>
+                </div>
             </div>
-          </div>
         </div>
-      </section>
+    </section>
 
-      <section class="container-fluid" id="development-process-container">
-        <h2 class="h2-large-white">The Development Process</h2>
+    <!-- Calendly Booking Section -->
+    <section class="booking-section" id="booking">
+        <div class="container">
+            <h2>Book your discovery call</h2>
 
-        <div class="row" id="development-process-row-1">
-          <div class="col" id="dev-process-column-col-1-row1">
-            <h3 class="h3-large-white">STAGE 1</h3>
-            <h4 class="h4-large-white">Requirements</h4>
-            <p class="dev-process-paragraph">
-              This is the stage where you outline what your website needs. Our
-              team will work with you to make sure these requirements are
-              complete and clear before proceeding to the next step.
-            </p>
-          </div>
+                <!-- Calendly inline widget begin -->
+                <div class="calendly-inline-widget" data-url="https://calendly.com/cminteractiveuk/30min?background_color=f9f9f9&text_color=2b2b2b&primary_color=50c878" style="min-width:320px;height:700px;"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                <!-- Calendly inline widget end -->
 
-          <div class="col" id="dev-process-col-2-row-1">
-            <h3 class="h3-large-white">STAGE 2</h3>
-            <h4 class="h4-large-white">Design</h4>
-            <p class="dev-process-paragraph">
-              After gathering your requirements, we'll create a plan for
-              developing your website. This usually consists of an image of what
-              each page of the website will look like.
-            </p>
-          </div>
         </div>
+    </section>
 
-        <div class="row" id="development-process-row-2">
-          <div class="col" id="dev-process-col-1-row-2">
-            <h3 class="h3-large-white">STAGE 3</h3>
-            <h4 class="h4-large-white">Development</h4>
-            <p class="dev-process-paragraph">
-              Once we've completed the website design, we'll move on to the
-              development stage. Here, we'll write the necessary code for your
-              website and set up any requested services.
-            </p>
-          </div>
+    <!-- How We Measure Success -->
+    <section class="success-section">
+        <div class="container">
+            <h2>How we measure success</h2>
+            <p class="success-subtitle">We don't build for beauty. We build for results.</p>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-icon">📊</div>
+                    <h3>Conversion metrics</h3>
+                    <p>Click-through rates, form submissions, cart abandonment, sales velocity. If it moves the needle on revenue, we track it.</p>
+                </div>
 
-          <div class="col" id="dev-process-col-2-row-2">
-            <h3 class="h3-large-white">STAGE 4</h3>
-            <h4 class="h4-large-white">Testing</h4>
-            <p class="dev-process-paragraph">
-              In this stage of the development process, we will test your
-              website to ensure that it fits the requirements and there were no
-              errors made while writing the code.
-            </p>
-          </div>
-        </div>
+                <div class="metric-card">
+                    <div class="metric-icon">💰</div>
+                    <h3>Revenue impact</h3>
+                    <p>Direct revenue increase, cost savings, margin improvement, lifetime value. Everything ties back to your bottom line.</p>
+                </div>
 
-        <div class="row" id="development-process-row-3">
-          <div class="col" id="dev-process-col-1-row-3">
-            <h3 class="h3-large-white">STAGE 5</h3>
-            <h4 class="h4-large-white">Maintenance</h4>
-            <p class="dev-process-paragraph">
-              This is the final stage of development, this is where we will
-              provide small updates each month to ensure your website continues
-              to run smoothly.
-              <br />
-              <strong
-                >Please note, this stage being included for free is dependent on
-                the pricing option you select for your website or a private
-                agreement. Maintenance starts from £50 per month but can vary
-                depending on the complexity of your website. We also do not
-                provide maintenance for websites which we haven't developed or
-                have since been modified by a third party. Free maintenance is
-                not included for websites developed for free.</strong
-              >
-            </p>
-          </div>
-        </div>
-      </section>
+                <div class="metric-card">
+                    <div class="metric-icon">⏱️</div>
+                    <h3>Efficiency gains</h3>
+                    <p>Time saved on manual processes, reduced support costs, faster customer onboarding. Operational excellence matters.</p>
+                </div>
 
-      <section class="container-fluid" id="pricing-container">
-        <h2 class="h2-large-white" id="pricing-header">Pricing</h2>
-
-        <div class="table-responsive">
-          <table class="table table-striped" aria-labelledby="pricing-header">
-            <thead>
-              <tr>
-                <th class="table-header table-header-left">Feature</th>
-                <th class="table-header" scope="col" id="table-header-1">
-                  Standard
-                </th>
-                <th class="table-header" scope="col" id="table-header-2">
-                  Premium
-                </th>
-                <th
-                  class="table-header table-header-right"
-                  id="table-header-3"
-                  scope="col"
-                >
-                  Ultra
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Development Fee</th>
-                <td headers="table-header-1" id="column-1a">£99</td>
-                <td headers="table-header-2" id="column-2a">£249</td>
-                <td headers="table-header-3" id="column-3a">From £549</td>
-              </tr>
-              <tr>
-                <th scope="row">Source Code</th>
-                <td headers="table-header-1" id="column-1b">Yes</td>
-                <td headers="table-header-2" id="column-2b">Yes</td>
-                <td headers="table-header-3" id="column-3b">Yes</td>
-              </tr>
-              <tr>
-                <th scope="row">Number of Pages</th>
-                <td headers="table-header-1" id="column-1c">1</td>
-                <td headers="table-header-2" id="column-2c">3</td>
-                <td headers="table-header-3" id="column-3c">Unlimited</td>
-              </tr>
-              <tr>
-                <th scope="row">User Accounts</th>
-                <td headers="table-header-1" id="column-1d">No</td>
-                <td headers="table-header-2" id="column-2d">No</td>
-                <td headers="table-header-3" id="column-3d">Yes</td>
-              </tr>
-              <tr>
-                <th scope="row">Database Connection</th>
-                <td headers="table-header-1" id="column-1e">No</td>
-                <td headers="table-header-2" id="column-2e">Yes</td>
-                <td headers="table-header-3" id="column-3e">Yes</td>
-              </tr>
-              <tr>
-                <th scope="row">E-Commerce</th>
-                <td headers="table-header-1" id="column-1f">No</td>
-                <td headers="table-header-2" id="column-2f">No</td>
-                <td headers="table-header-3" id="column-3f">Yes</td>
-              </tr>
-              <tr>
-                <th scope="row">Mobile Responsiveness</th>
-                <td headers="table-header-1" id="column-1g">Yes</td>
-                <td headers="table-header-2" id="column-2g">Yes</td>
-                <td headers="table-header-3" id="column-3g">Yes</td>
-              </tr>
-              <tr>
-                <th scope="row">Number of Revisions</th>
-                <td headers="table-header-1" id="column-1h">1</td>
-                <td headers="table-header-2" id="column-2h">2</td>
-                <td headers="table-header-3" id="column-3h">3</td>
-              </tr>
-              <tr>
-                <th scope="row" id="table-bottom-left">
-                  3 Months of Free Maintenance (Terms Apply)
-                </th>
-                <td headers="table-header-1" id="column-1i">Yes</td>
-                <td headers="table-header-2" id="column-2i">Yes</td>
-                <td headers="table-header-3" id="table-bottom-right">Yes</td>
-              </tr>
-            </tbody>
-          </table>
-          <p class="website-pricing-table-paragraph">
-            If you are on a smaller screen, please use the scroll bar below
-            to view the entire table.
-          </p>
-          <p class="website-pricing-table-paragraph">
-            These prices only include the development fee and do not include
-            other fees like website hosting.
-          </p>
-        </div>
-      </section>
-
-      <section class="container-fluid" id="what-we-will-need-from-you-container">
-        <h2 class="h2-large-white">What We'll Need From You</h2>
-        <div class="container-fluid">
-          <div class="row" id="what-we-will-need-from-you-row-1">
-            <div class="col" id="confirming-your-identity-column">
-              <h3 class="h3-medium-black-align-left">
-                Step 1: Confirming Your Identity
-              </h3>
-              <p>
-                To use our services, you must be over 18 so you can agree to our
-                terms and conditions. We also check your identity to protect us
-                from abuse and fraud. So, in order to confirm your identity with
-                our identity checking partner Checks Direct, we'll need a UK
-                Government issued ID which is valid, not lost or stolen and not
-                expired.
-              </p>
-              <p>
-                <strong
-                  >We will also need payment of our £10 identity checking fee. We
-                  accept:</strong
-                >
-              </p>
-              <p><strong>If you are an Individual / Sole Trader:</strong></p>
-              <ul>
-                <li>UK Driving License</li>
-                <li>UK Passport</li>
-              </ul>
-              <p><strong>If you are a Company:</strong></p>
-              <ul>
-                <li>Certificate of Incorporation</li>
-                <li>
-                  The person who is authorised to act on behalf of your company
-                  must also have their ID verified with one of the accepted IDs
-                  above.
-                </li>
-              </ul>
+                <div class="metric-card">
+                    <div class="metric-icon">📈</div>
+                    <h3>Growth trajectory</h3>
+                    <p>Month-over-month improvement, user retention, repeat purchase rates. We optimise for sustainable growth, not one-off wins.</p>
+                </div>
             </div>
 
-            <div class="col" id="confirming-your-address-column">
-              <h3 class="h3-medium-black-align-left">
-                Step 2: Confirming Your Address
-              </h3>
-              <p>
-                We also require that you confirm your billing address before
-                using our services.
-              </p>
-              <p>
-                <strong
-                  >If you are an Individual / Sole Trader or a Company:</strong
-                >
-              </p>
-              <ul>
-                <li>
-                  You may use a document which has your name on it (or your
-                  company's name) and your address (or your company's address).
-                  The document must have been issued within the last 3 months.
-                </li>
-              </ul>
-              <p class="bold">Examples Include:</p>
-              <ul>
-                <li>Utility Bill</li>
-                <li>Bank Statement</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="row" id="what-we-will-need-from-you-row-2">
-            <div class="col" id="requirements-column">
-              <h3 class="h3-medium-black-align-left">Step 3: Requirements</h3>
-              <p>
-                We'll need some information about the requirements for your
-                website. Once this stage has been completed, we will ask for
-                payment to start the development process.<br />
-                <strong>We typically ask for:</strong>
-              </p>
-              <ul>
-                <li>Website Colour Scheme (if applicable)</li>
-                <li>Any assets for example: Images, Icons, Logos etc.</li>
-                <li>Any designs you currently have for your website.</li>
-                <li>
-                  A description of your website's required functionality.
-                </li>
-                <li>Your email address for communications</li>
-              </ul>
-              <p>
-                <strong
-                  >It is your responsibility to check that you have the
-                  intellectual property rights to use the assets you provide us.
-                  You must also give us full permission to use these assets
-                  within your website.</strong
-                >
-              </p>
-            </div>
-            <div class="col" id="payment-column">
-              <h3 class="h3-medium-black-align-left">Step 4: Payment</h3>
-              <p>
-                Before we start developing your website, we must first accept
-                payment for your chosen pricing option for developing your
-                website. Please note there may also be separate monthly charges
-                for certain online services and ongoing maintenance fees; our
-                team will tell you this during the requirements stage. All fees
-                will also be on your invoice. You will not be charged for online
-                services or maintenance until your website is being used by its
-                end-users.
-                <br />
-                <strong
-                  >You may need to raise your daily transaction limit on your
-                  bank account. We accept debit cards, credit cards, and bank
-                  transfers as payment.</strong
-                >
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div id="get-a-free-quote-container">
-          <a
-            id="get-a-free-quote-link"
-            href="mailto:help@cminteractive.uk?subject=Website%20Development%20Request&body=Please%20specify%20your%20website%20requirements%20below:%0D%0A%0D%0AThe%20date%20and%20time%20you%20are%20available:"
-            aria-label="Send Us an Email to Request a Free Consultation for Website Development"
-            >Send Us an Email to Get a Free Consultation</a
-          >
-        </div>
-      </section>
-
-      <section class="container-fluid" id="legal-container">
-        <h2 class="h2-large-white" id="legal-header">Legal Information</h2>
-        <div class="row" id="terms-row">
-            <div class="col" id="terms-section">
-                <div
-                    class="terms-container"
-                >
-                    <h3 class="h3-large-white">Website Development Terms and Conditions</h3>
-                    <div>
-                        <p class="term-info">
-                            Version: 1.2 <br />
-                            Published: 26/06/2025
-                        </p>
-                        <a
-                            href="terms/Website Development Terms and Conditions/v1.2/Website Development Terms and Conditions v1.2.pdf"
-                            download="Website Development Terms and Conditions v1.2.pdf"
-                            class="terms-pdf-download-btn"
-                            aria-label="Download Website Development Terms and Conditions PDF Version 1.2"
-                            >Download PDF</a
-                        >
+            <div class="success-process">
+                <h3>Our measurement framework</h3>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-num">1</div>
+                        <h4>Define baseline</h4>
+                        <p>We establish current metrics in your discovery call. What's happening now?</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-num">2</div>
+                        <h4>Set targets</h4>
+                        <p>What does success look like? We agree on realistic, measurable KPIs.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-num">3</div>
+                        <h4>Build & Optimise</h4>
+                        <p>We track metrics in real-time and optimise until you hit your targets.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-num">4</div>
+                        <h4>Scale</h4>
+                        <p>Once targets are achieved consistently, we double down to scale.</p>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div
-                class="terms-container"
-            >
-                <h3 class="h3-large-white">Website Terms and Conditions</h3>
-                <div>
-                    <p class="term-info">
-                        Version: 1.1 <br />
-                        Published: 26/06/2025
-                    </p>
-                    <a
-                        href="terms/website-terms-and-conditions/v1.1/Website Terms and Conditions v1.1.pdf"
-                        download="Website Terms and Conditions v1.1.pdf"
-                        class="terms-pdf-download-btn"
-                        aria-label="Download Website Terms and Conditions PDF Version 1.1"
-                        >Download PDF</a
-                    >
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <h2>Simple pricing that scales with you</h2>
+            <p class="pricing-subtitle">No hidden fees. No surprises. Just clarity.</p>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-phase">Phase 1</div>
+                    <h3>Discovery & Design</h3>
+                    <p class="pricing-label">Free</p>
+                    <ul class="pricing-features">
+                        <li>30-minute strategy call</li>
+                        <li>Requirements mapping</li>
+                        <li>Custom design proposal</li>
+                        <li>ROI analysis</li>
+                        <li>No obligation</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-card pricing-card-accent">
+                    <div class="pricing-phase accent">Phase 2</div>
+                    <h3>Custom Implementation</h3>
+                    <p class="pricing-label">Tailored to your scope</p>
+                    <ul class="pricing-features">
+                        <li>Website redesign</li>
+                        <li>E-commerce setup</li>
+                        <li>Custom development</li>
+                        <li>Launch & optimization</li>
+                        <li>Results-backed guarantees</li>
+                    </ul>
+                    <p class="pricing-note">Every project is unique. After we understand your needs, we'll provide a custom quote with ROI projections.</p>
                 </div>
             </div>
 
-            <div
-                class="terms-container"
-            >
-                <h3 class="h3-large-white">Privacy Policy</h3>
-                <p class="term-info">
-                    Version: 1 <br />
-                    Published: 26/06/2025
-                </p>
-                <a
-                    href="terms/Privacy Policy/v1/Privacy Policy v1.pdf"
-                    download="Privacy Policy v1.pdf"
-                    class="terms-pdf-download-btn"
-                    aria-label="Download Privacy Policy PDF Version 1"
-                    >Download PDF</a
-                >
+            <div class="pricing-footer">
+                <p>We price based on impact, not hours. The bigger the result, the bigger the investment. But the ROI usually pays for itself within months.</p>
             </div>
         </div>
-      </section>
+    </section>
 
-      
-      <section class="container-fluid" id="help-container">
-        <h2 class="h2-large-white" id="help-header">Help & Support</h2>
-        <div class="row" id="help-row">
-          <div class="col" id="faq-column">
-            <h3 class="h3-large-white" id="faq-header">
-              <span class="highlight">F</span>requently
-              <span class="highlight">A</span>sked
-              <span class="highlight">Q</span>uestions
-            </h3>
-            <h4 class="h4-large-white faq-question-header">
-              How Long Will Each Stage of the Development Process Take?
-            </h4>
-            <p class="faq-paragraph">
-              This can vary based on the complexity of your website. However,
-              generally it takes 1 week to write the requirements, 2 weeks for
-              design, 2 weeks for development, and 3 weeks for testing. So, a
-              total development time of 8 weeks (2 months). This also does not
-              include non-working days like bank holidays and weekends.
-            </p>
-            <h4 class="h4-large-white faq-question-header">
-              Why do you offer free websites?
-            </h4>
-            <p class="faq-paragraph">
-              We offer free websites so you can get an idea of how the
-              development process works and what our work looks like before
-              committing to a paid plan. Therefore, if you like the work we have
-              done, you can upgrade to a paid plan for additional features.
-            </p>
-            <h4 class="h4-large-white faq-question-header">
-              Do you accept customers outside of the UK?
-            </h4>
-            <p class="faq-paragraph">
-              Unfortunately, we do not accept customers outside of the UK.
-              However, we are looking to expand into different countries in the
-              future.
-            </p>
-          </div>
-          <div class="col" id="contact-us-column">
-            <h3 class="h3-large-white" id="contact-us-header">Contact Us</h3>
-            <h4 class="h4-light-white">Email:</h4>
-            <p id="email-paragraph">help@cminteractive.uk</p>
-          </div>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-intro">
+                <h2>Ready to get started?</h2>
+                <p>Use the secure form below to send us a message. We aim to respond within 24 hours.</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-card">
+                    <div class="contact-badge">SECURE CONTACT</div>
+                    <h3>Send us a message</h3>
+                    <p>Tell us a bit about your business goals and what you're looking to achieve.</p>
+                    
+                    <form id="contact-form" action="/your-form-handler" method="POST">
+                        <div style="margin-bottom: 20px;">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required placeholder="John Doe">
+                        </div>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <label for="email">Email address</label>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        </div>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="How can we help you?"></textarea>
+                        </div>
+                        
+                        <!-- Cloudflare Turnstile Protection -->
+                        <div class="turnstile-wrapper">
+                            <div class="verification-box">Please verify you are human to enable submission:</div>
+                            <!-- IMPORTANT: Replace YOUR_SITE_KEY_HERE with your actual Cloudflare Turnstile Site Key -->
+                            <div class="cf-turnstile" data-sitekey="YOUR_SITE_KEY_HERE" data-theme="dark"></div>
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
         </div>
-      </section>
-    </main>
+    </section>
 
-    <footer class="container-fluid footer-container">
-      <img
-        src="images/CMI-Logo-3.png"
-        class="navbar-brand"
-        id="cmi-logo-footer"
-        alt="CM Interactive Logo"
-      />
-      <p>
-        <strong>&copy; 2024 - 2025 CM Interactive Limited, All Rights Reserved</strong>
-      </p>
-      <p>
-        CM Interactive Limited is a Private Limited Liability Company Registered
-        In England and Wales With Companies House. <br />
-        Company Number: 15392983 <br />
-        Registered Office Address: Unit A 82 James Carter Road Mildenhall
-        Suffolk IP28 7DE United Kingdom
-      </p>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="#home" class="footer-logo">
+                        <img src="images/cm-interactive-logo.svg" alt="CM Interactive" class="footer-logo-image">
+                    </a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="#how-it-works">How it Works</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="/sitemap.xml">Sitemap</a></li>
+                        <li><a href="/robots.txt">Robots.txt</a></li>
+                        <li><a href="/llms.txt">LLMs.txt</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 - 2026 CM Interactive Limited. All rights reserved.</p>
+                <p>Based in the United Kingdom, registered in England and Wales (company number 15392983).</p>
+            </div>
+        </div>
     </footer>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p>We use cookies to analyze how you interact with our website and improve your experience. Only analytical cookies are used, no tracking or advertising. By accepting, you help us make CM Interactive better.</p>
+                <a href="/privacy-policy">For more information, see our privacy policy.</a>
+            </div>
+            <div class="cookie-actions">
+                <button class="cookie-btn decline" onclick="consentManager.decline()">Decline</button>
+                <button class="cookie-btn accept" onclick="consentManager.accept()">Accept</button>
+            </div>
+        </div>
+    </div>
 
-    <script src="js/redirect.js"></script>
+    <script>
+        // Hide banner if consent already given
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedConsent = getCookie(CONSENT_COOKIE);
+            if(savedConsent !== null) {
+                document.getElementById('cookie-banner').style.display = 'none';
+            }
+        });
 
-    <script src="js/terms-popup.js"></script>
-  </body>
+        // Hamburger Menu Functionality
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobile-nav');
+        const mobileLinks = mobileNav.querySelectorAll('a');
+        const desktopNav = document.getElementById('desktop-nav');
+        const desktopLinks = desktopNav.querySelectorAll('a');
+
+        // Toggle mobile menu
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav')) {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
+            }
+        });
+
+        // Set active link based on current scroll position
+        function setActiveLink() {
+            const sections = document.querySelectorAll('section[id]');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                const scrollPosition = window.scrollY;
+
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                    const id = section.getAttribute('id');
+                    
+                    // Remove active class from all links
+                    mobileLinks.forEach(link => link.classList.remove('active'));
+                    desktopLinks.forEach(link => link.classList.remove('active'));
+
+                    // Add active class to current section link
+                    document.querySelector(`a[href="#${id}"]`)?.classList.add('active');
+                }
+            });
+        }
+
+        // Listen to scroll events
+        window.addEventListener('scroll', setActiveLink);
+        window.addEventListener('load', setActiveLink);
+    </script>
+</body>
 </html>

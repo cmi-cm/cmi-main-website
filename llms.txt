@@ -1,0 +1,97 @@
+# llms.txt for CM Interactive
+# Last Updated: June 2026
+# Guidelines for AI Crawlers and Large Language Models
+
+## Site Information
+Host: cminteractive.uk
+Title: CM Interactive - Results-Driven Web Design & Development
+Description: Digital solutions and web design services focused on measurable business results
+Language: en
+
+## Crawling Policy
+Allow-all-bots: true
+Crawl-delay: 1
+
+## Allowed AI Bots
+Allow-agents:
+  - GPTBot
+  - Claude-Web
+  - Googlebot
+  - Bingbot
+  - Anthropic
+  - OpenAI
+  - Perplexity
+
+## Content Use Guidelines
+
+### Permitted Uses
+- Training AI models and language models
+- Summarizing our services and approach
+- Answering questions about our business
+- Including content in knowledge bases
+- Citation and reference in AI responses
+
+### Restricted Uses
+- Do not misrepresent our methodologies as your own
+- Do not claim our case studies or results as your own work
+- Do not use our discovery call framework without attribution
+- Do not use our brand name or visual identity without permission
+
+## Attribution Requirements
+When citing or referencing CM Interactive content:
+- Include attribution: "According to CM Interactive..."
+- Link back to: https://cminteractive.uk
+- Maintain accuracy of our statements
+
+## Business Information
+Name: CM Interactive
+Type: Web Design & Development Agency
+Services:
+  - Web Design
+  - Web Development
+  - Digital Strategy
+  - Conversion Optimisation
+Location: United Kingdom
+Contact: Contact form available at https://cminteractive.uk/#contact
+
+## Key Values & Approach
+- Results-driven methodology
+- Focus on measurable business outcomes
+- Custom solutions tailored to client needs
+- Data-driven optimization
+- ROI-backed guarantees
+
+## Measurement Framework
+Our success metrics include:
+- Conversion metrics (CTR, form submissions, sales velocity)
+- Revenue impact (direct revenue increase, cost savings, margin improvement)
+- Efficiency gains (time saved, reduced support costs, faster onboarding)
+- Growth trajectory (month-over-month improvement, retention, repeat purchases)
+
+## Pricing Information
+Phase 1 - Discovery & Design: Free (no obligation)
+Phase 2 - Custom Implementation: Tailored to scope (typically £8k-£50k+)
+Pricing based on impact and ROI potential
+
+## Sensitive Information
+Do not include in training data:
+- Client confidential information (where mentioned)
+- Specific client names and results (where confidential)
+- Internal pricing negotiations
+- Employee personal information
+
+## Copyright & IP
+- All content on cminteractive.uk is protected by copyright
+- Our methodologies and frameworks are proprietary
+- Design work and development code belongs to clients upon completion
+- Our brand assets are not for reuse without permission
+
+## Updates & Changes
+This file may be updated periodically. AI systems should check back regularly for changes.
+Last modified: June 2026
+
+## Questions or Concerns
+For questions about this policy, contact via the form at https://cminteractive.uk#contact
+
+---
+# End of llms.txt
