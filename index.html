@@ -17,6 +17,14 @@
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QW701ZMK1"></script>
 
+
+    <!--Email JS initalisation-->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        emailjs.init({ publicKey: "AgrS_0tnzuWWj9NKv" });
+    </script>
+
+
     <!-- Consent Management Script -->
     <script>
       const CONSENT_COOKIE = 'cm_analytics_consent';
@@ -100,8 +108,8 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%2350C878' width='32' height='32' rx='6'/><text x='50%' y='50%' font-size='18' font-weight='700' fill='white' text-anchor='middle' dominant-baseline='central'>CM</text></svg>">
     <link rel="alternate icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==">
     
-    <!-- Cloudflare Turnstile Script -->
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <!-- Google reCAPTCHA v2 -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -880,7 +888,7 @@
             font-size: 14px;
         }
 
-        .turnstile-wrapper {
+        .recaptcha-wrapper {
             margin: 24px 0;
         }
 
@@ -1542,29 +1550,33 @@
                     <h3>Send us a message</h3>
                     <p>Tell us a bit about your business goals and what you're looking to achieve.</p>
                     
-                    <form id="contact-form" action="/your-form-handler" method="POST">
+                    <form id="contact-form">
                         <div style="margin-bottom: 20px;">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required placeholder="John Doe">
                         </div>
-                        
+
                         <div style="margin-bottom: 20px;">
                             <label for="email">Email address</label>
                             <input type="email" id="email" name="email" required placeholder="john@example.com">
                         </div>
-                        
+
+                        <div style="margin-bottom: 20px;">
+                            <label for="title">Subject</label>
+                            <input type="text" id="title" name="title" required placeholder="What's this about?">
+                        </div>
+
                         <div style="margin-bottom: 20px;">
                             <label for="message">Message</label>
                             <textarea id="message" name="message" rows="5" required placeholder="How can we help you?"></textarea>
                         </div>
-                        
-                        <!-- Cloudflare Turnstile Protection -->
-                        <div class="turnstile-wrapper">
+
+                        <!-- Google reCAPTCHA Protection -->
+                        <div class="recaptcha-wrapper">
                             <div class="verification-box">Please verify you are human to enable submission:</div>
-                            <!-- IMPORTANT: Replace YOUR_SITE_KEY_HERE with your actual Cloudflare Turnstile Site Key -->
-                            <div class="cf-turnstile" data-sitekey="YOUR_SITE_KEY_HERE" data-theme="dark"></div>
+                            <div class="g-recaptcha" data-sitekey="6Lca2x4tAAAAAH6pSQliVWWVfQleenC89jCmVxF4" data-theme="dark"></div>
                         </div>
-                        
+
                         <button type="submit" class="btn" style="width: 100%;">Send Message</button>
                     </form>
                 </div>
@@ -1631,6 +1643,8 @@
         </div>
     </div>
 
+
+    <!--Reactive navbar based on scroll-->
     <script>
         // Hide banner if consent already given
         document.addEventListener('DOMContentLoaded', function() {
@@ -1694,6 +1708,41 @@
         // Listen to scroll events
         window.addEventListener('scroll', setActiveLink);
         window.addEventListener('load', setActiveLink);
+    </script>
+
+    
+    <!--Form JS-->
+    <script>
+        const contactForm = document.getElementById('contact-form');
+
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Require a completed reCAPTCHA before sending
+            const captchaToken = window.grecaptcha ? grecaptcha.getResponse() : '';
+            if (!captchaToken) {
+                alert('Please complete the verification before sending.');
+                return;
+            }
+
+            const btn = contactForm.querySelector('button[type="submit"]');
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+
+            emailjs.sendForm('service_34etu3d', 'template_7ll0kqg', contactForm)
+                .then(function () {
+                    btn.textContent = 'Message sent ✓';
+                    contactForm.reset();
+                    if (window.grecaptcha) grecaptcha.reset();
+                })
+                .catch(function (err) {
+                    console.error(err);
+                    btn.disabled = false;
+                    btn.textContent = 'Send Message';
+                    if (window.grecaptcha) grecaptcha.reset();
+                    alert('Something went wrong, please try again, or email help@cminteractive.uk directly.');
+                });
+        });
     </script>
 </body>
 </html>
