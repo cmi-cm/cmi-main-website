@@ -7,6 +7,12 @@
         <priority>1.0</priority>
     </url>
     <url>
+        <loc>https://cminteractive.uk/local-website-development</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
         <loc>https://cminteractive.uk/privacy-policy</loc>
         <lastmod>2026-07-06</lastmod>
         <changefreq>yearly</changefreq>
