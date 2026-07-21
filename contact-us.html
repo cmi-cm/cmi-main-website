@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Analytics with Consent Management -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      // Default to no consent until user decides
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied'
+      });
+
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0QW701ZMK1');
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QW701ZMK1"></script>
+
+
+    <!--Email JS initalisation-->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        emailjs.init({ publicKey: "AgrS_0tnzuWWj9NKv" });
+    </script>
+
+
+    <!-- Consent Management Script -->
+    <script>
+      const CONSENT_COOKIE = 'cm_analytics_consent';
+      const CONSENT_EXPIRY_DAYS = 365;
+
+      function getCookie(name) {
+        const nameEQ = name + "=";
+        const cookies = document.cookie.split(';');
+        for(let cookie of cookies) {
+          cookie = cookie.trim();
+          if(cookie.indexOf(nameEQ) === 0) {
+            return cookie.substring(nameEQ.length);
+          }
+        }
+        return null;
+      }
+
+      function setCookie(name, value, days) {
+        const expires = new Date();
+        expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+        document.cookie = name + "=" + value + ";expires=" + expires.toUTCString() + ";path=/;SameSite=Strict";
+      }
+
+      function updateAnalyticsConsent(consent) {
+        gtag('consent', 'update', {
+          'analytics_storage': consent ? 'granted' : 'denied',
+          'ad_storage': consent ? 'granted' : 'denied'
+        });
+        setCookie(CONSENT_COOKIE, consent ? 'true' : 'false', CONSENT_EXPIRY_DAYS);
+      }
+
+      // Check existing consent
+      const savedConsent = getCookie(CONSENT_COOKIE);
+      if(savedConsent === 'true') {
+        gtag('consent', 'update', {
+          'analytics_storage': 'granted',
+          'ad_storage': 'granted'
+        });
+      }
+
+      window.consentManager = {
+        accept: function() {
+          updateAnalyticsConsent(true);
+          document.getElementById('cookie-banner').style.display = 'none';
+        },
+        decline: function() {
+          updateAnalyticsConsent(false);
+          document.getElementById('cookie-banner').style.display = 'none';
+        },
+        hasConsent: function() {
+          return getCookie(CONSENT_COOKIE) === 'true';
+        }
+      };
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact CM Interactive | Web Design &amp; Development, Lincolnshire</title>
+    <meta name="description" content="Get in touch with CM Interactive. Send a quick message or book a free 30-minute discovery call. Web design and development for Lincolnshire and UK businesses.">
+    <meta name="author" content="CM Interactive">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+    <!-- Open Graph / Social Media -->
+    <!-- No og:image set. Shares render as a text-only card.
+         To upgrade: add a 1200x630 PNG, then reinstate og:image,
+         og:image:width, og:image:height, og:image:alt and twitter:image,
+         and switch twitter:card back to summary_large_image. -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cminteractive.uk/contact-us">
+    <meta property="og:title" content="Contact CM Interactive | Web Design &amp; Development">
+    <meta property="og:description" content="Send a quick message or book a free 30-minute discovery call with CM Interactive.">
+    <meta property="og:site_name" content="CM Interactive">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter -->
+    <!-- summary, not summary_large_image, because there is no image to fill it. -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://cminteractive.uk/contact-us">
+    <meta name="twitter:title" content="Contact CM Interactive | Web Design &amp; Development">
+    <meta name="twitter:description" content="Send a quick message or book a free 30-minute discovery call with CM Interactive.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://cminteractive.uk/contact-us">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%2350C878' width='32' height='32' rx='6'/><text x='50%' y='50%' font-size='18' font-weight='700' fill='white' text-anchor='middle' dominant-baseline='central'>CM</text></svg>">
+    <link rel="alternate icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==">
+
+    <!-- Google reCAPTCHA v2 -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://cminteractive.uk/#organization",
+          "name": "CM Interactive",
+          "legalName": "CM Interactive Limited",
+          "description": "Results-driven web design and development agency",
+          "url": "https://cminteractive.uk",
+          "image": "https://cminteractive.uk/images/cm-interactive-logo.svg",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://cminteractive.uk/images/cm-interactive-logo.svg"
+          },
+          "email": "help@cminteractive.uk",
+          "areaServed": {
+            "@type": "Country",
+            "name": "United Kingdom"
+          },
+          "knowsAbout": ["Web Design", "Web Development", "Digital Strategy", "Conversion Optimisation"],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Customer Service",
+            "email": "help@cminteractive.uk",
+            "availableLanguage": "English",
+            "url": "https://cminteractive.uk/contact-us"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://cminteractive.uk/#website",
+          "url": "https://cminteractive.uk",
+          "name": "CM Interactive",
+          "publisher": { "@id": "https://cminteractive.uk/#organization" }
+        },
+        {
+          "@type": "ContactPage",
+          "@id": "https://cminteractive.uk/contact-us#webpage",
+          "url": "https://cminteractive.uk/contact-us",
+          "name": "Contact CM Interactive",
+          "description": "Contact CM Interactive for web design, development and digital strategy enquiries.",
+          "isPartOf": { "@id": "https://cminteractive.uk/#website" },
+          "about": { "@id": "https://cminteractive.uk/#organization" },
+          "mainEntity": { "@id": "https://cminteractive.uk/#organization" },
+          "breadcrumb": { "@id": "https://cminteractive.uk/contact-us#breadcrumb" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://cminteractive.uk/contact-us#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://cminteractive.uk"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Contact",
+              "item": "https://cminteractive.uk/contact-us"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Brand green. Readable as a BACKGROUND with dark text on top. */
+            --primary: #50C878;
+            /* Lighter green for hover states on filled buttons. */
+            --primary-light: #6FD492;
+            /* Darker green for green TEXT sitting on light backgrounds. */
+            --primary-dark: #2A7F4F;
+
+            --secondary: #2B2B2B;
+            --background: #F9F9F9;
+            --accent: #D4AF37;
+            --text-dark: #2B2B2B;
+            --text-mid: #5A5A5A;
+            --text-light: #6E6E6E;
+            --border: #E5E5E5;
+            --white: #FFFFFF;
+
+            /* Muted text on the dark contact cards. */
+            --text-on-dark-muted: #AAAAAA;
+
+            /* One source of truth for horizontal page padding.
+               Sections no longer carry their own side padding; only
+               .container (and nav) use this, so nothing double-pads. */
+            --page-pad: 20px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: var(--background);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* Keyboard focus ring, applied globally so nothing is missed */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        /* Skip link for keyboard and screen reader users */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            background: var(--secondary);
+            color: var(--white);
+            padding: 12px 20px;
+            z-index: 10001;
+            border-radius: 0 0 6px 0;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            left: 0;
+        }
+
+        /* Navbar */
+        nav {
+            position: sticky;
+            top: 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 0 var(--page-pad);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .navbar-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.2s ease;
+            min-width: 0;
+        }
+
+        .logo:hover {
+            color: var(--primary-dark);
+        }
+
+        .logo-image {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 8px;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2.5px;
+            background: var(--text-dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .nav-links {
+            display: none;
+            gap: 28px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-dark);
+        }
+
+        .nav-links a.active {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        /* Nav CTA, so the discovery call link reads as the primary action
+           rather than competing flatly with the Contact link next to it. */
+        .nav-links a.nav-cta {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 9px 18px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+
+        .nav-links a.nav-cta:hover {
+            background: var(--primary-light);
+            color: var(--secondary);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            flex-direction: column;
+            gap: 0;
+            list-style: none;
+            padding: 20px 0;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu li {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mobile-menu li:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 16px var(--page-pad);
+            font-size: 16px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .mobile-menu a:hover,
+        .mobile-menu a.active {
+            color: var(--primary-dark);
+            background: rgba(80, 200, 120, 0.08);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 var(--page-pad);
+        }
+
+        /* Hero */
+        .hero {
+            /* Vertical rhythm only. Horizontal space comes from .container,
+               so content is no longer squeezed by two layers of padding. */
+            padding: 64px 0;
+            text-align: center;
+            background: var(--background);
+        }
+
+        .hero h1 {
+            font-size: clamp(28px, 7vw, 40px);
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.15;
+            overflow-wrap: break-word;
+        }
+
+        .hero h1 .highlight {
+            color: var(--primary-dark);
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--text-mid);
+            margin-bottom: 0;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Buttons */
+        .btn {
+            background: var(--primary);
+            color: var(--secondary);
+            border: none;
+            padding: 16px 40px;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: inherit;
+            line-height: 1.2;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: background 0.2s ease, transform 0.2s ease;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            max-width: 100%;
+        }
+
+        .btn:hover {
+            background: var(--primary-light);
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        /* Smaller variant, for secondary placements like the aside card */
+        .btn-sm {
+            padding: 12px 24px;
+            font-size: 15px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 64px 0;
+            background: var(--secondary);
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .contact-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 28px 20px;
+            backdrop-filter: blur(10px);
+            min-width: 0; /* let the card shrink inside the grid track */
+        }
+
+        .contact-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(80,200,120,0.15);
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        /* h2 rather than h3 so the document outline runs h1 to h2
+           with no skipped level. */
+        .contact-card h2 {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .contact-card > p {
+            color: #ccc;
+            margin-bottom: 24px;
+            font-size: 15px;
+        }
+
+        .contact-card input,
+        .contact-card textarea {
+            width: 100%;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 10px;
+            color: white;
+            padding: 14px 16px;
+            font-size: 16px; /* 16px stops iOS Safari auto-zooming on focus */
+            font-family: inherit;
+        }
+
+        .contact-card input:focus,
+        .contact-card textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(80,200,120,0.15);
+        }
+
+        .contact-card input::placeholder,
+        .contact-card textarea::placeholder {
+            color: rgba(255,255,255,0.68);
+        }
+
+        .contact-card label {
+            color: white;
+            margin-bottom: 8px;
+            display: block;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-row {
+            margin-bottom: 20px;
+        }
+
+        .recaptcha-wrapper {
+            margin: 24px 0;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .verification-box {
+            color: var(--text-on-dark-muted);
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        /* Inline form status, replaces the alert() calls so the message
+           is announced to screen readers and does not block the page. */
+        .form-status {
+            margin-top: 16px;
+            font-size: 14px;
+            font-weight: 600;
+            min-height: 21px;
+        }
+
+        .form-status.error {
+            color: #FF9B9B;
+        }
+
+        .form-status.success {
+            color: var(--primary);
+        }
+
+        /* The reCAPTCHA iframe is a fixed 304px wide and cannot be restyled.
+           Scale it down proportionally on narrow screens. The layout box
+           keeps its original size when transformed, so trim the reserved
+           height to match the visual size and stop it leaving a gap. */
+        @media (max-width: 400px) {
+            .g-recaptcha {
+                transform: scale(0.82);
+                transform-origin: 0 0;
+            }
+
+            .recaptcha-wrapper {
+                height: calc(78px * 0.82 + 42px);
+            }
+        }
+
+        @media (max-width: 340px) {
+            .g-recaptcha {
+                transform: scale(0.72);
+            }
+
+            .recaptcha-wrapper {
+                height: calc(78px * 0.72 + 42px);
+            }
+        }
+
+        /* Aside card */
+        .contact-aside-item {
+            margin-bottom: 22px;
+        }
+
+        .contact-aside-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-aside-item .label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-on-dark-muted);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .contact-aside-item a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            overflow-wrap: break-word; /* long email addresses wrap instead of overflowing */
+        }
+
+        .contact-aside-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Buttons inside the aside must beat the plain link rule above.
+           .contact-aside-item a = specificity 0,1,1 which would otherwise
+           override .btn = 0,1,0 and strip the button colour. */
+        .contact-aside-item a.btn {
+            color: var(--secondary);
+            font-size: 15px;
+        }
+
+        .contact-aside-item a.btn:hover {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .contact-aside-item span,
+        .contact-aside-item address {
+            color: #ccc;
+            font-size: 15px;
+            font-style: normal;
+        }
+
+        .contact-aside-item p {
+            color: #ccc;
+            font-size: 14px;
+            margin: 6px 0 16px;
+        }
+
+        /* Cookie Consent Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--secondary);
+            color: white;
+            padding: 20px var(--page-pad);
+            padding-bottom: calc(20px + env(safe-area-inset-bottom));
+            box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.15);
+            z-index: 10000;
+            font-size: 14px;
+            line-height: 1.6;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .cookie-banner.hidden {
+            display: none;
+        }
+
+        .cookie-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .cookie-text {
+            flex: 1;
+        }
+
+        .cookie-text p {
+            margin: 0;
+            color: #ccc;
+        }
+
+        .cookie-text a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .cookie-text a:hover {
+            text-decoration: underline;
+        }
+
+        .cookie-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+            width: 100%;
+        }
+
+        .cookie-btn {
+            padding: 12px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+            flex: 1;
+            min-height: 44px; /* comfortable touch target */
+        }
+
+        .cookie-btn.accept {
+            background: var(--primary);
+            color: var(--secondary);
+        }
+
+        .cookie-btn.accept:hover {
+            background: var(--primary-light);
+            transform: translateY(-1px);
+        }
+
+        .cookie-btn.decline {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+        }
+
+        .cookie-btn.decline:hover {
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section {
+            text-align: left;
+            padding: 0;
+        }
+
+        .footer-section h2 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .footer-logo {
+            display: block;
+            margin-bottom: 16px;
+            transition: opacity 0.2s ease;
+            width: fit-content;
+        }
+
+        .footer-logo:hover {
+            opacity: 0.8;
+        }
+
+        .footer-logo-image {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-mid);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-dark);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 32px;
+        }
+
+        .footer-bottom p {
+            font-size: 13px;
+            color: var(--text-light);
+            margin: 8px 0;
+        }
+
+        /* Tablet Breakpoint (768px) */
+        @media (min-width: 768px) {
+            :root {
+                --page-pad: 32px;
+            }
+
+            .hamburger {
+                display: none !important;
+            }
+
+            .mobile-menu {
+                display: none !important;
+            }
+
+            .nav-links {
+                display: flex !important;
+            }
+
+            .hero {
+                padding: 100px 0;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .contact {
+                padding: 100px 0;
+            }
+
+            .contact-layout {
+                grid-template-columns: 1.3fr 1fr;
+                gap: 32px;
+                align-items: start;
+            }
+
+            .contact-card {
+                padding: 40px;
+            }
+
+            .contact-card h2 {
+                font-size: 28px;
+            }
+
+            .cookie-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 24px;
+            }
+
+            .cookie-actions {
+                width: auto;
+            }
+
+            .cookie-btn {
+                flex: initial;
+                padding: 10px 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+
+            .footer-bottom {
+                margin-top: 8px;
+            }
+        }
+
+        /* Desktop Breakpoint (1024px) */
+        @media (min-width: 1024px) {
+            :root {
+                --page-pad: 40px;
+            }
+        }
+
+        /* Respect the user's motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .btn:hover,
+            .cookie-btn.accept:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="navbar-content">
+            <a href="/" class="logo">
+                <img src="/images/cm-interactive-logo.svg" alt="CM Interactive" class="logo-image">
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="desktop-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/local-website-development">Local Development</a></li>
+                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/contact-us" class="active" aria-current="page">Contact</a></li>
+                <li><a href="/discovery-call" class="nav-cta">Book a Call</a></li>
+            </ul>
+            <ul class="mobile-menu" id="mobile-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/local-website-development">Local Development</a></li>
+                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/contact-us" class="active" aria-current="page">Contact</a></li>
+                <li><a href="/discovery-call">Book a Discovery Call</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container">
+                <h1>Contact CM Interactive. <span class="highlight">Let's talk.</span></h1>
+                <p>Not ready for a full call yet? Send a quick message and we'll get back to you, usually within one working day.</p>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="contact-layout">
+
+                    <!-- Form card -->
+                    <div class="contact-card">
+                        <div class="contact-badge">SECURE CONTACT</div>
+                        <h2>Send us a message</h2>
+                        <p>Tell us a bit about your business and what you're looking to achieve. No commitment.</p>
+
+                        <form id="contact-form" novalidate>
+                            <div class="form-row">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required autocomplete="name" placeholder="John Doe">
+                            </div>
+
+                            <div class="form-row">
+                                <label for="email">Email address</label>
+                                <input type="email" id="email" name="email" required autocomplete="email" placeholder="john@example.com">
+                            </div>
+
+                            <div class="form-row">
+                                <label for="title">Subject</label>
+                                <input type="text" id="title" name="title" required placeholder="What's this about?">
+                            </div>
+
+                            <div class="form-row">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="How can we help you?"></textarea>
+                            </div>
+
+                            <!-- Google reCAPTCHA Protection -->
+                            <div class="recaptcha-wrapper">
+                                <div class="verification-box">Please verify you are human to enable submission:</div>
+                                <div class="g-recaptcha" data-sitekey="6Lca2x4tAAAAAH6pSQliVWWVfQleenC89jCmVxF4" data-theme="dark"></div>
+                            </div>
+
+                            <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+
+                            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                        </form>
+                    </div>
+
+                    <!-- Aside card -->
+                    <div class="contact-card">
+                        <div class="contact-badge">OTHER WAYS</div>
+                        <h2>Prefer to go direct?</h2>
+
+                        <div class="contact-aside-item">
+                            <div class="label">Email</div>
+                            <a href="mailto:help@cminteractive.uk">help@cminteractive.uk</a>
+                        </div>
+
+                        <div class="contact-aside-item">
+                            <div class="label">Correspondence Address</div>
+                            <address>CM Interactive Limited, Unit A, 82 James Carter Road, Mildenhall, Suffolk, IP28 7DE</address>
+                        </div>
+
+                        <div class="contact-aside-item">
+                            <div class="label">Ready to talk properly?</div>
+                            <p>Skip the back and forth and book a free 30-minute discovery call.</p>
+                            <a href="/discovery-call" class="btn btn-sm">Book a Discovery Call</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="/" class="footer-logo">
+                        <img src="/images/cm-interactive-logo.svg" alt="CM Interactive" class="footer-logo-image">
+                    </a>
+                </div>
+
+                <div class="footer-section">
+                    <h2>Navigation</h2>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/local-website-development">Local Development</a></li>
+                        <li><a href="/pricing">Pricing</a></li>
+                        <li><a href="/contact-us">Contact</a></li>
+                        <li><a href="/discovery-call">Book a Discovery Call</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h2>Resources</h2>
+                    <ul class="footer-links">
+                        <li><a href="/#how-it-works">How it Works</a></li>
+                        <li><a href="/#services">Services</a></li>
+                        <li><a href="/sitemap.xml">Sitemap</a></li>
+                        <li><a href="/llms.txt">LLMs.txt</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h2>Legal</h2>
+                    <ul class="footer-links">
+                        <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 - 2026 CM Interactive Limited. All rights reserved.</p>
+                <p>Based in the United Kingdom, registered in England and Wales (company number 15392983).</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookie consent">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p>We use cookies to analyse how you interact with our website and improve your experience. Only analytical cookies are used, no tracking or advertising. By accepting, you help us make CM Interactive better.</p>
+                <a href="/privacy-policy">For more information, see our privacy policy.</a>
+            </div>
+            <div class="cookie-actions">
+                <button class="cookie-btn decline" onclick="consentManager.decline()">Decline</button>
+                <button class="cookie-btn accept" onclick="consentManager.accept()">Accept</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Navbar interactions-->
+    <script>
+        // Hide banner if consent already given
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedConsent = getCookie(CONSENT_COOKIE);
+            if(savedConsent !== null) {
+                document.getElementById('cookie-banner').style.display = 'none';
+            }
+        });
+
+        // Hamburger Menu Functionality
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobile-nav');
+        const mobileLinks = mobileNav.querySelectorAll('a');
+
+        function setMenuOpen(open) {
+            hamburger.classList.toggle('active', open);
+            mobileNav.classList.toggle('active', open);
+            hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+
+        // Toggle mobile menu
+        hamburger.addEventListener('click', () => {
+            setMenuOpen(!hamburger.classList.contains('active'));
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => setMenuOpen(false));
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav')) {
+                setMenuOpen(false);
+            }
+        });
+
+        // Close mobile menu on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                setMenuOpen(false);
+            }
+        });
+    </script>
+
+
+    <!--Form JS-->
+    <script>
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+
+        function setStatus(message, type) {
+            formStatus.textContent = message;
+            formStatus.className = 'form-status' + (type ? ' ' + type : '');
+        }
+
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Native validation still runs, we just control when it fires
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                return;
+            }
+
+            // Require a completed reCAPTCHA before sending
+            const captchaToken = window.grecaptcha ? grecaptcha.getResponse() : '';
+            if (!captchaToken) {
+                setStatus('Please complete the verification before sending.', 'error');
+                return;
+            }
+
+            const btn = contactForm.querySelector('button[type="submit"]');
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+            setStatus('', null);
+
+            emailjs.sendForm('service_34etu3d', 'template_7ll0kqg', contactForm)
+                .then(function () {
+                    btn.textContent = 'Message sent';
+                    contactForm.reset();
+                    if (window.grecaptcha) grecaptcha.reset();
+                    setStatus('Thanks, your message has been sent. We usually reply within one working day.', 'success');
+                })
+                .catch(function (err) {
+                    console.error(err);
+                    btn.disabled = false;
+                    btn.textContent = 'Send Message';
+                    if (window.grecaptcha) grecaptcha.reset();
+                    setStatus('Something went wrong. Please try again, or email help@cminteractive.uk directly.', 'error');
+                });
+        });
+    </script>
+</body>
+</html>

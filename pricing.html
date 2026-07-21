@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Analytics with Consent Management -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      // Default to no consent until user decides
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied'
+      });
+
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0QW701ZMK1');
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QW701ZMK1"></script>
+
+    <!-- Consent Management Script -->
+    <script>
+      const CONSENT_COOKIE = 'cm_analytics_consent';
+      const CONSENT_EXPIRY_DAYS = 365;
+
+      function getCookie(name) {
+        const nameEQ = name + "=";
+        const cookies = document.cookie.split(';');
+        for(let cookie of cookies) {
+          cookie = cookie.trim();
+          if(cookie.indexOf(nameEQ) === 0) {
+            return cookie.substring(nameEQ.length);
+          }
+        }
+        return null;
+      }
+
+      function setCookie(name, value, days) {
+        const expires = new Date();
+        expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+        document.cookie = name + "=" + value + ";expires=" + expires.toUTCString() + ";path=/;SameSite=Strict";
+      }
+
+      function updateAnalyticsConsent(consent) {
+        gtag('consent', 'update', {
+          'analytics_storage': consent ? 'granted' : 'denied',
+          'ad_storage': consent ? 'granted' : 'denied'
+        });
+        setCookie(CONSENT_COOKIE, consent ? 'true' : 'false', CONSENT_EXPIRY_DAYS);
+      }
+
+      // Check existing consent
+      const savedConsent = getCookie(CONSENT_COOKIE);
+      if(savedConsent === 'true') {
+        gtag('consent', 'update', {
+          'analytics_storage': 'granted',
+          'ad_storage': 'granted'
+        });
+      }
+
+      window.consentManager = {
+        accept: function() {
+          updateAnalyticsConsent(true);
+          document.getElementById('cookie-banner').style.display = 'none';
+        },
+        decline: function() {
+          updateAnalyticsConsent(false);
+          document.getElementById('cookie-banner').style.display = 'none';
+        },
+        hasConsent: function() {
+          return getCookie(CONSENT_COOKIE) === 'true';
+        }
+      };
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Design &amp; Development Pricing | CM Interactive</title>
+    <meta name="description" content="Clear, fixed-price web design and development for Lincolnshire businesses. See what a project costs, what is included, and how we quote before you ever get on a call.">
+    <meta name="author" content="CM Interactive">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+    <!-- Open Graph / Social Media -->
+    <!-- No og:image set. Shares render as a text-only card.
+         To upgrade: add a 1200x630 PNG, then add og:image,
+         og:image:width, og:image:height, og:image:alt and twitter:image,
+         and switch twitter:card to summary_large_image. -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cminteractive.uk/pricing">
+    <meta property="og:title" content="Web Design &amp; Development Pricing | CM Interactive">
+    <meta property="og:description" content="Clear, fixed-price web design and development. See what a project costs, what is included, and how we quote.">
+    <meta property="og:site_name" content="CM Interactive">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter -->
+    <!-- summary, not summary_large_image, because there is no image to fill it. -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://cminteractive.uk/pricing">
+    <meta name="twitter:title" content="Web Design &amp; Development Pricing | CM Interactive">
+    <meta name="twitter:description" content="Clear, fixed-price web design and development. See what a project costs, what is included, and how we quote.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://cminteractive.uk/pricing">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%2350C878' width='32' height='32' rx='6'/><text x='50%' y='50%' font-size='18' font-weight='700' fill='white' text-anchor='middle' dominant-baseline='central'>CM</text></svg>">
+    <link rel="alternate icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==">
+
+    <!-- Schema.org Structured Data -->
+    <!-- FAQ WARNING: the previous FAQPage block listed two questions that do not
+         appear anywhere on this page ("How do payments work?" and "Do I have to
+         take a care plan?") and omitted one that does (the £500 question).
+         Google requires every FAQPage question and answer to be visible in the
+         page content. The block below now matches the six visible items word for
+         word. If you edit an answer on the page, edit it here too, or delete the
+         FAQPage node entirely.
+         Note also that Google restricted FAQ rich results to government and
+         health sites in 2023, so this markup is now mainly for AI and non-Google
+         parsers rather than a source of search snippets. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://cminteractive.uk/#organization",
+          "name": "CM Interactive",
+          "legalName": "CM Interactive Limited",
+          "description": "Web design and development agency focused on delivering measurable business results",
+          "url": "https://cminteractive.uk",
+          "image": "https://cminteractive.uk/images/cm-interactive-logo.svg",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://cminteractive.uk/images/cm-interactive-logo.svg"
+          },
+          "email": "help@cminteractive.uk",
+          "areaServed": {
+            "@type": "Country",
+            "name": "United Kingdom"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Sales",
+            "email": "help@cminteractive.uk",
+            "availableLanguage": "English",
+            "url": "https://cminteractive.uk/contact-us"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://cminteractive.uk/#website",
+          "url": "https://cminteractive.uk",
+          "name": "CM Interactive",
+          "inLanguage": "en-GB",
+          "publisher": { "@id": "https://cminteractive.uk/#organization" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://cminteractive.uk/pricing#webpage",
+          "url": "https://cminteractive.uk/pricing",
+          "name": "Web Design and Development Pricing",
+          "description": "Clear, fixed-price web design and development for Lincolnshire businesses.",
+          "isPartOf": { "@id": "https://cminteractive.uk/#website" },
+          "about": { "@id": "https://cminteractive.uk/#organization" },
+          "breadcrumb": { "@id": "https://cminteractive.uk/pricing#breadcrumb" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://cminteractive.uk/pricing#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://cminteractive.uk/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Pricing",
+              "item": "https://cminteractive.uk/pricing"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://cminteractive.uk/pricing#faq",
+          "isPartOf": { "@id": "https://cminteractive.uk/pricing#webpage" },
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Why are your prices shown as a starting figure?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Because a five page site for a joiner and a five page site for a manufacturer with a technical product catalogue are not the same job. The starting figures tell you the floor for each type of project, so you can rule us in or out before spending time on a call. What you get after the call is a single fixed price, not an estimate."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you charge by the hour?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Hourly billing rewards us for being slow and punishes you for asking questions. Projects are fixed price, agreed in writing before any work starts, so you know the total on day one."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What happens if the project runs over?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "That is our problem, not yours. A fixed price means the risk of underestimating the work sits with us. The only thing that changes the price is a change you request to the agreed scope, and we agree that in writing before we do it."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why is it not cheaper? I have seen websites for £500.",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "So have we, and most of them are a template with your logo dropped in, no thought about who is meant to find it, and no way of telling whether it ever brought in a single enquiry. If a cheap site wins you nothing, it did not cost you £500. It cost you £500 and a year of enquiries that went to a competitor instead."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I own the website?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. On final payment the code, the content and the domain are yours. There is no proprietary platform to be locked into and no fee to leave. If you want to take it to another developer in two years, you can, and everything will be documented so they can pick it up."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What if you tell me not to do it?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Then you have saved a few thousand pounds and lost half an hour. If your business genuinely gets all its work by word of mouth and a website would not move the needle, we would rather say so than take the money and hand you something that quietly does nothing."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Brand green. Readable as a BACKGROUND with dark text on top. */
+            --primary: #50C878;
+            /* Lighter green for hover states on filled buttons. */
+            --primary-light: #6FD492;
+            /* Darker green for green TEXT sitting on light backgrounds. */
+            --primary-dark: #2A7F4F;
+
+            --secondary: #2B2B2B;
+            --background: #F9F9F9;
+            --accent: #D4AF37;
+            --text-dark: #2B2B2B;
+            --text-mid: #5A5A5A;
+            --text-light: #6E6E6E;
+            --border: #E5E5E5;
+            --white: #FFFFFF;
+
+            /* One source of truth for horizontal page padding.
+               Sections carry vertical rhythm only; horizontal space
+               comes from .container, so nothing double-pads. */
+            --page-pad: 20px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: var(--background);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* Keyboard focus ring, applied globally so nothing is missed */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        /* Skip link for keyboard and screen reader users */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            background: var(--secondary);
+            color: var(--white);
+            padding: 12px 20px;
+            z-index: 10001;
+            border-radius: 0 0 6px 0;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            left: 0;
+        }
+
+        /* Navbar */
+        nav {
+            position: sticky;
+            top: 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 0 var(--page-pad);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .navbar-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.2s ease;
+            min-width: 0;
+        }
+
+        .logo:hover {
+            color: var(--primary-dark);
+        }
+
+        .logo-image {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 8px;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2.5px;
+            background: var(--text-dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+
+        .nav-links {
+            display: none;
+            gap: 28px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-dark);
+        }
+
+        .nav-links a.active {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        /* Nav CTA, so the discovery call link reads as the primary action
+           rather than competing flatly with the Contact link next to it. */
+        .nav-links a.nav-cta {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 9px 18px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+
+        .nav-links a.nav-cta:hover {
+            background: var(--primary-light);
+            color: var(--secondary);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            flex-direction: column;
+            gap: 0;
+            list-style: none;
+            padding: 20px 0;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+            z-index: 999;
+        }
+
+        .mobile-menu.active { display: flex; }
+
+        .mobile-menu li { border-bottom: 1px solid var(--border); }
+        .mobile-menu li:last-child { border-bottom: none; }
+
+        .mobile-menu a {
+            display: block;
+            padding: 16px var(--page-pad);
+            font-size: 16px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .mobile-menu a:hover,
+        .mobile-menu a.active {
+            color: var(--primary-dark);
+            background: rgba(80, 200, 120, 0.08);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 var(--page-pad);
+        }
+
+        /* Buttons */
+        .btn {
+            background: var(--primary);
+            color: var(--secondary);
+            border: none;
+            padding: 16px 40px;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: inherit;
+            line-height: 1.2;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            max-width: 100%;
+        }
+
+        .btn:hover {
+            background: var(--primary-light);
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-large {
+            padding: 18px 48px;
+            font-size: 17px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-dark);
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            border-color: var(--primary);
+            color: var(--primary-dark);
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 14px 20px;
+            font-size: 15px;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: var(--background);
+        }
+
+        .hero-eyebrow {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: rgba(80, 200, 120, 0.12);
+            color: var(--primary-dark);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(30px, 8vw, 42px);
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.15;
+            overflow-wrap: break-word;
+        }
+
+        .hero h1 .highlight {
+            color: var(--primary-dark);
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--text-mid);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Plans */
+        .plans-section {
+            padding: 80px 0;
+            background: var(--white);
+            border-top: 1px solid var(--border);
+        }
+
+        .plans-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--text-mid);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .plan-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
+
+        .plan-card {
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .plan-card.featured {
+            border: 2px solid var(--primary);
+            background: var(--white);
+            box-shadow: 0 8px 24px rgba(80, 200, 120, 0.12);
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: -12px;
+            left: 28px;
+            background: var(--primary);
+            color: var(--secondary);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 5px 12px;
+            border-radius: 999px;
+        }
+
+        .plan-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .plan-for {
+            font-size: 13px;
+            color: var(--text-mid);
+            margin-bottom: 20px;
+            min-height: 40px;
+        }
+
+        .plan-price {
+            font-size: 34px;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+
+        .plan-price .from {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .plan-vat {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 24px;
+        }
+
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 28px;
+            flex: 1;
+        }
+
+        .plan-features li {
+            font-size: 14px;
+            color: var(--text-mid);
+            padding: 0 0 12px 26px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .plan-features li:before {
+            content: "";
+            position: absolute;
+            left: 2px;
+            top: 6px;
+            width: 11px;
+            height: 6px;
+            border-left: 2px solid var(--primary-dark);
+            border-bottom: 2px solid var(--primary-dark);
+            transform: rotate(-45deg);
+        }
+
+        .plan-features li strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .plans-note {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 14px;
+            color: var(--text-mid);
+        }
+
+        /* Included in everything */
+        .included-section {
+            padding: 80px 0;
+            background: var(--background);
+            border-top: 1px solid var(--border);
+        }
+
+        .included-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .included-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .included-item {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px;
+        }
+
+        .included-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: rgba(80, 200, 120, 0.12);
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 14px;
+        }
+
+        .included-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .included-item h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .included-item p {
+            font-size: 14px;
+            color: var(--text-mid);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Care plans */
+        .care-section {
+            padding: 80px 0;
+            background: var(--white);
+            border-top: 1px solid var(--border);
+        }
+
+        .care-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .care-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto 32px;
+        }
+
+        .care-card {
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 26px;
+        }
+
+        .care-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .care-price {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .care-price span {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+
+        .care-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .care-card li {
+            font-size: 14px;
+            color: var(--text-mid);
+            padding: 0 0 10px 22px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .care-card li:before {
+            content: "\2022";
+            position: absolute;
+            left: 4px;
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+
+        .care-note {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 24px 20px;
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 14px;
+            color: var(--text-mid);
+        }
+
+        .care-note strong {
+            color: var(--text-dark);
+        }
+
+        /* How we quote (promise band) */
+        .promise {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #2A7F4F 0%, #1E6039 100%);
+            color: white;
+        }
+
+        .promise-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .promise-content h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.15;
+        }
+
+        .promise-content > p {
+            font-size: 16px;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .quote-steps {
+            list-style: none;
+            counter-reset: step;
+            margin-bottom: 32px;
+            padding-left: 0;
+        }
+
+        .quote-steps li {
+            counter-increment: step;
+            font-size: 15px;
+            margin-bottom: 20px;
+            padding-left: 46px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .quote-steps li:before {
+            content: counter(step, decimal-leading-zero);
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-weight: 700;
+            font-size: 14px;
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quote-steps li strong {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .promise-cta-text {
+            font-size: 16px;
+            margin-bottom: 40px;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .promise .btn {
+            background: var(--white);
+            color: var(--primary-dark);
+        }
+
+        .promise .btn:hover {
+            background: #EFEFEF;
+            color: var(--primary-dark);
+        }
+
+        /* FAQ */
+        .faq-section {
+            padding: 80px 0;
+            background: var(--background);
+            border-top: 1px solid var(--border);
+        }
+
+        .faq-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .faq-list {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: left;
+            padding: 20px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            font-family: inherit;
+            line-height: 1.4;
+        }
+
+        .faq-question:hover {
+            color: var(--primary-dark);
+        }
+
+        .faq-toggle {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            position: relative;
+            transition: transform 0.25s ease;
+        }
+
+        .faq-toggle:before,
+        .faq-toggle:after {
+            content: "";
+            position: absolute;
+            background: var(--primary-dark);
+            border-radius: 2px;
+        }
+
+        .faq-toggle:before {
+            top: 9px;
+            left: 0;
+            width: 20px;
+            height: 2px;
+        }
+
+        .faq-toggle:after {
+            top: 0;
+            left: 9px;
+            width: 2px;
+            height: 20px;
+            transition: opacity 0.25s ease;
+        }
+
+        .faq-item.open .faq-toggle:after {
+            opacity: 0;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer p {
+            padding: 0 24px 22px;
+            font-size: 15px;
+            color: var(--text-mid);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 80px 0;
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .final-cta p {
+            font-size: 16px;
+            color: var(--text-mid);
+            max-width: 640px;
+            margin: 0 auto 36px;
+        }
+
+        /* Cookie Consent Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--secondary);
+            color: white;
+            padding: 20px var(--page-pad);
+            padding-bottom: calc(20px + env(safe-area-inset-bottom));
+            box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.15);
+            z-index: 10000;
+            font-size: 14px;
+            line-height: 1.6;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .cookie-banner.hidden { display: none; }
+
+        .cookie-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .cookie-text { flex: 1; }
+        .cookie-text p { margin: 0; color: #ccc; }
+        .cookie-text a { color: var(--primary); text-decoration: none; font-weight: 600; }
+        .cookie-text a:hover { text-decoration: underline; }
+
+        .cookie-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+            width: 100%;
+        }
+
+        .cookie-btn {
+            flex: 1;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+            min-height: 44px; /* comfortable touch target */
+        }
+
+        .cookie-btn.accept { background: var(--primary); color: var(--secondary); }
+        .cookie-btn.accept:hover { background: var(--primary-light); transform: translateY(-1px); }
+
+        .cookie-btn.decline {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+        }
+
+        .cookie-btn.decline:hover {
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section { text-align: left; padding: 0; }
+
+        .footer-section h2 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .footer-logo {
+            display: block;
+            margin-bottom: 16px;
+            transition: opacity 0.2s ease;
+            width: fit-content;
+        }
+
+        .footer-logo:hover { opacity: 0.8; }
+        .footer-logo-image { height: 50px; width: auto; object-fit: contain; }
+
+        .footer-links { list-style: none; padding: 0; margin: 0; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: var(--text-mid); text-decoration: none; font-size: 14px; transition: color 0.2s ease; }
+        .footer-links a:hover { color: var(--primary-dark); }
+
+        .footer-bottom { border-top: 1px solid var(--border); padding-top: 32px; }
+        .footer-bottom p { font-size: 13px; color: var(--text-light); margin: 8px 0; }
+
+        /* Tablet Breakpoint (768px) */
+        @media (min-width: 768px) {
+            :root { --page-pad: 32px; }
+
+            .hamburger { display: none !important; }
+            .mobile-menu { display: none !important; }
+            .nav-links { display: flex !important; }
+
+            .hero { padding: 100px 0; }
+            .hero p { font-size: 18px; }
+
+            .plans-section,
+            .included-section,
+            .care-section,
+            .faq-section,
+            .final-cta { padding: 100px 0; }
+
+            .plans-section h2,
+            .included-section h2,
+            .care-section h2,
+            .faq-section h2,
+            .final-cta h2 { font-size: 32px; }
+
+            .section-subtitle {
+                font-size: 18px;
+                margin-bottom: 60px;
+            }
+
+            .plan-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+                align-items: stretch;
+            }
+
+            .plan-card { padding: 30px 24px; }
+
+            .included-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 24px;
+            }
+
+            .care-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+
+            .promise { padding: 100px 0; }
+            .promise-content h2 { font-size: 40px; }
+            .promise-content > p { font-size: 18px; }
+            .quote-steps li { font-size: 16px; }
+            .promise-cta-text { font-size: 17px; }
+
+            .cookie-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 24px;
+            }
+
+            .cookie-actions { width: auto; }
+            .cookie-btn { flex: initial; padding: 10px 20px; }
+
+            .footer-content { grid-template-columns: 1fr 1fr 1fr 1fr; }
+            .footer-bottom { margin-top: 8px; }
+        }
+
+        /* Desktop Breakpoint (1024px) */
+        @media (min-width: 1024px) {
+            :root { --page-pad: 40px; }
+        }
+
+        /* Respect the user's motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .btn:hover,
+            .cookie-btn.accept:hover { transform: none; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="navbar-content">
+            <a href="/" class="logo">
+                <img src="/images/cm-interactive-logo.svg" alt="CM Interactive" class="logo-image">
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="desktop-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/local-website-development">Local Development</a></li>
+                <li><a href="/pricing" class="active" aria-current="page">Pricing</a></li>
+                <li><a href="/contact-us">Contact</a></li>
+                <li><a href="/discovery-call" class="nav-cta">Book a Call</a></li>
+            </ul>
+            <ul class="mobile-menu" id="mobile-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/local-website-development">Local Development</a></li>
+                <li><a href="/pricing" class="active" aria-current="page">Pricing</a></li>
+                <li><a href="/contact-us">Contact</a></li>
+                <li><a href="/discovery-call">Book a Discovery Call</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+        <!-- Hero -->
+        <section class="hero" id="top">
+            <div class="container">
+                <div class="hero-eyebrow">Fixed price &middot; No hourly billing &middot; No surprises</div>
+                <h1>Know what it costs <span class="highlight">before</span> you call us</h1>
+                <p>Most agencies hide their pricing so they can work out what you can afford. We would rather you knew the numbers up front, decided for yourself whether we are worth a conversation, and spent the call on your business instead of on guessing.</p>
+                <div class="hero-actions">
+                    <a href="#plans" class="btn">See the numbers</a>
+                    <a href="#how-we-quote" class="btn btn-outline">How we quote</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Plans -->
+        <section class="plans-section" id="plans">
+            <div class="container">
+                <h2>Project pricing</h2>
+                <p class="section-subtitle">Three starting points, not three boxes to squeeze into. The figure below is the floor for that type of project. Your written quote is a single fixed price, agreed before any work begins.</p>
+
+                <!--
+                  PLACEHOLDER FIGURES. Replace the price values below with your real
+                  numbers before publishing, and keep them consistent with the pricing
+                  teaser on the homepage and any quotes already sent to prospects.
+                  Once the figures are final, consider adding Offer / priceSpecification
+                  nodes to the schema above. Do not add them while these are placeholders,
+                  because schema prices that contradict the page are worse than none.
+                -->
+                <div class="plan-grid">
+                    <div class="plan-card">
+                        <h3 class="plan-name">Presence</h3>
+                        <p class="plan-for">For a business that needs to look credible and be findable, fast.</p>
+                        <p class="plan-price"><span class="from">From</span>&pound;1,200</p>
+                        <p class="plan-vat">One off. No VAT charged.</p>
+                        <ul class="plan-features">
+                            <li>Up to <strong>5 pages</strong>, custom built</li>
+                            <li>Mobile first, fast on a bad signal</li>
+                            <li>Enquiry form with spam protection</li>
+                            <li>Google Business Profile set up properly</li>
+                            <li>Core on-page SEO and schema markup</li>
+                            <li>Live in <strong>2 to 3 weeks</strong></li>
+                        </ul>
+                        <a href="/discovery-call" class="btn btn-outline btn-block">Book a call</a>
+                    </div>
+
+                    <div class="plan-card featured">
+                        <p class="plan-badge">Most common</p>
+                        <h3 class="plan-name">Growth</h3>
+                        <p class="plan-for">For a business that wants the website to actually bring in work.</p>
+                        <p class="plan-price"><span class="from">From</span>&pound;2,800</p>
+                        <p class="plan-vat">One off. No VAT charged.</p>
+                        <ul class="plan-features">
+                            <li>Everything in Presence</li>
+                            <li>Up to <strong>12 pages</strong>, including service and location pages</li>
+                            <li>Copy written for your customers, not for you</li>
+                            <li>Local SEO built for your patch of Lincolnshire</li>
+                            <li>Conversion tracking so you can see what works</li>
+                            <li>Live in <strong>4 to 6 weeks</strong></li>
+                        </ul>
+                        <a href="/discovery-call" class="btn btn-block">Book a call</a>
+                    </div>
+
+                    <div class="plan-card">
+                        <h3 class="plan-name">Custom</h3>
+                        <p class="plan-for">For anything with moving parts: bookings, quotes, portals, integrations.</p>
+                        <p class="plan-price"><span class="from">From</span>&pound;5,000</p>
+                        <p class="plan-vat">One off. No VAT charged.</p>
+                        <ul class="plan-features">
+                            <li>Everything in Growth</li>
+                            <li>Booking, ordering or quoting systems</li>
+                            <li>Customer or staff logins</li>
+                            <li>Integration with the software you already run</li>
+                            <li>Automation of the admin eating your week</li>
+                            <li>Timeline set by scope, agreed in writing</li>
+                        </ul>
+                        <a href="/discovery-call" class="btn btn-outline btn-block">Book a call</a>
+                    </div>
+                </div>
+
+                <p class="plans-note">Not sure which one you are? That is what the discovery call is for, and it is free. If none of them fit your business, we will tell you that too.</p>
+            </div>
+        </section>
+
+        <!-- Included in every project -->
+        <section class="included-section" id="included">
+            <div class="container">
+                <h2>In every project, at every price</h2>
+                <p class="section-subtitle">These are not upsells. They are the minimum standard, and they are already in the number you see above.</p>
+
+                <div class="included-grid">
+                    <div class="included-item">
+                        <div class="included-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg>
+                        </div>
+                        <h3>Built to be fast</h3>
+                        <p>Hand written code, no bloated page builder. Your site loads quickly on a phone with two bars of signal, which is how most of your customers will see it.</p>
+                    </div>
+
+                    <div class="included-item">
+                        <div class="included-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        </div>
+                        <h3>Legal and compliant</h3>
+                        <p>UK GDPR compliant cookie consent, a privacy policy that reflects what your site actually does, and HTTPS as standard. Not an afterthought and not an extra line item.</p>
+                    </div>
+
+                    <div class="included-item">
+                        <div class="included-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg>
+                        </div>
+                        <h3>Measurable</h3>
+                        <p>Analytics and enquiry tracking configured on day one, so in three months you can answer the only question that matters: did this pay for itself?</p>
+                    </div>
+
+                    <div class="included-item">
+                        <div class="included-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <h3>You own everything</h3>
+                        <p>Code, content and domain are yours on final payment. No proprietary platform, no licence to keep paying, no fee to walk away.</p>
+                    </div>
+
+                    <div class="included-item">
+                        <div class="included-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V4s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                        </div>
+                        <h3>Two rounds of revisions</h3>
+                        <p>Built into the price. We would rather you told us it was wrong at the design stage than quietly disliked it for the next five years.</p>
+                    </div>
+
+                    <div class="included-item">
+                        <div class="included-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/></svg>
+                        </div>
+                        <h3>30 days of support after launch</h3>
+                        <p>Anything that breaks, anything that was not quite right, anything you forgot to mention. Free for the first month, no care plan required.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Care plans -->
+        <section class="care-section" id="care">
+            <div class="container">
+                <h2>Keeping it running</h2>
+                <p class="section-subtitle">Optional, and never bundled into the project price. If you would rather host and maintain the site yourself, we will hand it over cleanly and show you how.</p>
+
+                <!-- PLACEHOLDER FIGURES. Replace with your real monthly rates. -->
+                <div class="care-grid">
+                    <div class="care-card">
+                        <h3>Essential</h3>
+                        <p class="care-price">&pound;45<span> / month</span></p>
+                        <ul>
+                            <li>Hosting and domain managed</li>
+                            <li>Daily backups</li>
+                            <li>Uptime monitoring</li>
+                            <li>Security patching</li>
+                        </ul>
+                    </div>
+
+                    <div class="care-card">
+                        <h3>Active</h3>
+                        <p class="care-price">&pound;95<span> / month</span></p>
+                        <ul>
+                            <li>Everything in Essential</li>
+                            <li>Up to 1 hour of content changes a month</li>
+                            <li>Quarterly performance report</li>
+                            <li>Same day response on faults</li>
+                        </ul>
+                    </div>
+
+                    <div class="care-card">
+                        <h3>Partner</h3>
+                        <p class="care-price">&pound;175<span> / month</span></p>
+                        <ul>
+                            <li>Everything in Active</li>
+                            <li>Up to 3 hours of changes a month</li>
+                            <li>Ongoing SEO and conversion work</li>
+                            <li>Monthly call to review the numbers</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="care-note">
+                    <p><strong>Cancel any time with 30 days notice.</strong> No minimum term, no exit fee, and we will migrate you off without a fuss. A care plan should be worth paying for every month, not something you are locked into.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How we quote -->
+        <section class="promise" id="how-we-quote">
+            <div class="container">
+                <div class="promise-content">
+                    <h2>How we get to your number</h2>
+                    <p>The figures above are starting points. Here is exactly how they turn into a price with your name on it, and what happens at each step.</p>
+                    <ol class="quote-steps">
+                        <li><strong>A free 30 minute call</strong>We work out what the business problem actually is, what a fix would be worth to you in enquiries or hours saved, and whether it is worth doing at all.</li>
+                        <li><strong>A written quote, a few days later</strong>One fixed price, the scope it covers in plain terms, and the case for why the number makes commercial sense against what you told us on the call.</li>
+                        <li><strong>You decide in your own time</strong>No follow up sequence, no chasing, no discount that expires on Friday. If it is not right, tell us and that is genuinely the end of it.</li>
+                        <li><strong>Half up front, half on launch</strong>The price does not move. If we underestimated the work, that is our problem. The only thing that changes it is a change you ask for, agreed in writing first.</li>
+                    </ol>
+                    <p class="promise-cta-text">You will not be quoted a price on the call itself. Pricing a project properly takes more than half an hour, and a number invented on the spot is a number invented to close you.</p>
+                    <a href="/discovery-call" class="btn btn-large">Book a 30-minute discovery call</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <h2>The awkward questions</h2>
+
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3>
+                            <button class="faq-question" id="faq-q1" aria-expanded="false" aria-controls="faq-a1">
+                                Why are your prices shown as a starting figure?
+                                <span class="faq-toggle" aria-hidden="true"></span>
+                            </button>
+                        </h3>
+                        <div class="faq-answer" id="faq-a1" role="region" aria-labelledby="faq-q1">
+                            <p>Because a five page site for a joiner and a five page site for a manufacturer with a technical product catalogue are not the same job. The starting figures tell you the floor for each type of project, so you can rule us in or out before spending time on a call. What you get after the call is a single fixed price, not an estimate.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>
+                            <button class="faq-question" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">
+                                Do you charge by the hour?
+                                <span class="faq-toggle" aria-hidden="true"></span>
+                            </button>
+                        </h3>
+                        <div class="faq-answer" id="faq-a2" role="region" aria-labelledby="faq-q2">
+                            <p>No. Hourly billing rewards us for being slow and punishes you for asking questions. Projects are fixed price, agreed in writing before any work starts, so you know the total on day one.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>
+                            <button class="faq-question" id="faq-q3" aria-expanded="false" aria-controls="faq-a3">
+                                What happens if the project runs over?
+                                <span class="faq-toggle" aria-hidden="true"></span>
+                            </button>
+                        </h3>
+                        <div class="faq-answer" id="faq-a3" role="region" aria-labelledby="faq-q3">
+                            <p>That is our problem, not yours. A fixed price means the risk of underestimating the work sits with us. The only thing that changes the price is a change you request to the agreed scope, and we agree that in writing before we do it.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>
+                            <button class="faq-question" id="faq-q4" aria-expanded="false" aria-controls="faq-a4">
+                                Why is it not cheaper? I have seen websites for &pound;500.
+                                <span class="faq-toggle" aria-hidden="true"></span>
+                            </button>
+                        </h3>
+                        <div class="faq-answer" id="faq-a4" role="region" aria-labelledby="faq-q4">
+                            <p>So have we, and most of them are a template with your logo dropped in, no thought about who is meant to find it, and no way of telling whether it ever brought in a single enquiry. If a cheap site wins you nothing, it did not cost you &pound;500. It cost you &pound;500 and a year of enquiries that went to a competitor instead.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>
+                            <button class="faq-question" id="faq-q5" aria-expanded="false" aria-controls="faq-a5">
+                                Do I own the website?
+                                <span class="faq-toggle" aria-hidden="true"></span>
+                            </button>
+                        </h3>
+                        <div class="faq-answer" id="faq-a5" role="region" aria-labelledby="faq-q5">
+                            <p>Yes. On final payment the code, the content and the domain are yours. There is no proprietary platform to be locked into and no fee to leave. If you want to take it to another developer in two years, you can, and everything will be documented so they can pick it up.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>
+                            <button class="faq-question" id="faq-q6" aria-expanded="false" aria-controls="faq-a6">
+                                What if you tell me not to do it?
+                                <span class="faq-toggle" aria-hidden="true"></span>
+                            </button>
+                        </h3>
+                        <div class="faq-answer" id="faq-a6" role="region" aria-labelledby="faq-q6">
+                            <p>Then you have saved a few thousand pounds and lost half an hour. If your business genuinely gets all its work by word of mouth and a website would not move the needle, we would rather say so than take the money and hand you something that quietly does nothing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="final-cta">
+            <div class="container">
+                <h2>Still working out if the numbers stack up?</h2>
+                <p>Bring your figures to the call and we will work it out together. Free, 30 minutes, and you will leave with an honest answer either way.</p>
+                <a href="/discovery-call" class="btn btn-large">Book a discovery call</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="/" class="footer-logo">
+                        <img src="/images/cm-interactive-logo.svg" alt="CM Interactive" class="footer-logo-image">
+                    </a>
+                </div>
+
+                <div class="footer-section">
+                    <h2>Navigation</h2>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/local-website-development">Local Development</a></li>
+                        <li><a href="/pricing">Pricing</a></li>
+                        <li><a href="/contact-us">Contact</a></li>
+                        <li><a href="/discovery-call">Book a Discovery Call</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h2>Resources</h2>
+                    <ul class="footer-links">
+                        <li><a href="/#how-it-works">How it Works</a></li>
+                        <li><a href="/#services">Services</a></li>
+                        <li><a href="/sitemap.xml">Sitemap</a></li>
+                        <li><a href="/llms.txt">LLMs.txt</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h2>Legal</h2>
+                    <ul class="footer-links">
+                        <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 - 2026 CM Interactive Limited. All rights reserved.</p>
+                <p>Based in the United Kingdom, registered in England and Wales (company number 15392983).</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookie consent">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p>We use cookies to analyse how you interact with our website and improve your experience. Only analytical cookies are used, no tracking or advertising. By accepting, you help us make CM Interactive better.</p>
+                <a href="/privacy-policy">For more information, see our privacy policy.</a>
+            </div>
+            <div class="cookie-actions">
+                <button class="cookie-btn decline" onclick="consentManager.decline()">Decline</button>
+                <button class="cookie-btn accept" onclick="consentManager.accept()">Accept</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Navbar interactions-->
+    <script>
+        // Hide banner if consent already given
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedConsent = getCookie(CONSENT_COOKIE);
+            if(savedConsent !== null) {
+                document.getElementById('cookie-banner').style.display = 'none';
+            }
+        });
+
+        // Hamburger Menu Functionality
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobile-nav');
+        const mobileLinks = mobileNav.querySelectorAll('a');
+
+        function setMenuOpen(open) {
+            hamburger.classList.toggle('active', open);
+            mobileNav.classList.toggle('active', open);
+            hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+
+        // Toggle mobile menu
+        hamburger.addEventListener('click', () => {
+            setMenuOpen(!hamburger.classList.contains('active'));
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => setMenuOpen(false));
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav')) {
+                setMenuOpen(false);
+            }
+        });
+
+        // Close mobile menu on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                setMenuOpen(false);
+            }
+        });
+    </script>
+
+
+    <!--FAQ accordion-->
+    <script>
+        (function () {
+            const questions = document.querySelectorAll('.faq-question');
+
+            function closeItem(item) {
+                item.classList.remove('open');
+                item.querySelector('.faq-answer').style.maxHeight = null;
+                item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+            }
+
+            questions.forEach(button => {
+                button.addEventListener('click', () => {
+                    // The button now sits inside an h3, so walk up to the card itself
+                    const item = button.closest('.faq-item');
+                    const answer = item.querySelector('.faq-answer');
+                    const isOpen = item.classList.contains('open');
+
+                    document.querySelectorAll('.faq-item.open').forEach(closeItem);
+
+                    if (!isOpen) {
+                        item.classList.add('open');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        button.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            });
+
+            // An open answer's max-height is a fixed pixel value, so it goes stale
+            // when the viewport changes and the text reflows to a different height.
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    document.querySelectorAll('.faq-item.open .faq-answer').forEach(answer => {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    });
+                }, 150);
+            });
+        })();
+    </script>
+</body>
+</html>

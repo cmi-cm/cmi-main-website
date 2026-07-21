@@ -5,6 +5,7 @@
     <script>
       window.dataLayer = window.dataLayer || [];
 
+      // Default to no consent until user decides
       gtag('consent', 'default', {
         'analytics_storage': 'denied',
         'ad_storage': 'denied'
@@ -78,27 +79,40 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CM Interactive - Custom Software & Development for Lincolnshire Businesses</title>
+
+    <!-- URL WARNING: every other page in the site links to
+         /local-website-development, but this page previously declared its
+         canonical and og:url as /local-development.html. Those cannot both
+         be right. All URLs below now use /local-website-development to match
+         the navigation. If your actual route is different, change every
+         occurrence here AND the nav links on the other pages, and make sure
+         the old URL 301s to the new one. -->
+    <title>Custom Software &amp; Development for Lincolnshire Businesses | CM Interactive</title>
     <meta name="description" content="Custom software, web applications and business system development for manufacturing, hospitality and engineering firms across Lincolnshire. Based in Skegness, working with businesses in Boston, Lincoln, Grantham and beyond.">
-    <meta name="keywords" content="custom software development Lincolnshire, web development Lincolnshire, bespoke software Skegness, business systems Lincolnshire, software developer Boston Lincolnshire">
     <meta name="author" content="CM Interactive">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
     <!-- Open Graph / Social Media -->
+    <!-- No og:image set. Shares render as a text-only card.
+         To upgrade: add a 1200x630 PNG, then add og:image,
+         og:image:width, og:image:height, og:image:alt and twitter:image,
+         and switch twitter:card to summary_large_image. -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://cminteractive.uk/local-development.html">
-    <meta property="og:title" content="CM Interactive - Custom Software & Development for Lincolnshire Businesses">
+    <meta property="og:url" content="https://cminteractive.uk/local-website-development">
+    <meta property="og:title" content="Custom Software &amp; Development for Lincolnshire Businesses">
     <meta property="og:description" content="Custom software, web applications and business system development for manufacturing, hospitality and engineering firms across Lincolnshire.">
     <meta property="og:site_name" content="CM Interactive">
+    <meta property="og:locale" content="en_GB">
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://cminteractive.uk/local-development.html">
-    <meta property="twitter:title" content="CM Interactive - Custom Software & Development for Lincolnshire Businesses">
-    <meta property="twitter:description" content="Custom software, web applications and business system development for manufacturing, hospitality and engineering firms across Lincolnshire.">
+    <!-- summary, not summary_large_image, because there is no image to fill it. -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://cminteractive.uk/local-website-development">
+    <meta name="twitter:title" content="Custom Software &amp; Development for Lincolnshire Businesses">
+    <meta name="twitter:description" content="Custom software, web applications and business system development for manufacturing, hospitality and engineering firms across Lincolnshire.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://cminteractive.uk/local-development.html">
+    <link rel="canonical" href="https://cminteractive.uk/local-website-development">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%2350C878' width='32' height='32' rx='6'/><text x='50%' y='50%' font-size='18' font-weight='700' fill='white' text-anchor='middle' dominant-baseline='central'>CM</text></svg>">
@@ -108,69 +122,118 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <!-- Schema.org Structured Data -->
+    <!-- The PostalAddress that used to sit on the organisation node has been
+         removed. It claimed Skegness while your contact page publishes a
+         Suffolk correspondence address, and it had no street or postcode, so
+         it was both incomplete and contradictory. areaServed still carries
+         the Lincolnshire signal, which is what this page is actually for.
+         Put a full address back only when you have one you are willing to
+         publish consistently across every page. -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://cminteractive.uk/" },
-        { "@type": "ListItem", "position": 2, "name": "Custom Software & Development for Lincolnshire Businesses", "item": "https://cminteractive.uk/local-development.html" }
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://cminteractive.uk/#organization",
+          "name": "CM Interactive",
+          "legalName": "CM Interactive Limited",
+          "description": "Custom software and web development agency serving businesses across Lincolnshire",
+          "url": "https://cminteractive.uk",
+          "image": "https://cminteractive.uk/images/cm-interactive-logo.svg",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://cminteractive.uk/images/cm-interactive-logo.svg"
+          },
+          "email": "help@cminteractive.uk",
+          "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Lincolnshire"
+          },
+          "knowsAbout": ["Custom Software Development", "Web Development", "Business System Integration"],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Sales",
+            "email": "help@cminteractive.uk",
+            "availableLanguage": "English",
+            "url": "https://cminteractive.uk/contact-us"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://cminteractive.uk/#website",
+          "url": "https://cminteractive.uk",
+          "name": "CM Interactive",
+          "inLanguage": "en-GB",
+          "publisher": { "@id": "https://cminteractive.uk/#organization" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://cminteractive.uk/local-website-development#webpage",
+          "url": "https://cminteractive.uk/local-website-development",
+          "name": "Custom Software and Development for Lincolnshire Businesses",
+          "description": "Custom web applications, business system integrations and internal tools built for manufacturing, hospitality and engineering businesses across Lincolnshire.",
+          "isPartOf": { "@id": "https://cminteractive.uk/#website" },
+          "about": { "@id": "https://cminteractive.uk/local-website-development#service" },
+          "breadcrumb": { "@id": "https://cminteractive.uk/local-website-development#breadcrumb" }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://cminteractive.uk/local-website-development#service",
+          "serviceType": "Custom Software and Web Development",
+          "name": "Custom Software and Development for Lincolnshire Businesses",
+          "description": "Custom web applications, business system integrations and internal tools built for manufacturing, hospitality and engineering businesses across Lincolnshire.",
+          "provider": { "@id": "https://cminteractive.uk/#organization" },
+          "url": "https://cminteractive.uk/local-website-development",
+          "audience": {
+            "@type": "BusinessAudience",
+            "audienceType": "Manufacturing, hospitality and engineering businesses"
+          },
+          "areaServed": [
+            { "@type": "City", "name": "Skegness" },
+            { "@type": "City", "name": "Boston" },
+            { "@type": "City", "name": "Lincoln" },
+            { "@type": "City", "name": "Grantham" },
+            { "@type": "City", "name": "Louth" },
+            { "@type": "City", "name": "Spalding" },
+            { "@type": "City", "name": "Sleaford" },
+            { "@type": "City", "name": "Mablethorpe" },
+            { "@type": "City", "name": "Gainsborough" },
+            { "@type": "City", "name": "Horncastle" },
+            { "@type": "AdministrativeArea", "name": "Lincolnshire" }
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Development services",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom web applications" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business system integrations" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Internal tools and dashboards" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Direct booking and e-commerce systems" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Legacy system modernisation" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "API and third-party integrations" } }
+            ]
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://cminteractive.uk/local-website-development#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://cminteractive.uk/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Local Development",
+              "item": "https://cminteractive.uk/local-website-development"
+            }
+          ]
+        }
       ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "Custom Software & Web Development",
-      "name": "Custom Software & Development for Lincolnshire Businesses",
-      "description": "Custom web applications, business system integrations and internal tools built for manufacturing, hospitality and engineering businesses across Lincolnshire.",
-      "provider": {
-        "@type": "Organization",
-        "name": "CM Interactive",
-        "url": "https://cminteractive.uk"
-      },
-      "areaServed": [
-        { "@type": "City", "name": "Skegness" },
-        { "@type": "City", "name": "Boston" },
-        { "@type": "City", "name": "Lincoln" },
-        { "@type": "City", "name": "Grantham" },
-        { "@type": "City", "name": "Louth" },
-        { "@type": "City", "name": "Spalding" },
-        { "@type": "City", "name": "Sleaford" },
-        { "@type": "City", "name": "Mablethorpe" },
-        { "@type": "City", "name": "Gainsborough" },
-        { "@type": "City", "name": "Horncastle" },
-        { "@type": "AdministrativeArea", "name": "Lincolnshire" }
-      ],
-      "audience": {
-        "@type": "BusinessAudience",
-        "audienceType": "Manufacturing, hospitality and engineering businesses"
-      },
-      "url": "https://cminteractive.uk/local-development.html"
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "CM Interactive",
-      "description": "Custom software and web development agency serving businesses across Lincolnshire",
-      "url": "https://cminteractive.uk",
-      "image": "https://cminteractive.uk/images/cm-interactive-logo.svg",
-      "areaServed": {
-        "@type": "AdministrativeArea",
-        "name": "Lincolnshire"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Skegness",
-        "addressRegion": "Lincolnshire",
-        "addressCountry": "GB"
-      },
-      "serviceType": ["Custom Software Development", "Web Development", "Business System Integration"]
     }
     </script>
 
@@ -182,15 +245,29 @@
         }
 
         :root {
+            /* Brand green. Readable as a BACKGROUND with dark text on top. */
             --primary: #50C878;
+            /* Lighter green for hover states on filled buttons. */
+            --primary-light: #6FD492;
+            /* Darker green for green TEXT sitting on light backgrounds. */
+            --primary-dark: #2A7F4F;
+
             --secondary: #2B2B2B;
             --background: #F9F9F9;
             --accent: #D4AF37;
             --text-dark: #2B2B2B;
             --text-mid: #5A5A5A;
-            --text-light: #999;
+            --text-light: #6E6E6E;
             --border: #E5E5E5;
             --white: #FFFFFF;
+
+            /* Muted text on the dark contact cards. */
+            --text-on-dark-muted: #AAAAAA;
+
+            /* One source of truth for horizontal page padding.
+               Sections carry vertical rhythm only; horizontal space
+               comes from .container, so nothing double-pads. */
+            --page-pad: 20px;
         }
 
         html {
@@ -207,6 +284,33 @@
             width: 100%;
         }
 
+        /* Keyboard focus ring, applied globally so nothing is missed */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        /* Skip link for keyboard and screen reader users */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            background: var(--secondary);
+            color: var(--white);
+            padding: 12px 20px;
+            z-index: 10001;
+            border-radius: 0 0 6px 0;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            left: 0;
+        }
+
         /* Navbar */
         nav {
             position: sticky;
@@ -214,7 +318,7 @@
             background: var(--white);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
-            padding: 0 20px;
+            padding: 0 var(--page-pad);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
@@ -235,7 +339,12 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            transition: color 0.2s ease;
             min-width: 0;
+        }
+
+        .logo:hover {
+            color: var(--primary-dark);
         }
 
         .logo-image {
@@ -268,8 +377,9 @@
 
         .nav-links {
             display: none;
-            gap: 32px;
+            gap: 28px;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
@@ -281,7 +391,30 @@
             white-space: nowrap;
         }
 
-        .nav-links a:hover { color: var(--primary); }
+        .nav-links a:hover {
+            color: var(--primary-dark);
+        }
+
+        .nav-links a.active {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        /* Nav CTA, so the discovery call link reads as the primary action
+           rather than competing flatly with the Contact link next to it. */
+        .nav-links a.nav-cta {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 9px 18px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+
+        .nav-links a.nav-cta:hover {
+            background: var(--primary-light);
+            color: var(--secondary);
+        }
 
         .mobile-menu {
             display: none;
@@ -305,7 +438,7 @@
 
         .mobile-menu a {
             display: block;
-            padding: 16px 20px;
+            padding: 16px var(--page-pad);
             font-size: 16px;
             color: var(--text-dark);
             text-decoration: none;
@@ -313,57 +446,67 @@
             transition: all 0.2s ease;
         }
 
-        .mobile-menu a:hover {
-            color: var(--primary);
-            background: rgba(80, 200, 120, 0.05);
+        .mobile-menu a:hover,
+        .mobile-menu a.active {
+            color: var(--primary-dark);
+            background: rgba(80, 200, 120, 0.08);
         }
 
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 var(--page-pad);
         }
 
+        /* Buttons */
         .btn {
             background: var(--primary);
-            color: white;
+            color: var(--secondary);
             border: none;
             padding: 16px 40px;
             font-size: 16px;
             font-weight: 600;
+            font-family: inherit;
+            line-height: 1.2;
             cursor: pointer;
             border-radius: 6px;
-            transition: all 0.2s ease;
+            transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease, border-color 0.2s ease;
             display: inline-block;
+            text-align: center;
             text-decoration: none;
+            max-width: 100%;
         }
 
         .btn:hover {
-            background: #3DA55E;
+            background: var(--primary-light);
+            color: var(--secondary);
             transform: translateY(-2px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
         }
 
         .btn-outline {
             background: transparent;
             color: var(--white);
-            border: 1.5px solid rgba(255,255,255,0.5);
+            border: 1.5px solid rgba(255,255,255,0.6);
         }
 
         .btn-outline:hover {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.12);
             border-color: var(--white);
+            color: var(--white);
         }
 
         .btn-large { padding: 18px 48px; font-size: 17px; }
 
         /* Hero */
         .hero-local {
-            padding: 72px 20px 56px;
+            padding: 72px 0 56px;
             background: var(--secondary);
             color: var(--white);
         }
-
-        .hero-local .container { text-align: left; }
 
         .hero-eyebrow {
             display: inline-block;
@@ -376,11 +519,12 @@
         }
 
         .hero-local h1 {
-            font-size: 34px;
+            font-size: clamp(28px, 7vw, 34px);
             font-weight: 700;
             line-height: 1.15;
             margin-bottom: 20px;
             max-width: 720px;
+            overflow-wrap: break-word;
         }
 
         .hero-local p {
@@ -398,7 +542,7 @@
 
         /* Trust strip */
         .trust-strip {
-            padding: 32px 20px;
+            padding: 32px 0;
             background: var(--white);
             border-bottom: 1px solid var(--border);
         }
@@ -418,6 +562,9 @@
             flex-wrap: wrap;
             gap: 10px;
             justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
         .chip {
@@ -432,7 +579,7 @@
 
         /* Sectors */
         .sectors {
-            padding: 72px 20px;
+            padding: 72px 0;
             background: var(--background);
         }
 
@@ -487,7 +634,7 @@
         }
 
         .sector-card .solution strong {
-            color: var(--primary);
+            color: var(--primary-dark);
             display: block;
             font-size: 12px;
             text-transform: uppercase;
@@ -497,7 +644,7 @@
 
         /* Services */
         .services-local {
-            padding: 72px 20px;
+            padding: 72px 0;
             background: var(--white);
             border-top: 1px solid var(--border);
         }
@@ -528,7 +675,7 @@
 
         /* Why local */
         .why-local {
-            padding: 72px 20px;
+            padding: 72px 0;
             background: var(--background);
             border-top: 1px solid var(--border);
         }
@@ -561,7 +708,7 @@
 
         /* Areas served */
         .areas-served {
-            padding: 72px 20px;
+            padding: 72px 0;
             background: var(--white);
             border-top: 1px solid var(--border);
         }
@@ -585,7 +732,7 @@
             font-size: 15px;
             font-weight: 700;
             margin-bottom: 10px;
-            color: var(--primary);
+            color: var(--primary-dark);
         }
 
         .area-group p {
@@ -602,14 +749,14 @@
         }
 
         .areas-note a {
-            color: var(--primary);
+            color: var(--primary-dark);
             font-weight: 600;
-            text-decoration: none;
+            text-decoration: underline;
         }
 
         /* Process */
         .process-local {
-            padding: 72px 20px;
+            padding: 72px 0;
             background: var(--background);
             border-top: 1px solid var(--border);
         }
@@ -629,7 +776,7 @@
             height: 44px;
             border-radius: 50%;
             background: var(--primary);
-            color: white;
+            color: var(--secondary);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -638,7 +785,7 @@
             margin: 0 auto 14px;
         }
 
-        .process-step h4 {
+        .process-step h3 {
             font-size: 15px;
             font-weight: 700;
             margin-bottom: 6px;
@@ -651,8 +798,8 @@
 
         /* CTA banner */
         .cta-banner {
-            padding: 64px 20px;
-            background: linear-gradient(135deg, #50C878 0%, #3DA55E 100%);
+            padding: 64px 0;
+            background: linear-gradient(135deg, #2A7F4F 0%, #1E6039 100%);
             color: white;
             text-align: center;
         }
@@ -672,15 +819,18 @@
         }
 
         .cta-banner .btn {
-            background: white;
-            color: var(--primary);
+            background: var(--white);
+            color: var(--primary-dark);
         }
 
-        .cta-banner .btn:hover { background: #f0f0f0; }
+        .cta-banner .btn:hover {
+            background: #EFEFEF;
+            color: var(--primary-dark);
+        }
 
-        /* Contact (matches homepage) */
+        /* Contact */
         .contact {
-            padding: 72px 20px;
+            padding: 72px 0;
             background: var(--secondary);
         }
 
@@ -699,10 +849,8 @@
         }
 
         .contact-content {
-            display: flex;
             max-width: 600px;
             margin: 0 auto;
-            justify-content: center;
         }
 
         .contact-card {
@@ -712,6 +860,7 @@
             padding: 32px 24px;
             backdrop-filter: blur(10px);
             width: 100%;
+            min-width: 0;
         }
 
         .contact-badge {
@@ -727,7 +876,7 @@
         }
 
         .contact-card h3 { color: white; font-size: 24px; margin-bottom: 12px; }
-        .contact-card p { color: #ccc; margin-bottom: 24px; font-size: 15px; }
+        .contact-card > p { color: #ccc; margin-bottom: 24px; font-size: 15px; }
 
         .contact-card input,
         .contact-card textarea {
@@ -737,19 +886,18 @@
             border-radius: 10px;
             color: white;
             padding: 14px 16px;
-            font-size: 14px;
+            font-size: 16px; /* 16px stops iOS Safari auto-zooming on focus */
             font-family: inherit;
         }
 
         .contact-card input:focus,
         .contact-card textarea:focus {
-            outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(80,200,120,0.15);
         }
 
         .contact-card input::placeholder,
-        .contact-card textarea::placeholder { color: rgba(255,255,255,0.5); }
+        .contact-card textarea::placeholder { color: rgba(255,255,255,0.68); }
 
         .contact-card label {
             color: white;
@@ -759,14 +907,51 @@
             font-size: 14px;
         }
 
-        .recaptcha-wrapper { margin: 24px 0; overflow: hidden; }
+        .form-row { margin-bottom: 20px; }
 
-        @media (max-width: 480px) {
-            .contact-card { padding: 28px 16px; }
-            .g-recaptcha { transform: scale(0.82); transform-origin: 0 0; }
+        .recaptcha-wrapper {
+            margin: 24px 0;
+            max-width: 100%;
+            overflow: hidden;
         }
 
-        .verification-box { color: #999; font-size: 13px; margin-bottom: 12px; }
+        .verification-box {
+            color: var(--text-on-dark-muted);
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        /* Inline form status, replaces the alert() calls so the message
+           is announced to screen readers and does not block the page. */
+        .form-status {
+            margin-top: 16px;
+            font-size: 14px;
+            font-weight: 600;
+            min-height: 21px;
+        }
+
+        .form-status.error { color: #FF9B9B; }
+        .form-status.success { color: var(--primary); }
+
+        /* The reCAPTCHA iframe is a fixed 304px wide and cannot be restyled.
+           Scale it down proportionally on narrow screens. The layout box
+           keeps its original size when transformed, so trim the reserved
+           height to match the visual size and stop it leaving a gap. */
+        @media (max-width: 400px) {
+            .contact-card { padding: 28px 16px; }
+
+            .g-recaptcha {
+                transform: scale(0.82);
+                transform-origin: 0 0;
+            }
+
+            .recaptcha-wrapper { height: calc(78px * 0.82 + 42px); }
+        }
+
+        @media (max-width: 340px) {
+            .g-recaptcha { transform: scale(0.72); }
+            .recaptcha-wrapper { height: calc(78px * 0.72 + 42px); }
+        }
 
         /* Cookie Consent Banner */
         .cookie-banner {
@@ -776,7 +961,8 @@
             right: 0;
             background: var(--secondary);
             color: white;
-            padding: 24px 20px;
+            padding: 20px var(--page-pad);
+            padding-bottom: calc(20px + env(safe-area-inset-bottom));
             box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.15);
             z-index: 10000;
             font-size: 14px;
@@ -797,8 +983,7 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            justify-content: space-between;
-            gap: 24px;
+            gap: 16px;
         }
 
         .cookie-text { flex: 1; }
@@ -821,28 +1006,30 @@
             border-radius: 6px;
             font-size: 14px;
             font-weight: 600;
+            font-family: inherit;
             cursor: pointer;
             white-space: nowrap;
-            transition: all 0.2s ease;
+            transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+            min-height: 44px; /* comfortable touch target */
         }
 
-        .cookie-btn.accept { background: var(--primary); color: white; }
-        .cookie-btn.accept:hover { background: #3DA55E; transform: translateY(-1px); }
+        .cookie-btn.accept { background: var(--primary); color: var(--secondary); }
+        .cookie-btn.accept:hover { background: var(--primary-light); transform: translateY(-1px); }
 
         .cookie-btn.decline {
             background: rgba(255, 255, 255, 0.1);
             color: white;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.35);
         }
 
         .cookie-btn.decline:hover {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 255, 255, 0.5);
         }
 
         /* Footer */
         footer {
-            padding: 40px 20px;
+            padding: 40px 0;
             text-align: center;
             background: var(--white);
             border-top: 1px solid var(--border);
@@ -853,47 +1040,55 @@
         .footer-content {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 40px;
-            max-width: 900px;
-            margin: 0 auto 40px;
+            gap: 32px;
+            margin-bottom: 40px;
         }
 
         .footer-section { text-align: left; padding: 0; }
 
-        .footer-section h4 {
+        .footer-section h2 {
             font-size: 16px;
             font-weight: 700;
             color: var(--text-dark);
             margin-bottom: 16px;
         }
 
-        .footer-logo { display: block; margin-bottom: 16px; width: fit-content; }
-        .footer-logo-image { height: 50px; width: auto; object-fit: contain; }
+        .footer-logo {
+            display: block;
+            margin-bottom: 16px;
+            transition: opacity 0.2s ease;
+            width: fit-content;
+        }
 
-        .footer-tagline { font-size: 15px; color: var(--text-mid); line-height: 1.6; margin: 0; }
+        .footer-logo:hover { opacity: 0.8; }
+        .footer-logo-image { height: 50px; width: auto; object-fit: contain; }
 
         .footer-links { list-style: none; padding: 0; margin: 0; }
         .footer-links li { margin-bottom: 10px; }
         .footer-links a { color: var(--text-mid); text-decoration: none; font-size: 14px; transition: color 0.2s ease; }
-        .footer-links a:hover { color: var(--primary); }
+        .footer-links a:hover { color: var(--primary-dark); }
 
-        .footer-bottom { border-top: 1px solid var(--border); padding-top: 32px; margin-top: 40px; }
+        .footer-bottom { border-top: 1px solid var(--border); padding-top: 32px; }
         .footer-bottom p { font-size: 13px; color: var(--text-light); margin: 8px 0; }
 
-        /* Tablet Breakpoint */
+        /* Tablet Breakpoint (768px) */
         @media (min-width: 768px) {
+            :root { --page-pad: 32px; }
+
             .hamburger { display: none !important; }
             .mobile-menu { display: none !important; }
             .nav-links { display: flex !important; }
 
-            .container { padding: 0 32px; }
-            nav { padding: 0 32px; }
-
-            .hero-local { padding: 100px 32px 80px; }
+            .hero-local { padding: 100px 0 80px; }
             .hero-local h1 { font-size: 44px; }
             .hero-local p { font-size: 18px; }
 
-            .sectors, .services-local, .why-local, .areas-served, .process-local { padding: 100px 32px; }
+            .sectors,
+            .services-local,
+            .why-local,
+            .areas-served,
+            .process-local { padding: 100px 0; }
+
             .section-heading { font-size: 32px; }
             .section-subheading { font-size: 18px; }
 
@@ -903,281 +1098,311 @@
             .area-grid { grid-template-columns: repeat(3, 1fr); }
             .process-grid { grid-template-columns: repeat(4, 1fr); }
 
-            .cta-banner { padding: 90px 32px; }
+            .cta-banner { padding: 90px 0; }
             .cta-banner h2 { font-size: 32px; }
 
-            .contact { padding: 110px 32px; }
+            .contact { padding: 110px 0; }
             .contact-intro { margin-bottom: 60px; font-size: 18px; }
             .contact-intro h2 { font-size: 34px; }
             .contact-card { padding: 40px; }
             .contact-card h3 { font-size: 26px; }
 
-            .cookie-content { flex-direction: row; align-items: center; }
-            .cookie-actions { width: auto; }
-            .cookie-btn { flex: initial; }
+            .cookie-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 24px;
+            }
 
-            .footer-content { grid-template-columns: 1fr 1fr 1fr 1fr; gap: 32px; margin-bottom: 40px; }
-            footer { padding: 60px 32px; }
+            .cookie-actions { width: auto; }
+            .cookie-btn { flex: initial; padding: 10px 20px; }
+
+            .footer-content { grid-template-columns: 1fr 1fr 1fr 1fr; }
+            .footer-bottom { margin-top: 8px; }
         }
 
+        /* Desktop Breakpoint (1024px) */
         @media (min-width: 1024px) {
-            .container { padding: 0 40px; }
-            nav { padding: 0 40px; }
+            :root { --page-pad: 40px; }
+        }
+
+        /* Respect the user's motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .btn:hover,
+            .cookie-btn.accept:hover { transform: none; }
         }
     </style>
 </head>
 <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
     <!-- Navbar -->
     <nav>
         <div class="navbar-content">
             <a href="/" class="logo">
-                <img src="images/cm-interactive-logo.svg" alt="CM Interactive" class="logo-image">
+                <img src="/images/cm-interactive-logo.svg" alt="CM Interactive" class="logo-image">
             </a>
-            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
                 <span></span><span></span><span></span>
             </button>
             <ul class="nav-links" id="desktop-nav">
                 <li><a href="/">Home</a></li>
-                <li><a href="#sectors">Sectors</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#areas">Areas we serve</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="/local-website-development" class="active" aria-current="page">Local Development</a></li>
+                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/contact-us">Contact</a></li>
+                <li><a href="/discovery-call" class="nav-cta">Book a Call</a></li>
             </ul>
             <ul class="mobile-menu" id="mobile-nav">
                 <li><a href="/">Home</a></li>
-                <li><a href="#sectors">Sectors</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#areas">Areas we serve</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="/local-website-development" class="active" aria-current="page">Local Development</a></li>
+                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/contact-us">Contact</a></li>
+                <li><a href="/discovery-call">Book a Discovery Call</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <header class="hero-local">
-        <div class="container">
-            <span class="hero-eyebrow">Lincolnshire · Custom Software & Development</span>
-            <h1>Custom software and web development for Lincolnshire businesses</h1>
-            <p>We build custom web applications, internal tools and business systems for manufacturing, hospitality and engineering firms across Lincolnshire. Based in Skegness, working with businesses in Boston, Lincoln, Grantham and beyond.</p>
-            <div class="hero-ctas">
-                <a href="/#booking" class="btn btn-large">Book a discovery call</a>
-                <a href="#contact" class="btn btn-outline btn-large">Send us your project</a>
-            </div>
-        </div>
-    </header>
-
-    <!-- Trust strip -->
-    <section class="trust-strip">
-        <p class="trust-strip-label">Serving businesses across Lincolnshire</p>
-        <div class="chip-row">
-            <span class="chip">Skegness</span>
-            <span class="chip">Boston</span>
-            <span class="chip">Lincoln</span>
-            <span class="chip">Grantham</span>
-            <span class="chip">Louth</span>
-            <span class="chip">Spalding</span>
-            <span class="chip">Sleaford</span>
-            <span class="chip">Mablethorpe</span>
-            <span class="chip">Gainsborough</span>
-            <span class="chip">Horncastle</span>
-        </div>
-    </section>
-
-    <!-- Sectors -->
-    <section class="sectors" id="sectors">
-        <div class="container">
-            <h2 class="section-heading">Built around how your sector actually works</h2>
-            <p class="section-subheading">Off-the-shelf tools rarely fit the way Lincolnshire businesses actually operate. Here's what we build, and why.</p>
-            <div class="sector-grid">
-                <div class="sector-card">
-                    <h3>Manufacturing</h3>
-                    <p class="problem">Quotes still go out on spreadsheets. Enquiries land in an inbox and get lost between sales and production.</p>
-                    <p class="solution"><strong>What we build</strong>Custom quoting portals, order-tracking dashboards and enquiry routing that plug straight into how your team already works.</p>
-                </div>
-                <div class="sector-card">
-                    <h3>Hospitality</h3>
-                    <p class="problem">OTA commission eats into every booking, and your own website can't compete with Booking.com or Expedia on convenience.</p>
-                    <p class="solution"><strong>What we build</strong>Direct booking systems with live availability, built to pull guests onto your own site and cut commission costs.</p>
-                </div>
-                <div class="sector-card">
-                    <h3>Engineering</h3>
-                    <p class="problem">RFQs arrive as PDFs and spec sheets by email, so quoting takes days because nothing's structured.</p>
-                    <p class="solution"><strong>What we build</strong>Online spec submission and RFQ tools that structure each request the moment it lands, so quoting can start the same day.</p>
+    <main id="main">
+        <!-- Hero -->
+        <section class="hero-local">
+            <div class="container">
+                <span class="hero-eyebrow">Lincolnshire &middot; Custom Software &amp; Development</span>
+                <h1>Custom software and web development for Lincolnshire businesses</h1>
+                <p>We build custom web applications, internal tools and business systems for manufacturing, hospitality and engineering firms across Lincolnshire. Based in Skegness, working with businesses in Boston, Lincoln, Grantham and beyond.</p>
+                <div class="hero-ctas">
+                    <a href="/discovery-call" class="btn btn-large">Book a discovery call</a>
+                    <a href="#contact" class="btn btn-outline btn-large">Send us your project</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Services -->
-    <section class="services-local" id="services">
-        <div class="container">
-            <h2 class="section-heading">What we build</h2>
-            <p class="section-subheading">Development work that goes beyond a brochure website.</p>
-            <div class="services-local-grid">
-                <div class="service-item">
-                    <h3>Custom web applications</h3>
-                    <p>Purpose-built tools for a specific job in your business, not a generic template stretched to fit.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Business system integrations</h3>
-                    <p>Connecting your website, CRM, stock system or finance software so data moves without manual re-entry.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Internal tools & dashboards</h3>
-                    <p>Give your team a single place to see orders, jobs or bookings, instead of switching between spreadsheets.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Direct booking & e-commerce systems</h3>
-                    <p>Reduce reliance on third-party platforms and commission fees with a booking or sales flow you control.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Legacy system modernisation</h3>
-                    <p>Rebuilding ageing internal systems so they're faster, easier to maintain, and don't depend on one person.</p>
-                </div>
-                <div class="service-item">
-                    <h3>API & third-party integrations</h3>
-                    <p>Linking your systems to payment providers, couriers, accounting platforms and other services you rely on.</p>
+        <!-- Trust strip -->
+        <section class="trust-strip" aria-label="Areas served">
+            <div class="container">
+                <p class="trust-strip-label">Serving businesses across Lincolnshire</p>
+                <ul class="chip-row">
+                    <li class="chip">Skegness</li>
+                    <li class="chip">Boston</li>
+                    <li class="chip">Lincoln</li>
+                    <li class="chip">Grantham</li>
+                    <li class="chip">Louth</li>
+                    <li class="chip">Spalding</li>
+                    <li class="chip">Sleaford</li>
+                    <li class="chip">Mablethorpe</li>
+                    <li class="chip">Gainsborough</li>
+                    <li class="chip">Horncastle</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Sectors -->
+        <section class="sectors" id="sectors">
+            <div class="container">
+                <h2 class="section-heading">Built around how your sector actually works</h2>
+                <p class="section-subheading">Off-the-shelf tools rarely fit the way Lincolnshire businesses actually operate. Here's what we build, and why.</p>
+                <div class="sector-grid">
+                    <div class="sector-card">
+                        <h3>Manufacturing</h3>
+                        <p class="problem">Quotes still go out on spreadsheets. Enquiries land in an inbox and get lost between sales and production.</p>
+                        <p class="solution"><strong>What we build</strong>Custom quoting portals, order-tracking dashboards and enquiry routing that plug straight into how your team already works.</p>
+                    </div>
+                    <div class="sector-card">
+                        <h3>Hospitality</h3>
+                        <p class="problem">OTA commission eats into every booking, and your own website can't compete with Booking.com or Expedia on convenience.</p>
+                        <p class="solution"><strong>What we build</strong>Direct booking systems with live availability, built to pull guests onto your own site and cut commission costs.</p>
+                    </div>
+                    <div class="sector-card">
+                        <h3>Engineering</h3>
+                        <p class="problem">RFQs arrive as PDFs and spec sheets by email, so quoting takes days because nothing's structured.</p>
+                        <p class="solution"><strong>What we build</strong>Online spec submission and RFQ tools that structure each request the moment it lands, so quoting can start the same day.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Why local -->
-    <section class="why-local">
-        <div class="container">
-            <h2 class="section-heading">Why a Lincolnshire-based development partner</h2>
-            <p class="section-subheading">No account managers, no offshore handoffs. You work directly with the person building your system.</p>
-            <div class="why-local-grid">
-                <div class="why-item">
-                    <h3>Same time zone, same working day</h3>
-                    <p>No overnight handoffs or waiting until tomorrow for a reply. Questions get answered the same day.</p>
-                </div>
-                <div class="why-item">
-                    <h3>We understand the local trade patterns</h3>
-                    <p>Coastal tourism seasonality, agri-food supply chains, engineering cluster demand. Context that shapes how a system needs to work.</p>
-                </div>
-                <div class="why-item">
-                    <h3>In-person when it's useful</h3>
-                    <p>Based in Skegness and happy to meet on-site across Lincolnshire when a conversation is easier face-to-face.</p>
+        <!-- Services -->
+        <section class="services-local" id="services">
+            <div class="container">
+                <h2 class="section-heading">What we build</h2>
+                <p class="section-subheading">Development work that goes beyond a brochure website.</p>
+                <div class="services-local-grid">
+                    <div class="service-item">
+                        <h3>Custom web applications</h3>
+                        <p>Purpose-built tools for a specific job in your business, not a generic template stretched to fit.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Business system integrations</h3>
+                        <p>Connecting your website, CRM, stock system or finance software so data moves without manual re-entry.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Internal tools and dashboards</h3>
+                        <p>Give your team a single place to see orders, jobs or bookings, instead of switching between spreadsheets.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Direct booking and e-commerce systems</h3>
+                        <p>Reduce reliance on third-party platforms and commission fees with a booking or sales flow you control.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Legacy system modernisation</h3>
+                        <p>Rebuilding ageing internal systems so they're faster, easier to maintain, and don't depend on one person.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>API and third-party integrations</h3>
+                        <p>Linking your systems to payment providers, couriers, accounting platforms and other services you rely on.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Areas served -->
-    <section class="areas-served" id="areas">
-        <div class="container">
-            <h2 class="section-heading">Areas we serve</h2>
-            <p class="section-subheading">Based in Skegness, working with businesses across Lincolnshire.</p>
-            <div class="area-grid">
-                <div class="area-group">
-                    <h3>Lincolnshire Coast</h3>
-                    <p>Skegness, Mablethorpe, Ingoldmells, Chapel St Leonards</p>
-                </div>
-                <div class="area-group">
-                    <h3>Boston & South Holland</h3>
-                    <p>Boston, Spalding</p>
-                </div>
-                <div class="area-group">
-                    <h3>Lincoln & West Lindsey</h3>
-                    <p>Lincoln, Gainsborough</p>
-                </div>
-                <div class="area-group">
-                    <h3>South Kesteven</h3>
-                    <p>Grantham, Sleaford</p>
-                </div>
-                <div class="area-group">
-                    <h3>Wolds & East Lindsey</h3>
-                    <p>Louth, Horncastle</p>
+        <!-- Why local -->
+        <section class="why-local">
+            <div class="container">
+                <h2 class="section-heading">Why a Lincolnshire-based development partner</h2>
+                <p class="section-subheading">No account managers, no offshore handoffs. You work directly with the person building your system.</p>
+                <div class="why-local-grid">
+                    <div class="why-item">
+                        <h3>Same time zone, same working day</h3>
+                        <p>No overnight handoffs or waiting until tomorrow for a reply. Questions get answered the same day.</p>
+                    </div>
+                    <div class="why-item">
+                        <h3>We understand the local trade patterns</h3>
+                        <p>Coastal tourism seasonality, agri-food supply chains, engineering cluster demand. Context that shapes how a system needs to work.</p>
+                    </div>
+                    <div class="why-item">
+                        <h3>In-person when it's useful</h3>
+                        <p>Based in Skegness and happy to meet on-site across Lincolnshire when a conversation is easier face-to-face.</p>
+                    </div>
                 </div>
             </div>
-            <p class="areas-note">Not on the list? We work across Lincolnshire and beyond - <a href="#contact">get in touch</a>.</p>
-        </div>
-    </section>
+        </section>
 
-    <!-- Process -->
-    <section class="process-local">
-        <div class="container">
-            <h2 class="section-heading">How a project runs</h2>
-            <div class="process-grid">
-                <div class="process-step">
-                    <div class="step-num">1</div>
-                    <h4>Discovery & scope</h4>
-                    <p>We map out the actual problem and agree what "done" looks like.</p>
+        <!-- Areas served -->
+        <section class="areas-served" id="areas">
+            <div class="container">
+                <h2 class="section-heading">Areas we serve</h2>
+                <p class="section-subheading">Based in Skegness, working with businesses across Lincolnshire.</p>
+                <div class="area-grid">
+                    <div class="area-group">
+                        <h3>Lincolnshire Coast</h3>
+                        <p>Skegness, Mablethorpe, Ingoldmells, Chapel St Leonards</p>
+                    </div>
+                    <div class="area-group">
+                        <h3>Boston and South Holland</h3>
+                        <p>Boston, Spalding</p>
+                    </div>
+                    <div class="area-group">
+                        <h3>Lincoln and West Lindsey</h3>
+                        <p>Lincoln, Gainsborough</p>
+                    </div>
+                    <div class="area-group">
+                        <h3>South Kesteven</h3>
+                        <p>Grantham, Sleaford</p>
+                    </div>
+                    <div class="area-group">
+                        <h3>Wolds and East Lindsey</h3>
+                        <p>Louth, Horncastle</p>
+                    </div>
                 </div>
-                <div class="process-step">
-                    <div class="step-num">2</div>
-                    <h4>Design & architecture</h4>
-                    <p>We plan how the system will work before writing a line of code.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-num">3</div>
-                    <h4>Build & test</h4>
-                    <p>Development happens in the open, with regular check-ins along the way.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-num">4</div>
-                    <h4>Launch & support</h4>
-                    <p>We launch, then stay on to fix, refine and support as your business changes.</p>
+                <p class="areas-note">Not on the list? We work across Lincolnshire and beyond, <a href="#contact">get in touch</a>.</p>
+            </div>
+        </section>
+
+        <!-- Process -->
+        <section class="process-local">
+            <div class="container">
+                <h2 class="section-heading">How a project runs</h2>
+                <div class="process-grid">
+                    <div class="process-step">
+                        <div class="step-num" aria-hidden="true">1</div>
+                        <h3>Discovery and scope</h3>
+                        <p>We map out the actual problem and agree what "done" looks like.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-num" aria-hidden="true">2</div>
+                        <h3>Design and architecture</h3>
+                        <p>We plan how the system will work before writing a line of code.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-num" aria-hidden="true">3</div>
+                        <h3>Build and test</h3>
+                        <p>Development happens in the open, with regular check-ins along the way.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-num" aria-hidden="true">4</div>
+                        <h3>Launch and support</h3>
+                        <p>We launch, then stay on to fix, refine and support as your business changes.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA banner -->
-    <section class="cta-banner">
-        <div class="container">
-            <h2>Ready to talk about your project?</h2>
-            <p>Book a free 30-minute discovery call, no pitch, just a straight conversation about what you need.</p>
-            <a href="/#booking" class="btn btn-large">Book a discovery call</a>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-intro">
-                <h2>Or send us a message</h2>
-                <p>Tell us a bit about your business and what you're looking to build. We aim to respond within 24 hours.</p>
+        <!-- CTA banner -->
+        <section class="cta-banner">
+            <div class="container">
+                <h2>Ready to talk about your project?</h2>
+                <p>Book a free 30-minute discovery call, no pitch, just a straight conversation about what you need.</p>
+                <a href="/discovery-call" class="btn btn-large">Book a discovery call</a>
             </div>
-            <div class="contact-content">
-                <div class="contact-card">
-                    <div class="contact-badge">SECURE CONTACT</div>
-                    <h3>Send us a message</h3>
-                    <p>Tell us a bit about your project and what you're looking to achieve.</p>
+        </section>
 
-                    <form id="contact-form">
-                        <div style="margin-bottom: 20px;">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required placeholder="John Doe">
-                        </div>
+        <!-- Contact -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="contact-intro">
+                    <h2>Or send us a message</h2>
+                    <p>Tell us a bit about your business and what you're looking to build. We aim to respond within one working day.</p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-card">
+                        <div class="contact-badge">SECURE CONTACT</div>
+                        <h3>Send us a message</h3>
+                        <p>Tell us a bit about your project and what you're looking to achieve.</p>
 
-                        <div style="margin-bottom: 20px;">
-                            <label for="email">Email address</label>
-                            <input type="email" id="email" name="email" required placeholder="john@example.com">
-                        </div>
+                        <form id="contact-form" novalidate>
+                            <div class="form-row">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required autocomplete="name" placeholder="John Doe">
+                            </div>
 
-                        <div style="margin-bottom: 20px;">
-                            <label for="title">Subject</label>
-                            <input type="text" id="title" name="title" required placeholder="What's this about?">
-                        </div>
+                            <div class="form-row">
+                                <label for="email">Email address</label>
+                                <input type="email" id="email" name="email" required autocomplete="email" placeholder="john@example.com">
+                            </div>
 
-                        <div style="margin-bottom: 20px;">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required placeholder="How can we help you?"></textarea>
-                        </div>
+                            <div class="form-row">
+                                <label for="title">Subject</label>
+                                <input type="text" id="title" name="title" required placeholder="What's this about?">
+                            </div>
 
-                        <div class="recaptcha-wrapper">
-                            <div class="verification-box">Please verify you are human to enable submission:</div>
-                            <div class="g-recaptcha" data-sitekey="6Lca2x4tAAAAAH6pSQliVWWVfQleenC89jCmVxF4" data-theme="dark"></div>
-                        </div>
+                            <div class="form-row">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="How can we help you?"></textarea>
+                            </div>
 
-                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
-                    </form>
+                            <div class="recaptcha-wrapper">
+                                <div class="verification-box">Please verify you are human to enable submission:</div>
+                                <div class="g-recaptcha" data-sitekey="6Lca2x4tAAAAAH6pSQliVWWVfQleenC89jCmVxF4" data-theme="dark"></div>
+                            </div>
+
+                            <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+
+                            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -1185,32 +1410,33 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <a href="/" class="footer-logo">
-                        <img src="images/cm-interactive-logo.svg" alt="CM Interactive" class="footer-logo-image">
+                        <img src="/images/cm-interactive-logo.svg" alt="CM Interactive" class="footer-logo-image">
                     </a>
                 </div>
 
                 <div class="footer-section">
-                    <h4>Navigation</h4>
+                    <h2>Navigation</h2>
                     <ul class="footer-links">
                         <li><a href="/">Home</a></li>
-                        <li><a href="#sectors">Sectors</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#areas">Areas we serve</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="/local-website-development">Local Development</a></li>
+                        <li><a href="/pricing">Pricing</a></li>
+                        <li><a href="/contact-us">Contact</a></li>
+                        <li><a href="/discovery-call">Book a Discovery Call</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-section">
-                    <h4>Resources</h4>
+                    <h2>Resources</h2>
                     <ul class="footer-links">
+                        <li><a href="/#how-it-works">How it Works</a></li>
+                        <li><a href="/#services">Services</a></li>
                         <li><a href="/sitemap.xml">Sitemap</a></li>
-                        <li><a href="/robots.txt">Robots.txt</a></li>
                         <li><a href="/llms.txt">LLMs.txt</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-section">
-                    <h4>Legal</h4>
+                    <h2>Legal</h2>
                     <ul class="footer-links">
                         <li><a href="/privacy-policy">Privacy Policy</a></li>
                     </ul>
@@ -1225,7 +1451,7 @@
     </footer>
 
     <!-- Cookie Consent Banner -->
-    <div id="cookie-banner" class="cookie-banner">
+    <div id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookie consent">
         <div class="cookie-content">
             <div class="cookie-text">
                 <p>We use cookies to analyse how you interact with our website and improve your experience. Only analytical cookies are used, no tracking or advertising.</p>
@@ -1238,7 +1464,10 @@
         </div>
     </div>
 
+
+    <!--Navbar interactions-->
     <script>
+        // Hide banner if consent already given
         document.addEventListener('DOMContentLoaded', function() {
             const savedConsent = getCookie(CONSENT_COOKIE);
             if(savedConsent !== null) {
@@ -1246,58 +1475,87 @@
             }
         });
 
+        // Hamburger Menu Functionality
         const hamburger = document.getElementById('hamburger');
         const mobileNav = document.getElementById('mobile-nav');
         const mobileLinks = mobileNav.querySelectorAll('a');
 
+        function setMenuOpen(open) {
+            hamburger.classList.toggle('active', open);
+            mobileNav.classList.toggle('active', open);
+            hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+
+        // Toggle mobile menu
         hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            mobileNav.classList.toggle('active');
+            setMenuOpen(!hamburger.classList.contains('active'));
         });
 
+        // Close mobile menu when a link is clicked
         mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                mobileNav.classList.remove('active');
-            });
+            link.addEventListener('click', () => setMenuOpen(false));
         });
 
+        // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!e.target.closest('nav')) {
-                hamburger.classList.remove('active');
-                mobileNav.classList.remove('active');
+                setMenuOpen(false);
+            }
+        });
+
+        // Close mobile menu on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                setMenuOpen(false);
             }
         });
     </script>
 
+
+    <!--Form JS-->
     <script>
         const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+
+        function setStatus(message, type) {
+            formStatus.textContent = message;
+            formStatus.className = 'form-status' + (type ? ' ' + type : '');
+        }
 
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
+            // Native validation still runs, we just control when it fires
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                return;
+            }
+
+            // Require a completed reCAPTCHA before sending
             const captchaToken = window.grecaptcha ? grecaptcha.getResponse() : '';
             if (!captchaToken) {
-                alert('Please complete the verification before sending.');
+                setStatus('Please complete the verification before sending.', 'error');
                 return;
             }
 
             const btn = contactForm.querySelector('button[type="submit"]');
             btn.disabled = true;
             btn.textContent = 'Sending...';
+            setStatus('', null);
 
             emailjs.sendForm('service_34etu3d', 'template_7ll0kqg', contactForm)
                 .then(function () {
-                    btn.textContent = 'Message sent ✓';
+                    btn.textContent = 'Message sent';
                     contactForm.reset();
                     if (window.grecaptcha) grecaptcha.reset();
+                    setStatus('Thanks, your message has been sent. We usually reply within one working day.', 'success');
                 })
                 .catch(function (err) {
                     console.error(err);
                     btn.disabled = false;
                     btn.textContent = 'Send Message';
                     if (window.grecaptcha) grecaptcha.reset();
-                    alert('Something went wrong, please try again, or email help@cminteractive.uk directly.');
+                    setStatus('Something went wrong. Please try again, or email help@cminteractive.uk directly.', 'error');
                 });
         });
     </script>

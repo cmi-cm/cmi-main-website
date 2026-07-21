@@ -4,13 +4,13 @@
     <!-- Google Analytics with Consent Management -->
     <script>
       window.dataLayer = window.dataLayer || [];
-      
+
       // Default to no consent until user decides
       gtag('consent', 'default', {
         'analytics_storage': 'denied',
         'ad_storage': 'denied'
       });
-      
+
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-0QW701ZMK1');
@@ -82,66 +82,130 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CM Interactive - Results-Driven Web Design & Development Agency UK</title>
-    <meta name="description" content="Digital solutions that deliver measurable results. Web design, development, and digital strategy focused on hitting your business targets. Based in the UK.">
-    <meta name="keywords" content="web design, web development, digital strategy, conversion optimisation, web design UK, digital agency">
+    <title>Web Design &amp; Development Agency UK | CM Interactive</title>
+    <meta name="description" content="CM Interactive builds websites that deliver measurable results. Web design, development, digital strategy and conversion optimisation for UK businesses. Free discovery call.">
     <meta name="author" content="CM Interactive">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    
+
     <!-- Open Graph / Social Media -->
+    <!-- No og:image set. Shares render as a text-only card.
+         To upgrade: add a 1200x630 PNG, then add og:image,
+         og:image:width, og:image:height, og:image:alt and twitter:image,
+         and switch twitter:card to summary_large_image. -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://cminteractive.uk/">
-    <meta property="og:title" content="CM Interactive - Results-Driven Web Design & Development">
-    <meta property="og:description" content="Digital solutions that deliver measurable results. Web design, development, and digital strategy focused on hitting your business targets.">
+    <meta property="og:title" content="Web Design &amp; Development Agency UK | CM Interactive">
+    <meta property="og:description" content="Websites that deliver measurable results. Web design, development and digital strategy focused on hitting your business targets.">
     <meta property="og:site_name" content="CM Interactive">
-    
+    <meta property="og:locale" content="en_GB">
+
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://cminteractive.uk/">
-    <meta property="twitter:title" content="CM Interactive - Results-Driven Web Design & Development">
-    <meta property="twitter:description" content="Digital solutions that deliver measurable results. Web design, development, and digital strategy focused on hitting your business targets.">
-    
+    <!-- summary, not summary_large_image, because there is no image to fill it. -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://cminteractive.uk/">
+    <meta name="twitter:title" content="Web Design &amp; Development Agency UK | CM Interactive">
+    <meta name="twitter:description" content="Websites that deliver measurable results. Web design, development and digital strategy focused on hitting your business targets.">
+
     <!-- Canonical -->
     <link rel="canonical" href="https://cminteractive.uk/">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%2350C878' width='32' height='32' rx='6'/><text x='50%' y='50%' font-size='18' font-weight='700' fill='white' text-anchor='middle' dominant-baseline='central'>CM</text></svg>">
     <link rel="alternate icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==">
-    
+
     <!-- Google reCAPTCHA v2 -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    
+
     <!-- Schema.org Structured Data -->
+    <!-- sameAs removed. It previously listed twitter.com/cminteractive,
+         linkedin.com/company/cminteractive and github.com/cminteractive.
+         Only put profiles back that you actually own and control, or
+         Google will resolve the entity against someone else's accounts. -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "CM Interactive",
-      "description": "Results-driven web design and development agency",
-      "url": "https://cminteractive.uk",
-      "image": "https://cminteractive.uk/images/cm-interactive-logo.svg",
-      "areaServed": "GB",
-      "serviceType": ["Web Design", "Web Development", "Digital Strategy", "Conversion Optimisation"],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "Customer Service",
-        "url": "https://cminteractive.uk#contact"
-      }
-    }
-    </script>
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "CM Interactive",
-      "url": "https://cminteractive.uk",
-      "logo": "https://cminteractive.uk/images/cm-interactive-logo.svg",
-      "description": "Web design and development agency focused on delivering measurable business results",
-      "sameAs": [
-        "https://twitter.com/cminteractive",
-        "https://linkedin.com/company/cminteractive",
-        "https://github.com/cminteractive"
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://cminteractive.uk/#organization",
+          "name": "CM Interactive",
+          "legalName": "CM Interactive Limited",
+          "description": "Web design and development agency focused on delivering measurable business results",
+          "url": "https://cminteractive.uk",
+          "image": "https://cminteractive.uk/images/cm-interactive-logo.svg",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://cminteractive.uk/images/cm-interactive-logo.svg"
+          },
+          "email": "help@cminteractive.uk",
+          "areaServed": {
+            "@type": "Country",
+            "name": "United Kingdom"
+          },
+          "knowsAbout": ["Web Design", "Web Development", "Digital Strategy", "Conversion Optimisation"],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Customer Service",
+            "email": "help@cminteractive.uk",
+            "availableLanguage": "English",
+            "url": "https://cminteractive.uk/contact-us"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Web Design",
+                  "description": "High-converting, visually compelling designs structured to guide visitors towards your business goals."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Web Development",
+                  "description": "Fast, secure and scalable digital solutions built with modern technology."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Digital Strategy",
+                  "description": "Roadmaps that align your digital presence with your business targets and revenue goals."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Conversion Optimisation",
+                  "description": "Data-driven testing and refinement to get more value out of your existing traffic."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://cminteractive.uk/#website",
+          "url": "https://cminteractive.uk",
+          "name": "CM Interactive",
+          "inLanguage": "en-GB",
+          "publisher": { "@id": "https://cminteractive.uk/#organization" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://cminteractive.uk/#webpage",
+          "url": "https://cminteractive.uk/",
+          "name": "Web Design and Development Agency UK",
+          "description": "CM Interactive builds websites that deliver measurable results for UK businesses.",
+          "isPartOf": { "@id": "https://cminteractive.uk/#website" },
+          "about": { "@id": "https://cminteractive.uk/#organization" }
+        }
       ]
     }
     </script>
@@ -154,19 +218,34 @@
         }
 
         :root {
+            /* Brand green. Readable as a BACKGROUND with dark text on top. */
             --primary: #50C878;
+            /* Lighter green for hover states on filled buttons. */
+            --primary-light: #6FD492;
+            /* Darker green for green TEXT sitting on light backgrounds. */
+            --primary-dark: #2A7F4F;
+
             --secondary: #2B2B2B;
             --background: #F9F9F9;
             --accent: #D4AF37;
             --text-dark: #2B2B2B;
             --text-mid: #5A5A5A;
-            --text-light: #999;
+            --text-light: #6E6E6E;
             --border: #E5E5E5;
             --white: #FFFFFF;
+
+            /* Muted text on the dark contact cards. */
+            --text-on-dark-muted: #AAAAAA;
+
+            /* One source of truth for horizontal page padding.
+               Sections carry vertical rhythm only; horizontal space
+               comes from .container, so nothing double-pads. */
+            --page-pad: 20px;
         }
 
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         body {
@@ -174,6 +253,35 @@
             background: var(--background);
             color: var(--text-dark);
             line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* Keyboard focus ring, applied globally so nothing is missed */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        /* Skip link for keyboard and screen reader users */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            background: var(--secondary);
+            color: var(--white);
+            padding: 12px 20px;
+            z-index: 10001;
+            border-radius: 0 0 6px 0;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            left: 0;
         }
 
         /* Navbar */
@@ -183,7 +291,7 @@
             background: var(--white);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
-            padding: 0 20px;
+            padding: 0 var(--page-pad);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
@@ -209,21 +317,7 @@
         }
 
         .logo:hover {
-            color: var(--primary);
-        }
-
-        .logo-mark {
-            width: 32px;
-            height: 32px;
-            background: var(--primary);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 14px;
-            flex-shrink: 0;
+            color: var(--primary-dark);
         }
 
         .logo-image {
@@ -233,7 +327,7 @@
         }
 
         .hamburger {
-            display: none;
+            display: flex;
             flex-direction: column;
             cursor: pointer;
             background: none;
@@ -263,9 +357,10 @@
         }
 
         .nav-links {
-            display: flex;
-            gap: 32px;
+            display: none;
+            gap: 28px;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
@@ -278,12 +373,28 @@
         }
 
         .nav-links a:hover {
-            color: var(--primary);
+            color: var(--primary-dark);
         }
 
         .nav-links a.active {
-            color: var(--primary);
+            color: var(--primary-dark);
             font-weight: 600;
+        }
+
+        /* Nav CTA, so the discovery call link reads as the primary action
+           rather than competing flatly with the Contact link next to it. */
+        .nav-links a.nav-cta {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 9px 18px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+
+        .nav-links a.nav-cta:hover {
+            background: var(--primary-light);
+            color: var(--secondary);
         }
 
         .mobile-menu {
@@ -316,7 +427,7 @@
 
         .mobile-menu a {
             display: block;
-            padding: 16px 20px;
+            padding: 16px var(--page-pad);
             font-size: 16px;
             color: var(--text-dark);
             text-decoration: none;
@@ -326,69 +437,38 @@
 
         .mobile-menu a:hover,
         .mobile-menu a.active {
-            color: var(--primary);
-            background: rgba(80, 200, 120, 0.05);
+            color: var(--primary-dark);
+            background: rgba(80, 200, 120, 0.08);
         }
 
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 var(--page-pad);
         }
 
-        /* Mobile: Hide desktop nav, show hamburger */
-        .nav-links {
-            display: none;
-        }
-
-        .hamburger {
-            display: flex;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 80px 20px;
-            text-align: center;
-            background: var(--background);
-        }
-
-        .hero h1 {
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            line-height: 1.1;
-        }
-
-        .hero h1 .highlight {
-            color: var(--primary);
-        }
-
-        .hero p {
-            font-size: 16px;
-            color: var(--text-mid);
-            margin-bottom: 40px;
-            line-height: 1.6;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
+        /* Buttons */
         .btn {
             background: var(--primary);
-            color: white;
+            color: var(--secondary);
             border: none;
             padding: 16px 40px;
             font-size: 16px;
             font-weight: 600;
+            font-family: inherit;
+            line-height: 1.2;
             cursor: pointer;
             border-radius: 6px;
-            transition: all 0.2s ease;
+            transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
             display: inline-block;
+            text-align: center;
             text-decoration: none;
+            max-width: 100%;
         }
 
         .btn:hover {
-            background: #3DA55E;
+            background: var(--primary-light);
+            color: var(--secondary);
             transform: translateY(-2px);
         }
 
@@ -403,6 +483,7 @@
 
         .btn-dark:hover {
             background: #1a1a1a;
+            color: var(--background);
         }
 
         .btn-large {
@@ -410,10 +491,46 @@
             font-size: 17px;
         }
 
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: var(--background);
+        }
+
+        .hero h1 {
+            font-size: clamp(30px, 8vw, 42px);
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.15;
+            overflow-wrap: break-word;
+        }
+
+        .hero h1 .highlight {
+            color: var(--primary-dark);
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--text-mid);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
         /* Discovery Call Section */
         .discovery-cta {
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #50C878 0%, #3DA55E 100%);
+            padding: 80px 0;
+            background: linear-gradient(135deg, #2A7F4F 0%, #1E6039 100%);
             color: white;
         }
 
@@ -426,7 +543,7 @@
             font-size: 32px;
             font-weight: 700;
             margin-bottom: 24px;
-            line-height: 1.1;
+            line-height: 1.15;
         }
 
         .discovery-content > p {
@@ -450,32 +567,37 @@
         }
 
         .discovery-list li:before {
-            content: "✓";
+            content: "";
             position: absolute;
-            left: 0;
-            font-weight: 700;
-            font-size: 20px;
+            left: 4px;
+            top: 9px;
+            width: 14px;
+            height: 7px;
+            border-left: 2.5px solid var(--primary);
+            border-bottom: 2.5px solid var(--primary);
+            transform: rotate(-45deg);
         }
 
         .discovery-cta-text {
             font-size: 16px;
-            margin-bottom: 40px !important;
+            margin-bottom: 40px;
             font-weight: 500;
             line-height: 1.6;
         }
 
         .discovery-cta .btn {
-            background: white;
-            color: var(--primary);
+            background: var(--white);
+            color: var(--primary-dark);
         }
 
         .discovery-cta .btn:hover {
-            background: #f0f0f0;
+            background: #EFEFEF;
+            color: var(--primary-dark);
         }
 
         /* Approach Section */
         .approach {
-            padding: 80px 20px;
+            padding: 80px 0;
             background: var(--white);
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
@@ -508,30 +630,17 @@
             line-height: 1.6;
         }
 
+        /* Was gold on white, which fails contrast at this size. */
         .approach-number {
             font-size: 24px;
             font-weight: 700;
-            color: var(--accent);
+            color: var(--primary-dark);
             margin-bottom: 16px;
-        }
-
-        /* Booking Section */
-        .booking-section {
-            padding: 80px 20px;
-            background: var(--background);
-            border-top: 1px solid var(--border);
-        }
-
-        .booking-section h2 {
-            font-size: 28px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 40px;
         }
 
         /* How We Measure Success Section */
         .success-section {
-            padding: 80px 20px;
+            padding: 80px 0;
             background: var(--white);
             border-top: 1px solid var(--border);
         }
@@ -566,9 +675,20 @@
         }
 
         .metric-icon {
-            font-size: 32px;
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            background: rgba(80, 200, 120, 0.12);
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 16px;
-            display: block;
+        }
+
+        .metric-icon svg {
+            width: 22px;
+            height: 22px;
         }
 
         .metric-card h3 {
@@ -617,7 +737,7 @@
             height: 48px;
             border-radius: 50%;
             background: var(--primary);
-            color: white;
+            color: var(--secondary);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -642,7 +762,7 @@
 
         /* Services Section */
         .services {
-            padding: 80px 20px;
+            padding: 80px 0;
             background: var(--white);
             border-top: 1px solid var(--border);
         }
@@ -679,9 +799,9 @@
             line-height: 1.6;
         }
 
-       /* Pricing Section */
+        /* Pricing Section */
         .pricing-section {
-            padding: 80px 20px;
+            padding: 80px 0;
             background: var(--background);
             border-top: 1px solid var(--border);
         }
@@ -700,86 +820,7 @@
             margin-bottom: 50px;
         }
 
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
-            max-width: 1000px;
-            margin: 0 auto 40px;
-        }
-
-        .pricing-card {
-            background: var(--white);
-            padding: 32px;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .pricing-card-accent {
-            border: 2px solid var(--primary);
-            box-shadow: 0 8px 24px rgba(80, 200, 120, 0.1);
-        }
-
-        .pricing-phase {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-light);
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        .pricing-phase.accent {
-            color: var(--primary);
-        }
-
-        .pricing-card h3 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--text-dark);
-        }
-
-        .pricing-label {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 24px;
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin-bottom: 24px;
-            flex-grow: 1;
-        }
-
-        .pricing-features li {
-            font-size: 14px;
-            color: var(--text-mid);
-            margin-bottom: 12px;
-            padding-left: 24px;
-            position: relative;
-            line-height: 1.5;
-        }
-
-        .pricing-features li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .pricing-note {
-            font-size: 13px;
-            color: var(--text-light);
-            line-height: 1.6;
-            margin: 0 !important;
-        }
-
-        .pricing-footer {
+        .pricing-teaser {
             text-align: center;
             max-width: 700px;
             margin: 0 auto;
@@ -789,16 +830,16 @@
             border: 1px solid var(--border);
         }
 
-        .pricing-footer p {
+        .pricing-teaser p {
             font-size: 15px;
             color: var(--text-mid);
             line-height: 1.6;
-            margin: 0;
+            margin: 0 0 24px;
         }
 
         /* Contact Section */
         .contact {
-            padding: 80px 20px;
+            padding: 80px 0;
             background: var(--secondary);
         }
 
@@ -817,9 +858,6 @@
         }
 
         .contact-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
             max-width: 600px;
             margin: 0 auto;
         }
@@ -830,6 +868,7 @@
             border-radius: 16px;
             padding: 32px 24px;
             backdrop-filter: blur(10px);
+            min-width: 0;
         }
 
         .contact-badge {
@@ -850,7 +889,7 @@
             margin-bottom: 12px;
         }
 
-        .contact-card p {
+        .contact-card > p {
             color: #ccc;
             margin-bottom: 24px;
             font-size: 15px;
@@ -864,20 +903,19 @@
             border-radius: 10px;
             color: white;
             padding: 14px 16px;
-            font-size: 14px;
+            font-size: 16px; /* 16px stops iOS Safari auto-zooming on focus */
             font-family: inherit;
         }
 
         .contact-card input:focus,
         .contact-card textarea:focus {
-            outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(80,200,120,0.15);
         }
 
         .contact-card input::placeholder,
         .contact-card textarea::placeholder {
-            color: rgba(255,255,255,0.5);
+            color: rgba(255,255,255,0.68);
         }
 
         .contact-card label {
@@ -888,14 +926,66 @@
             font-size: 14px;
         }
 
+        .form-row {
+            margin-bottom: 20px;
+        }
+
         .recaptcha-wrapper {
             margin: 24px 0;
+            max-width: 100%;
+            overflow: hidden;
         }
 
         .verification-box {
-            color: #999;
+            color: var(--text-on-dark-muted);
             font-size: 13px;
             margin-bottom: 12px;
+        }
+
+        /* Inline form status, replaces the alert() calls so the message
+           is announced to screen readers and does not block the page. */
+        .form-status {
+            margin-top: 16px;
+            font-size: 14px;
+            font-weight: 600;
+            min-height: 21px;
+        }
+
+        .form-status.error {
+            color: #FF9B9B;
+        }
+
+        .form-status.success {
+            color: var(--primary);
+        }
+
+        /* The reCAPTCHA iframe is a fixed 304px wide and cannot be restyled.
+           Scale it down proportionally on narrow screens. The layout box
+           keeps its original size when transformed, so trim the reserved
+           height to match the visual size and stop it leaving a gap. */
+        @media (max-width: 400px) {
+            .contact-card {
+                padding: 28px 16px;
+            }
+
+            .g-recaptcha {
+                transform: scale(0.82);
+                transform-origin: 0 0;
+            }
+
+            .recaptcha-wrapper {
+                height: calc(78px * 0.82 + 42px);
+            }
+        }
+
+        @media (max-width: 340px) {
+            .g-recaptcha {
+                transform: scale(0.72);
+            }
+
+            .recaptcha-wrapper {
+                height: calc(78px * 0.72 + 42px);
+            }
         }
 
         /* Cookie Consent Banner */
@@ -906,7 +996,8 @@
             right: 0;
             background: var(--secondary);
             color: white;
-            padding: 24px 20px;
+            padding: 20px var(--page-pad);
+            padding-bottom: calc(20px + env(safe-area-inset-bottom));
             box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.15);
             z-index: 10000;
             font-size: 14px;
@@ -933,9 +1024,9 @@
             max-width: 900px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 24px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
         }
 
         .cookie-text {
@@ -959,46 +1050,50 @@
 
         .cookie-actions {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
             align-items: center;
+            width: 100%;
         }
 
         .cookie-btn {
-            padding: 10px 20px;
+            padding: 12px 16px;
             border: none;
             border-radius: 6px;
             font-size: 14px;
             font-weight: 600;
+            font-family: inherit;
             cursor: pointer;
             white-space: nowrap;
-            transition: all 0.2s ease;
+            transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+            flex: 1;
+            min-height: 44px; /* comfortable touch target */
         }
 
         .cookie-btn.accept {
             background: var(--primary);
-            color: white;
+            color: var(--secondary);
         }
 
         .cookie-btn.accept:hover {
-            background: #3DA55E;
+            background: var(--primary-light);
             transform: translateY(-1px);
         }
 
         .cookie-btn.decline {
             background: rgba(255, 255, 255, 0.1);
             color: white;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.35);
         }
 
         .cookie-btn.decline:hover {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 255, 255, 0.5);
         }
 
         /* Footer */
         footer {
-            padding: 40px 20px;
+            padding: 40px 0;
             text-align: center;
             background: var(--white);
             border-top: 1px solid var(--border);
@@ -1009,9 +1104,8 @@
         .footer-content {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 40px;
-            max-width: 900px;
-            margin: 0 auto 40px;
+            gap: 32px;
+            margin-bottom: 40px;
         }
 
         .footer-section {
@@ -1019,7 +1113,7 @@
             padding: 0;
         }
 
-        .footer-section h4 {
+        .footer-section h2 {
             font-size: 16px;
             font-weight: 700;
             color: var(--text-dark);
@@ -1043,13 +1137,6 @@
             object-fit: contain;
         }
 
-        .footer-tagline {
-            font-size: 15px;
-            color: var(--text-mid);
-            line-height: 1.6;
-            margin: 0;
-        }
-
         .footer-links {
             list-style: none;
             padding: 0;
@@ -1068,13 +1155,12 @@
         }
 
         .footer-links a:hover {
-            color: var(--primary);
+            color: var(--primary-dark);
         }
 
         .footer-bottom {
             border-top: 1px solid var(--border);
             padding-top: 32px;
-            margin-top: 40px;
         }
 
         .footer-bottom p {
@@ -1085,6 +1171,10 @@
 
         /* Tablet Breakpoint (768px) */
         @media (min-width: 768px) {
+            :root {
+                --page-pad: 32px;
+            }
+
             .hamburger {
                 display: none !important;
             }
@@ -1097,20 +1187,8 @@
                 display: flex !important;
             }
 
-            .container {
-                padding: 0 32px;
-            }
-
-            nav {
-                padding: 0 32px;
-            }
-
             .hero {
-                padding: 100px 32px;
-            }
-
-            .hero h1 {
-                font-size: 48px;
+                padding: 100px 0;
             }
 
             .hero p {
@@ -1118,7 +1196,7 @@
             }
 
             .discovery-cta {
-                padding: 100px 32px;
+                padding: 100px 0;
             }
 
             .discovery-content h2 {
@@ -1138,7 +1216,7 @@
             }
 
             .approach {
-                padding: 100px 32px;
+                padding: 100px 0;
             }
 
             .approach h2 {
@@ -1152,7 +1230,7 @@
             }
 
             .services {
-                padding: 100px 32px;
+                padding: 100px 0;
             }
 
             .services h2 {
@@ -1165,16 +1243,8 @@
                 gap: 48px;
             }
 
-            .booking-section {
-                padding: 100px 32px;
-            }
-
-            .booking-section h2 {
-                font-size: 32px;
-            }
-
             .success-section {
-                padding: 100px 32px;
+                padding: 100px 0;
             }
 
             .success-section h2 {
@@ -1211,7 +1281,7 @@
             }
 
             .pricing-section {
-                padding: 100px 32px;
+                padding: 100px 0;
             }
 
             .pricing-section h2 {
@@ -1223,22 +1293,12 @@
                 margin-bottom: 60px;
             }
 
-            .pricing-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 32px;
-                margin-bottom: 60px;
-            }
-
-            .pricing-card {
-                padding: 40px;
-            }
-
-            .pricing-footer {
+            .pricing-teaser {
                 padding: 32px;
             }
 
             .contact {
-                padding: 120px 32px;
+                padding: 120px 0;
             }
 
             .contact-intro {
@@ -1260,6 +1320,9 @@
 
             .cookie-content {
                 flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 24px;
             }
 
             .cookie-actions {
@@ -1268,360 +1331,328 @@
 
             .cookie-btn {
                 flex: initial;
+                padding: 10px 20px;
             }
 
             .footer-content {
                 grid-template-columns: 1fr 1fr 1fr 1fr;
-                gap: 32px;
-                margin-bottom: 40px;
-            }
-
-            .footer-section {
-                text-align: left;
-            }
-
-            .footer {
-                padding: 60px 32px;
             }
 
             .footer-bottom {
-                margin-top: 48px;
-            }
-        }
-
-        /* Mobile responsive for cookie banner */
-        @media (max-width: 768px) {
-            .cookie-content {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .cookie-actions {
-                width: 100%;
-                gap: 10px;
-            }
-
-            .cookie-btn {
-                flex: 1;
-                padding: 12px 16px;
+                margin-top: 8px;
             }
         }
 
         /* Desktop Breakpoint (1024px) */
         @media (min-width: 1024px) {
-            .container {
-                padding: 0 40px;
+            :root {
+                --page-pad: 40px;
+            }
+        }
+
+        /* Respect the user's motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
             }
 
-            nav {
-                padding: 0 40px;
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .btn:hover,
+            .cookie-btn.accept:hover {
+                transform: none;
             }
         }
     </style>
 </head>
 <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
     <!-- Navbar -->
     <nav>
         <div class="navbar-content">
-            <a href="#home" class="logo">
-                <img src="images/cm-interactive-logo.svg" alt="CM Interactive" class="logo-image">
+            <a href="/" class="logo">
+                <img src="/images/cm-interactive-logo.svg" alt="CM Interactive" class="logo-image">
             </a>
-            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
             <ul class="nav-links" id="desktop-nav">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#how-it-works">How it works</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="/" class="active" aria-current="page">Home</a></li>
+                <li><a href="/local-website-development">Local Development</a></li>
+                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/contact-us">Contact</a></li>
+                <li><a href="/discovery-call" class="nav-cta">Book a Call</a></li>
             </ul>
             <ul class="mobile-menu" id="mobile-nav">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#how-it-works">How it works</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="/" class="active" aria-current="page">Home</a></li>
+                <li><a href="/local-website-development">Local Development</a></li>
+                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/contact-us">Contact</a></li>
+                <li><a href="/discovery-call">Book a Discovery Call</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="hero" id="home">
-        <div class="container" style="text-align: center;">
-            <h1>Digital solutions that <span class="highlight">deliver measurable results</span></h1>
-            <p>We design and build websites and digital products focused on one thing: hitting your business targets. No guesses. No fluff. Just results.</p>
-            <a href="#contact" class="btn">Let's talk</a>
-        </div>
-    </section>
-
-    <!-- Discovery Call CTA -->
-    <section class="discovery-cta">
-        <div class="container">
-            <div class="discovery-content">
-                <h2>Let's start with a conversation</h2>
-                <p>Book a 30-minute discovery call. No pitch. Just you, us, and a clear discussion about:</p>
-                <ul class="discovery-list">
-                    <li>What's your actual business problem?</li>
-                    <li>What does success look like for you?</li>
-                    <li>What's the opportunity cost of doing nothing?</li>
-                    <li>What would a solution be worth?</li>
-                </ul>
-                <p class="discovery-cta-text">By the end of 30 minutes, you'll know exactly what we'd build and how it impacts your bottom line.</p>
-                <a href="#booking" class="btn btn-large">Book a 30-minute discovery call</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Approach -->
-    <section class="approach" id="how-it-works">
-        <h2>How it works</h2>
-        <div class="approach-grid">
-            <div class="approach-item">
-                <div class="approach-number">01</div>
-                <h3>Discovery call</h3>
-                <p>We understand your business and define clear targets together.</p>
-            </div>
-            <div class="approach-item">
-                <div class="approach-number">02</div>
-                <h3>Build</h3>
-                <p>Create solutions designed to hit those targets.</p>
-            </div>
-            <div class="approach-item">
-                <div class="approach-number">03</div>
-                <h3>Deliver & Optimise</h3>
-                <p>Launch and measure results. Optimise until you see growth.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="services-grid">
-                <div class="service-item">
-                    <h3>Web Design</h3>
-                    <p>High-converting, visually compelling designs structured to guide your visitors directly to your business goals.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Web Development</h3>
-                    <p>Fast, secure, and scalable digital solutions built with modern technology to ensure seamless performance.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Digital Strategy</h3>
-                    <p>Comprehensive roadmaps to align your digital presence with your overarching business targets and revenue goals.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Conversion Optimisation</h3>
-                    <p>Data-driven testing and continuous refinement to squeeze maximum value out of your existing traffic.</p>
+    <main id="main">
+        <!-- Hero -->
+        <section class="hero" id="home">
+            <div class="container">
+                <h1>Web design and development that <span class="highlight">delivers measurable results</span></h1>
+                <p>We design and build websites and digital products focused on one thing: hitting your business targets. No guesses. No fluff. Just results.</p>
+                <div class="hero-actions">
+                    <a href="/discovery-call" class="btn">Book a discovery call</a>
+                    <a href="#contact" class="btn btn-dark">Send a message</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Calendly Booking Section -->
-    <section class="booking-section" id="booking">
-        <div class="container">
-            <h2>Book your discovery call</h2>
-
-                <!-- Calendly inline widget begin -->
-                <div class="calendly-inline-widget" data-url="https://calendly.com/cminteractiveuk/30min?background_color=f9f9f9&text_color=2b2b2b&primary_color=50c878" style="min-width:320px;height:700px;"></div>
-                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-                <!-- Calendly inline widget end -->
-
-        </div>
-    </section>
-
-    <!-- How We Measure Success -->
-    <section class="success-section">
-        <div class="container">
-            <h2>How we measure success</h2>
-            <p class="success-subtitle">We don't build for beauty. We build for results.</p>
-            
-            <div class="metrics-grid">
-                <div class="metric-card">
-                    <div class="metric-icon">📊</div>
-                    <h3>Conversion metrics</h3>
-                    <p>Click-through rates, form submissions, cart abandonment, sales velocity. If it moves the needle on revenue, we track it.</p>
-                </div>
-
-                <div class="metric-card">
-                    <div class="metric-icon">💰</div>
-                    <h3>Revenue impact</h3>
-                    <p>Direct revenue increase, cost savings, margin improvement, lifetime value. Everything ties back to your bottom line.</p>
-                </div>
-
-                <div class="metric-card">
-                    <div class="metric-icon">⏱️</div>
-                    <h3>Efficiency gains</h3>
-                    <p>Time saved on manual processes, reduced support costs, faster customer onboarding. Operational excellence matters.</p>
-                </div>
-
-                <div class="metric-card">
-                    <div class="metric-icon">📈</div>
-                    <h3>Growth trajectory</h3>
-                    <p>Month-over-month improvement, user retention, repeat purchase rates. We optimise for sustainable growth, not one-off wins.</p>
-                </div>
-            </div>
-
-            <div class="success-process">
-                <h3>Our measurement framework</h3>
-                <div class="process-steps">
-                    <div class="process-step">
-                        <div class="step-num">1</div>
-                        <h4>Define baseline</h4>
-                        <p>We establish current metrics in your discovery call. What's happening now?</p>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-num">2</div>
-                        <h4>Set targets</h4>
-                        <p>What does success look like? We agree on realistic, measurable KPIs.</p>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-num">3</div>
-                        <h4>Build & Optimise</h4>
-                        <p>We track metrics in real-time and optimise until you hit your targets.</p>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-num">4</div>
-                        <h4>Scale</h4>
-                        <p>Once targets are achieved consistently, we double down to scale.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing-section" id="pricing">
-        <div class="container">
-            <h2>Simple pricing that scales with you</h2>
-            <p class="pricing-subtitle">No hidden fees. No surprises. Just clarity.</p>
-            
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="pricing-phase">Phase 1</div>
-                    <h3>Discovery & Design</h3>
-                    <p class="pricing-label">Free</p>
-                    <ul class="pricing-features">
-                        <li>30-minute strategy call</li>
-                        <li>Requirements mapping</li>
-                        <li>Custom design proposal</li>
-                        <li>ROI analysis</li>
-                        <li>No obligation</li>
+        <!-- Discovery Call CTA -->
+        <section class="discovery-cta">
+            <div class="container">
+                <div class="discovery-content">
+                    <h2>Let's start with a conversation</h2>
+                    <p>Book a 30-minute discovery call. No pitch. Just you, us, and a clear discussion about:</p>
+                    <ul class="discovery-list">
+                        <li>What's your actual business problem?</li>
+                        <li>What does success look like for you?</li>
+                        <li>What's the opportunity cost of doing nothing?</li>
+                        <li>What would a solution be worth?</li>
                     </ul>
-                </div>
-
-                <div class="pricing-card pricing-card-accent">
-                    <div class="pricing-phase accent">Phase 2</div>
-                    <h3>Custom Implementation</h3>
-                    <p class="pricing-label">Tailored to your scope</p>
-                    <ul class="pricing-features">
-                        <li>Website redesign</li>
-                        <li>E-commerce setup</li>
-                        <li>Custom development</li>
-                        <li>Launch & optimisation</li>
-                        <li>Results-backed guarantees</li>
-                    </ul>
-                    <p class="pricing-note">Every project is unique. After we understand your needs, we'll provide a custom quote with ROI projections.</p>
+                    <p class="discovery-cta-text">By the end of 30 minutes, you'll know exactly what we'd build and how it impacts your bottom line.</p>
+                    <a href="/discovery-call" class="btn btn-large">Book a 30-minute discovery call</a>
                 </div>
             </div>
+        </section>
 
-            <div class="pricing-footer">
-                <p>We price based on impact, not hours. The bigger the result, the bigger the investment. But the ROI usually pays for itself within months.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-intro">
-                <h2>Ready to get started?</h2>
-                <p>Use the secure form below to send us a message. We aim to respond within 24 hours.</p>
-            </div>
-            
-            <div class="contact-content">
-                <div class="contact-card">
-                    <div class="contact-badge">SECURE CONTACT</div>
-                    <h3>Send us a message</h3>
-                    <p>Tell us a bit about your business goals and what you're looking to achieve.</p>
-                    
-                    <form id="contact-form">
-                        <div style="margin-bottom: 20px;">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required placeholder="John Doe">
-                        </div>
-
-                        <div style="margin-bottom: 20px;">
-                            <label for="email">Email address</label>
-                            <input type="email" id="email" name="email" required placeholder="john@example.com">
-                        </div>
-
-                        <div style="margin-bottom: 20px;">
-                            <label for="title">Subject</label>
-                            <input type="text" id="title" name="title" required placeholder="What's this about?">
-                        </div>
-
-                        <div style="margin-bottom: 20px;">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required placeholder="How can we help you?"></textarea>
-                        </div>
-
-                        <!-- Google reCAPTCHA Protection -->
-                        <div class="recaptcha-wrapper">
-                            <div class="verification-box">Please verify you are human to enable submission:</div>
-                            <div class="g-recaptcha" data-sitekey="6Lca2x4tAAAAAH6pSQliVWWVfQleenC89jCmVxF4" data-theme="dark"></div>
-                        </div>
-
-                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
-                    </form>
+        <!-- Approach -->
+        <section class="approach" id="how-it-works">
+            <div class="container">
+                <h2>How it works</h2>
+                <div class="approach-grid">
+                    <div class="approach-item">
+                        <div class="approach-number" aria-hidden="true">01</div>
+                        <h3>Discovery call</h3>
+                        <p>We understand your business and define clear targets together.</p>
+                    </div>
+                    <div class="approach-item">
+                        <div class="approach-number" aria-hidden="true">02</div>
+                        <h3>Build</h3>
+                        <p>Create solutions designed to hit those targets.</p>
+                    </div>
+                    <div class="approach-item">
+                        <div class="approach-number" aria-hidden="true">03</div>
+                        <h3>Deliver and optimise</h3>
+                        <p>Launch and measure results. Optimise until you see growth.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services" id="services">
+            <div class="container">
+                <h2>Our services</h2>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <h3>Web design</h3>
+                        <p>High-converting, visually compelling designs structured to guide your visitors directly to your business goals.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Web development</h3>
+                        <p>Fast, secure, and scalable digital solutions built with modern technology to ensure seamless performance.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Digital strategy</h3>
+                        <p>Comprehensive roadmaps to align your digital presence with your overarching business targets and revenue goals.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Conversion optimisation</h3>
+                        <p>Data-driven testing and continuous refinement to squeeze maximum value out of your existing traffic.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How We Measure Success -->
+        <section class="success-section">
+            <div class="container">
+                <h2>How we measure success</h2>
+                <p class="success-subtitle">We don't build for beauty. We build for results.</p>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-6"/><path d="M22 20H2"/></svg>
+                        </div>
+                        <h3>Conversion metrics</h3>
+                        <p>Click-through rates, form submissions, cart abandonment, sales velocity. If it moves the needle on revenue, we track it.</p>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M15 9a3 3 0 0 0-3-1.5c-1.7 0-3 .9-3 2.2 0 3 6 1.6 6 4.6 0 1.3-1.3 2.2-3 2.2A3 3 0 0 1 9 15"/><path d="M12 6v12"/></svg>
+                        </div>
+                        <h3>Revenue impact</h3>
+                        <p>Direct revenue increase, cost savings, margin improvement, lifetime value. Everything ties back to your bottom line.</p>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+                        </div>
+                        <h3>Efficiency gains</h3>
+                        <p>Time saved on manual processes, reduced support costs, faster customer onboarding. Operational excellence matters.</p>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg>
+                        </div>
+                        <h3>Growth trajectory</h3>
+                        <p>Month-over-month improvement, user retention, repeat purchase rates. We optimise for sustainable growth, not one-off wins.</p>
+                    </div>
+                </div>
+
+                <div class="success-process">
+                    <h3>Our measurement framework</h3>
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="step-num" aria-hidden="true">1</div>
+                            <h4>Define baseline</h4>
+                            <p>We establish current metrics in your discovery call. What's happening now?</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-num" aria-hidden="true">2</div>
+                            <h4>Set targets</h4>
+                            <p>What does success look like? We agree on realistic, measurable KPIs.</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-num" aria-hidden="true">3</div>
+                            <h4>Build and optimise</h4>
+                            <p>We track metrics in real time and optimise until you hit your targets.</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-num" aria-hidden="true">4</div>
+                            <h4>Scale</h4>
+                            <p>Once targets are achieved consistently, we double down to scale.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing-section" id="pricing">
+            <div class="container">
+                <h2>Simple pricing that scales with you</h2>
+                <p class="pricing-subtitle">No hidden fees. No surprises. Just clarity.</p>
+
+                <div class="pricing-teaser">
+                    <p>Phase 1, the discovery call and design proposal, is free. Phase 2 is quoted against the ROI we agree on that call, because we price on impact rather than hours.</p>
+                    <a href="/pricing" class="btn">See how pricing works</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="contact-intro">
+                    <h2>Ready to get started?</h2>
+                    <p>Use the secure form below to send us a message. We aim to respond within one working day.</p>
+                </div>
+
+                <div class="contact-content">
+                    <div class="contact-card">
+                        <div class="contact-badge">SECURE CONTACT</div>
+                        <h3>Send us a message</h3>
+                        <p>Tell us a bit about your business goals and what you're looking to achieve.</p>
+
+                        <form id="contact-form" novalidate>
+                            <div class="form-row">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required autocomplete="name" placeholder="John Doe">
+                            </div>
+
+                            <div class="form-row">
+                                <label for="email">Email address</label>
+                                <input type="email" id="email" name="email" required autocomplete="email" placeholder="john@example.com">
+                            </div>
+
+                            <div class="form-row">
+                                <label for="title">Subject</label>
+                                <input type="text" id="title" name="title" required placeholder="What's this about?">
+                            </div>
+
+                            <div class="form-row">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="How can we help you?"></textarea>
+                            </div>
+
+                            <!-- Google reCAPTCHA Protection -->
+                            <div class="recaptcha-wrapper">
+                                <div class="verification-box">Please verify you are human to enable submission:</div>
+                                <div class="g-recaptcha" data-sitekey="6Lca2x4tAAAAAH6pSQliVWWVfQleenC89jCmVxF4" data-theme="dark"></div>
+                            </div>
+
+                            <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+
+                            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <a href="#home" class="footer-logo">
-                        <img src="images/cm-interactive-logo.svg" alt="CM Interactive" class="footer-logo-image">
+                    <a href="/" class="footer-logo">
+                        <img src="/images/cm-interactive-logo.svg" alt="CM Interactive" class="footer-logo-image">
                     </a>
                 </div>
-                
+
                 <div class="footer-section">
-                    <h4>Navigation</h4>
+                    <h2>Navigation</h2>
                     <ul class="footer-links">
                         <li><a href="/">Home</a></li>
-                        <li><a href="#how-it-works">How it Works</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="/local-website-development">Local Development</a></li>
+                        <li><a href="/pricing">Pricing</a></li>
+                        <li><a href="/contact-us">Contact</a></li>
+                        <li><a href="/discovery-call">Book a Discovery Call</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
-                    <h4>Resources</h4>
+                    <h2>Resources</h2>
                     <ul class="footer-links">
+                        <li><a href="/#how-it-works">How it Works</a></li>
+                        <li><a href="/#services">Services</a></li>
                         <li><a href="/sitemap.xml">Sitemap</a></li>
-                        <li><a href="/robots.txt">Robots.txt</a></li>
                         <li><a href="/llms.txt">LLMs.txt</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
-                    <h4>Legal</h4>
+                    <h2>Legal</h2>
                     <ul class="footer-links">
                         <li><a href="/privacy-policy">Privacy Policy</a></li>
                     </ul>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2024 - 2026 CM Interactive Limited. All rights reserved.</p>
                 <p>Based in the United Kingdom, registered in England and Wales (company number 15392983).</p>
@@ -1630,7 +1661,7 @@
     </footer>
 
     <!-- Cookie Consent Banner -->
-    <div id="cookie-banner" class="cookie-banner">
+    <div id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookie consent">
         <div class="cookie-content">
             <div class="cookie-text">
                 <p>We use cookies to analyse how you interact with our website and improve your experience. Only analytical cookies are used, no tracking or advertising. By accepting, you help us make CM Interactive better.</p>
@@ -1644,7 +1675,7 @@
     </div>
 
 
-    <!--Reactive navbar based on scroll-->
+    <!--Navbar interactions-->
     <script>
         // Hide banner if consent already given
         document.addEventListener('DOMContentLoaded', function() {
@@ -1658,89 +1689,83 @@
         const hamburger = document.getElementById('hamburger');
         const mobileNav = document.getElementById('mobile-nav');
         const mobileLinks = mobileNav.querySelectorAll('a');
-        const desktopNav = document.getElementById('desktop-nav');
-        const desktopLinks = desktopNav.querySelectorAll('a');
+
+        function setMenuOpen(open) {
+            hamburger.classList.toggle('active', open);
+            mobileNav.classList.toggle('active', open);
+            hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
 
         // Toggle mobile menu
         hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            mobileNav.classList.toggle('active');
+            setMenuOpen(!hamburger.classList.contains('active'));
         });
 
         // Close mobile menu when a link is clicked
         mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                mobileNav.classList.remove('active');
-            });
+            link.addEventListener('click', () => setMenuOpen(false));
         });
 
         // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!e.target.closest('nav')) {
-                hamburger.classList.remove('active');
-                mobileNav.classList.remove('active');
+                setMenuOpen(false);
             }
         });
 
-        // Set active link based on current scroll position
-        function setActiveLink() {
-            const sections = document.querySelectorAll('section[id]');
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionBottom = sectionTop + section.offsetHeight;
-                const scrollPosition = window.scrollY;
-
-                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                    const id = section.getAttribute('id');
-                    
-                    // Remove active class from all links
-                    mobileLinks.forEach(link => link.classList.remove('active'));
-                    desktopLinks.forEach(link => link.classList.remove('active'));
-
-                    // Add active class to current section link
-                    document.querySelector(`a[href="#${id}"]`)?.classList.add('active');
-                }
-            });
-        }
-
-        // Listen to scroll events
-        window.addEventListener('scroll', setActiveLink);
-        window.addEventListener('load', setActiveLink);
+        // Close mobile menu on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                setMenuOpen(false);
+            }
+        });
     </script>
 
-    
+
     <!--Form JS-->
     <script>
         const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+
+        function setStatus(message, type) {
+            formStatus.textContent = message;
+            formStatus.className = 'form-status' + (type ? ' ' + type : '');
+        }
 
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
+            // Native validation still runs, we just control when it fires
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                return;
+            }
+
             // Require a completed reCAPTCHA before sending
             const captchaToken = window.grecaptcha ? grecaptcha.getResponse() : '';
             if (!captchaToken) {
-                alert('Please complete the verification before sending.');
+                setStatus('Please complete the verification before sending.', 'error');
                 return;
             }
 
             const btn = contactForm.querySelector('button[type="submit"]');
             btn.disabled = true;
             btn.textContent = 'Sending...';
+            setStatus('', null);
 
             emailjs.sendForm('service_34etu3d', 'template_7ll0kqg', contactForm)
                 .then(function () {
-                    btn.textContent = 'Message sent ✓';
+                    btn.textContent = 'Message sent';
                     contactForm.reset();
                     if (window.grecaptcha) grecaptcha.reset();
+                    setStatus('Thanks, your message has been sent. We usually reply within one working day.', 'success');
                 })
                 .catch(function (err) {
                     console.error(err);
                     btn.disabled = false;
                     btn.textContent = 'Send Message';
                     if (window.grecaptcha) grecaptcha.reset();
-                    alert('Something went wrong, please try again, or email help@cminteractive.uk directly.');
+                    setStatus('Something went wrong. Please try again, or email help@cminteractive.uk directly.', 'error');
                 });
         });
     </script>
