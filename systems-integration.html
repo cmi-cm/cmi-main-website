@@ -1,0 +1,2133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Analytics with Consent Management -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      // Default to no consent until user decides
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied'
+      });
+
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0QW701ZMK1');
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QW701ZMK1"></script>
+
+
+    <!--Email JS initalisation-->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        emailjs.init({ publicKey: "AgrS_0tnzuWWj9NKv" });
+    </script>
+
+
+    <!-- Consent Management Script -->
+    <script>
+      const CONSENT_COOKIE = 'cm_analytics_consent';
+      const CONSENT_EXPIRY_DAYS = 365;
+
+      function getCookie(name) {
+        const nameEQ = name + "=";
+        const cookies = document.cookie.split(';');
+        for(let cookie of cookies) {
+          cookie = cookie.trim();
+          if(cookie.indexOf(nameEQ) === 0) {
+            return cookie.substring(nameEQ.length);
+          }
+        }
+        return null;
+      }
+
+      function setCookie(name, value, days) {
+        const expires = new Date();
+        expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+        document.cookie = name + "=" + value + ";expires=" + expires.toUTCString() + ";path=/;SameSite=Strict";
+      }
+
+      function updateAnalyticsConsent(consent) {
+        gtag('consent', 'update', {
+          'analytics_storage': consent ? 'granted' : 'denied',
+          'ad_storage': consent ? 'granted' : 'denied'
+        });
+        setCookie(CONSENT_COOKIE, consent ? 'true' : 'false', CONSENT_EXPIRY_DAYS);
+      }
+
+      // Check existing consent
+      const savedConsent = getCookie(CONSENT_COOKIE);
+      if(savedConsent === 'true') {
+        gtag('consent', 'update', {
+          'analytics_storage': 'granted',
+          'ad_storage': 'granted'
+        });
+      }
+
+      window.consentManager = {
+        accept: function() {
+          updateAnalyticsConsent(true);
+          document.getElementById('cookie-banner').style.display = 'none';
+        },
+        decline: function() {
+          updateAnalyticsConsent(false);
+          document.getElementById('cookie-banner').style.display = 'none';
+        },
+        hasConsent: function() {
+          return getCookie(CONSENT_COOKIE) === 'true';
+        }
+      };
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Systems Integration &amp; Data Governance UK | CM Interactive</title>
+    <meta name="description" content="Most businesses do not have a software problem, they have a systems problem. CM Interactive connects your ERP, CRM, finance and operational systems into one governed platform. Free discovery call.">
+    <meta name="author" content="CM Interactive">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+    <!-- Open Graph / Social Media -->
+    <!-- No og:image set. Shares render as a text-only card.
+         To upgrade: add a 1200x630 PNG, then add og:image,
+         og:image:width, og:image:height, og:image:alt and twitter:image,
+         and switch twitter:card to summary_large_image. -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cminteractive.uk/systems-integration">
+    <meta property="og:title" content="Systems Integration &amp; Data Governance UK | CM Interactive">
+    <meta property="og:description" content="Your business does not have a software problem. It has a systems problem. We connect your systems into one governed platform, so every report agrees.">
+    <meta property="og:site_name" content="CM Interactive">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter -->
+    <!-- summary, not summary_large_image, because there is no image to fill it. -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://cminteractive.uk/systems-integration">
+    <meta name="twitter:title" content="Systems Integration &amp; Data Governance UK | CM Interactive">
+    <meta name="twitter:description" content="Your business does not have a software problem. It has a systems problem. We connect your systems into one governed platform, so every report agrees.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://cminteractive.uk/systems-integration">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%2350C878' width='32' height='32' rx='6'/><text x='50%' y='50%' font-size='18' font-weight='700' fill='white' text-anchor='middle' dominant-baseline='central'>CM</text></svg>">
+    <link rel="alternate icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==">
+
+    <!-- Google reCAPTCHA v2 -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <!-- Schema.org Structured Data -->
+    <!-- The organisation is defined once on the homepage. This page references
+         it by @id rather than redeclaring it, so Google resolves one entity. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://cminteractive.uk/systems-integration#webpage",
+          "url": "https://cminteractive.uk/systems-integration",
+          "name": "Systems Integration and Data Governance",
+          "description": "CM Interactive connects ERP, CRM, finance and operational systems into a single governed platform with clear ownership, agreed definitions and automated reporting.",
+          "inLanguage": "en-GB",
+          "isPartOf": { "@id": "https://cminteractive.uk/#website" },
+          "about": { "@id": "https://cminteractive.uk/#organization" }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://cminteractive.uk/systems-integration#service",
+          "name": "Systems Integration and Data Governance",
+          "serviceType": "Systems integration, data warehousing and data governance",
+          "description": "Consultancy and development that connects existing business systems into one governed platform, with named ownership, agreed definitions, role based access and automated reporting.",
+          "url": "https://cminteractive.uk/systems-integration",
+          "provider": { "@id": "https://cminteractive.uk/#organization" },
+          "areaServed": {
+            "@type": "Country",
+            "name": "United Kingdom"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Systems Integration Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Systems Audit",
+                  "description": "A full map of your systems, data flows and manual workarounds, with a ranked list of failure points and a costed plan."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Platform Build",
+                  "description": "Integration pipelines, a modelled warehouse, a governance framework, dashboards and automated flows, delivered in signed off stages."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Ongoing Governance and Support",
+                  "description": "Monitoring, failure alerting, new feeds, report changes and regular reviews of definitions and access."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://cminteractive.uk/systems-integration#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://cminteractive.uk/" },
+            { "@type": "ListItem", "position": 2, "name": "Systems Integration", "item": "https://cminteractive.uk/systems-integration" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://cminteractive.uk/systems-integration#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Will you replace our ERP?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Replacing an ERP is slow, expensive and rarely the actual problem. We work with the systems you already have and build the layer that makes them agree with each other. If your ERP genuinely is the constraint, the audit will say so."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "We are a small business. Is this overkill?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It depends on the pain, not the headcount. If someone is spending a day a week moving data between systems, or month end takes three days of exporting and pasting, the numbers usually stack up. If they do not, we will tell you on the call."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do we have to move to the cloud?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Not necessarily. Plenty of this runs against on premise SQL Server. Cloud usually wins on cost and resilience once several sources are involved, but that is a decision we make in the audit with your constraints in front of us."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What happens to our data?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It stays in your tenancy, on infrastructure you own or pay for directly. We work to UK GDPR and the Data Protection Act 2018, sign a data processing agreement, and agree retention and access rules with you before the build starts."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What if we want to take it in house later?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "That is a fair outcome and the build is designed for it. Standard tooling, documented pipelines, a written runbook and training for your team. There is no proprietary layer locking you to us."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How long does it take?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The audit is two to three weeks. After that we work in stages, highest pain first, so you see something live within weeks rather than at the end of a six month programme."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Brand green. Readable as a BACKGROUND with dark text on top. */
+            --primary: #50C878;
+            /* Lighter green for hover states on filled buttons. */
+            --primary-light: #6FD492;
+            /* Darker green for green TEXT sitting on light backgrounds. */
+            --primary-dark: #2A7F4F;
+
+            --secondary: #2B2B2B;
+            --background: #F9F9F9;
+            --accent: #D4AF37;
+            --text-dark: #2B2B2B;
+            --text-mid: #5A5A5A;
+            --text-light: #6E6E6E;
+            --border: #E5E5E5;
+            --white: #FFFFFF;
+
+            /* Muted text on the dark contact cards. */
+            --text-on-dark-muted: #AAAAAA;
+
+            /* One source of truth for horizontal page padding.
+               Sections carry vertical rhythm only; horizontal space
+               comes from .container, so nothing double-pads. */
+            --page-pad: 20px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: var(--background);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* Keyboard focus ring, applied globally so nothing is missed */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible,
+        summary:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        /* Skip link for keyboard and screen reader users */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            background: var(--secondary);
+            color: var(--white);
+            padding: 12px 20px;
+            z-index: 10001;
+            border-radius: 0 0 6px 0;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            left: 0;
+        }
+
+        /* Navbar */
+        nav {
+            position: sticky;
+            top: 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 0 var(--page-pad);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .navbar-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.2s ease;
+            min-width: 0;
+        }
+
+        .logo:hover {
+            color: var(--primary-dark);
+        }
+
+        .logo-image {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 8px;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2.5px;
+            background: var(--text-dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Six items now, so the gap is tighter than the other pages until
+           1024px where it goes back to 28px. */
+        .nav-links {
+            display: none;
+            gap: 20px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-dark);
+        }
+
+        .nav-links a.active {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        /* Nav CTA, so the discovery call link reads as the primary action
+           rather than competing flatly with the Contact link next to it. */
+        .nav-links a.nav-cta {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 9px 18px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+
+        .nav-links a.nav-cta:hover {
+            background: var(--primary-light);
+            color: var(--secondary);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            flex-direction: column;
+            gap: 0;
+            list-style: none;
+            padding: 20px 0;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu li {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mobile-menu li:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 16px var(--page-pad);
+            font-size: 16px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .mobile-menu a:hover,
+        .mobile-menu a.active {
+            color: var(--primary-dark);
+            background: rgba(80, 200, 120, 0.08);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 var(--page-pad);
+        }
+
+        /* Buttons */
+        .btn {
+            background: var(--primary);
+            color: var(--secondary);
+            border: none;
+            padding: 16px 40px;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: inherit;
+            line-height: 1.2;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            max-width: 100%;
+        }
+
+        .btn:hover {
+            background: var(--primary-light);
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-dark {
+            background: var(--secondary);
+            color: var(--background);
+        }
+
+        .btn-dark:hover {
+            background: #1a1a1a;
+            color: var(--background);
+        }
+
+        .btn-large {
+            padding: 18px 48px;
+            font-size: 17px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: var(--background);
+        }
+
+        .hero h1 {
+            font-size: clamp(30px, 8vw, 42px);
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.15;
+            overflow-wrap: break-word;
+        }
+
+        .hero h1 .highlight {
+            color: var(--primary-dark);
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--text-mid);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Discovery Call Section */
+        .discovery-cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #2A7F4F 0%, #1E6039 100%);
+            color: white;
+        }
+
+        .discovery-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .discovery-content h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.15;
+        }
+
+        .discovery-content > p {
+            font-size: 16px;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .discovery-list {
+            list-style: none;
+            margin-bottom: 32px;
+            padding-left: 0;
+        }
+
+        .discovery-list li {
+            font-size: 15px;
+            margin-bottom: 16px;
+            padding-left: 32px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .discovery-list li:before {
+            content: "";
+            position: absolute;
+            left: 4px;
+            top: 9px;
+            width: 14px;
+            height: 7px;
+            border-left: 2.5px solid var(--primary);
+            border-bottom: 2.5px solid var(--primary);
+            transform: rotate(-45deg);
+        }
+
+        .discovery-cta-text {
+            font-size: 16px;
+            margin-bottom: 40px;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .discovery-cta .btn {
+            background: var(--white);
+            color: var(--primary-dark);
+        }
+
+        .discovery-cta .btn:hover {
+            background: #EFEFEF;
+            color: var(--primary-dark);
+        }
+
+        /* How We Measure Success Section */
+        .success-section {
+            padding: 80px 0;
+            background: var(--white);
+            border-top: 1px solid var(--border);
+        }
+
+        .success-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .success-subtitle {
+            font-size: 16px;
+            color: var(--text-mid);
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto 60px;
+        }
+
+        .metric-card {
+            background: var(--background);
+            padding: 28px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .metric-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            background: rgba(80, 200, 120, 0.12);
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .metric-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .metric-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .metric-card p {
+            font-size: 14px;
+            color: var(--text-mid);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .success-process {
+            background: var(--background);
+            padding: 40px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .success-process h3 {
+            font-size: 22px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--text-dark);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        .process-step {
+            text-align: center;
+        }
+
+        .step-num {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+            margin: 0 auto 16px;
+        }
+
+        .process-step h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .process-step p {
+            font-size: 14px;
+            color: var(--text-mid);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: var(--white);
+            border-top: 1px solid var(--border);
+        }
+
+        .services h2 {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .services-subtitle {
+            font-size: 16px;
+            color: var(--text-mid);
+            text-align: center;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 36px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .service-item {
+            padding-left: 24px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .service-item h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .service-item p {
+            font-size: 15px;
+            color: var(--text-mid);
+            line-height: 1.6;
+        }
+
+        /* Standout line for the objection we most want to remove early. */
+        .statement {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-align: center;
+            line-height: 1.35;
+            max-width: 700px;
+            margin: 0 auto 16px;
+        }
+
+        /* Trust Section */
+        .trust-section {
+            padding: 80px 0;
+            background: var(--background);
+            border-top: 1px solid var(--border);
+        }
+
+        .trust-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .trust-intro {
+            font-size: 16px;
+            color: var(--text-mid);
+            text-align: center;
+            margin: 0 auto 40px;
+            max-width: 700px;
+            line-height: 1.6;
+        }
+
+        .trust-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 700px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .trust-list li {
+            position: relative;
+            padding-left: 32px;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        /* Same tick as the discovery list, in the darker green so it holds
+           contrast on a light background. */
+        .trust-list li:before {
+            content: "";
+            position: absolute;
+            left: 4px;
+            top: 7px;
+            width: 14px;
+            height: 7px;
+            border-left: 2.5px solid var(--primary-dark);
+            border-bottom: 2.5px solid var(--primary-dark);
+            transform: rotate(-45deg);
+        }
+
+        /* Technology Section */
+        /* White here, because the trust section above it is already grey. */
+        .tech-section {
+            padding: 80px 0;
+            background: var(--white);
+            border-top: 1px solid var(--border);
+        }
+
+        .tech-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .tech-subtitle {
+            font-size: 16px;
+            color: var(--text-mid);
+            text-align: center;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tech-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 700px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .tech-list li {
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 10px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            background: var(--white);
+            border-top: 1px solid var(--border);
+        }
+
+        .faq-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .faq-subtitle {
+            font-size: 16px;
+            color: var(--text-mid);
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .faq-list {
+            max-width: 700px;
+            margin: 0 auto;
+            border-top: 1px solid var(--border);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* list-style none plus the webkit rule below removes the default
+           disclosure triangle everywhere, so the +/- is the only marker. */
+        .faq-item summary {
+            cursor: pointer;
+            list-style: none;
+            padding: 20px 4px;
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--text-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary:after {
+            content: "+";
+            color: var(--primary-dark);
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.1;
+            flex-shrink: 0;
+        }
+
+        .faq-item[open] summary:after {
+            content: "\2212";
+        }
+
+        .faq-item p {
+            font-size: 15px;
+            color: var(--text-mid);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0 4px 24px;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding: 80px 0;
+            background: var(--background);
+            border-top: 1px solid var(--border);
+        }
+
+        .pricing-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .pricing-subtitle {
+            font-size: 16px;
+            color: var(--text-mid);
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .pricing-teaser {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 28px 20px;
+            background: var(--white);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .pricing-teaser p {
+            font-size: 15px;
+            color: var(--text-mid);
+            line-height: 1.6;
+            margin: 0 0 24px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: var(--secondary);
+        }
+
+        .contact-intro {
+            text-align: center;
+            color: #ccc;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            font-size: 16px;
+        }
+
+        .contact-intro h2 {
+            color: white;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 32px 24px;
+            backdrop-filter: blur(10px);
+            min-width: 0;
+        }
+
+        .contact-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(80,200,120,0.15);
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .contact-card h3 {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .contact-card > p {
+            color: #ccc;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px;
+        }
+
+        .contact-list li {
+            position: relative;
+            padding-left: 26px;
+            color: #ccc;
+            font-size: 15px;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .contact-list li:before {
+            content: "";
+            position: absolute;
+            left: 2px;
+            top: 8px;
+            width: 12px;
+            height: 6px;
+            border-left: 2.5px solid var(--primary);
+            border-bottom: 2.5px solid var(--primary);
+            transform: rotate(-45deg);
+        }
+
+        .contact-card input,
+        .contact-card textarea {
+            width: 100%;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 10px;
+            color: white;
+            padding: 14px 16px;
+            font-size: 16px; /* 16px stops iOS Safari auto-zooming on focus */
+            font-family: inherit;
+        }
+
+        .contact-card input:focus,
+        .contact-card textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(80,200,120,0.15);
+        }
+
+        .contact-card input::placeholder,
+        .contact-card textarea::placeholder {
+            color: rgba(255,255,255,0.68);
+        }
+
+        .contact-card label {
+            color: white;
+            margin-bottom: 8px;
+            display: block;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-row {
+            margin-bottom: 20px;
+        }
+
+        .recaptcha-wrapper {
+            margin: 24px 0;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .verification-box {
+            color: var(--text-on-dark-muted);
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        /* Inline form status, replaces the alert() calls so the message
+           is announced to screen readers and does not block the page. */
+        .form-status {
+            margin-top: 16px;
+            font-size: 14px;
+            font-weight: 600;
+            min-height: 21px;
+        }
+
+        .form-status.error {
+            color: #FF9B9B;
+        }
+
+        .form-status.success {
+            color: var(--primary);
+        }
+
+        /* The reCAPTCHA iframe is a fixed 304px wide and cannot be restyled.
+           Scale it down proportionally on narrow screens. The layout box
+           keeps its original size when transformed, so trim the reserved
+           height to match the visual size and stop it leaving a gap. */
+        @media (max-width: 400px) {
+            .contact-card {
+                padding: 28px 16px;
+            }
+
+            .g-recaptcha {
+                transform: scale(0.82);
+                transform-origin: 0 0;
+            }
+
+            .recaptcha-wrapper {
+                height: calc(78px * 0.82 + 42px);
+            }
+        }
+
+        @media (max-width: 340px) {
+            .g-recaptcha {
+                transform: scale(0.72);
+            }
+
+            .recaptcha-wrapper {
+                height: calc(78px * 0.72 + 42px);
+            }
+        }
+
+        /* Cookie Consent Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--secondary);
+            color: white;
+            padding: 20px var(--page-pad);
+            padding-bottom: calc(20px + env(safe-area-inset-bottom));
+            box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.15);
+            z-index: 10000;
+            font-size: 14px;
+            line-height: 1.6;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .cookie-banner.hidden {
+            display: none;
+        }
+
+        .cookie-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .cookie-text {
+            flex: 1;
+        }
+
+        .cookie-text p {
+            margin: 0;
+            color: #ccc;
+        }
+
+        .cookie-text a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .cookie-text a:hover {
+            text-decoration: underline;
+        }
+
+        .cookie-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+            width: 100%;
+        }
+
+        .cookie-btn {
+            padding: 12px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+            flex: 1;
+            min-height: 44px; /* comfortable touch target */
+        }
+
+        .cookie-btn.accept {
+            background: var(--primary);
+            color: var(--secondary);
+        }
+
+        .cookie-btn.accept:hover {
+            background: var(--primary-light);
+            transform: translateY(-1px);
+        }
+
+        .cookie-btn.decline {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+        }
+
+        .cookie-btn.decline:hover {
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section {
+            text-align: left;
+            padding: 0;
+        }
+
+        .footer-section h2 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .footer-logo {
+            display: block;
+            margin-bottom: 16px;
+            transition: opacity 0.2s ease;
+            width: fit-content;
+        }
+
+        .footer-logo:hover {
+            opacity: 0.8;
+        }
+
+        .footer-logo-image {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-mid);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-dark);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 32px;
+        }
+
+        .footer-bottom p {
+            font-size: 13px;
+            color: var(--text-light);
+            margin: 8px 0;
+        }
+
+        /* Tablet Breakpoint (768px) */
+        @media (min-width: 768px) {
+            :root {
+                --page-pad: 32px;
+            }
+
+            .hamburger {
+                display: none !important;
+            }
+
+            .mobile-menu {
+                display: none !important;
+            }
+
+            .nav-links {
+                display: flex !important;
+            }
+
+            .hero {
+                padding: 100px 0;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .discovery-cta {
+                padding: 100px 0;
+            }
+
+            .discovery-content h2 {
+                font-size: 40px;
+            }
+
+            .discovery-content > p {
+                font-size: 18px;
+            }
+
+            .discovery-list li {
+                font-size: 16px;
+            }
+
+            .discovery-cta-text {
+                font-size: 17px;
+            }
+
+            .services {
+                padding: 100px 0;
+            }
+
+            .services h2 {
+                font-size: 32px;
+            }
+
+            .services-subtitle {
+                font-size: 18px;
+                margin-bottom: 60px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 48px;
+            }
+
+            .success-section {
+                padding: 100px 0;
+            }
+
+            .success-section h2 {
+                font-size: 32px;
+            }
+
+            .success-subtitle {
+                font-size: 18px;
+                margin-bottom: 60px;
+            }
+
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px;
+                margin-bottom: 80px;
+            }
+
+            .metric-card {
+                padding: 32px;
+            }
+
+            .success-process {
+                padding: 60px 40px;
+            }
+
+            .success-process h3 {
+                font-size: 24px;
+                margin-bottom: 48px;
+            }
+
+            .process-steps {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 32px;
+            }
+
+            .statement {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            .trust-section {
+                padding: 100px 0;
+            }
+
+            .trust-section h2 {
+                font-size: 32px;
+            }
+
+            .trust-intro {
+                font-size: 18px;
+                margin-bottom: 50px;
+            }
+
+            .trust-list {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px 40px;
+                max-width: 900px;
+            }
+
+            .trust-list li {
+                font-size: 16px;
+            }
+
+            .tech-section {
+                padding: 100px 0;
+            }
+
+            .tech-section h2 {
+                font-size: 32px;
+            }
+
+            .tech-subtitle {
+                font-size: 18px;
+                margin-bottom: 50px;
+            }
+
+            .faq-section {
+                padding: 100px 0;
+            }
+
+            .faq-section h2 {
+                font-size: 32px;
+            }
+
+            .faq-subtitle {
+                font-size: 18px;
+                margin-bottom: 60px;
+            }
+
+            .pricing-section {
+                padding: 100px 0;
+            }
+
+            .pricing-section h2 {
+                font-size: 32px;
+            }
+
+            .pricing-subtitle {
+                font-size: 18px;
+                margin-bottom: 60px;
+            }
+
+            .pricing-teaser {
+                padding: 32px;
+            }
+
+            .contact {
+                padding: 120px 0;
+            }
+
+            .contact-intro {
+                margin-bottom: 70px;
+                font-size: 18px;
+            }
+
+            .contact-intro h2 {
+                font-size: 36px;
+            }
+
+            .contact-card {
+                padding: 40px;
+            }
+
+            .contact-card h3 {
+                font-size: 28px;
+            }
+
+            .cookie-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 24px;
+            }
+
+            .cookie-actions {
+                width: auto;
+            }
+
+            .cookie-btn {
+                flex: initial;
+                padding: 10px 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+
+            .footer-bottom {
+                margin-top: 8px;
+            }
+        }
+
+        /* Desktop Breakpoint (1024px) */
+        @media (min-width: 1024px) {
+            :root {
+                --page-pad: 40px;
+            }
+
+            .nav-links {
+                gap: 26px;
+            }
+        }
+
+        /* Respect the user's motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .btn:hover,
+            .cookie-btn.accept:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="navbar-content">
+            <a href="/" class="logo">
+                <img src="/images/cm-interactive-logo.svg" alt="CM Interactive" class="logo-image">
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="desktop-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/systems-integration" class="active" aria-current="page">Systems</a></li>
+                <li><a href="/local-website-development">Local Development</a></li>
+                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/contact-us">Contact</a></li>
+                <li><a href="/discovery-call" class="nav-cta">Book a Call</a></li>
+            </ul>
+            <ul class="mobile-menu" id="mobile-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/systems-integration" class="active" aria-current="page">Systems Integration</a></li>
+                <li><a href="/local-website-development">Local Development</a></li>
+                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/contact-us">Contact</a></li>
+                <li><a href="/discovery-call">Book a Discovery Call</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+        <!-- Hero -->
+        <section class="hero" id="home">
+            <div class="container">
+                <h1>Systems integration that gets your business <span class="highlight">working from one set of numbers</span></h1>
+                <p>Your business does not have a software problem. It has a systems problem. We connect your ERP, CRM, finance and operational systems into one governed platform, so every report agrees, nothing gets entered twice, and the manual work disappears.</p>
+                <div class="hero-actions">
+                    <a href="/discovery-call" class="btn">Book a discovery call</a>
+                    <a href="#contact" class="btn btn-dark">Send a message</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Problem -->
+        <section class="services" id="signs">
+            <div class="container">
+                <h2>Sound familiar?</h2>
+                <p class="services-subtitle">None of these are software faults on their own. Together they mean your systems were never joined up.</p>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <h3>Two reports, two answers</h3>
+                        <p>Sales, finance and operations all report different numbers for the same month. Meetings become arguments about spreadsheets instead of decisions.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Someone re-keys it every week</h3>
+                        <p>An order or a stock figure gets typed into a second system by hand. It works fine until that person is on holiday.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>The spreadsheet is the system</h3>
+                        <p>A workbook nobody dares touch is running a real part of your business. One author, no backup, no audit trail.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Nobody owns the definition</h3>
+                        <p>Ask three people what counts as a completed job and you get three answers, all of them defensible.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Reporting is a manual job</h3>
+                        <p>Month end is days of exporting and pasting before anyone learns anything useful from it.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Access is all or nothing</h3>
+                        <p>People either see everything or have to ask someone else to run a report. Decisions wait on whoever is free.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Discovery Call CTA -->
+        <section class="discovery-cta">
+            <div class="container">
+                <div class="discovery-content">
+                    <h2>Start with the map, not the invoice</h2>
+                    <p>Book a 30-minute discovery call. No pitch. Just a straight conversation about what you run and where the manual work happens:</p>
+                    <ul class="discovery-list">
+                        <li>What systems are in the business, and who actually uses them?</li>
+                        <li>Where is data being moved between them by hand?</li>
+                        <li>Which numbers do people not trust, and why?</li>
+                        <li>What is that costing you in time, errors and delay?</li>
+                    </ul>
+                    <p class="discovery-cta-text">By the end of the call you will know whether this is worth doing. If it is not, we will tell you.</p>
+                    <a href="/discovery-call" class="btn btn-large">Book a 30-minute discovery call</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- What We Build -->
+        <section class="services" id="what-we-build">
+            <div class="container">
+                <h2>What we build</h2>
+                <p class="statement">We work with your existing systems. We do not replace them.</p>
+                <p class="services-subtitle">Your ERP stays your ERP. We build the layer underneath it that makes everything agree.</p>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <h3>Data moves on its own</h3>
+                        <p>Information passes between your systems automatically, instead of someone copying it every Friday afternoon. Pipelines run on a schedule or in near real time using APIs, direct database connections or change data capture, and they tell you when a feed fails instead of failing quietly.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Everyone quotes the same number</h3>
+                        <p>One place where a customer, a job, a product and a period each mean one thing. History is kept, so this quarter and the same quarter last year can be compared without arguing over which export was used.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Every figure has an owner</h3>
+                        <p>You always know who is accountable for a number and where it came from. Named owners, written definitions, role based access, retention rules and a documented change process. This is the part most integration projects skip, and the reason most of them decay within a year.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Reports build themselves</h3>
+                        <p>The board pack arrives without anyone spending three days on it. Power BI dashboards and automated flows sit on top of the governed layer, so the numbers in the meeting and the numbers on the shop floor come from the same place.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What Governed Means -->
+        <section class="success-section" id="governance">
+            <div class="container">
+                <h2>Why data governance matters</h2>
+                <p class="success-subtitle">Plenty of firms will connect two systems for you. Fewer will tell you who owns the result.</p>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <h3>Ownership</h3>
+                        <p>Every dataset and every headline figure has a named person in your business who is accountable for it. Not a supplier, and not whoever happened to build the report last.</p>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                        </div>
+                        <h3>Definitions</h3>
+                        <p>A written catalogue of what each measure means, in plain English, agreed by the people who use it. The argument happens once, not every month end.</p>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        </div>
+                        <h3>Access and audit</h3>
+                        <p>Role based permissions, so people see what their job needs. Any figure can be traced back to the system and the record it came from, which matters at audit and matters more when a customer queries an invoice.</p>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>
+                        </div>
+                        <h3>Retention and change control</h3>
+                        <p>Clear rules on what is kept and for how long, in line with UK GDPR and the Data Protection Act 2018. Changes to pipelines and definitions get reviewed and recorded, so nothing shifts underneath a report without anyone knowing.</p>
+                    </div>
+                </div>
+
+                <div class="success-process">
+                    <h3>How the work runs</h3>
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="step-num" aria-hidden="true">1</div>
+                            <h4>Systems audit</h4>
+                            <p>Two to three weeks mapping every system, export and manual workaround. You get a costed plan you own outright.</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-num" aria-hidden="true">2</div>
+                            <h4>Design and sign off</h4>
+                            <p>We agree the architecture, the definitions, the access model and the retention rules before any code is written.</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-num" aria-hidden="true">3</div>
+                            <h4>Build in stages</h4>
+                            <p>Highest pain first. Each stage goes live, gets used and gets signed off before the next one starts.</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-num" aria-hidden="true">4</div>
+                            <h4>Handover and support</h4>
+                            <p>Documentation written for your team, monitoring so failures raise a flag the same day, and a retainer if you want one.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why CM Interactive -->
+        <!-- As they land, add certifications, client logos, years active and
+             a count of integrations delivered. Proof beats adjectives. -->
+        <section class="trust-section" id="why-us">
+            <div class="container">
+                <h2>Why businesses choose CM Interactive</h2>
+                <p class="trust-intro">We specialise in SQL, Power BI, Python and the Microsoft data platform. Our focus is helping UK businesses cut out manual reporting, connect systems that were never designed to talk to each other, and get clear ownership of their data.</p>
+                <ul class="trust-list">
+                    <li>We work with the software you already own</li>
+                    <li>No vendor lock-in, on any part of the build</li>
+                    <li>Everything documented, including the handover</li>
+                    <li>UK based, and you deal directly with the person building it</li>
+                    <li>Plain English, not consultancy jargon</li>
+                    <li>You own everything we build for you</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Technology -->
+        <section class="tech-section" id="technology">
+            <div class="container">
+                <h2>For the technical people in the room</h2>
+                <p class="tech-subtitle">No bespoke platform that only we can maintain. Everything runs on tooling your IT team, or your next supplier, will recognise.</p>
+                <ul class="tech-list">
+                    <li>SQL Server</li>
+                    <li>Azure</li>
+                    <li>Microsoft Fabric</li>
+                    <li>Power BI</li>
+                    <li>Power Automate</li>
+                    <li>PostgreSQL</li>
+                    <li>REST APIs</li>
+                    <li>Change data capture</li>
+                    <li>Python</li>
+                    <li>Custom web portals</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <h2>Questions we get asked first</h2>
+                <p class="faq-subtitle">The honest answers, before you spend half an hour on a call.</p>
+
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>Will you replace our ERP?</summary>
+                        <p>No. Replacing an ERP is slow, expensive and rarely the actual problem. We work with the systems you already have and build the layer that makes them agree with each other. If your ERP genuinely is the constraint, the audit will say so.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>We are a small business. Is this overkill?</summary>
+                        <p>It depends on the pain, not the headcount. If someone is spending a day a week moving data between systems, or month end takes three days of exporting and pasting, the numbers usually stack up. If they do not, we will tell you on the call rather than sell you a project.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Do we have to move to the cloud?</summary>
+                        <p>Not necessarily. Plenty of this runs against on premise SQL Server. Cloud usually wins on cost and resilience once several sources are involved, but that is a decision we make in the audit with your constraints in front of us, not a default.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>What happens to our data?</summary>
+                        <p>It stays in your tenancy, on infrastructure you own or pay for directly. We work to UK GDPR and the Data Protection Act 2018, sign a data processing agreement, and agree retention and access rules with you before the build starts.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>What if we want to take it in house later?</summary>
+                        <p>That is a fair outcome and the build is designed for it. Standard tooling, documented pipelines, a written runbook and training for your team. There is no proprietary layer locking you to us.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>How long does it take?</summary>
+                        <p>The audit is two to three weeks. After that we work in stages, highest pain first, so you see something live within weeks rather than at the end of a six month programme.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing-section" id="pricing">
+            <div class="container">
+                <h2>What it costs</h2>
+                <p class="pricing-subtitle">No hidden fees. No surprises. Just clarity.</p>
+
+                <div class="pricing-teaser">
+                    <p>The discovery call is free. The systems audit is a fixed price agreed up front, and the findings are yours to keep whoever you build with afterwards. The platform itself is quoted against the impact we agree in the audit, because we price on outcome rather than hours.</p>
+                    <a href="/pricing" class="btn">See how pricing works</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="contact-intro">
+                    <h2>Tell us what you are running</h2>
+                    <p>Use the secure form below to send us a message. We aim to respond within one working day.</p>
+                </div>
+
+                <div class="contact-content">
+                    <div class="contact-card">
+                        <div class="contact-badge">SECURE CONTACT</div>
+                        <h3>Send us a message</h3>
+                        <p>Tell us:</p>
+                        <ul class="contact-list">
+                            <li>Which systems you use</li>
+                            <li>What gets copied by hand</li>
+                            <li>What is frustrating your team</li>
+                        </ul>
+
+                        <form id="contact-form" novalidate>
+                            <div class="form-row">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required autocomplete="name" placeholder="John Doe">
+                            </div>
+
+                            <div class="form-row">
+                                <label for="email">Email address</label>
+                                <input type="email" id="email" name="email" required autocomplete="email" placeholder="john@example.com">
+                            </div>
+
+                            <div class="form-row">
+                                <label for="title">Subject</label>
+                                <input type="text" id="title" name="title" required placeholder="What's this about?">
+                            </div>
+
+                            <div class="form-row">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="Which systems are you running, and where does the manual work happen?"></textarea>
+                            </div>
+
+                            <!-- Google reCAPTCHA Protection -->
+                            <div class="recaptcha-wrapper">
+                                <div class="verification-box">Please verify you are human to enable submission:</div>
+                                <div class="g-recaptcha" data-sitekey="6Lca2x4tAAAAAH6pSQliVWWVfQleenC89jCmVxF4" data-theme="dark"></div>
+                            </div>
+
+                            <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+
+                            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="/" class="footer-logo">
+                        <img src="/images/cm-interactive-logo.svg" alt="CM Interactive" class="footer-logo-image">
+                    </a>
+                </div>
+
+                <div class="footer-section">
+                    <h2>Navigation</h2>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/systems-integration">Systems Integration</a></li>
+                        <li><a href="/local-website-development">Local Development</a></li>
+                        <li><a href="/pricing">Pricing</a></li>
+                        <li><a href="/contact-us">Contact</a></li>
+                        <li><a href="/discovery-call">Book a Discovery Call</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h2>Resources</h2>
+                    <ul class="footer-links">
+                        <li><a href="/#how-it-works">How it Works</a></li>
+                        <li><a href="/#services">Services</a></li>
+                        <li><a href="/sitemap.xml">Sitemap</a></li>
+                        <li><a href="/llms.txt">LLMs.txt</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h2>Legal</h2>
+                    <ul class="footer-links">
+                        <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 - 2026 CM Interactive Limited. All rights reserved.</p>
+                <p>Based in the United Kingdom, registered in England and Wales (company number 15392983).</p>
+                <p>Unit A, 82 James Carter Road, Mildenhall, Suffolk, United Kingdom, IP28 7DE </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookie consent">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p>We use cookies to analyse how you interact with our website and improve your experience. Only analytical cookies are used, no tracking or advertising. By accepting, you help us make CM Interactive better.</p>
+                <a href="/privacy-policy">For more information, see our privacy policy.</a>
+            </div>
+            <div class="cookie-actions">
+                <button class="cookie-btn decline" onclick="consentManager.decline()">Decline</button>
+                <button class="cookie-btn accept" onclick="consentManager.accept()">Accept</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Navbar interactions-->
+    <script>
+        // Hide banner if consent already given
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedConsent = getCookie(CONSENT_COOKIE);
+            if(savedConsent !== null) {
+                document.getElementById('cookie-banner').style.display = 'none';
+            }
+        });
+
+        // Hamburger Menu Functionality
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobile-nav');
+        const mobileLinks = mobileNav.querySelectorAll('a');
+
+        function setMenuOpen(open) {
+            hamburger.classList.toggle('active', open);
+            mobileNav.classList.toggle('active', open);
+            hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+
+        // Toggle mobile menu
+        hamburger.addEventListener('click', () => {
+            setMenuOpen(!hamburger.classList.contains('active'));
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => setMenuOpen(false));
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav')) {
+                setMenuOpen(false);
+            }
+        });
+
+        // Close mobile menu on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                setMenuOpen(false);
+            }
+        });
+    </script>
+
+
+    <!--Form JS-->
+    <script>
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+
+        function setStatus(message, type) {
+            formStatus.textContent = message;
+            formStatus.className = 'form-status' + (type ? ' ' + type : '');
+        }
+
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Native validation still runs, we just control when it fires
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                return;
+            }
+
+            // Require a completed reCAPTCHA before sending
+            const captchaToken = window.grecaptcha ? grecaptcha.getResponse() : '';
+            if (!captchaToken) {
+                setStatus('Please complete the verification before sending.', 'error');
+                return;
+            }
+
+            const btn = contactForm.querySelector('button[type="submit"]');
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+            setStatus('', null);
+
+            emailjs.sendForm('service_34etu3d', 'template_7ll0kqg', contactForm)
+                .then(function () {
+                    btn.textContent = 'Message sent';
+                    contactForm.reset();
+                    if (window.grecaptcha) grecaptcha.reset();
+                    setStatus('Thanks, your message has been sent. We usually reply within one working day.', 'success');
+                })
+                .catch(function (err) {
+                    console.error(err);
+                    btn.disabled = false;
+                    btn.textContent = 'Send Message';
+                    if (window.grecaptcha) grecaptcha.reset();
+                    setStatus('Something went wrong. Please try again, or email help@cminteractive.uk directly.', 'error');
+                });
+        });
+    </script>
+</body>
+</html>

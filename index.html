@@ -82,8 +82,8 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Design &amp; Development Agency UK | CM Interactive</title>
-    <meta name="description" content="CM Interactive builds websites that deliver measurable results. Web design, development, digital strategy and conversion optimisation for UK businesses. Free discovery call.">
+    <title>Web Design, Development &amp; Systems Integration UK | CM Interactive</title>
+    <meta name="description" content="CM Interactive builds websites and connects business systems that deliver measurable results. Web design, development, systems integration and data governance for UK businesses. Free discovery call.">
     <meta name="author" content="CM Interactive">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
@@ -94,8 +94,8 @@
          and switch twitter:card to summary_large_image. -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://cminteractive.uk/">
-    <meta property="og:title" content="Web Design &amp; Development Agency UK | CM Interactive">
-    <meta property="og:description" content="Websites that deliver measurable results. Web design, development and digital strategy focused on hitting your business targets.">
+    <meta property="og:title" content="Web Design, Development &amp; Systems Integration UK | CM Interactive">
+    <meta property="og:description" content="Websites that deliver measurable results, and systems integration that gets your business working from one set of numbers.">
     <meta property="og:site_name" content="CM Interactive">
     <meta property="og:locale" content="en_GB">
 
@@ -103,8 +103,8 @@
     <!-- summary, not summary_large_image, because there is no image to fill it. -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:url" content="https://cminteractive.uk/">
-    <meta name="twitter:title" content="Web Design &amp; Development Agency UK | CM Interactive">
-    <meta name="twitter:description" content="Websites that deliver measurable results. Web design, development and digital strategy focused on hitting your business targets.">
+    <meta name="twitter:title" content="Web Design, Development &amp; Systems Integration UK | CM Interactive">
+    <meta name="twitter:description" content="Websites that deliver measurable results, and systems integration that gets your business working from one set of numbers.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://cminteractive.uk/">
@@ -130,7 +130,7 @@
           "@id": "https://cminteractive.uk/#organization",
           "name": "CM Interactive",
           "legalName": "CM Interactive Limited",
-          "description": "Web design and development agency focused on delivering measurable business results",
+          "description": "Web design, development and systems integration focused on delivering measurable business results",
           "url": "https://cminteractive.uk",
           "image": "https://cminteractive.uk/images/cm-interactive-logo.svg",
           "logo": {
@@ -142,7 +142,7 @@
             "@type": "Country",
             "name": "United Kingdom"
           },
-          "knowsAbout": ["Web Design", "Web Development", "Digital Strategy", "Conversion Optimisation"],
+          "knowsAbout": ["Web Design", "Web Development", "Digital Strategy", "Conversion Optimisation", "Systems Integration", "Data Governance", "Business Intelligence"],
           "contactPoint": {
             "@type": "ContactPoint",
             "contactType": "Customer Service",
@@ -168,6 +168,24 @@
                   "@type": "Service",
                   "name": "Web Development",
                   "description": "Fast, secure and scalable digital solutions built with modern technology."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Systems Integration",
+                  "description": "Connecting ERP, CRM, finance and operational systems so data moves automatically and nothing is entered twice.",
+                  "url": "https://cminteractive.uk/systems-integration"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Data Governance and Reporting",
+                  "description": "Warehouses, Power BI dashboards and clear data ownership, so every report in the business agrees.",
+                  "url": "https://cminteractive.uk/systems-integration"
                 }
               },
               {
@@ -201,8 +219,8 @@
           "@type": "WebPage",
           "@id": "https://cminteractive.uk/#webpage",
           "url": "https://cminteractive.uk/",
-          "name": "Web Design and Development Agency UK",
-          "description": "CM Interactive builds websites that deliver measurable results for UK businesses.",
+          "name": "Web Design, Development and Systems Integration UK",
+          "description": "CM Interactive builds websites and connects business systems that deliver measurable results for UK businesses.",
           "isPartOf": { "@id": "https://cminteractive.uk/#website" },
           "about": { "@id": "https://cminteractive.uk/#organization" }
         }
@@ -356,9 +374,11 @@
             transform: rotate(-45deg) translate(7px, -7px);
         }
 
+        /* Six items now that Systems is in the nav, so the gap is tighter
+           until 1024px where it goes back to 26px. */
         .nav-links {
             display: none;
-            gap: 28px;
+            gap: 20px;
             list-style: none;
             align-items: center;
         }
@@ -797,6 +817,71 @@
             font-size: 15px;
             color: var(--text-mid);
             line-height: 1.6;
+        }
+
+        /* Systems Integration Spotlight
+           Sits between services and the measurement section, to give the
+           systems work its own route through to /systems-integration. */
+        .spotlight {
+            padding: 80px 0;
+            background: var(--background);
+            border-top: 1px solid var(--border);
+        }
+
+        .spotlight-card {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        .spotlight-card h2 {
+            font-size: 26px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .spotlight-card > p {
+            font-size: 15px;
+            color: var(--text-mid);
+            line-height: 1.6;
+            margin: 0 0 24px;
+        }
+
+        .spotlight-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto 28px;
+            max-width: 480px;
+            text-align: left;
+        }
+
+        .spotlight-list li {
+            position: relative;
+            padding-left: 32px;
+            margin-bottom: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        /* Same tick as the discovery list, in the darker green so it holds
+           contrast on a light background. */
+        .spotlight-list li:before {
+            content: "";
+            position: absolute;
+            left: 4px;
+            top: 7px;
+            width: 14px;
+            height: 7px;
+            border-left: 2.5px solid var(--primary-dark);
+            border-bottom: 2.5px solid var(--primary-dark);
+            transform: rotate(-45deg);
         }
 
         /* Pricing Section */
@@ -1243,6 +1328,26 @@
                 gap: 48px;
             }
 
+            .spotlight {
+                padding: 100px 0;
+            }
+
+            .spotlight-card {
+                padding: 40px;
+            }
+
+            .spotlight-card h2 {
+                font-size: 30px;
+            }
+
+            .spotlight-card > p {
+                font-size: 16px;
+            }
+
+            .spotlight-list li {
+                font-size: 16px;
+            }
+
             .success-section {
                 padding: 100px 0;
             }
@@ -1348,6 +1453,10 @@
             :root {
                 --page-pad: 40px;
             }
+
+            .nav-links {
+                gap: 26px;
+            }
         }
 
         /* Respect the user's motion preference */
@@ -1387,6 +1496,7 @@
             </button>
             <ul class="nav-links" id="desktop-nav">
                 <li><a href="/" class="active" aria-current="page">Home</a></li>
+                <li><a href="/systems-integration">Systems</a></li>
                 <li><a href="/local-website-development">Local Development</a></li>
                 <li><a href="/pricing">Pricing</a></li>
                 <li><a href="/contact-us">Contact</a></li>
@@ -1394,6 +1504,7 @@
             </ul>
             <ul class="mobile-menu" id="mobile-nav">
                 <li><a href="/" class="active" aria-current="page">Home</a></li>
+                <li><a href="/systems-integration">Systems Integration</a></li>
                 <li><a href="/local-website-development">Local Development</a></li>
                 <li><a href="/pricing">Pricing</a></li>
                 <li><a href="/contact-us">Contact</a></li>
@@ -1406,8 +1517,8 @@
         <!-- Hero -->
         <section class="hero" id="home">
             <div class="container">
-                <h1>Web design and development that <span class="highlight">delivers measurable results</span></h1>
-                <p>We design and build websites and digital products focused on one thing: hitting your business targets. No guesses. No fluff. Just results.</p>
+                <h1>Websites and business systems that <span class="highlight">deliver measurable results</span></h1>
+                <p>We design and build websites, and we connect the systems behind them, focused on one thing: hitting your business targets. No guesses. No fluff. Just results.</p>
                 <div class="hero-actions">
                     <a href="/discovery-call" class="btn">Book a discovery call</a>
                     <a href="#contact" class="btn btn-dark">Send a message</a>
@@ -1471,6 +1582,14 @@
                         <p>Fast, secure, and scalable digital solutions built with modern technology to ensure seamless performance.</p>
                     </div>
                     <div class="service-item">
+                        <h3>Systems integration</h3>
+                        <p>Connect your ERP, CRM, finance and operational systems so data moves automatically and nothing gets entered twice.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Data and reporting</h3>
+                        <p>Warehouses, Power BI dashboards and clear data ownership, so every report in the business agrees with the next one.</p>
+                    </div>
+                    <div class="service-item">
                         <h3>Digital strategy</h3>
                         <p>Comprehensive roadmaps to align your digital presence with your overarching business targets and revenue goals.</p>
                     </div>
@@ -1478,6 +1597,22 @@
                         <h3>Conversion optimisation</h3>
                         <p>Data-driven testing and continuous refinement to squeeze maximum value out of your existing traffic.</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Systems Integration Spotlight -->
+        <section class="spotlight" id="systems">
+            <div class="container">
+                <div class="spotlight-card">
+                    <h2>Systems that do not talk to each other?</h2>
+                    <p>If someone is copying data between systems by hand, or three departments report three different numbers for the same month, that is a systems problem rather than a software problem. We connect what you already run into one governed platform.</p>
+                    <ul class="spotlight-list">
+                        <li>Data moves between your systems automatically</li>
+                        <li>Everyone quotes the same number</li>
+                        <li>Every figure has a named owner</li>
+                    </ul>
+                    <a href="/systems-integration" class="btn">Explore systems integration</a>
                 </div>
             </div>
         </section>
@@ -1628,6 +1763,7 @@
                     <h2>Navigation</h2>
                     <ul class="footer-links">
                         <li><a href="/">Home</a></li>
+                        <li><a href="/systems-integration">Systems Integration</a></li>
                         <li><a href="/local-website-development">Local Development</a></li>
                         <li><a href="/pricing">Pricing</a></li>
                         <li><a href="/contact-us">Contact</a></li>
@@ -1656,6 +1792,7 @@
             <div class="footer-bottom">
                 <p>&copy; 2024 - 2026 CM Interactive Limited. All rights reserved.</p>
                 <p>Based in the United Kingdom, registered in England and Wales (company number 15392983).</p>
+                <p>Unit A, 82 James Carter Road, Mildenhall, Suffolk, United Kingdom, IP28 7DE </p>
             </div>
         </div>
     </footer>
