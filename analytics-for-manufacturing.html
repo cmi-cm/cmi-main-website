@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <!-- Google Analytics with Consent Management -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      // Default to no consent until user decides
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied'
+      });
+
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0QW701ZMK1');
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QW701ZMK1"></script>
+
+
+    <!--Email JS initalisation-->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        emailjs.init({ publicKey: "AgrS_0tnzuWWj9NKv" });
+    </script>
+
+
+    <!-- Consent Management Script -->
+    <script>
+      const CONSENT_COOKIE = 'cm_analytics_consent';
+      const CONSENT_EXPIRY_DAYS = 365;
+
+      function getCookie(name) {
+        const nameEQ = name + "=";
+        const cookies = document.cookie.split(';');
+        for(let cookie of cookies) {
+          cookie = cookie.trim();
+          if(cookie.indexOf(nameEQ) === 0) {
+            return cookie.substring(nameEQ.length);
+          }
+        }
+        return null;
+      }
+
+      function setCookie(name, value, days) {
+        const expires = new Date();
+        expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+        document.cookie = name + "=" + value + ";expires=" + expires.toUTCString() + ";path=/;SameSite=Strict";
+      }
+
+      function updateAnalyticsConsent(consent) {
+        gtag('consent', 'update', {
+          'analytics_storage': consent ? 'granted' : 'denied',
+          'ad_storage': consent ? 'granted' : 'denied'
+        });
+        setCookie(CONSENT_COOKIE, consent ? 'true' : 'false', CONSENT_EXPIRY_DAYS);
+      }
+
+      // Check existing consent
+      const savedConsent = getCookie(CONSENT_COOKIE);
+      if(savedConsent === 'true') {
+        gtag('consent', 'update', {
+          'analytics_storage': 'granted',
+          'ad_storage': 'granted'
+        });
+      }
+
+      window.consentManager = {
+        accept: function() {
+          updateAnalyticsConsent(true);
+          document.getElementById('cookie-banner').style.display = 'none';
+        },
+        decline: function() {
+          updateAnalyticsConsent(false);
+          document.getElementById('cookie-banner').style.display = 'none';
+        },
+        hasConsent: function() {
+          return getCookie(CONSENT_COOKIE) === 'true';
+        }
+      };
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO: this page targets the service phrase, the homepage targets
+         the brand promise. Keep the two titles distinct or they will
+         compete with each other in search. -->
+    <title>Manufacturing Analytics and Reporting for UK Manufacturers | CM Interactive</title>
+    <meta name="description" content="Manufacturing analytics that joins up your ERP, production and finance data. See true margin, on time delivery and scrap in one place, on reporting the whole business trusts. Free 30 minute call.">
+    <meta name="author" content="CM Interactive">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="theme-color" content="#2B2B2B">
+
+    <!-- Open Graph / Social Media -->
+    <!-- No og:image set. Shares render as a text-only card.
+         To upgrade: add a 1200x630 PNG, then add og:image,
+         og:image:width, og:image:height, og:image:alt and twitter:image,
+         and switch twitter:card to summary_large_image. -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cminteractive.uk/analytics-for-manufacturing">
+    <meta property="og:title" content="Manufacturing Analytics and Reporting for UK Manufacturers | CM Interactive">
+    <meta property="og:description" content="Join up your ERP, production and finance data and see true margin, on time delivery and scrap in one place.">
+    <meta property="og:site_name" content="CM Interactive">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://cminteractive.uk/analytics-for-manufacturing">
+    <meta name="twitter:title" content="Manufacturing Analytics and Reporting for UK Manufacturers | CM Interactive">
+    <meta name="twitter:description" content="Join up your ERP, production and finance data and see true margin, on time delivery and scrap in one place.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://cminteractive.uk/analytics-for-manufacturing">
+
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%2350C878' width='32' height='32' rx='6'/><text x='50%' y='50%' font-size='18' font-weight='700' fill='white' text-anchor='middle' dominant-baseline='central'>CM</text></svg>">
+    <link rel="alternate icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==">
+
+    <!-- Shared stylesheet. Same file as the homepage, so the two pages
+         cannot drift apart visually. -->
+    <link rel="stylesheet" href="/css/site.css">
+
+    <!-- Google reCAPTCHA v2 -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <!-- Schema.org Structured Data
+         Service, BreadcrumbList and FAQPage. The FAQs below are
+         DIFFERENT questions to the homepage on purpose. Two pages
+         answering identical questions compete with each other, and
+         Google will usually only show one of them. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://cminteractive.uk/#organization",
+          "name": "CM Interactive",
+          "legalName": "CM Interactive Limited",
+          "url": "https://cminteractive.uk",
+          "email": "help@cminteractive.uk",
+          "areaServed": { "@type": "Country", "name": "United Kingdom" }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://cminteractive.uk/analytics-for-manufacturing#service",
+          "name": "Manufacturing analytics and reporting",
+          "serviceType": "Manufacturing data analytics",
+          "description": "Joining up ERP, production, stock and finance data into one warehouse, then building reporting that shows true margin, on time delivery, scrap and order book in figures the whole business agrees on.",
+          "provider": { "@id": "https://cminteractive.uk/#organization" },
+          "areaServed": { "@type": "Country", "name": "United Kingdom" },
+          "audience": {
+            "@type": "BusinessAudience",
+            "name": "UK manufacturers"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Manufacturing analytics",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Data audit",
+                  "description": "A written map of which system holds what, where your figures diverge and why."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Manufacturing data warehouse",
+                  "description": "One modelled source built from ERP, production, stock and finance data."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Production and margin reporting",
+                  "description": "Reporting on true margin, on time delivery, scrap and order book, on desktop and mobile."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Reporting governance",
+                  "description": "Agreed definitions, access control and a named owner for every figure that matters."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://cminteractive.uk/analytics-for-manufacturing#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "What We Do",
+              "item": "https://cminteractive.uk/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Manufacturing Analytics",
+              "item": "https://cminteractive.uk/analytics-for-manufacturing"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://cminteractive.uk/analytics-for-manufacturing#webpage",
+          "url": "https://cminteractive.uk/analytics-for-manufacturing",
+          "name": "Manufacturing Analytics and Reporting for UK Manufacturers",
+          "description": "How CM Interactive builds manufacturing analytics: joining up ERP, production and finance data into reporting the whole business trusts.",
+          "inLanguage": "en-GB",
+          "about": { "@id": "https://cminteractive.uk/analytics-for-manufacturing#service" },
+          "breadcrumb": { "@id": "https://cminteractive.uk/analytics-for-manufacturing#breadcrumb" }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://cminteractive.uk/analytics-for-manufacturing#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is manufacturing analytics?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Manufacturing analytics means bringing production, order, stock and finance data together so you can answer questions about margin, delivery performance and waste from one agreed set of figures, rather than from separate exports that disagree with each other."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which systems can you pull data from?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most ERP and MES systems, finance packages, CRMs, weighbridge and shop floor systems, and spreadsheets. If it has a database, an export or an API, it can usually be read. Where a system is genuinely closed, we work from its scheduled exports instead."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you need to install anything on our shop floor systems?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. We read from your systems rather than changing them. Nothing is installed on machines or on the production line, and your existing systems keep running exactly as they do now."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can reporting be limited so people only see their own site or department?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Access is set by role, so a site manager sees their own site, a sales manager sees their own accounts, and finance sees everything. Sensitive columns such as cost or pay can be hidden from people who do not need them."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Will the reports work on a phone or a tablet on the shop floor?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, and they are designed for it rather than shrunk down from a desktop report. A phone layout is built deliberately, with fewer figures per screen and touch sized controls."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do you make sure the new numbers are right?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Everything is reconciled against the reports you already trust before it goes live. Where a new figure differs from an old one, we show you exactly which records cause the difference and let you decide which is correct."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Navbar -->
+    <nav class="site-nav" aria-label="Main">
+        <div class="navbar-content">
+            <a href="/" class="logo">
+                <img src="/images/cm-interactive-logo.svg" alt="CM Interactive" class="logo-image">
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="desktop-nav">
+                <li><a href="/">What We Do</a></li>
+                <li><a href="/analytics-for-manufacturing" class="active" aria-current="page">Manufacturing Analytics</a></li>
+                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/contact-us">Contact Us</a></li>
+                <li><a href="/discovery-call" class="nav-cta">Book a free call</a></li>
+            </ul>
+            <ul class="mobile-menu" id="mobile-nav">
+                <li><a href="/">What We Do</a></li>
+                <li><a href="/analytics-for-manufacturing" class="active" aria-current="page">Manufacturing Analytics</a></li>
+                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/contact-us">Contact Us</a></li>
+                <li><a href="/discovery-call" class="menu-cta">Book a free call</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+
+        <!-- =========================================================
+             PAGE HERO
+             ========================================================= -->
+        <section class="page-hero on-dark" id="top">
+            <div class="container">
+                <nav class="crumbs" aria-label="Breadcrumb">
+                    <a href="/">What We Do</a><span aria-hidden="true">/</span>Manufacturing Analytics
+                </nav>
+
+                <span class="eyebrow rise rise-1">Manufacturing analytics</span>
+
+                <h1 class="rise rise-2">Reporting your production, sales and finance teams all agree on</h1>
+
+                <p class="hero-lede rise rise-3">Your ERP knows what you made. Finance knows what you invoiced. Nothing knows both at once. We join them up, then build the reporting on top so margin, delivery and scrap stop being a matter of opinion.</p>
+
+                <div class="hero-actions rise rise-3">
+                    <a href="/discovery-call" class="btn">Book a free 30 minute call</a>
+                    <a href="#contact" class="btn btn-ghost-light">Send a message</a>
+                </div>
+
+                <p class="cta-reassure rise rise-3">No pitch, no obligation.</p>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             WHO IT IS FOR
+             ========================================================= -->
+        <section class="section section-white" id="who-its-for">
+            <div class="container">
+                <div class="split">
+                    <div class="split-body">
+                        <div class="section-head" style="margin-bottom: 24px;">
+                            <h2>This is for manufacturers who have outgrown spreadsheets</h2>
+                        </div>
+
+                        <p>You are probably not short of data. You have an ERP, a finance package, something running the shop floor, and a folder of spreadsheets holding the whole lot together. The problem is that none of it agrees, and getting an answer means asking someone to build a report first.</p>
+
+                        <p>That is fine at ten people. At fifty or two hundred it starts costing real money, because <strong>decisions get delayed until the numbers are argued out</strong>, and by then the month has moved on.</p>
+
+                        <p>We are not an ERP reseller and we are not going to tell you to replace anything. We connect what you already run, agree once what each figure means, and put the answers somewhere everyone can reach them.</p>
+                    </div>
+
+                    <div class="aside-card">
+                        <h3>You will recognise this if</h3>
+                        <ul class="tick-list">
+                            <li>Month end depends on one person and their spreadsheet</li>
+                            <li>Production and finance quote different output figures</li>
+                            <li>Nobody can say which products actually make money</li>
+                            <li>Delivery performance is measured by memory</li>
+                            <li>Reports were built by someone who has since left</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             THE NUMBERS
+             ========================================================= -->
+        <section class="section section-grey" id="numbers">
+            <div class="container">
+                <div class="section-head">
+                    <h2>The numbers manufacturers ask us for</h2>
+                    <p>Six that come up in almost every conversation. Yours will differ at the edges, and the point of the first call is to find out how.</p>
+                </div>
+
+                <ul class="metric-list">
+                    <li>
+                        <h3>True margin by product and customer</h3>
+                        <p>Not list price minus standard cost. Actual margin once materials, labour, scrap and rework are counted against the job.</p>
+                    </li>
+                    <li>
+                        <h3>On time, in full delivery</h3>
+                        <p>Measured against the date you promised rather than the date you rescheduled to, and broken down by customer and line.</p>
+                    </li>
+                    <li>
+                        <h3>Scrap, waste and rework</h3>
+                        <p>What it costs by product, shift and machine, so you can tell whether a problem is a process or a particular Tuesday.</p>
+                    </li>
+                    <li>
+                        <h3>Order book and forward load</h3>
+                        <p>What is committed, what is at risk, and whether the next eight weeks fit through the capacity you actually have.</p>
+                    </li>
+                    <li>
+                        <h3>Stock and consumable usage</h3>
+                        <p>What is moving, what has been sat there for a year, and where usage has quietly drifted away from forecast.</p>
+                    </li>
+                    <li>
+                        <h3>Revenue against last year</h3>
+                        <p>Like for like comparisons that survive a customer being renamed, a product being recoded or a site being reorganised.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             WHY MANUFACTURING IS DIFFERENT
+             ========================================================= -->
+        <section class="section section-white" id="why-different">
+            <div class="container">
+                <div class="split">
+                    <div class="split-body">
+                        <div class="section-head" style="margin-bottom: 24px;">
+                            <h2>Why manufacturing data is harder than it looks</h2>
+                        </div>
+
+                        <p>Most analytics work assumes a clean sale of a single item. Manufacturing does not work like that, and generic reporting tools quietly get it wrong.</p>
+
+                        <p><strong>Units change as things move.</strong> You buy by the tonne, make by the batch and sell by the pallet. Any figure that ignores the conversion is wrong by a factor nobody notices until year end.</p>
+
+                        <p><strong>A job is not an order.</strong> One customer order can span several works orders, part deliveries and credit notes. Tying revenue back to what was actually produced takes deliberate modelling, not a join on order number.</p>
+
+                        <p><strong>Time is not tidy.</strong> Shifts cross midnight, weeks cross months, and a batch started on Friday finishes on Monday. Getting daily and monthly figures to agree means deciding once which side of the line things fall on.</p>
+
+                        <p><strong>Names change and history matters.</strong> Customers get renamed, products get recoded, sites merge. Comparing this year to last year properly means handling all of that rather than losing the history.</p>
+                    </div>
+
+                    <div class="aside-card">
+                        <h3>What we do about it</h3>
+                        <ul class="tick-list">
+                            <li>Unit conversions handled once, centrally</li>
+                            <li>Orders, works orders and despatches modelled properly</li>
+                            <li>A calendar that agrees with your shift patterns</li>
+                            <li>Renames and recodes tracked, so history survives</li>
+                            <li>Every definition written down and owned by someone</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             HOW WE BUILD IT
+             ========================================================= -->
+        <section class="section section-grey" id="how-we-build">
+            <div class="container">
+                <div class="section-head">
+                    <h2>How we build it</h2>
+                    <p>Four stages, each producing something you keep whether or not you carry on to the next.</p>
+                </div>
+
+                <ol class="steps">
+                    <li class="step-card">
+                        <span class="step-num" aria-hidden="true">1</span>
+                        <h3>Data audit</h3>
+                        <p>We map which system holds what, where your figures diverge and why. Usually this alone settles an argument that has been running for years.</p>
+                        <span class="step-out">You keep the findings in writing.</span>
+                    </li>
+                    <li class="step-card">
+                        <span class="step-num" aria-hidden="true">2</span>
+                        <h3>Warehouse</h3>
+                        <p>One modelled source built from your ERP, production, stock and finance data, loading automatically overnight without anyone pressing a button.</p>
+                        <span class="step-out">Reconciled against your current reports.</span>
+                    </li>
+                    <li class="step-card">
+                        <span class="step-num" aria-hidden="true">3</span>
+                        <h3>Reporting</h3>
+                        <p>The figures that drive decisions, on desktop and on a phone, with the definition behind each one agreed before it is published.</p>
+                        <span class="step-out">Built in stages, useful from the first.</span>
+                    </li>
+                    <li class="step-card">
+                        <span class="step-num" aria-hidden="true">4</span>
+                        <h3>Governance and handover</h3>
+                        <p>Access by role, sensitive figures restricted, definitions documented and a named owner for each number that matters.</p>
+                        <span class="step-out">Yours to run without us.</span>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             PLATFORM
+             ========================================================= -->
+        <section class="section section-green" id="platform">
+            <div class="container">
+                <div class="section-head">
+                    <h2>What we build it on</h2>
+                    <p>Mainstream Microsoft tooling rather than anything exotic, so another supplier could pick it up tomorrow if you ever wanted them to.</p>
+                </div>
+
+                <div class="stack-grid">
+                    <div class="stack-card">
+                        <h3>SQL Server and Microsoft Fabric</h3>
+                        <p>Where your data lands and gets modelled. Both are widely supported, so you are never dependent on one person knowing a niche tool.</p>
+                    </div>
+                    <div class="stack-card">
+                        <h3>Power BI</h3>
+                        <p>Where the reporting lives. If you already have Microsoft 365 licences, you are most of the way there already.</p>
+                    </div>
+                    <div class="stack-card">
+                        <h3>Your existing systems</h3>
+                        <p>Read from, never replaced. Nothing is installed on production equipment and nothing changes in the systems your people already use.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             SAMPLE WORK CALLOUT
+             ========================================================= -->
+        <section class="section section-white" id="sample">
+            <div class="container">
+                <div class="callout">
+                    <h2>See a full build, end to end</h2>
+                    <p>We built a complete warehouse and reporting stack for an invented manufacturer, using the same approach we would use on yours. It is a demonstration on made up data, not client work, and it shows exactly what you would get.</p>
+                    <a href="/sample-work" class="btn btn-dark">See the sample project</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             FAQ
+             These questions are deliberately different to the homepage
+             FAQs. Mirrored in the FAQPage schema above, so edit both
+             together or the rich result gets dropped.
+             ========================================================= -->
+        <section class="section section-mint" id="faq">
+            <div class="container">
+                <div class="section-head centred">
+                    <h2>Manufacturing analytics questions</h2>
+                    <p>The practical ones we get asked before anyone commits to anything.</p>
+                </div>
+
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>What is manufacturing analytics?</summary>
+                        <div class="faq-answer">
+                            <p>Bringing production, order, stock and finance data together so you can answer questions about margin, delivery performance and waste from one agreed set of figures, rather than from separate exports that disagree with each other.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Which systems can you pull data from?</summary>
+                        <div class="faq-answer">
+                            <p>Most ERP and MES systems, finance packages, CRMs, weighbridge and shop floor systems, and spreadsheets. If it has a database, an export or an API, it can usually be read. Where a system is genuinely closed, we work from its scheduled exports instead.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Do you need to install anything on our shop floor systems?</summary>
+                        <div class="faq-answer">
+                            <p>No. We read from your systems rather than changing them. Nothing is installed on machines or on the production line, and your existing systems keep running exactly as they do now.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Can reporting be limited so people only see their own site or department?</summary>
+                        <div class="faq-answer">
+                            <p>Yes. Access is set by role, so a site manager sees their own site, a sales manager sees their own accounts, and finance sees everything. Sensitive columns such as cost or pay can be hidden from people who do not need them.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Will the reports work on a phone or a tablet on the shop floor?</summary>
+                        <div class="faq-answer">
+                            <p>Yes, and they are designed for it rather than shrunk down from a desktop report. A phone layout is built deliberately, with fewer figures per screen and touch sized controls.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>How do you make sure the new numbers are right?</summary>
+                        <div class="faq-answer">
+                            <p>Everything is reconciled against the reports you already trust before it goes live. Where a new figure differs from an old one, we show you exactly which records cause the difference and let you decide which is correct.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             CLOSING CTA
+             ========================================================= -->
+        <section class="section section-dark closing on-dark">
+            <div class="container">
+                <h2>Start with the numbers that annoy you most</h2>
+                <p>Thirty minutes on the phone. Tell us which figure you do not trust, and we will tell you whether it is fixable and roughly what it would take.</p>
+
+                <ul class="closing-list">
+                    <li>Completely free, no obligation</li>
+                    <li>No sales pitch, no slide deck</li>
+                    <li>Nothing to prepare beforehand</li>
+                    <li>An honest answer if we are not the right fit</li>
+                </ul>
+
+                <a href="/discovery-call" class="btn">Book a free 30 minute call</a>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             CONTACT
+             ========================================================= -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="contact-intro">
+                    <h2>Or tell us what is not adding up</h2>
+                    <p>Describe it in your own words. We reply within one working day.</p>
+                </div>
+
+                <div class="contact-content">
+                    <div class="contact-card">
+                        <span class="contact-badge">Secure contact</span>
+                        <h3>Send us a message</h3>
+                        <p>The more specific you are about which systems disagree, the more useful our first reply will be.</p>
+
+                        <form id="contact-form" novalidate>
+                            <div class="form-row">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required autocomplete="name" placeholder="Your name">
+                            </div>
+
+                            <div class="form-row">
+                                <label for="email">Email address</label>
+                                <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@company.co.uk">
+                            </div>
+
+                            <div class="form-row">
+                                <label for="title">Subject</label>
+                                <input type="text" id="title" name="title" required placeholder="What is this about?">
+                            </div>
+
+                            <div class="form-row">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="Which systems are involved, and what is going wrong? If you are not sure which systems are involved, do not worry, we work that out during the data audit."></textarea>
+                            </div>
+
+                            <!-- Google reCAPTCHA Protection -->
+                            <div class="recaptcha-wrapper">
+                                <div class="verification-box">Please verify you are human to enable submission:</div>
+                                <div class="g-recaptcha" data-sitekey="6Lca2x4tAAAAAH6pSQliVWWVfQleenC89jCmVxF4"></div>
+                            </div>
+
+                            <button type="submit" class="btn" style="width: 100%;">Send message</button>
+
+                            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="/" class="footer-logo">
+                        <img src="/images/cm-interactive-logo.svg" alt="CM Interactive" class="footer-logo-image">
+                    </a>
+                    <p class="footer-blurb">We help UK manufacturers turn the data they already have into decisions they can act on.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h2>Pages</h2>
+                    <ul class="footer-links">
+                        <li><a href="/">What We Do</a></li>
+                        <li><a href="/analytics-for-manufacturing">Manufacturing Analytics</a></li>
+                        <li><a href="/pricing">Pricing</a></li>
+                        <li><a href="/contact-us">Contact Us</a></li>
+                        <li><a href="/discovery-call">Book a free call</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h2>On this page</h2>
+                    <ul class="footer-links">
+                        <li><a href="#who-its-for">Who it is for</a></li>
+                        <li><a href="#numbers">The numbers</a></li>
+                        <li><a href="#why-different">Why it is harder</a></li>
+                        <li><a href="#how-we-build">How we build it</a></li>
+                        <li><a href="#platform">What we build on</a></li>
+                        <li><a href="#faq">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h2>Legal</h2>
+                    <ul class="footer-links">
+                        <li><a href="/privacy-policy">Privacy Policy</a></li>
+                        <li><a href="/sitemap.xml">Sitemap</a></li>
+                        <li><a href="/llms.txt">LLMs.txt</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 - 2026 CM Interactive Limited. All rights reserved.</p>
+                <p>Registered in England and Wales (company number 15392983). Working with manufacturers across the UK.</p>
+                <p>Unit A, 82 James Carter Road, Mildenhall, Suffolk, United Kingdom, IP28 7DE</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky call to action for phone visitors -->
+    <div class="mobile-cta-bar" id="mobile-cta-bar">
+        <a href="/discovery-call" class="btn">Book a free 30 minute call</a>
+    </div>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookie consent">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p>We use cookies to analyse how you interact with our website and improve your experience. Only analytical cookies are used, no tracking or advertising. By accepting, you help us make CM Interactive better.</p>
+                <a href="/privacy-policy">For more information, see our privacy policy.</a>
+            </div>
+            <div class="cookie-actions">
+                <button class="cookie-btn decline" onclick="consentManager.decline()">Decline</button>
+                <button class="cookie-btn accept" onclick="consentManager.accept()">Accept</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Navbar interactions-->
+    <script>
+        // Hide banner if consent already given
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedConsent = getCookie(CONSENT_COOKIE);
+            if(savedConsent !== null) {
+                document.getElementById('cookie-banner').style.display = 'none';
+            }
+        });
+
+        // Hamburger Menu Functionality
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobile-nav');
+        const mobileLinks = mobileNav.querySelectorAll('a');
+
+        function setMenuOpen(open) {
+            hamburger.classList.toggle('active', open);
+            mobileNav.classList.toggle('active', open);
+            hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+
+        hamburger.addEventListener('click', () => {
+            setMenuOpen(!hamburger.classList.contains('active'));
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => setMenuOpen(false));
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.site-nav')) setMenuOpen(false);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') setMenuOpen(false);
+        });
+    </script>
+
+
+    <!--Sticky mobile call bar-->
+    <script>
+        (function () {
+            const bar = document.getElementById('mobile-cta-bar');
+            const hero = document.getElementById('top');
+            const contact = document.getElementById('contact');
+            const banner = document.getElementById('cookie-banner');
+
+            function bannerShowing() {
+                return banner && banner.style.display !== 'none' && getCookie(CONSENT_COOKIE) === null;
+            }
+
+            function update() {
+                // Appears once the hero button has scrolled away, and
+                // hides again over the form so it never covers a field.
+                const pastHero = hero.getBoundingClientRect().bottom < 0;
+                const atContact = contact.getBoundingClientRect().top < window.innerHeight;
+                bar.classList.toggle('visible', pastHero && !atContact && !bannerShowing());
+            }
+
+            window.addEventListener('scroll', update, { passive: true });
+            window.addEventListener('resize', update);
+            document.addEventListener('DOMContentLoaded', update);
+            update();
+        })();
+    </script>
+
+
+    <!--Form JS-->
+    <script>
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+
+        function setStatus(message, type) {
+            formStatus.textContent = message;
+            formStatus.className = 'form-status' + (type ? ' ' + type : '');
+        }
+
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Native validation still runs, we just control when it fires
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                return;
+            }
+
+            // Require a completed reCAPTCHA before sending
+            const captchaToken = window.grecaptcha ? grecaptcha.getResponse() : '';
+            if (!captchaToken) {
+                setStatus('Please complete the verification before sending.', 'error');
+                return;
+            }
+
+            const btn = contactForm.querySelector('button[type="submit"]');
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+            setStatus('', null);
+
+            emailjs.sendForm('service_34etu3d', 'template_7ll0kqg', contactForm)
+                .then(function () {
+                    btn.textContent = 'Message sent';
+                    contactForm.reset();
+                    if (window.grecaptcha) grecaptcha.reset();
+                    setStatus('Thanks, your message has been sent. We usually reply within one working day.', 'success');
+                })
+                .catch(function (err) {
+                    console.error(err);
+                    btn.disabled = false;
+                    btn.textContent = 'Send message';
+                    if (window.grecaptcha) grecaptcha.reset();
+                    setStatus('Something went wrong. Please try again, or email help@cminteractive.uk directly.', 'error');
+                });
+        });
+    </script>
+</body>
+</html>

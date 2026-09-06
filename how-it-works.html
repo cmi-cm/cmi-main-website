@@ -1,21 +1,257 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
+    <!-- Google Analytics with Consent Management -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      // Default to no consent until user decides
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied'
+      });
+
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0QW701ZMK1');
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QW701ZMK1"></script>
+
+    <!-- Consent Management Script -->
+    <script>
+      const CONSENT_COOKIE = 'cm_analytics_consent';
+      const CONSENT_EXPIRY_DAYS = 365;
+
+      function getCookie(name) {
+        const nameEQ = name + "=";
+        const cookies = document.cookie.split(';');
+        for(let cookie of cookies) {
+          cookie = cookie.trim();
+          if(cookie.indexOf(nameEQ) === 0) {
+            return cookie.substring(nameEQ.length);
+          }
+        }
+        return null;
+      }
+
+      function setCookie(name, value, days) {
+        const expires = new Date();
+        expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+        document.cookie = name + "=" + value + ";expires=" + expires.toUTCString() + ";path=/;SameSite=Strict";
+      }
+
+      function updateAnalyticsConsent(consent) {
+        gtag('consent', 'update', {
+          'analytics_storage': consent ? 'granted' : 'denied',
+          'ad_storage': consent ? 'granted' : 'denied'
+        });
+        setCookie(CONSENT_COOKIE, consent ? 'true' : 'false', CONSENT_EXPIRY_DAYS);
+      }
+
+      // Check existing consent
+      const savedConsent = getCookie(CONSENT_COOKIE);
+      if(savedConsent === 'true') {
+        gtag('consent', 'update', {
+          'analytics_storage': 'granted',
+          'ad_storage': 'granted'
+        });
+      }
+
+      window.consentManager = {
+        accept: function() {
+          updateAnalyticsConsent(true);
+          document.getElementById('cookie-banner').style.display = 'none';
+        },
+        decline: function() {
+          updateAnalyticsConsent(false);
+          document.getElementById('cookie-banner').style.display = 'none';
+        },
+        hasConsent: function() {
+          return getCookie(CONSENT_COOKIE) === 'true';
+        }
+      };
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Not Found | CM Interactive</title>
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="description" content="The page you are looking for does not exist.">
+
+    <title>How It Works: Our Data Project Process | CM Interactive</title>
+    <meta name="description" content="What actually happens when you work with CM Interactive. Four stages from free call to handover, how much of your team's time it takes, and when we tell you not to bother.">
+    <meta name="author" content="CM Interactive">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="theme-color" content="#2B2B2B">
+
+    <!-- Open Graph / Social Media -->
+    <!-- No og:image set. Shares render as a text-only card.
+         To upgrade: add a 1200x630 PNG, then add og:image,
+         og:image:width, og:image:height, og:image:alt and twitter:image,
+         and switch twitter:card to summary_large_image. -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cminteractive.uk/how-it-works">
+    <meta property="og:title" content="How It Works: Our Data Project Process | CM Interactive">
+    <meta property="og:description" content="Four stages from free call to handover, what your team has to put in, and when we tell you not to bother.">
+    <meta property="og:site_name" content="CM Interactive">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://cminteractive.uk/how-it-works">
+    <meta name="twitter:title" content="How It Works: Our Data Project Process | CM Interactive">
+    <meta name="twitter:description" content="Four stages from free call to handover, what your team has to put in, and when we tell you not to bother.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://cminteractive.uk/how-it-works">
+
+    <link rel="preconnect" href="https://www.googletagmanager.com">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%2350C878' width='32' height='32' rx='6'/><text x='50%' y='50%' font-size='18' font-weight='700' fill='white' text-anchor='middle' dominant-baseline='central'>CM</text></svg>">
     <link rel="alternate icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==">
 
-    <!-- No analytics, no reCAPTCHA, no cookie banner on this page.
-         It is noindex and has no form, so there is nothing to measure
-         and nothing to protect. Keeping it script-free means a dead URL
-         loads instantly and sets no cookies at all. -->
+    <!-- Schema.org Structured Data
+         HowTo describes the engagement stages. The FAQs below are again
+         a distinct set from the other pages, so the four do not compete
+         for the same result. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://cminteractive.uk/#organization",
+          "name": "CM Interactive",
+          "legalName": "CM Interactive Limited",
+          "url": "https://cminteractive.uk",
+          "email": "help@cminteractive.uk",
+          "areaServed": { "@type": "Country", "name": "United Kingdom" }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://cminteractive.uk/#website",
+          "url": "https://cminteractive.uk",
+          "name": "CM Interactive",
+          "inLanguage": "en-GB",
+          "publisher": { "@id": "https://cminteractive.uk/#organization" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://cminteractive.uk/how-it-works#webpage",
+          "url": "https://cminteractive.uk/how-it-works",
+          "name": "How It Works: Our Data Project Process",
+          "description": "The four stages of a CM Interactive data engagement, what each one delivers, and what it asks of your team.",
+          "inLanguage": "en-GB",
+          "isPartOf": { "@id": "https://cminteractive.uk/#website" },
+          "about": { "@id": "https://cminteractive.uk/#organization" },
+          "breadcrumb": { "@id": "https://cminteractive.uk/how-it-works#breadcrumb" }
+        },
+        {
+          "@type": "HowTo",
+          "@id": "https://cminteractive.uk/how-it-works#howto",
+          "name": "How a CM Interactive data engagement works",
+          "description": "Four stages, from a free discovery call through to handover, each producing something the client keeps.",
+          "totalTime": "P8W",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "position": 1,
+              "name": "Discovery call",
+              "text": "A free 30 minute call covering which numbers you cannot trust, what that costs you, and whether the work is worth doing at all. You keep a written summary of the problem."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 2,
+              "name": "Data audit",
+              "text": "We map which system holds what, where your figures diverge and why. Delivered in writing, usually within two weeks, and yours to keep whoever you hire."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 3,
+              "name": "Build",
+              "text": "Warehouse, pipelines and reporting built in agreed stages, each reconciled against the reports you already trust before anything goes live."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 4,
+              "name": "Handover",
+              "text": "Documented definitions, access set by role, a named owner for each figure, and a session with whoever will maintain it."
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://cminteractive.uk/how-it-works#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "What We Do",
+              "item": "https://cminteractive.uk/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "How It Works",
+              "item": "https://cminteractive.uk/how-it-works"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://cminteractive.uk/how-it-works#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How much of our team's time will this take?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Less than you would expect, but not none. Budget roughly half a day during the audit for someone who knows the systems, then about an hour a week during the build to review what we have produced. The reviewing is the part that cannot be skipped, because we cannot tell you which of two conflicting figures is correct."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Who will we actually be dealing with?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The person doing the work. There is no account manager relaying messages, and nobody senior turns up to sell the project and then hands it to someone junior."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do you work with our IT team or IT provider?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We need read access to the systems involved and a route to ask questions. We do not change your systems, install anything on production equipment, or need administrative rights. Your IT people or provider stay in control of what we can reach."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you work on site or remotely?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Mostly remotely, which keeps the cost down. A visit early on is often worth it if the work involves the shop floor, because seeing how something is actually recorded explains more than any amount of asking."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What if we need to pause the project?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Work is built in stages that each finish in a working state, so a pause between stages costs you nothing beyond the delay. You are never left with a half connected system that has to be finished before anyone can use it."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What happens if our departments disagree about what a number should mean?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "That comes up on most projects and it is not a technical problem. We set out the options and what each one implies, then someone in your business decides and we record the decision. Our job is to make the disagreement visible and then hold whatever you choose."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 
     <style>
         * {
@@ -1625,120 +1861,150 @@
 
 
         /* ===============================================================
-           404 PAGE
-           The body is a column so the footer sits at the bottom even
-           when the content is short.
+           HOW IT WORKS PAGE
+           A vertical spine with a stage card at each point, so the
+           sequence reads as one continuous run rather than four
+           separate boxes.
            =============================================================== */
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            min-height: 100dvh; /* accounts for mobile browser chrome */
-        }
+        .stages { list-style: none; }
 
-        .error-section {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            background: var(--secondary);
-            color: var(--white);
-            padding: 64px 0 76px;
+        .stage {
             position: relative;
-            overflow: hidden;
+            padding-left: 34px;
+            padding-bottom: 24px;
         }
 
-        .error-section::after {
+        .stage:last-child { padding-bottom: 0; }
+
+        /* The spine. Stops at the last marker rather than running past it. */
+        .stage:not(:last-child)::before {
             content: "";
             position: absolute;
-            top: -200px;
-            right: -170px;
-            width: 620px;
-            height: 620px;
-            background: radial-gradient(circle, rgba(80, 200, 120, 0.18) 0%, rgba(80, 200, 120, 0) 68%);
-            pointer-events: none;
+            left: 13px;
+            top: 34px;
+            bottom: -6px;
+            width: 2px;
+            background: var(--border);
         }
 
-        .error-section .container { position: relative; z-index: 1; }
-
-        .error-content { max-width: 620px; }
-
-        .error-code {
-            font-size: clamp(72px, 20vw, 132px);
+        .stage-marker {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--secondary);
+            color: var(--white);
+            font-size: 13px;
             font-weight: 800;
-            color: var(--primary);
-            line-height: 0.9;
-            letter-spacing: -0.05em;
-            margin-bottom: 18px;
-            font-variant-numeric: tabular-nums;
-        }
-
-        .error-content h1 {
-            font-size: clamp(30px, 7.6vw, 48px);
-            font-weight: 800;
-            line-height: 1.05;
-            letter-spacing: -0.035em;
-            margin-bottom: 18px;
-        }
-
-        .error-content > p {
-            font-size: clamp(17px, 4.4vw, 20px);
-            color: #D2D2D2;
-            line-height: 1.55;
-            margin-bottom: 30px;
-            max-width: 42ch;
-        }
-
-        .error-actions {
             display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* Useful destinations, so a dead URL is a fork in the road
-           rather than a single button back to the top. */
-        .error-links {
-            margin-top: 44px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.14);
+        .stage-card {
+            background: var(--white);
+            border-radius: var(--r-card);
+            box-shadow: var(--shadow-card);
+            padding: 28px 24px;
         }
 
-        .error-links h2 {
+        .stage-free {
+            display: inline-block;
             font-size: 12.5px;
             font-weight: 800;
+            color: var(--primary-dark);
+            background: var(--mint);
+            border-radius: var(--r-pill);
+            padding: 6px 13px;
+            margin-bottom: 14px;
+        }
+
+        .stage-card h2 {
+            font-size: clamp(22px, 5vw, 28px);
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            line-height: 1.15;
+            margin-bottom: 12px;
+        }
+
+        .stage-card > p {
+            font-size: 16.5px;
+            color: var(--text-mid);
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+
+        .stage-card > p:last-of-type { margin-bottom: 0; }
+
+        /* Three facts per stage: how long, what your team does, what you
+           walk away with. These are the questions people ask on a call. */
+        .stage-meta {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: var(--r-inner);
+            overflow: hidden;
+            margin-top: 22px;
+        }
+
+        .stage-meta div { background: var(--background); padding: 16px 18px; }
+
+        .stage-meta dt {
+            font-size: 11.5px;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--muted-on-dark);
-            margin-bottom: 18px;
+            letter-spacing: 0.07em;
+            color: var(--text-light);
+            margin-bottom: 5px;
         }
 
-        .error-links ul {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .error-links a {
-            display: inline-block;
+        .stage-meta dd {
             font-size: 15px;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.45;
+        }
+
+        /* Honest limits block */
+        .limits-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .limit-card {
+            background: rgba(255, 255, 255, 0.10);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: var(--r-card);
+            padding: 28px 26px;
+        }
+
+        .limit-card h3 {
+            font-size: 19px;
             font-weight: 700;
             color: var(--white);
-            text-decoration: none;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            border-radius: var(--r-pill);
-            padding: 10px 18px;
-            transition: background 0.2s ease, border-color 0.2s ease;
+            letter-spacing: -0.015em;
+            line-height: 1.3;
+            margin-bottom: 10px;
         }
 
-        .error-links a:hover {
-            background: rgba(255, 255, 255, 0.16);
-            border-color: rgba(255, 255, 255, 0.32);
-            color: var(--white);
+        .limit-card p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.88);
+            line-height: 1.6;
         }
 
         @media (min-width: 768px) {
-            .error-section { padding: 96px 0 112px; }
+            .stage { padding-left: 44px; padding-bottom: 28px; }
+            .stage:not(:last-child)::before { left: 17px; top: 40px; }
+            .stage-marker { width: 36px; height: 36px; font-size: 15px; top: 2px; }
+            .stage-card { padding: 36px 34px; }
+            .stage-meta { grid-template-columns: repeat(3, 1fr); }
+            .limits-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
         }
     </style>
 </head>
@@ -1759,7 +2025,7 @@
             <ul class="nav-links" id="desktop-nav">
                 <li><a href="/">What We Do</a></li>
                 <li><a href="/analytics-for-manufacturing">Manufacturing Analytics</a></li>
-                <li><a href="/how-it-works">How It Works</a></li>
+                <li><a href="/how-it-works" class="active" aria-current="page">How It Works</a></li>
                 <li><a href="/pricing">Pricing</a></li>
                 <li><a href="/contact-us">Contact Us</a></li>
                 <li><a href="/discovery-call" class="nav-cta">Book a free call</a></li>
@@ -1767,7 +2033,7 @@
             <ul class="mobile-menu" id="mobile-nav">
                 <li><a href="/">What We Do</a></li>
                 <li><a href="/analytics-for-manufacturing">Manufacturing Analytics</a></li>
-                <li><a href="/how-it-works">How It Works</a></li>
+                <li><a href="/how-it-works" class="active" aria-current="page">How It Works</a></li>
                 <li><a href="/pricing">Pricing</a></li>
                 <li><a href="/contact-us">Contact Us</a></li>
                 <li><a href="/discovery-call" class="menu-cta">Book a free call</a></li>
@@ -1775,33 +2041,289 @@
         </div>
     </nav>
 
-    <!-- 404 -->
-    <main class="error-section on-dark" id="main">
-        <div class="container">
-            <div class="error-content">
-                <p class="error-code" aria-hidden="true">404</p>
+    <main id="main">
 
-                <h1>That page does not add up</h1>
+        <!-- =========================================================
+             PAGE HERO
+             ========================================================= -->
+        <section class="page-hero on-dark" id="top">
+            <div class="container">
+                <nav class="crumbs" aria-label="Breadcrumb">
+                    <a href="/">What We Do</a><span aria-hidden="true">/</span>How It Works
+                </nav>
 
-                <p>The page you are after does not exist, or it has moved. Nothing you did wrong. Here is the way back.</p>
+                <span class="eyebrow rise rise-1">How it works</span>
 
-                <div class="error-actions">
-                    <a href="/" class="btn">Back to the homepage</a>
-                    <a href="/contact-us" class="btn btn-ghost-light">Tell us what broke</a>
+                <h1 class="rise rise-2">Four stages, and you can stop after any of them</h1>
+
+                <p class="hero-lede rise rise-3">Every stage produces something you keep, whether or not you carry on to the next. The first two cost nothing, so you can get all the way to a specific written quote without spending anything.</p>
+
+                <div class="hero-actions rise rise-3">
+                    <a href="/discovery-call" class="btn">Start with the free call</a>
+                    <a href="#faq" class="btn btn-ghost-light">Practical questions</a>
                 </div>
 
-                <div class="error-links">
-                    <h2>Or try one of these</h2>
-                    <ul>
-                        <li><a href="/analytics-for-manufacturing">Manufacturing Analytics</a></li>
-                        <li><a href="/how-it-works">How It Works</a></li>
-                        <li><a href="/pricing">Pricing</a></li>
-                        <li><a href="/sample-work">Sample Work</a></li>
-                        <li><a href="/discovery-call">Book a free call</a></li>
-                    </ul>
+                <p class="cta-reassure rise rise-3">No pitch, no obligation.</p>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             THE FOUR STAGES
+             ========================================================= -->
+        <section class="section section-grey" id="stages">
+            <div class="container">
+                <ol class="stages">
+
+                    <li class="stage">
+                        <span class="stage-marker" aria-hidden="true">1</span>
+                        <div class="stage-card">
+                            <span class="stage-free">Free</span>
+                            <h2>The discovery call</h2>
+                            <p>Thirty minutes on the phone. You describe which figures get argued about and what that costs you in time or money. We ask enough questions to work out whether this is the sort of thing we can fix.</p>
+                            <p>If it is not, we say so on the call. That happens often enough to be worth mentioning: sometimes the answer is a conversation between two departments rather than a data project.</p>
+
+                            <dl class="stage-meta">
+                                <div>
+                                    <dt>How long</dt>
+                                    <dd>30 minutes</dd>
+                                </div>
+                                <div>
+                                    <dt>Your team</dt>
+                                    <dd>Whoever knows the problem</dd>
+                                </div>
+                                <div>
+                                    <dt>You keep</dt>
+                                    <dd>A written summary of the problem</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </li>
+
+                    <li class="stage">
+                        <span class="stage-marker" aria-hidden="true">2</span>
+                        <div class="stage-card">
+                            <span class="stage-free">Free</span>
+                            <h2>The data audit</h2>
+                            <p>We look at which system holds what, where the figures diverge, and why. Not a sales document, a working map of your data with the disagreements marked on it.</p>
+                            <p>This is usually the moment something clicks. An argument that has been running for two years often turns out to be two departments counting a credit note differently, and once that is written down it stops being an argument.</p>
+                            <p>You keep the findings regardless of what you do next, including if you take them to another supplier.</p>
+
+                            <dl class="stage-meta">
+                                <div>
+                                    <dt>How long</dt>
+                                    <dd>About two weeks</dd>
+                                </div>
+                                <div>
+                                    <dt>Your team</dt>
+                                    <dd>Roughly half a day</dd>
+                                </div>
+                                <div>
+                                    <dt>You keep</dt>
+                                    <dd>The written audit, plus a fixed quote</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </li>
+
+                    <li class="stage">
+                        <span class="stage-marker" aria-hidden="true">3</span>
+                        <div class="stage-card">
+                            <h2>The build</h2>
+                            <p>Warehouse, pipelines and reporting, built in agreed stages rather than as one long silence followed by a launch. Each stage lands as something you can actually open and use.</p>
+                            <p>Everything gets reconciled against the reports you already trust before it goes live. Where a new figure differs from an old one, we show you exactly which records cause the gap and you decide which is right. We are not going to tell you your own business is wrong about its own numbers.</p>
+                            <p>You see progress every week or two. If something is heading the wrong way, you find out then rather than at the end.</p>
+
+                            <dl class="stage-meta">
+                                <div>
+                                    <dt>How long</dt>
+                                    <dd>Typically 4 to 8 weeks</dd>
+                                </div>
+                                <div>
+                                    <dt>Your team</dt>
+                                    <dd>About an hour a week reviewing</dd>
+                                </div>
+                                <div>
+                                    <dt>You keep</dt>
+                                    <dd>Working reports at every stage</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </li>
+
+                    <li class="stage">
+                        <span class="stage-marker" aria-hidden="true">4</span>
+                        <div class="stage-card">
+                            <h2>Handover</h2>
+                            <p>Written definitions for every figure that matters, access set by role so people see what their job requires, and a named owner for each number. Then a session with whoever will look after it.</p>
+                            <p>The test we hold ourselves to is simple: if we disappeared tomorrow, could your team change a report without us? If the answer is no, the handover is not finished.</p>
+                            <p>Support afterwards is optional and monthly. It should be a choice, not the only way to keep the thing running.</p>
+
+                            <dl class="stage-meta">
+                                <div>
+                                    <dt>How long</dt>
+                                    <dd>A few days</dd>
+                                </div>
+                                <div>
+                                    <dt>Your team</dt>
+                                    <dd>One handover session</dd>
+                                </div>
+                                <div>
+                                    <dt>You keep</dt>
+                                    <dd>All of it, and the ability to leave</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </li>
+
+                </ol>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             WHAT WE NEED FROM YOU
+             ========================================================= -->
+        <section class="section section-white" id="what-we-need">
+            <div class="container">
+                <div class="split">
+                    <div class="split-body">
+                        <div class="section-head" style="margin-bottom: 24px;">
+                            <h2>What this asks of your team</h2>
+                        </div>
+
+                        <p>Data projects have a reputation for eating people's time, usually because the supplier needs someone to explain the business to them every other day. The audit exists partly to get that over with in one go.</p>
+
+                        <p>After that, the commitment is <strong>roughly an hour a week from one person who knows the numbers</strong>. Most of it is reviewing what we have built and telling us when something looks wrong.</p>
+
+                        <p>That review is the part that cannot be skipped. When two systems disagree, we can tell you exactly where and why, but we cannot tell you which answer your business considers correct. Somebody there has to decide, and then we hold that decision permanently.</p>
+
+                        <p>What we do not need is a project manager, a steering group, or a weekly meeting with eight people in it.</p>
+                    </div>
+
+                    <div class="aside-card">
+                        <h3>Access we will ask for</h3>
+                        <ul class="tick-list">
+                            <li>Read access to the systems involved</li>
+                            <li>A route to ask questions when something is unclear</li>
+                            <li>Someone who can settle a definition</li>
+                            <li>Copies of the reports we are matching against</li>
+                        </ul>
+                        <p style="margin-top: 18px; font-size: 15px; color: var(--text-light); line-height: 1.6;">We do not need administrative rights, and we do not change your systems or install anything on production equipment.</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- =========================================================
+             WHEN WE SAY NO
+
+             This section is a differentiator, not a disclaimer. Saying
+             plainly when the work is not worth doing is more persuasive
+             than another list of benefits, and it filters out the
+             enquiries that would waste everyone's time.
+             ========================================================= -->
+        <section class="section section-green" id="when-we-say-no">
+            <div class="container">
+                <div class="section-head">
+                    <h2>When we tell you not to bother</h2>
+                    <p>Three situations where we will say the work is not worth doing. Better to hear it on a free call than four weeks in.</p>
+                </div>
+
+                <div class="limits-grid">
+                    <div class="limit-card">
+                        <h3>The problem is not really about data</h3>
+                        <p>Sometimes two departments report different figures because they genuinely measure different things and nobody has ever said so out loud. That is a half hour conversation, not a project.</p>
+                    </div>
+                    <div class="limit-card">
+                        <h3>The numbers do not justify it</h3>
+                        <p>If the thing we would fix costs you two hours a month, the work will not pay for itself. We would rather say that than sell you something that never earns its money back.</p>
+                    </div>
+                    <div class="limit-card">
+                        <h3>You are mid-change already</h3>
+                        <p>If you are replacing your ERP next quarter, building on top of the old one is wasted effort. We will tell you to come back afterwards.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             FAQ
+             Mirrored in the FAQPage schema above, and deliberately a
+             different set of questions to the other pages. Edit both
+             together or the rich result gets dropped.
+             ========================================================= -->
+        <section class="section section-mint" id="faq">
+            <div class="container">
+                <div class="section-head centred">
+                    <h2>Practical questions about the process</h2>
+                    <p>The ones that come up once people have decided the idea is sound and want to know what it actually involves.</p>
+                </div>
+
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>How much of our team's time will this take?</summary>
+                        <div class="faq-answer">
+                            <p>Less than you would expect, but not none. Budget roughly half a day during the audit for someone who knows the systems, then about an hour a week during the build to review what we have produced. The reviewing is the part that cannot be skipped, because we cannot tell you which of two conflicting figures is correct.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Who will we actually be dealing with?</summary>
+                        <div class="faq-answer">
+                            <p>The person doing the work. There is no account manager relaying messages, and nobody senior turns up to sell the project and then hands it to someone junior.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>How do you work with our IT team or IT provider?</summary>
+                        <div class="faq-answer">
+                            <p>We need read access to the systems involved and a route to ask questions. We do not change your systems, install anything on production equipment, or need administrative rights. Your IT people or provider stay in control of what we can reach.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Do you work on site or remotely?</summary>
+                        <div class="faq-answer">
+                            <p>Mostly remotely, which keeps the cost down. A visit early on is often worth it if the work involves the shop floor, because seeing how something is actually recorded explains more than any amount of asking.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>What if we need to pause the project?</summary>
+                        <div class="faq-answer">
+                            <p>Work is built in stages that each finish in a working state, so a pause between stages costs you nothing beyond the delay. You are never left with a half connected system that has to be finished before anyone can use it.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>What happens if our departments disagree about what a number should mean?</summary>
+                        <div class="faq-answer">
+                            <p>That comes up on most projects and it is not a technical problem. We set out the options and what each one implies, then someone in your business decides and we record the decision. Our job is to make the disagreement visible and then hold whatever you choose.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <p class="section-note">Wondering what it costs? <a href="/pricing">See how pricing works</a>.</p>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             CLOSING CTA
+             ========================================================= -->
+        <section class="section section-dark closing on-dark">
+            <div class="container">
+                <h2>Stage one is a phone call and it is free</h2>
+                <p>Tell us which figure you do not trust. We will tell you whether it is fixable and roughly what it would take.</p>
+
+                <ul class="closing-list">
+                    <li>Completely free, no obligation</li>
+                    <li>No sales pitch, no slide deck</li>
+                    <li>Nothing to prepare beforehand</li>
+                    <li>An honest answer if we are not the right fit</li>
+                </ul>
+
+                <a href="/discovery-call" class="btn">Book a free 30 minute call</a>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -1822,18 +2344,18 @@
                         <li><a href="/analytics-for-manufacturing">Manufacturing Analytics</a></li>
                         <li><a href="/how-it-works">How It Works</a></li>
                         <li><a href="/pricing">Pricing</a></li>
-                        <li><a href="/sample-work">Sample Work</a></li>
                         <li><a href="/contact-us">Contact Us</a></li>
                         <li><a href="/discovery-call">Book a free call</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-section">
-                    <h2>Get in touch</h2>
+                    <h2>On this page</h2>
                     <ul class="footer-links">
-                        <li><a href="mailto:help@cminteractive.uk">help@cminteractive.uk</a></li>
-                        <li><a href="/contact-us">Send a message</a></li>
-                        <li><a href="/discovery-call">Book a free call</a></li>
+                        <li><a href="#stages">The four stages</a></li>
+                        <li><a href="#what-we-need">What we need from you</a></li>
+                        <li><a href="#when-we-say-no">When we say no</a></li>
+                        <li><a href="#faq">FAQs</a></li>
                     </ul>
                 </div>
 
@@ -1855,7 +2377,36 @@
         </div>
     </footer>
 
+    <!-- Sticky call to action for phone visitors -->
+    <div class="mobile-cta-bar" id="mobile-cta-bar">
+        <a href="/discovery-call" class="btn">Book a free 30 minute call</a>
+    </div>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookie consent">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p>We use cookies to analyse how you interact with our website and improve your experience. Only analytical cookies are used, no tracking or advertising. By accepting, you help us make CM Interactive better.</p>
+                <a href="/privacy-policy">For more information, see our privacy policy.</a>
+            </div>
+            <div class="cookie-actions">
+                <button class="cookie-btn decline" onclick="consentManager.decline()">Decline</button>
+                <button class="cookie-btn accept" onclick="consentManager.accept()">Accept</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Navbar interactions-->
     <script>
+        // Hide banner if consent already given
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedConsent = getCookie(CONSENT_COOKIE);
+            if(savedConsent !== null) {
+                document.getElementById('cookie-banner').style.display = 'none';
+            }
+        });
+
         // Hamburger Menu Functionality
         const hamburger = document.getElementById('hamburger');
         const mobileNav = document.getElementById('mobile-nav');
@@ -1875,6 +2426,8 @@
             link.addEventListener('click', () => setMenuOpen(false));
         });
 
+        // Scoped to .site-nav so the breadcrumb, which is also a <nav>,
+        // does not block the menu from closing.
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.site-nav')) setMenuOpen(false);
         });
@@ -1882,6 +2435,35 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') setMenuOpen(false);
         });
+    </script>
+
+
+    <!--Sticky mobile call bar-->
+    <script>
+        (function () {
+            const bar = document.getElementById('mobile-cta-bar');
+            const hero = document.getElementById('top');
+            const closing = document.querySelector('.closing');
+            const banner = document.getElementById('cookie-banner');
+
+            function bannerShowing() {
+                return banner && banner.style.display !== 'none' && getCookie(CONSENT_COOKIE) === null;
+            }
+
+            function update() {
+                // Appears once the hero button has scrolled away, and
+                // hides again over the closing block so it does not sit
+                // on top of the same button.
+                const pastHero = hero.getBoundingClientRect().bottom < 0;
+                const atClosing = closing.getBoundingClientRect().top < window.innerHeight;
+                bar.classList.toggle('visible', pastHero && !atClosing && !bannerShowing());
+            }
+
+            window.addEventListener('scroll', update, { passive: true });
+            window.addEventListener('resize', update);
+            document.addEventListener('DOMContentLoaded', update);
+            update();
+        })();
     </script>
 </body>
 </html>
