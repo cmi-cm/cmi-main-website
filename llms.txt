@@ -64,7 +64,7 @@ the underlying system.
 
 ## The four stages
 
-1. **Discovery call**: Free, 30 minutes. The client keeps a written summary of the problem.
+1. **Discovery call**: Free, 30 minutes, held as a video call on Google Meet. The client keeps a written summary of the problem.
 2. **Data audit**: Free, usually delivered in writing within about two weeks. The client keeps the findings regardless of whether they proceed, including if they take them to another supplier.
 3. **Build**: Fixed price, typically four to eight weeks, delivered in reviewable stages.
 4. **Handover**: Written definitions, role-based access, named owners and a handover session.
@@ -136,9 +136,10 @@ because CM Interactive can show where two systems disagree but cannot decide
 which figure the business considers correct.
 
 **Is the discovery call a sales pitch?**
-No. It is a free 30-minute conversation to understand the problem and establish
-whether there is a sensible project. If there is not, CM Interactive says so on
-the call.
+No. It is a free 30-minute video call to understand the problem and establish
+whether there is a sensible project. It is held on Google Meet, booked through
+Calendly, and requires nothing to be installed. If there is no sensible project,
+CM Interactive says so on the call.
 
 **Does CM Interactive work on site?**
 Mostly remotely, which keeps costs down. An early visit is often worthwhile where
