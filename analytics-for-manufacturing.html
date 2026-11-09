@@ -1,106 +1,118 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
+    <meta charset="UTF-8">
+    <script>document.documentElement.classList.add('js');</script>
+
     <!-- Google Analytics with Consent Management -->
     <script>
-      window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
 
-      // Default to no consent until user decides
-      gtag('consent', 'default', {
-        'analytics_storage': 'denied',
-        'ad_storage': 'denied'
-      });
-
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-0QW701ZMK1');
+        // Default to no consent until user decides
+        gtag('consent', 'default', {
+            'analytics_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_storage': 'denied',
+            'ad_personalization': 'denied'
+        });
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QW701ZMK1"></script>
 
-
-    <!--Email JS initalisation-->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script>
-        emailjs.init({ publicKey: "AgrS_0tnzuWWj9NKv" });
-    </script>
-
-
     <!-- Consent Management Script -->
     <script>
-      const CONSENT_COOKIE = 'cm_analytics_consent';
-      const CONSENT_EXPIRY_DAYS = 365;
+        const CONSENT_COOKIE = 'cm_analytics_consent';
+        const CONSENT_EXPIRY_DAYS = 365;
 
-      function getCookie(name) {
-        const nameEQ = name + "=";
-        const cookies = document.cookie.split(';');
-        for(let cookie of cookies) {
-          cookie = cookie.trim();
-          if(cookie.indexOf(nameEQ) === 0) {
-            return cookie.substring(nameEQ.length);
-          }
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const cookies = document.cookie.split(';');
+            for (let cookie of cookies) {
+                cookie = cookie.trim();
+                if (cookie.indexOf(nameEQ) === 0) {
+                    return cookie.substring(nameEQ.length);
+                }
+            }
+            return null;
         }
-        return null;
-      }
 
-      function setCookie(name, value, days) {
-        const expires = new Date();
-        expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
-        document.cookie = name + "=" + value + ";expires=" + expires.toUTCString() + ";path=/;SameSite=Strict";
-      }
-
-      function updateAnalyticsConsent(consent) {
-        gtag('consent', 'update', {
-          'analytics_storage': consent ? 'granted' : 'denied',
-          'ad_storage': consent ? 'granted' : 'denied'
-        });
-        setCookie(CONSENT_COOKIE, consent ? 'true' : 'false', CONSENT_EXPIRY_DAYS);
-      }
-
-      // Check existing consent
-      const savedConsent = getCookie(CONSENT_COOKIE);
-      if(savedConsent === 'true') {
-        gtag('consent', 'update', {
-          'analytics_storage': 'granted',
-          'ad_storage': 'granted'
-        });
-      }
-
-      window.consentManager = {
-        accept: function() {
-          updateAnalyticsConsent(true);
-          document.getElementById('cookie-banner').style.display = 'none';
-        },
-        decline: function() {
-          updateAnalyticsConsent(false);
-          document.getElementById('cookie-banner').style.display = 'none';
-        },
-        hasConsent: function() {
-          return getCookie(CONSENT_COOKIE) === 'true';
+        function setCookie(name, value, days) {
+            const expires = new Date();
+            expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+            document.cookie = name + "=" + value + ";expires=" + expires.toUTCString() + ";path=/;SameSite=Strict;Secure";
         }
-      };
+
+        function updateAnalyticsConsent(consent) {
+            gtag('consent', 'update', {
+                'analytics_storage': consent ? 'granted' : 'denied'
+            });
+            setCookie(CONSENT_COOKIE, consent ? 'true' : 'false', CONSENT_EXPIRY_DAYS);
+        }
+
+        // Apply a saved choice before GA sends anything
+        const savedConsent = getCookie(CONSENT_COOKIE);
+        if (savedConsent === 'true') {
+            gtag('consent', 'update', {
+                'analytics_storage': 'granted'
+            });
+        }
+
+        //Initialise GA
+        gtag('js', new Date());
+        gtag('config', 'G-0QW701ZMK1');
+
+        // Remove any Google Analytics cookies left from an earlier "accept"
+        function clearAnalyticsCookies() {
+            const expired = '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+            document.cookie.split(';').forEach(function (c) {
+                const name = c.split('=')[0].trim();
+                if (name.indexOf('_ga') === 0 || name === '_gid') {
+                    document.cookie = name + expired;
+                    document.cookie = name + expired + '; domain=.' + location.hostname.replace(/^www\./, '');
+                }
+            });
+        }
+
+        function setBannerVisible(visible) {
+            const banner = document.getElementById('cookie-banner');
+            if (!banner) return;
+            banner.style.display = visible ? '' : 'none';
+            document.dispatchEvent(new Event('cookiebanner:change'));
+        }
+
+        window.consentManager = {
+            accept: function() {
+                updateAnalyticsConsent(true);
+                setBannerVisible(false);
+            },
+            decline: function() {
+                updateAnalyticsConsent(false);
+                clearAnalyticsCookies();
+                setBannerVisible(false);
+            },
+            open: function() {
+                setBannerVisible(true);
+            },
+            hasConsent: function() {
+                return getCookie(CONSENT_COOKIE) === 'true';
+            }
+        };
     </script>
 
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO: this page targets the service phrase, the homepage targets
-         the brand promise. Keep the two titles distinct or they will
-         compete with each other in search. -->
+
     <title>Manufacturing Analytics and Reporting for UK Manufacturers | CM Interactive</title>
-    <meta name="description" content="Manufacturing analytics that joins up your ERP, production and finance data. See true margin, on time delivery and scrap in one place, on reporting the whole business trusts. Free 30 minute call.">
+    <meta name="description" content="Join up your ERP, production and finance data and see true margin, on-time delivery and scrap in one place, in reporting the whole business trusts. Free 30-minute call.">
     <meta name="author" content="CM Interactive">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="theme-color" content="#2B2B2B">
 
-    <!-- Open Graph / Social Media -->
-    <!-- No og:image set. Shares render as a text-only card.
-         To upgrade: add a 1200x630 PNG, then add og:image,
-         og:image:width, og:image:height, og:image:alt and twitter:image,
-         and switch twitter:card to summary_large_image. -->
+
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://cminteractive.uk/analytics-for-manufacturing">
     <meta property="og:title" content="Manufacturing Analytics and Reporting for UK Manufacturers | CM Interactive">
-    <meta property="og:description" content="Join up your ERP, production and finance data and see true margin, on time delivery and scrap in one place.">
+    <meta property="og:description" content="Join up your ERP, production and finance data and see true margin, on-time delivery and scrap in one place.">
     <meta property="og:site_name" content="CM Interactive">
     <meta property="og:locale" content="en_GB">
 
@@ -108,30 +120,20 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:url" content="https://cminteractive.uk/analytics-for-manufacturing">
     <meta name="twitter:title" content="Manufacturing Analytics and Reporting for UK Manufacturers | CM Interactive">
-    <meta name="twitter:description" content="Join up your ERP, production and finance data and see true margin, on time delivery and scrap in one place.">
+    <meta name="twitter:description" content="Join up your ERP, production and finance data and see true margin, on-time delivery and scrap in one place.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://cminteractive.uk/analytics-for-manufacturing">
 
     <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%2350C878' width='32' height='32' rx='6'/><text x='50%' y='50%' font-size='18' font-weight='700' fill='white' text-anchor='middle' dominant-baseline='central'>CM</text></svg>">
-    <link rel="alternate icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==">
+    <link rel="icon" type="image/svg+xml" href="/images/cm-favicon.svg">
 
     <!-- Shared stylesheet. Same file as the homepage, so the two pages
          cannot drift apart visually. -->
     <link rel="stylesheet" href="/css/site.css">
 
-    <!-- Google reCAPTCHA v2 -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-    <!-- Schema.org Structured Data
-         Service, BreadcrumbList and FAQPage. The FAQs below are
-         DIFFERENT questions to the homepage on purpose. Two pages
-         answering identical questions compete with each other, and
-         Google will usually only show one of them. -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -146,11 +148,19 @@
           "areaServed": { "@type": "Country", "name": "United Kingdom" }
         },
         {
+          "@type": "WebSite",
+          "@id": "https://cminteractive.uk/#website",
+          "url": "https://cminteractive.uk",
+          "name": "CM Interactive",
+          "inLanguage": "en-GB",
+          "publisher": { "@id": "https://cminteractive.uk/#organization" }
+        },
+        {
           "@type": "Service",
           "@id": "https://cminteractive.uk/analytics-for-manufacturing#service",
           "name": "Manufacturing analytics and reporting",
           "serviceType": "Manufacturing data analytics",
-          "description": "Joining up ERP, production, stock and finance data into one warehouse, then building reporting that shows true margin, on time delivery, scrap and order book in figures the whole business agrees on.",
+          "description": "Joining up ERP, production, stock and finance data into one warehouse, then building reporting that shows true margin, on-time delivery and scrap in figures the whole business agrees on.",
           "provider": { "@id": "https://cminteractive.uk/#organization" },
           "areaServed": { "@type": "Country", "name": "United Kingdom" },
           "audience": {
@@ -182,7 +192,7 @@
                 "itemOffered": {
                   "@type": "Service",
                   "name": "Production and margin reporting",
-                  "description": "Reporting on true margin, on time delivery, scrap and order book, on desktop and mobile."
+                  "description": "Reporting on true margin, on-time delivery and scrap, on desktop and mobile."
                 }
               },
               {
@@ -190,7 +200,7 @@
                 "itemOffered": {
                   "@type": "Service",
                   "name": "Reporting governance",
-                  "description": "Agreed definitions, access control and a named owner for every figure that matters."
+                  "description": "Agreed definitions, access control and a recommended owner recorded against each number for your team to confirm."
                 }
               }
             ]
@@ -221,6 +231,7 @@
           "name": "Manufacturing Analytics and Reporting for UK Manufacturers",
           "description": "How CM Interactive builds manufacturing analytics: joining up ERP, production and finance data into reporting the whole business trusts.",
           "inLanguage": "en-GB",
+          "isPartOf": { "@id": "https://cminteractive.uk/#website" },
           "about": { "@id": "https://cminteractive.uk/analytics-for-manufacturing#service" },
           "breadcrumb": { "@id": "https://cminteractive.uk/analytics-for-manufacturing#breadcrumb" }
         },
@@ -230,34 +241,10 @@
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "What is manufacturing analytics?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Manufacturing analytics means bringing production, order, stock and finance data together so you can answer questions about margin, delivery performance and waste from one agreed set of figures, rather than from separate exports that disagree with each other."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Which systems can you pull data from?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Most ERP and MES systems, finance packages, CRMs, weighbridge and shop floor systems, and spreadsheets. If it has a database, an export or an API, it can usually be read. Where a system is genuinely closed, we work from its scheduled exports instead."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Do you need to install anything on our shop floor systems?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "No. We read from your systems rather than changing them. Nothing is installed on machines or on the production line, and your existing systems keep running exactly as they do now."
-              }
-            },
-            {
-              "@type": "Question",
               "name": "Can reporting be limited so people only see their own site or department?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. Access is set by role, so a site manager sees their own site, a sales manager sees their own accounts, and finance sees everything. Sensitive columns such as cost or pay can be hidden from people who do not need them."
+                "text": "Yes. Access is set by role, so a site manager sees their own site or team, a sales manager sees their own accounts, and finance sees the full picture. Sensitive columns are hidden from anyone who doesn't need them."
               }
             },
             {
@@ -265,7 +252,7 @@
               "name": "Will the reports work on a phone or a tablet on the shop floor?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, and they are designed for it rather than shrunk down from a desktop report. A phone layout is built deliberately, with fewer figures per screen and touch sized controls."
+                "text": "Yes, and they are specifically designed for it rather than being a resized desktop report."
               }
             },
             {
@@ -273,7 +260,7 @@
               "name": "How do you make sure the new numbers are right?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Everything is reconciled against the reports you already trust before it goes live. Where a new figure differs from an old one, we show you exactly which records cause the difference and let you decide which is correct."
+                "text": "Every figure is checked against the reports you already trust before it goes live. Where a new figure differs from an old one, we show you exactly which records or calculations cause the difference and let you decide which is correct."
               }
             }
           ]
@@ -318,26 +305,65 @@
     <main id="main">
 
         <!-- =========================================================
-             PAGE HERO
-             ========================================================= -->
+            PAGE HERO
+            ========================================================= -->
         <section class="page-hero on-dark" id="top">
             <div class="container">
                 <nav class="crumbs" aria-label="Breadcrumb">
-                    <a href="/">What We Do</a><span aria-hidden="true">/</span>Manufacturing Analytics
+                    <a href="/">What We Do</a> <span aria-hidden="true">/</span> Manufacturing Analytics
                 </nav>
 
-                <span class="eyebrow rise rise-1">Manufacturing analytics</span>
+                <div class="page-hero-grid">
+                    <div class="page-hero-copy">
+                        <h1 class="rise rise-2">Reporting everyone agrees on that keeps working when someone leaves</h1>
 
-                <h1 class="rise rise-2">Reporting your production, sales and finance teams all agree on</h1>
+                        <p class="hero-lede rise rise-3">Connecting your systems so your reports stay up to date and your numbers add up.</p>
 
-                <p class="hero-lede rise rise-3">Your ERP knows what you made. Finance knows what you invoiced. Nothing knows both at once. We join them up, then build the reporting on top so margin, delivery and scrap stop being a matter of opinion.</p>
+                        <div class="hero-actions rise rise-3">
+                            <a href="/discovery-call" class="btn">Book a free 30-minute call</a>
+                            <a href="/contact-us" class="btn btn-ghost-light">Send a message</a>
+                        </div>
 
-                <div class="hero-actions rise rise-3">
-                    <a href="/discovery-call" class="btn">Book a free 30 minute call</a>
-                    <a href="#contact" class="btn btn-ghost-light">Send a message</a>
+                        <p class="cta-reassure rise rise-3">Free discovery call, no obligation.</p>
+                    </div>
+
+                    <div class="page-hero-visual rise rise-4" aria-hidden="true">
+                        <svg class="agree" viewBox="0 0 460 340" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false">
+                            <!-- panel -->
+                            <rect class="agree-panel" x="8" y="8" width="444" height="324" rx="14"/>
+                            <rect class="agree-title" x="34" y="30" width="104" height="9" rx="4.5"/>
+
+                            <!-- three systems, three answers -->
+                            <g class="arow">
+                                <rect class="arow-label" x="34" y="79"  width="88" height="10" rx="5"/>
+                                <rect class="arow-bar ab1" x="150" y="74"  width="200" height="20" rx="5" style="--s: 0.62"/>
+                                <circle class="arow-flag" cx="392" cy="84" r="6"/>
+                            </g>
+
+                            <g class="arow">
+                                <rect class="arow-label" x="34" y="127" width="72" height="10" rx="5"/>
+                                <rect class="arow-bar ab2" x="150" y="122" width="200" height="20" rx="5" style="--s: 1"/>
+                                <circle class="arow-flag" cx="392" cy="132" r="6"/>
+                            </g>
+
+                            <g class="arow">
+                                <rect class="arow-label" x="34" y="175" width="96" height="10" rx="5"/>
+                                <rect class="arow-bar ab3" x="150" y="170" width="200" height="20" rx="5" style="--s: 0.78"/>
+                                <circle class="arow-flag" cx="392" cy="180" r="6"/>
+                            </g>
+
+                            <line class="agree-rule" x1="34" y1="216" x2="426" y2="216"/>
+
+                            <!-- the figure everyone signs off -->
+                            <g class="agreed">
+                                <rect class="agreed-box"   x="28" y="238" width="404" height="64" rx="12"/>
+                                <rect class="agreed-label" x="52" y="265" width="84"  height="10" rx="5"/>
+                                <rect class="agreed-bar"   x="150" y="259" width="170" height="22" rx="5"/>
+                                <polyline class="agreed-tick" points="366,270 374,279 392,259"/>
+                            </g>
+                        </svg>
+                    </div>
                 </div>
-
-                <p class="cta-reassure rise rise-3">No pitch, no obligation.</p>
             </div>
         </section>
 
@@ -352,20 +378,20 @@
                             <h2>This is for manufacturers who have outgrown spreadsheets</h2>
                         </div>
 
-                        <p>You are probably not short of data. You have an ERP, a finance package, something running the shop floor, and a folder of spreadsheets holding the whole lot together. The problem is that none of it agrees, and getting an answer means asking someone to build a report first.</p>
+                        <p>You're not short of data. You just don't have the capacity to analyse it. You have an ERP, a finance package, something running your manufacturing machinery, and someone is trying to build reports by hand using Excel while their backlog keeps growing.</p>
 
-                        <p>That is fine at ten people. At fifty or two hundred it starts costing real money, because <strong>decisions get delayed until the numbers are argued out</strong>, and by then the month has moved on.</p>
+                        <p>That is fine at ten people, but at fifty or two hundred it starts costing real money, because <strong>decisions get delayed until everyone agrees on the correct figures in lengthy meetings</strong>, and by then the month has moved on.</p>
 
-                        <p>We are not an ERP reseller and we are not going to tell you to replace anything. We connect what you already run, agree once what each figure means, and put the answers somewhere everyone can reach them.</p>
+                        <p>We are not an ERP reseller and we are not going to tell you to replace any of your existing software. We connect what you already run, agree with your team once what each figure means, and build reports that everyone who needs access can see.</p>
                     </div>
 
                     <div class="aside-card">
                         <h3>You will recognise this if</h3>
                         <ul class="tick-list">
-                            <li>Month end depends on one person and their spreadsheet</li>
-                            <li>Production and finance quote different output figures</li>
-                            <li>Nobody can say which products actually make money</li>
-                            <li>Delivery performance is measured by memory</li>
+                            <li>Month end depends on hours of manual reconciliation</li>
+                            <li>Different departments see different figures</li>
+                            <li>Nobody can say which products, services or contracts actually make money</li>
+                            <li>Delivery performance isn't measured</li>
                             <li>Reports were built by someone who has since left</li>
                         </ul>
                     </div>
@@ -374,41 +400,140 @@
         </section>
 
         <!-- =========================================================
-             THE NUMBERS
-             ========================================================= -->
+        THE NUMBERS
+        ========================================================= -->
         <section class="section section-grey" id="numbers">
             <div class="container">
                 <div class="section-head">
-                    <h2>The numbers manufacturers ask us for</h2>
-                    <p>Six that come up in almost every conversation. Yours will differ at the edges, and the point of the first call is to find out how.</p>
+                    <h2>The main numbers manufacturers ask us for</h2>
+                    <p>Yours might differ, but the point of the first discovery call is to find out which numbers matter most to your business.</p>
                 </div>
 
-                <ul class="metric-list">
-                    <li>
-                        <h3>True margin by product and customer</h3>
-                        <p>Not list price minus standard cost. Actual margin once materials, labour, scrap and rework are counted against the job.</p>
-                    </li>
-                    <li>
-                        <h3>On time, in full delivery</h3>
-                        <p>Measured against the date you promised rather than the date you rescheduled to, and broken down by customer and line.</p>
-                    </li>
-                    <li>
-                        <h3>Scrap, waste and rework</h3>
-                        <p>What it costs by product, shift and machine, so you can tell whether a problem is a process or a particular Tuesday.</p>
-                    </li>
-                    <li>
-                        <h3>Order book and forward load</h3>
-                        <p>What is committed, what is at risk, and whether the next eight weeks fit through the capacity you actually have.</p>
-                    </li>
-                    <li>
-                        <h3>Stock and consumable usage</h3>
-                        <p>What is moving, what has been sat there for a year, and where usage has quietly drifted away from forecast.</p>
-                    </li>
-                    <li>
-                        <h3>Revenue against last year</h3>
-                        <p>Like for like comparisons that survive a customer being renamed, a product being recoded or a site being reorganised.</p>
-                    </li>
-                </ul>
+                <div class="mtabs">
+                    <div class="mtab-bar" role="tablist" aria-label="Manufacturing metrics">
+                        <button class="mtab is-on" role="tab" id="mtab-margin" aria-selected="true" aria-controls="mpanel-margin" tabindex="0">True margin</button>
+                        <button class="mtab" role="tab" id="mtab-otif" aria-selected="false" aria-controls="mpanel-otif" tabindex="-1">On time, in full</button>
+                        <button class="mtab" role="tab" id="mtab-scrap" aria-selected="false" aria-controls="mpanel-scrap" tabindex="-1">Scrap and rework</button>
+                    </div>
+
+                    <!-- ---------- True margin ---------- -->
+                    <div class="mpanel is-on" role="tabpanel" id="mpanel-margin" aria-labelledby="mtab-margin">
+                        <div class="mpanel-body">
+                            <h3>True margin by product and customer</h3>
+                            <p>Not price minus a standard cost, but the actual margin on every job, once materials, labour, scrap and rework are counted.</p>
+                        </div>
+
+                        <div class="mpanel-visual" aria-hidden="true">
+                            <svg class="mviz" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false">
+                                <rect class="mviz-card" x="8" y="8" width="384" height="244" rx="14"/>
+                                <rect class="mviz-title" x="30" y="30" width="72" height="8" rx="4"/>
+
+                                <!-- what you invoice -->
+                                <rect class="mviz-cap" x="30" y="62" width="44" height="7" rx="3.5"/>
+                                <rect class="mseg ms1 is-gross" x="30" y="78" width="340" height="24" rx="5"/>
+
+                                <line class="mviz-split" x1="30" y1="120" x2="370" y2="120"/>
+
+                                <!-- what is actually left -->
+                                <rect class="mseg ms2 is-mat"    x="30"  y="142" width="132" height="24" rx="5"/>
+                                <rect class="mseg ms3 is-lab"    x="162" y="142" width="104" height="24" rx="5"/>
+                                <rect class="mseg ms4 is-scrap"  x="266" y="142" width="46"  height="24" rx="5"/>
+                                <rect class="mseg ms5 is-margin" x="312" y="142" width="58"  height="24" rx="5"/>
+
+                                <rect class="mviz-cap is-margin-cap" x="312" y="178" width="58" height="7" rx="3.5"/>
+
+                                <!-- key -->
+                                <circle class="mkey is-mat"    cx="38"  cy="214" r="5"/>
+                                <rect   class="mkey-bar"       x="50"  y="210" width="44" height="8" rx="4"/>
+                                <circle class="mkey is-scrap"  cx="118" cy="214" r="5"/>
+                                <rect   class="mkey-bar"       x="130" y="210" width="34" height="8" rx="4"/>
+                                <circle class="mkey is-margin" cx="188" cy="214" r="5"/>
+                                <rect   class="mkey-bar"       x="200" y="210" width="40" height="8" rx="4"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- ---------- On time, in full ---------- -->
+                    <div class="mpanel" role="tabpanel" id="mpanel-otif" aria-labelledby="mtab-otif" hidden>
+                        <div class="mpanel-body">
+                            <h3>On time, in full delivery</h3>
+                            <p>Measured against the date you promised rather than a revised one, and broken down by customer and order line.</p>
+                        </div>
+
+                        <div class="mpanel-visual" aria-hidden="true">
+                            <svg class="mviz" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false">
+                                <rect class="mviz-card" x="8" y="8" width="384" height="244" rx="14"/>
+                                <rect class="mviz-title" x="30" y="30" width="86" height="8" rx="4"/>
+
+                                <!-- the promised date -->
+                                <rect class="mviz-cap" x="228" y="54" width="64" height="7" rx="3.5"/>
+                                <line class="mpromise" x1="262" y1="70" x2="262" y2="200"/>
+
+                                <line class="mviz-axis" x1="30" y1="190" x2="370" y2="190"/>
+
+                                <!-- every order line, placed against that date -->
+                                <circle class="mdot md1" cx="62"  cy="162" r="8"/>
+                                <circle class="mdot md2" cx="100" cy="132" r="8"/>
+                                <circle class="mdot md3" cx="140" cy="170" r="8"/>
+                                <circle class="mdot md4" cx="178" cy="118" r="8"/>
+                                <circle class="mdot md5" cx="216" cy="152" r="8"/>
+                                <circle class="mdot md6" cx="248" cy="138" r="8"/>
+                                <circle class="mdot md7 is-late" cx="294" cy="164" r="8"/>
+                                <circle class="mdot md8 is-late" cx="332" cy="126" r="8"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- ---------- Scrap and rework ---------- -->
+                    <div class="mpanel" role="tabpanel" id="mpanel-scrap" aria-labelledby="mtab-scrap" hidden>
+                        <div class="mpanel-body">
+                            <h3>Scrap, waste and rework</h3>
+                            <p>What it costs, broken down by product, shift and machine, so you can tell whether a problem is in the process or just a one-off error.</p>
+                        </div>
+
+                        <div class="mpanel-visual" aria-hidden="true">
+                            <svg class="mviz" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false">
+                                <rect class="mviz-card" x="8" y="8" width="384" height="244" rx="14"/>
+                                <rect class="mviz-title" x="30" y="30" width="76" height="8" rx="4"/>
+
+                                <!-- the shift where it clusters -->
+                                <rect class="mrow-flag" x="30" y="146" width="342" height="52" rx="9"/>
+
+                                <!-- row 1 -->
+                                <rect class="mcell" x="40"  y="70" width="36" height="36" rx="6"/>
+                                <rect class="mcell" x="92"  y="70" width="36" height="36" rx="6"/>
+                                <rect class="mcell" x="144" y="70" width="36" height="36" rx="6"/>
+                                <rect class="mcell" x="196" y="70" width="36" height="36" rx="6"/>
+                                <rect class="mcell" x="248" y="70" width="36" height="36" rx="6"/>
+                                <rect class="mcell" x="300" y="70" width="36" height="36" rx="6"/>
+
+                                <!-- row 2 -->
+                                <rect class="mcell" x="40"  y="112" width="36" height="36" rx="6"/>
+                                <rect class="mcell" x="92"  y="112" width="36" height="36" rx="6"/>
+                                <rect class="mcell" x="144" y="112" width="36" height="36" rx="6"/>
+                                <rect class="mcell" x="196" y="112" width="36" height="36" rx="6"/>
+                                <rect class="mcell" x="248" y="112" width="36" height="36" rx="6"/>
+                                <rect class="mcell" x="300" y="112" width="36" height="36" rx="6"/>
+
+                                <!-- row 3, the cluster -->
+                                <rect class="mcell" x="40"  y="154" width="36" height="36" rx="6"/>
+                                <rect class="mcell is-bad mb1" x="92"  y="154" width="36" height="36" rx="6"/>
+                                <rect class="mcell is-bad mb2" x="144" y="154" width="36" height="36" rx="6"/>
+                                <rect class="mcell is-bad mb3" x="196" y="154" width="36" height="36" rx="6"/>
+                                <rect class="mcell" x="248" y="154" width="36" height="36" rx="6"/>
+                                <rect class="mcell" x="300" y="154" width="36" height="36" rx="6"/>
+
+                                <!-- row 4 -->
+                                <rect class="mcell" x="40"  y="196" width="36" height="36" rx="6"/>
+                                <rect class="mcell" x="92"  y="196" width="36" height="36" rx="6"/>
+                                <rect class="mcell is-bad mb4" x="144" y="196" width="36" height="36" rx="6"/>
+                                <rect class="mcell" x="196" y="196" width="36" height="36" rx="6"/>
+                                <rect class="mcell" x="248" y="196" width="36" height="36" rx="6"/>
+                                <rect class="mcell" x="300" y="196" width="36" height="36" rx="6"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -423,25 +548,21 @@
                             <h2>Why manufacturing data is harder than it looks</h2>
                         </div>
 
-                        <p>Most analytics work assumes a clean sale of a single item. Manufacturing does not work like that, and generic reporting tools quietly get it wrong.</p>
+                        <p>Manufacturing reports need more than connected data. They need to reflect how your business actually operates, from production shifts to stock movements and customer orders.</p>
 
-                        <p><strong>Units change as things move.</strong> You buy by the tonne, make by the batch and sell by the pallet. Any figure that ignores the conversion is wrong by a factor nobody notices until year end.</p>
+                        <p><strong>A sales opportunity is not the same as a confirmed order.</strong> But ignoring your sales pipeline entirely can leave demand forecasts behind reality. Useful planning needs to account for likely orders, conversion rates and lead times.</p>
 
-                        <p><strong>A job is not an order.</strong> One customer order can span several works orders, part deliveries and credit notes. Tying revenue back to what was actually produced takes deliberate modelling, not a join on order number.</p>
+                        <p><strong>A production day is not always a calendar day.</strong> When shifts cross midnight or production runs around the clock, grouping output by date alone can give you misleading figures. Reports need to follow the way your operation measures its working day.</p>
 
-                        <p><strong>Time is not tidy.</strong> Shifts cross midnight, weeks cross months, and a batch started on Friday finishes on Monday. Getting daily and monthly figures to agree means deciding once which side of the line things fall on.</p>
-
-                        <p><strong>Names change and history matters.</strong> Customers get renamed, products get recoded, sites merge. Comparing this year to last year properly means handling all of that rather than losing the history.</p>
+                        <p><strong>A changed report can change the numbers people rely on.</strong> Without version history and controlled deployments, an accidental edit can go unnoticed and affect reporting downstream.</p>
                     </div>
 
                     <div class="aside-card">
                         <h3>What we do about it</h3>
                         <ul class="tick-list">
-                            <li>Unit conversions handled once, centrally</li>
-                            <li>Orders, works orders and despatches modelled properly</li>
-                            <li>A calendar that agrees with your shift patterns</li>
-                            <li>Renames and recodes tracked, so history survives</li>
-                            <li>Every definition written down and owned by someone</li>
+                            <li>Sales opportunities and confirmed orders both used in planning, but kept separate</li>
+                            <li>Reporting aligned to your production calendar and shift patterns</li>
+                            <li>Version control and controlled deployments, so changes are tracked</li>
                         </ul>
                     </div>
                 </div>
@@ -449,66 +570,69 @@
         </section>
 
         <!-- =========================================================
-             HOW WE BUILD IT
-             ========================================================= -->
-        <section class="section section-grey" id="how-we-build">
-            <div class="container">
-                <div class="section-head">
-                    <h2>How we build it</h2>
-                    <p>Four stages, each producing something you keep whether or not you carry on to the next.</p>
-                </div>
-
-                <ol class="steps">
-                    <li class="step-card">
-                        <span class="step-num" aria-hidden="true">1</span>
-                        <h3>Data audit</h3>
-                        <p>We map which system holds what, where your figures diverge and why. Usually this alone settles an argument that has been running for years.</p>
-                        <span class="step-out">You keep the findings in writing.</span>
-                    </li>
-                    <li class="step-card">
-                        <span class="step-num" aria-hidden="true">2</span>
-                        <h3>Warehouse</h3>
-                        <p>One modelled source built from your ERP, production, stock and finance data, loading automatically overnight without anyone pressing a button.</p>
-                        <span class="step-out">Reconciled against your current reports.</span>
-                    </li>
-                    <li class="step-card">
-                        <span class="step-num" aria-hidden="true">3</span>
-                        <h3>Reporting</h3>
-                        <p>The figures that drive decisions, on desktop and on a phone, with the definition behind each one agreed before it is published.</p>
-                        <span class="step-out">Built in stages, useful from the first.</span>
-                    </li>
-                    <li class="step-card">
-                        <span class="step-num" aria-hidden="true">4</span>
-                        <h3>Governance and handover</h3>
-                        <p>Access by role, sensitive figures restricted, definitions documented and a named owner for each number that matters.</p>
-                        <span class="step-out">Yours to run without us.</span>
-                    </li>
-                </ol>
-            </div>
-        </section>
-
-        <!-- =========================================================
-             PLATFORM
-             ========================================================= -->
+            PLATFORM
+            ========================================================= -->
         <section class="section section-green" id="platform">
             <div class="container">
-                <div class="section-head">
-                    <h2>What we build it on</h2>
-                    <p>Mainstream Microsoft tooling rather than anything exotic, so another supplier could pick it up tomorrow if you ever wanted them to.</p>
-                </div>
+                <div class="platform-split">
+                    <div class="section-head" style="margin-bottom: 0;">
+                        <h2>Built around the systems you already use</h2>
+                        <p>We connect them to a central data warehouse, bringing your data together so you can get more out of your reporting.</p>
+                    </div>
 
-                <div class="stack-grid">
-                    <div class="stack-card">
-                        <h3>SQL Server and Microsoft Fabric</h3>
-                        <p>Where your data lands and gets modelled. Both are widely supported, so you are never dependent on one person knowing a niche tool.</p>
-                    </div>
-                    <div class="stack-card">
-                        <h3>Power BI</h3>
-                        <p>Where the reporting lives. If you already have Microsoft 365 licences, you are most of the way there already.</p>
-                    </div>
-                    <div class="stack-card">
-                        <h3>Your existing systems</h3>
-                        <p>Read from, never replaced. Nothing is installed on production equipment and nothing changes in the systems your people already use.</p>
+                    <div class="platform-visual" aria-hidden="true">
+                        <svg class="hub" viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false">
+                            <!-- feed lines from the source systems into the hub -->
+                            <path class="hub-wire hw1" d="M104,64 C180,64 180,170 210,170"/>
+                            <path class="hub-wire hw2" d="M104,122 C180,122 180,170 210,170"/>
+                            <path class="hub-wire hw3" d="M104,180 C170,180 180,170 210,170"/>
+                            <path class="hub-wire hw4" d="M104,238 C180,238 180,170 210,170"/>
+
+                            <!-- hub out to the reporting surface -->
+                            <path class="hub-wire hw5" d="M250,170 C290,170 290,118 322,118"/>
+                            <path class="hub-wire hw6" d="M250,170 C290,170 290,222 322,222"/>
+
+                            <!-- source systems -->
+                            <g class="src s1">
+                                <rect class="src-box" x="16" y="44"  width="88" height="40" rx="9"/>
+                                <rect class="src-line" x="30" y="60"  width="44" height="7" rx="3.5"/>
+                            </g>
+                            <g class="src s2">
+                                <rect class="src-box" x="16" y="102" width="88" height="40" rx="9"/>
+                                <rect class="src-line" x="30" y="118" width="54" height="7" rx="3.5"/>
+                            </g>
+                            <g class="src s3">
+                                <rect class="src-box" x="16" y="160" width="88" height="40" rx="9"/>
+                                <rect class="src-line" x="30" y="176" width="38" height="7" rx="3.5"/>
+                            </g>
+                            <g class="src s4">
+                                <rect class="src-box" x="16" y="218" width="88" height="40" rx="9"/>
+                                <rect class="src-line" x="30" y="234" width="50" height="7" rx="3.5"/>
+                            </g>
+
+                            <!-- the warehouse in the middle -->
+                            <circle class="hub-halo" cx="230" cy="170" r="42"/>
+                            <circle class="hub-core" cx="230" cy="170" r="28"/>
+                            <g class="hub-mark">
+                                <rect x="220" y="158" width="20" height="5" rx="2.5"/>
+                                <rect x="220" y="167" width="20" height="5" rx="2.5"/>
+                                <rect x="220" y="176" width="20" height="5" rx="2.5"/>
+                            </g>
+
+                            <!-- reporting out the other side -->
+                            <g class="out o1">
+                                <rect class="out-box" x="322" y="92"  width="82" height="52" rx="9"/>
+                                <rect class="out-bar" x="336" y="122" width="10" height="12" rx="2"/>
+                                <rect class="out-bar" x="352" y="114" width="10" height="20" rx="2"/>
+                                <rect class="out-bar" x="368" y="106" width="10" height="28" rx="2"/>
+                                <rect class="out-cap" x="336" y="102" width="30" height="5" rx="2.5"/>
+                            </g>
+                            <g class="out o2">
+                                <rect class="out-box" x="322" y="196" width="82" height="52" rx="9"/>
+                                <polyline class="out-trend" points="336,234 352,222 368,228 390,206"/>
+                                <rect class="out-cap" x="336" y="206" width="26" height="5" rx="2.5"/>
+                            </g>
+                        </svg>
                     </div>
                 </div>
             </div>
@@ -516,9 +640,6 @@
 
         <!-- =========================================================
              FAQ
-             These questions are deliberately different to the homepage
-             FAQs. Mirrored in the FAQPage schema above, so edit both
-             together or the rich result gets dropped.
              ========================================================= -->
         <section class="section section-mint" id="faq">
             <div class="container">
@@ -529,47 +650,28 @@
 
                 <div class="faq-list">
                     <details class="faq-item">
-                        <summary>What is manufacturing analytics?</summary>
-                        <div class="faq-answer">
-                            <p>Bringing production, order, stock and finance data together so you can answer questions about margin, delivery performance and waste from one agreed set of figures, rather than from separate exports that disagree with each other.</p>
-                        </div>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary>Which systems can you pull data from?</summary>
-                        <div class="faq-answer">
-                            <p>Most ERP and MES systems, finance packages, CRMs, weighbridge and shop floor systems, and spreadsheets. If it has a database, an export or an API, it can usually be read. Where a system is genuinely closed, we work from its scheduled exports instead.</p>
-                        </div>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary>Do you need to install anything on our shop floor systems?</summary>
-                        <div class="faq-answer">
-                            <p>No. We read from your systems rather than changing them. Nothing is installed on machines or on the production line, and your existing systems keep running exactly as they do now.</p>
-                        </div>
-                    </details>
-
-                    <details class="faq-item">
                         <summary>Can reporting be limited so people only see their own site or department?</summary>
                         <div class="faq-answer">
-                            <p>Yes. Access is set by role, so a site manager sees their own site, a sales manager sees their own accounts, and finance sees everything. Sensitive columns such as cost or pay can be hidden from people who do not need them.</p>
+                            <p>Yes. Access is set by role, so a site manager sees their own site or team, a sales manager sees their own accounts, and finance sees the full picture. Sensitive columns are hidden from anyone who doesn't need them.</p>
                         </div>
                     </details>
 
                     <details class="faq-item">
                         <summary>Will the reports work on a phone or a tablet on the shop floor?</summary>
                         <div class="faq-answer">
-                            <p>Yes, and they are designed for it rather than shrunk down from a desktop report. A phone layout is built deliberately, with fewer figures per screen and touch sized controls.</p>
+                            <p>Yes, and they are specifically designed for it rather than being a resized desktop report.</p>
                         </div>
                     </details>
 
                     <details class="faq-item">
                         <summary>How do you make sure the new numbers are right?</summary>
                         <div class="faq-answer">
-                            <p>Everything is reconciled against the reports you already trust before it goes live. Where a new figure differs from an old one, we show you exactly which records cause the difference and let you decide which is correct.</p>
+                            <p>Every figure is checked against the reports you already trust before it goes live. Where a new figure differs from an old one, we show you exactly which records or calculations cause the difference and let you decide which is correct.</p>
                         </div>
                     </details>
                 </div>
+
+                <p class="section-note centred">Wondering what it costs? <a href="/pricing">See how pricing works</a>.</p>
             </div>
         </section>
 
@@ -578,68 +680,18 @@
              ========================================================= -->
         <section class="section section-dark closing on-dark">
             <div class="container">
-                <h2>Start with the numbers that annoy you most</h2>
-                <p>Thirty minutes on a video call. Tell us which figure you do not trust, and we will tell you whether it is fixable and roughly what it would take.</p>
+                <h2>Let's talk about your data</h2>
+                <p>In 30 minutes, we'll discuss the reporting challenges you're facing and what you need to understand about your business.</p>
 
                 <ul class="closing-list">
                     <li>Completely free, no obligation</li>
-                    <li>No sales pitch, no slide deck</li>
                     <li>Nothing to prepare beforehand</li>
                     <li>An honest answer if we are not the right fit</li>
                 </ul>
 
-                <a href="/discovery-call" class="btn">Book a free 30 minute call</a>
-            </div>
-        </section>
-
-        <!-- =========================================================
-             CONTACT
-             ========================================================= -->
-        <section class="contact" id="contact">
-            <div class="container">
-                <div class="contact-intro">
-                    <h2>Or tell us what is not adding up</h2>
-                    <p>Describe it in your own words. We reply within one working day.</p>
-                </div>
-
-                <div class="contact-content">
-                    <div class="contact-card">
-                        <span class="contact-badge">Secure contact</span>
-                        <h3>Send us a message</h3>
-                        <p>The more specific you are about which systems disagree, the more useful our first reply will be.</p>
-
-                        <form id="contact-form" novalidate>
-                            <div class="form-row">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name" required autocomplete="name" placeholder="Your name">
-                            </div>
-
-                            <div class="form-row">
-                                <label for="email">Email address</label>
-                                <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@company.co.uk">
-                            </div>
-
-                            <div class="form-row">
-                                <label for="title">Subject</label>
-                                <input type="text" id="title" name="title" required placeholder="What is this about?">
-                            </div>
-
-                            <div class="form-row">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" rows="5" required placeholder="Which systems are involved, and what is going wrong? If you are not sure which systems are involved, do not worry, we work that out during the data audit."></textarea>
-                            </div>
-
-                            <!-- Google reCAPTCHA Protection -->
-                            <div class="recaptcha-wrapper">
-                                <div class="verification-box">Please verify you are human to enable submission:</div>
-                                <div class="g-recaptcha" data-sitekey="6Lca2x4tAAAAAH6pSQliVWWVfQleenC89jCmVxF4"></div>
-                            </div>
-
-                            <button type="submit" class="btn" style="width: 100%;">Send message</button>
-
-                            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-                        </form>
-                    </div>
+                <div class="closing-actions">
+                    <a href="/discovery-call" class="btn">Book a free 30-minute call</a>
+                    <a href="/contact-us" class="btn btn-ghost-light">Or get in touch</a>
                 </div>
             </div>
         </section>
@@ -674,18 +726,18 @@
                         <li><a href="#who-its-for">Who it is for</a></li>
                         <li><a href="#numbers">The numbers</a></li>
                         <li><a href="#why-different">Why it is harder</a></li>
-                        <li><a href="#how-we-build">How we build it</a></li>
                         <li><a href="#platform">What we build on</a></li>
                         <li><a href="#faq">FAQs</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-section">
-                    <h2>Legal</h2>
+                    <h2>Site</h2>
                     <ul class="footer-links">
                         <li><a href="/privacy-policy">Privacy Policy</a></li>
                         <li><a href="/sitemap.xml">Sitemap</a></li>
-                        <li><a href="/llms.txt">LLMs.txt</a></li>
+                        <li><a href="/llms.txt">llms.txt</a></li>
+                        <li><button type="button" class="link-button" id="cookie-settings">Cookie settings</button></li>
                     </ul>
                 </div>
             </div>
@@ -693,21 +745,21 @@
             <div class="footer-bottom">
                 <p>&copy; 2024 - 2026 CM Interactive Limited. All rights reserved.</p>
                 <p>Registered in England and Wales (company number 15392983). Working with manufacturers across the UK.</p>
-                <p>Unit A, 82 James Carter Road, Mildenhall, Suffolk, United Kingdom, IP28 7DE</p>
+                <p>Registered office: Unit A, 82 James Carter Road, Mildenhall, Suffolk, United Kingdom, IP28 7DE</p>
             </div>
         </div>
     </footer>
 
     <!-- Sticky call to action for phone visitors -->
     <div class="mobile-cta-bar" id="mobile-cta-bar">
-        <a href="/discovery-call" class="btn">Book a free 30 minute call</a>
+        <a href="/discovery-call" class="btn">Book a free 30-minute call</a>
     </div>
 
     <!-- Cookie Consent Banner -->
     <div id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookie consent">
         <div class="cookie-content">
             <div class="cookie-text">
-                <p>We use cookies to analyse how you interact with our website and improve your experience. Only analytical cookies are used, no tracking or advertising. By accepting, you help us make CM Interactive better.</p>
+                <p>We use cookies to analyse how you interact with our website and improve your experience. We only use analytics cookies, no advertising cookies. By accepting, you help us make CM Interactive better.</p>
                 <a href="/privacy-policy">For more information, see our privacy policy.</a>
             </div>
             <div class="cookie-actions">
@@ -720,13 +772,18 @@
 
     <!--Navbar interactions-->
     <script>
-        // Hide banner if consent already given
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedConsent = getCookie(CONSENT_COOKIE);
-            if(savedConsent !== null) {
-                document.getElementById('cookie-banner').style.display = 'none';
-            }
-        });
+        // Hide banner straight away if a choice has already been made
+        if (getCookie(CONSENT_COOKIE) !== null) {
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+
+        // Reopen the cookie banner from the footer
+        const cookieSettings = document.getElementById('cookie-settings');
+        if (cookieSettings) {
+            cookieSettings.addEventListener('click', function () {
+                consentManager.open();
+            });
+        }
 
         // Hamburger Menu Functionality
         const hamburger = document.getElementById('hamburger');
@@ -762,75 +819,79 @@
         (function () {
             const bar = document.getElementById('mobile-cta-bar');
             const hero = document.getElementById('top');
-            const contact = document.getElementById('contact');
+            const closing = document.querySelector('.closing');
             const banner = document.getElementById('cookie-banner');
 
+            if (!bar || !hero) return;
+
             function bannerShowing() {
-                return banner && banner.style.display !== 'none' && getCookie(CONSENT_COOKIE) === null;
+                return banner && banner.style.display !== 'none';
             }
 
             function update() {
                 // Appears once the hero button has scrolled away, and
-                // hides again over the form so it never covers a field.
+                // hides again over the closing block so it does not sit on
+                // top of the same button.
                 const pastHero = hero.getBoundingClientRect().bottom < 0;
-                const atContact = contact.getBoundingClientRect().top < window.innerHeight;
-                bar.classList.toggle('visible', pastHero && !atContact && !bannerShowing());
+                const atClosing = closing ? closing.getBoundingClientRect().top < window.innerHeight : false;
+                bar.classList.toggle('visible', pastHero && !atClosing && !bannerShowing());
             }
 
             window.addEventListener('scroll', update, { passive: true });
             window.addEventListener('resize', update);
             document.addEventListener('DOMContentLoaded', update);
+            document.addEventListener('cookiebanner:change', update);
             update();
         })();
     </script>
 
 
-    <!--Form JS-->
+    <!--Numbers section selection script-->
     <script>
-        const contactForm = document.getElementById('contact-form');
-        const formStatus = document.getElementById('form-status');
+        (function () {
+            const bar = document.querySelector('.mtab-bar');
+            if (!bar) return;
 
-        function setStatus(message, type) {
-            formStatus.textContent = message;
-            formStatus.className = 'form-status' + (type ? ' ' + type : '');
-        }
+            const tabs = Array.from(bar.querySelectorAll('.mtab'));
+            const panels = tabs.map(t => document.getElementById(t.getAttribute('aria-controls')));
 
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
+            function select(index, focusTab) {
+                tabs.forEach(function (tab, i) {
+                    const on = i === index;
+                    tab.classList.toggle('is-on', on);
+                    tab.setAttribute('aria-selected', on ? 'true' : 'false');
+                    tab.tabIndex = on ? 0 : -1;
 
-            // Native validation still runs, we just control when it fires
-            if (!contactForm.checkValidity()) {
-                contactForm.reportValidity();
-                return;
-            }
-
-            // Require a completed reCAPTCHA before sending
-            const captchaToken = window.grecaptcha ? grecaptcha.getResponse() : '';
-            if (!captchaToken) {
-                setStatus('Please complete the verification before sending.', 'error');
-                return;
-            }
-
-            const btn = contactForm.querySelector('button[type="submit"]');
-            btn.disabled = true;
-            btn.textContent = 'Sending...';
-            setStatus('', null);
-
-            emailjs.sendForm('service_34etu3d', 'template_7ll0kqg', contactForm)
-                .then(function () {
-                    btn.textContent = 'Message sent';
-                    contactForm.reset();
-                    if (window.grecaptcha) grecaptcha.reset();
-                    setStatus('Thanks, your message has been sent. We usually reply within one working day.', 'success');
-                })
-                .catch(function (err) {
-                    console.error(err);
-                    btn.disabled = false;
-                    btn.textContent = 'Send message';
-                    if (window.grecaptcha) grecaptcha.reset();
-                    setStatus('Something went wrong. Please try again, or email help@cminteractive.uk directly.', 'error');
+                    const panel = panels[i];
+                    if (!panel) return;
+                    panel.hidden = !on;
+                    // Remove then re-add so the visual replays on every switch
+                    panel.classList.remove('is-on');
+                    if (on) {
+                        void panel.offsetWidth;
+                        panel.classList.add('is-on');
+                    }
                 });
-        });
+                if (focusTab) tabs[index].focus();
+            }
+
+            tabs.forEach(function (tab, i) {
+                tab.addEventListener('click', () => select(i, false));
+            });
+
+            bar.addEventListener('keydown', function (e) {
+                const current = tabs.indexOf(document.activeElement);
+                if (current === -1) return;
+                let next = null;
+                if (e.key === 'ArrowRight') next = (current + 1) % tabs.length;
+                if (e.key === 'ArrowLeft')  next = (current - 1 + tabs.length) % tabs.length;
+                if (e.key === 'Home') next = 0;
+                if (e.key === 'End')  next = tabs.length - 1;
+                if (next === null) return;
+                e.preventDefault();
+                select(next, true);
+            });
+        })();
     </script>
 </body>
 </html>
